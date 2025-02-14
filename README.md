@@ -6,9 +6,10 @@ Progress and LLM accuracy metrics are tracked on our [main Google Spreadsheet](h
 
 
 ## Team
-- Joe Sharratt ([joesharratt1229](https://github.com/joesharratt1229)))
+- Joe Sharratt ([joesharratt1229](https://github.com/joesharratt1229))
 - Adefioye ([Adefioye](https://github.com/Adefioye))
 - Zafir Stojanovski ([zafstojano](https://github.com/zafstojano))
+- Rich Jones ([Miserlou](https://github.com/Miserlou))
 - Andreas Koepf ([andreaskoepf](https://github.com/andreaskoepf/))
 
 
