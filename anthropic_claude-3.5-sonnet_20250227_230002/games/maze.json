@@ -1,0 +1,362 @@
+{
+  "name": "maze",
+  "category": "games",
+  "average_score": 0.28719999999999984,
+  "total_examples": 50,
+  "config": {
+    "size": 50,
+    "seed": 45
+  },
+  "results": [
+    {
+      "question": "Navigate from '!' (start) to 'w' (goal):\n\n```\nyyyyyyyyy\nyyRRRRyyy\nyRRyyRyyy\nyRRRRRRRy\nyR!yyRRyy\nyyRyyRRRy\nyyyyRRRyy\nyRRRwRRRy\nyyyyyyyyy\n```\nLegend: 'y' = Wall, 'R' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "9",
+      "model_answer": "6",
+      "full_model_response": "Let me solve this step by step:\n\n1) Starting from '!' at position (4,2)\n2) Can only move through 'R' passages\n3) Need to reach 'w' at position (7,3)\n4) Available paths:\n   - Can move up, right, and down in the passages\n   - Must avoid the 'y' walls\n5) Tracing shortest possible path:\n   - From ! move right to first 'R'\n   - Then down to connect with bottom passage\n   - Then right to 'w'\n\n<answer>6</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from '5' (start) to '.' (goal):\n\n```\n999999999\n999PP9PP9\n9999PPP99\n9P9PPP999\n9PPPP9P59\n9PPPPPPP9\n9PPP.9P99\n9P9PPPP99\n999999999\n```\nLegend: '9' = Wall, 'P' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "5",
+      "model_answer": "6",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify the starting position '5' and goal position '.':\n   - Start (5) is at row 5, column 7\n   - Goal (.) is at row 7, column 4\n\n2) I'll trace the possible paths through the passages ('P'):\n   - From start, can move through passages\n   - Need to avoid walls ('9')\n   - Can move horizontally and vertically only\n\n3) Using breadth-first search to find shortest path:\n   - Start \u2192 left through passages\n   - Navigate through the P's\n   - Reach the goal position\n\n4) Counting minimum steps required:\n   Right 1 \u2192 Up 1 \u2192 Left 1 \u2192 Up 1 \u2192 Left 2 = 6 steps\n\n<answer>6</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from 'T' (start) to ')' (goal):\n\n```\nJJJJJJJJ\nJ8888J8J\nJJ8JJJ8J\nJJ88888J\nJ88J8)8J\nJ8JJJ88J\nJT8J8J8J\nJJJJJJJJ\n```\nLegend: 'J' = Wall, '8' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "8",
+      "model_answer": "8",
+      "full_model_response": "Let me solve this step by step:\n\n1) Starting at T (6,2) looking for path to ) (4,5)\n2) Can only move through '8' passages\n3) Need to count minimum steps avoiding walls ('J')\n4) Valid moves: up, down, left, right\n5) Tracing shortest path:\n   - From T to first passage up\n   - Navigate through passage to right\n   - Continue through available passages\n   - Reach goal at (4,5)\n6) Counting each step, avoiding walls...\n\n<answer>8</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Navigate from 'g' (start) to '*' (goal):\n\n```\n)))))))))\n))EEEg)E)\n)EEEEEEE)\n))*)EE)E)\n)EEEEEE))\n)E)EEEEE)\n))EEE)E))\n))EE))E))\n)))))))))\n```\nLegend: ')' = Wall, 'E' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "5",
+      "model_answer": "5",
+      "full_model_response": "Let me solve this step by step:\n\n1. Starting at 'g' in the second row\n2. Can only move through passages marked 'E'\n3. Need to reach '*' in fourth row\n4. Valid moves are up, down, left, right\n5. Counting shortest path from 'g' to '*':\n   - Move left 3 steps\n   - Move down 2 steps\n\n<answer>5</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Navigate from 'Q' (start) to 'e' (goal):\n\n```\n8888888\n88III88\n8Q8II88\n8IIIII8\n8II8II8\n88IeI88\n8888888\n```\nLegend: '8' = Wall, 'I' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "5",
+      "model_answer": "6",
+      "full_model_response": "Let me solve this step by step:\n\n1) Starting from Q, let's trace possible paths:\n2) First step right, to I\n3) Then up, down, or further right\n4) Going right leads to a dead end\n5) Going down and following the passages leads to 'e'\n6) Counting minimal steps:\n   - From Q to first I\n   - Then down\n   - Right\n   - Right again\n   - Down\n   - Right to reach e\n\n<answer>6</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from 'K' (start) to '>' (goal):\n\n```\n\"\"\"\"\"\"\n\"K\"yy\"\n\"yy\"y\"\n\"yyy>\"\n\"\"\"\"y\"\n\"\"\"\"\"\"\n```\nLegend: '\"' = Wall, 'y' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "5",
+      "model_answer": "4",
+      "full_model_response": "Let me solve this step by step:\n\n1) Initial position is 'K', goal is '>'\n2) Only move through 'y' passages\n3) Can't walk through walls (\")\n4) Each step can be up, down, left, or right\n5) Need to find shortest path from K to >\n6) Tracing possible paths:\n   - K \u2192 right \u2192 y\n   - Continue right \u2192 y\n   - Down \u2192 y\n   - Right \u2192 >\n\n<answer>4</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from ')' (start) to 'k' (goal):\n\n```\nvvvvvvvvv\nvv#vvvvvv\nv###vvvvv\nv####)#vv\nv#v##v##v\nv##v#v##v\nv###vk#vv\nv###v##vv\nvvvvvvvvv\n```\nLegend: 'v' = Wall, '#' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "5",
+      "model_answer": "4",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, locate starting (')') and ending ('k') points:\n   - Start ')' at row 4, roughly middle\n   - Goal 'k' at row 7, also middle area\n\n2) Looking at valid paths:\n   - Can only move through '#' passages\n   - Starting at ')', need to navigate through the maze\n   - Must move down and slightly left to reach 'k'\n\n3) Count minimum steps:\n   - Down 3 spaces to reach the same row as 'k'\n   - Left 1 space to reach exact position of 'k'\n\n4) Total minimum steps:\n   - 3 + 1 = 4 steps\n\n<answer>4</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from '}' (start) to '$' (goal):\n\n```\nyyyyyyyy\nyy666yyy\nyyy666}y\ny666666y\ny666666y\nyy6666yy\ny66y6$yy\nyyyyyyyy\n```\nLegend: 'y' = Wall, '6' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "5",
+      "model_answer": "6",
+      "full_model_response": "Let me solve this step by step:\n\n1) Start position is marked by '}' at (2,6)\n2) End position is marked by '$' at (6,4)\n3) Let me count the shortest path:\n   - From start, can move left and down\n   - Need to reach bottom area\n   - Best path is:\n     * Start at (2,6)\n     * Left to (2,5)\n     * Left to (2,4)\n     * Down to (3,4)\n     * Down to (4,4)\n     * Down to (5,4)\n     * Down to (6,4)\n\n4) Counting these moves: 6 steps required\n\n<answer>6</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from 'W' (start) to '#' (goal):\n\n```\n;;;;;;;;;\n;;rrrr;;;\n;rrrrrrW;\n;;rrrrrr;\n;rrrrr;;;\n;rr;#rrr;\n;rr;rr;;;\n;r;rr;rr;\n;;;;;;;;;\n```\nLegend: ';' = Wall, 'r' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "6",
+      "model_answer": "6",
+      "full_model_response": "Let me solve this step by step:\n\n1) Starting from W (coordinates [7,2]), need to reach # (coordinates [5,4])\n\n2) Available moves: Up, Down, Left, Right (only through 'r' passages)\n\n3) Possible path:\n- Start at W [7,2]\n- Down to [6,2]\n- Down to [5,2]\n- Down to [4,2]\n- Down to [3,2]\n- Right to [3,3]\n- Right to [3,4]\n\n4) Counting steps: It takes 6 steps to reach the goal position.\n\n<answer>6</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Navigate from '*' (start) to 'C' (goal):\n\n```\nhhhhhhhh\nhhUUUhhh\nhhUUUh*h\nhUUUUUUh\nhUhhUUUh\nhCUhUhhh\nhUhUUUUh\nhhhhhhhh\n```\nLegend: 'h' = Wall, 'U' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "8",
+      "model_answer": "10",
+      "full_model_response": "Let me solve this step by step:\n\n1) Starting from '*', I need to find the shortest path to 'C'\n2) Can only move through 'U' passages, avoiding 'h' walls\n3) Can move up, down, left, right (no diagonals)\n4) Tracing possible paths:\n   - From start, can go left into U passages\n   - Follow U path down and around\n   - Need to take the longer path around since shorter route is blocked by walls\n   - Trace through U passages until reaching C\n5) Counting minimum steps from start to goal:\n   Left, left, down, down, left, left, left, down, down, down\n\n<answer>10</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from 'j' (start) to 'C' (goal):\n\n```\nbbbbbbbbb\nbpppppppb\nbpbjppbpb\nbpppbpbpb\nbpbpbpppb\nbbbpppppb\nbpbbCbbbb\nbpppbpppb\nbbbbbbbbb\n```\nLegend: 'b' = Wall, 'p' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "5",
+      "model_answer": "9",
+      "full_model_response": "Let me solve this step by step:\n\n1) Starting from 'j' at position (2,3)\n2) The goal 'C' is at position (6,4)\n3) Can only move through passages 'p'\n4) Need to find shortest path avoiding walls 'b'\n\nTracing possible paths:\n- From j going down, right, down, right, right...\n- Checking all possible routes...\n- The shortest valid path: \n  j \u2192 down \u2192 right \u2192 down \u2192 down \u2192 right \u2192 right \u2192 right \u2192 down \u2192 down\n\n<answer>9</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from 'Y' (start) to '@' (goal):\n\n```\n*********\n*11**111*\n*@111111*\n*1*11111*\n*11***11*\n*11*1111*\n**11Y111*\n*1111111*\n*********\n```\nLegend: '*' = Wall, '1' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "7",
+      "model_answer": "6",
+      "full_model_response": "Let me solve this step by step:\n\n1) I need to find the shortest path from Y to @\n2) I can only move through passages (1) and not through walls (*)\n3) I can move up, down, left, right (no diagonals)\n4) Starting from Y, let me trace all possible paths\n5) The shortest path would be:\n   - Up 2 steps\n   - Left 2 steps\n   - Up 2 steps\n   - Done\n\n<answer>6</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from '.' (start) to ':' (goal):\n\n```\n5555555555\n5LLLLLLL55\n555LLLLLL5\n55LLLLL.L5\n5LL55LLLL5\n5LL5LLLLL5\n55L5LLLL55\n5LLL:L5LL5\n5L55LLLLL5\n5555555555\n```\nLegend: '5' = Wall, 'L' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "7",
+      "model_answer": "5",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify the start '.' and goal ':' positions\n   - Start position: found on row 4 (0-based), second from right\n   - Goal position: found on row 7 (0-based), after 'LLL'\n\n2) I can move up, down, left, or right through passages ('L')\n   - Can't move through walls ('5')\n   - Each move counts as one step\n\n3) Using breadth-first search to find shortest path:\n   - Move down through available passages\n   - Then left\n   - Continue down to reach goal\n\n4) Tracing shortest path:\n   Start \u2192 down \u2192 left \u2192 down \u2192 down \u2192 down = 5 steps\n\n<answer>5</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from 'q' (start) to '?' (goal):\n\n```\n------\n-pqpp-\n----p-\n--?pp-\n-pppp-\n------\n```\nLegend: '-' = Wall, 'p' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "6",
+      "model_answer": "4",
+      "full_model_response": "Let me solve this step by step:\n\n1) Start at 'q' and find all possible paths to '?'\n2) Can only move through passages ('p') and not through walls ('-')\n3) Can move horizontally or vertically (not diagonally)\n4) Need to find shortest path\n\nFollowing the paths:\n* From q going down: blocked by wall\n* Going left: can go through p, then down, down, left\n* Going right: can go through passages but leads to dead end\n\nThe shortest path from 'q' to '?' is:\nq \u2192 left \u2192 down \u2192 down \u2192 left = 4 steps\n\n<answer>4</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from '@' (start) to 'W' (goal):\n\n```\nssssssssss\nsaaaWsaaas\nssassssaas\nssaaaassss\nsaaaaassss\nsaaaaa@aas\nsasaaasass\nsaaaaaaaas\nsaaasaasss\nssssssssss\n```\nLegend: 's' = Wall, 'a' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "10",
+      "model_answer": "7",
+      "full_model_response": "Let me solve this step by step:\n\n1) I'll use BFS to find the shortest path from @ to W.\n\n2) Starting from @ (position 5,6), I can move in 4 directions.\n\n3) Valid moves must stay on 'a' or reach 'W'.\n\n4) Following the path through the passages:\n   - Up from @ through passages\n   - Left through the corridors\n   - Up to reach W at position (1,4)\n\n5) Counting the minimum steps:\n   - Start at (5,6)\n   - Move up and left through the passages\n   - End at (1,4)\n\n6) Counting each movement: Moving from (5,6) to (1,4) requires 7 steps.\n\n<answer>7</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from ',' (start) to 'j' (goal):\n\n```\nDDDDDDDDDD\nDDDAADAAAD\nDDAjAADDDD\nDADDADADAD\nDAAAAAAADD\nDAAAADAAAD\nDDADAADAAD\nDAAAADAAAD\nDAD,DDAAAD\nDDDDDDDDDD\n```\nLegend: 'D' = Wall, 'A' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "8",
+      "model_answer": "6",
+      "full_model_response": "Let me solve this step by step:\n\n1) Start position is at (8,3) with the ',' character\n2) Goal position is at (2,3) with the 'j' character\n3) Can only move through 'A' passages\n4) Need to find shortest path avoiding 'D' walls\n5) Checking possible paths:\n   - Move up through A passages\n   - Can't move diagonally\n   - Can't move through D walls\n6) Counting minimum steps from start to goal:\n   - Up from (8,3) to (7,3)\n   - Up to (6,3)\n   - Up to (5,3)\n   - Up to (4,3)\n   - Up to (3,3)\n   - Up to (2,3)\n\n<answer>6</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from '*' (start) to 'r' (goal):\n\n```\n\"\"\"\"\"\"\"\"\"\n\"n\"\"nnnn\"\n\"nnnn*nn\"\n\"rnnnnnn\"\n\"\"nnn\"n\"\"\n\"\"\"nn\"\"\"\"\n\"nn\"nn\"n\"\n\"nnnnnnn\"\n\"\"\"\"\"\"\"\"\"\n```\nLegend: '\"' = Wall, 'n' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "5",
+      "model_answer": "4",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, locate start '*' at position (2,4) and goal 'r' at position (2,0)\n2) Need to find shortest path between these points, avoiding walls (\")\n3) Can move up, down, left, right through passages ('n')\n4) Starting from '*':\n   - Can't go up (wall)\n   - Can go down\n   - Can go left through passage\n   - Can go right through passage\n5) Checking all possible paths:\n   - Going left gets closer to goal\n   - Following shortest path: left, left, left, left to reach 'r'\n\n<answer>4</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from '8' (start) to 'u' (goal):\n\n```\n,,,,,,,,\n,mmmmmm,\n,m,mmm,,\n,,um,mm,\n,mm,,m,,\n,m,mmmm,\n,mm8mmm,\n,,,,,,,,\n```\nLegend: ',' = Wall, 'm' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "6",
+      "model_answer": "6",
+      "full_model_response": "Let me solve this step by step:\n\n1) Looking at the maze:\n   - Start position '8' is at bottom part of maze\n   - Goal 'u' is near top of maze\n   - We can only move through passages ('m')\n   - Can move up, down, left, right (not diagonally)\n\n2) Tracing possible paths:\n   - From 8, can go up or left\n   - Need to find shortest path to 'u'\n   - Must navigate through passages while avoiding walls\n\n3) Counting minimum steps:\n   - Start at 8\n   - Go up\n   - Go left\n   - Go up\n   - Go up\n   - Go right\n   - Go up\n\n<answer>6</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Navigate from 'w' (start) to 'Z' (goal):\n\n```\nUUUUUU\nUBUUUU\nUBBBBU\nUwUBUU\nUBUZBU\nUUUUUU\n```\nLegend: 'U' = Wall, 'B' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "5",
+      "model_answer": "5",
+      "full_model_response": "Let me solve this step by step:\n\n1) Looking at the maze:\n   - 'w' is the start point\n   - 'Z' is the goal\n   - 'U' represents walls\n   - 'B' represents passages we can move through\n\n2) Let me trace possible paths:\n   - From 'w', we can move right through passages\n   - Then up through passages\n   - Then right\n   - Then down to reach 'Z'\n\n3) Counting minimum steps:\n   - Right: 1 step\n   - Up: 2 steps\n   - Right: 1 step\n   - Down: 1 step\n\n4) Total minimum steps: 5\n\n<answer>5</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Navigate from '=' (start) to ';' (goal):\n\n```\nYYYYYYYY\nYffffYfY\nYYfYYf;Y\nYfffYYfY\nYfYffffY\nYfYffffY\nYYf=fffY\nYYYYYYYY\n```\nLegend: 'Y' = Wall, 'f' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "7",
+      "model_answer": "7",
+      "full_model_response": "Let me solve this step by step:\n\n1) Starting from '=' position at (6,3)\n2) Can move up, down, left, right through 'f' passages\n3) Using shortest path algorithm:\n   - Moving north to (5,3)\n   - Then north to (4,3)\n   - Then north to (3,3)\n   - Then north to (2,3)\n   - Then east to (2,4)\n   - Then east to (2,5)\n   - Then east to (2,6)\n\n4) Count the total moves: 7 steps from '=' to ';'\n\n<answer>7</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Navigate from '$' (start) to 's' (goal):\n\n```\nRRRRRRRR\nRAARRAAR\nRRsAAAAR\nRARAAAAR\nRAAARRAR\nR$AAARAR\nRARARARR\nRRRRRRRR\n```\nLegend: 'R' = Wall, 'A' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "6",
+      "model_answer": "6",
+      "full_model_response": "Let me solve this step by step:\n\n1) Starting from '$' at position (5,1)\n2) Goal 's' is at position (2,2)\n3) Can only move through 'A' passages\n4) Can move up, down, left, right (no diagonals)\n5) Counting steps:\n   - Up 4 times to reach row 2\n   - Right 2 times to reach column 2\n   - Total steps = 6\n\n<answer>6</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Navigate from 'T' (start) to 'v' (goal):\n\n```\n999999999\n9DDv9D9D9\n9D9DDD9D9\n999DDDDD9\n99999D999\n99DDDDDD9\n9DTD9DD99\n999DD9D99\n999999999\n```\nLegend: '9' = Wall, 'D' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "10",
+      "model_answer": "8",
+      "full_model_response": "Let me solve this step by step:\n\n1. Starting position 'T' is at (6,2)\n2. Goal position 'v' is at (1,3)\n3. Traversing through the passages marked 'D'\n4. Can move up, down, left, right (no diagonals)\n5. Counting steps from T:\n   - Up from T to join main passage\n   - Right to connect to vertical passage\n   - Up through vertical passage\n   - Left to reach goal 'v'\n6. Counting total minimum steps required\n\n<answer>8</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from 'Q' (start) to 'X' (goal):\n\n```\n999999999\n9eee9e9e9\n99Xeeeee9\n9eee9ee99\n9e9ee9ee9\n9ee99eee9\n9eeee9ee9\n9eeQ9e999\n999999999\n```\nLegend: '9' = Wall, 'e' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "8",
+      "model_answer": "8",
+      "full_model_response": "Let me solve this step by step:\n\n1) I'll find all possible paths from Q to X using BFS algorithm\n2) From starting point Q, I can move up, down, left, right through passages ('e')\n3) Each step I track the distance from start\n4) When I reach X, I'll have the minimum number of steps\n\n4) Following the shortest path:\n   Q \u2192 up \u2192 right \u2192 right \u2192 up \u2192 up \u2192 left \u2192 left \u2192 left \u2192 X\n\n5) Counting the steps from Q to X in this shortest path: 8 steps\n\n<answer>8</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Navigate from '#' (start) to 'e' (goal):\n\n```\nXXXXXXXX\nXXX___eX\nX_X_XX_X\nX____XXX\nX_X__#_X\nXX_X___X\nX___X_XX\nXXXXXXXX\n```\nLegend: 'X' = Wall, '_' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "8",
+      "model_answer": "8",
+      "full_model_response": "Let me solve this step by step:\n\n1) Starting position is '#' at (4,6)\n2) Goal position is 'e' at (1,5)\n3) Can only move through '_' passages\n4) Need to find shortest path avoiding walls 'X'\n5) Possible moves: up, down, left, right\n6) Moving step by step:\n   - Up from start\n   - Left\n   - Up\n   - Left\n   - Up\n   - Up\n   - Right\n   - Right\n   \n7) Counting the moves from start to end\n\n<answer>8</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Navigate from 'c' (start) to 'l' (goal):\n\n```\n^^^^^^^^\n^4^44c4^\n^44^4^4^\n^4^^4^4^\n^44l4^^^\n^4^44^^^\n^4^^44^^\n^^^^^^^^\n```\nLegend: '^' = Wall, '4' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "5",
+      "model_answer": "4",
+      "full_model_response": "Let me solve this step by step:\n\n1) I'll analyze the grid from 'c' (start) to 'l' (goal)\n2) Can only move through passages ('4') or the goal ('l')\n3) Can move up, down, left, or right (not diagonally)\n4) Starting from 'c':\n   - Down to row 3\n   - Down to row 4\n   - Left through the passage\n   - Down to 'l'\n\n<answer>4</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from '`' (start) to 'W' (goal):\n\n```\nfffffff\nfBBWBff\nfBBffBf\nfBBBfBf\nf`BfBff\nfBfBfBf\nfffffff\n```\nLegend: 'f' = Wall, 'B' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "5",
+      "model_answer": "4",
+      "full_model_response": "Let me solve this step by step:\n\n1) Starting at '`' and looking at the maze structure\n2) Need to reach 'W' at the second row, third column\n3) Can only move through passages marked with 'B'\n4) From start position:\n   - Move up \u2b06\ufe0f (1 step)\n   - Move up \u2b06\ufe0f (2 steps)\n   - Move right \u27a1\ufe0f (3 steps)\n   - Move right \u27a1\ufe0f (4 steps) - Reached W\n\n<answer>4</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from '<' (start) to '1' (goal):\n\n```\nFFFFFFFFFF\nF$$F$$F$$F\nFF$$$$$F$F\nFF$$F$$$FF\nF$$$FF$$FF\nF$$F$F$$<F\nF$F$$FF$$F\nF$$$F1$$$F\nFF$$F$FF$F\nFFFFFFFFFF\n```\nLegend: 'F' = Wall, '$' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "5",
+      "model_answer": "18",
+      "full_model_response": "Let me solve this step by step:\n\n1) Starting from '<' position at bottom right area\n2) Moving up through '$' passages\n3) Can only move vertically or horizontally (no diagonals)\n4) Need to reach '1' in the lower part\n5) Tracing possible paths through '$' symbols\n6) Need to avoid walls ('F')\n7) Can move from passage to adjacent passage\n8) Counting minimum steps needed while avoiding dead ends\n9) Finding shortest path by checking all possible routes\n10) Found the shortest path requires 18 steps\n\n<answer>18</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from 'n' (start) to 'I' (goal):\n\n```\n999999999\n99//////9\n9/9////99\n9/9/99//9\n9/9///9/9\n9//////99\n9n9///I/9\n9/99///99\n999999999\n```\nLegend: '9' = Wall, '/' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "7",
+      "model_answer": "4",
+      "full_model_response": "Let me solve this step by step:\n\n1) Looking at the maze where:\n   - 'n' is the start\n   - 'I' is the goal\n   - '9' represents walls\n   - '/' represents passable cells\n\n2) Start at 'n' in row 7, column 2\n\n3) Goal 'I' is in row 7, column 6\n\n4) Counting minimum steps by finding shortest path:\n   - From n, move up\n   - Move right\n   - Move right again\n   - Move down\n   - Reach I\n\n5) Counting these moves: it takes 4 steps to reach the goal\n\n<answer>4</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from '#' (start) to 'Z' (goal):\n\n```\nzzzzzz\nzffffz\nz#fzZz\nzfffzz\nzffzzz\nzzzzzz\n```\nLegend: 'z' = Wall, 'f' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "5",
+      "model_answer": "3",
+      "full_model_response": "Let me solve this step by step:\n\n1) Starting position is '#', and goal is 'Z'\n2) We can only move through 'f' passages\n3) Walls 'z' are blocking our path\n4) Looking at the grid:\n   - Start is at (2,1)\n   - Goal 'Z' is at (2,4)\n5) Possible path:\n   - From (2,1) to (2,2)\n   - From (2,2) to (2,3)\n   - From (2,3) to (2,4)\n6) Each move counts as one step\n\n<answer>3</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from 'e' (start) to 'E' (goal):\n\n```\n;;;;;;;;;;\n;;;$$;$$$;\n;;$$$$;$$;\n;$$$$$$$$;\n;$;E;$$;;;\n;$$;;$$$$;\n;$$;$$;$;;\n;$$;$;;$$;\n;;$$$;$e$;\n;;;;;;;;;;\n```\nLegend: ';' = Wall, '$' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "10",
+      "model_answer": "8",
+      "full_model_response": "Let me solve this step by step:\n\n1) Looking at the grid, 'e' is located near the bottom\n2) 'E' is in the middle section of the grid\n3) Let me trace the shortest path:\n   - Start at 'e'\n   - Can move up and left through the passages\n   - Need to navigate through the '$' symbols\n   - Cannot pass through ';' walls\n4) Counting minimum steps from 'e' to 'E':\n   Up, Up, Left, Left, Left, Left, Up, Up\n\n<answer>8</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from 'T' (start) to 'W' (goal):\n\n```\nVVVVVVV\nV--W--V\nV-V---V\nV--V-VV\nVV-T--V\nV-V---V\nVVVVVVV\n```\nLegend: 'V' = Wall, '-' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "5",
+      "model_answer": "4",
+      "full_model_response": "Let me solve this step by step:\n\n1) Starting at 'T' and need to reach 'W'\n2) Looking at the maze layout:\n   - Walls (V) form the border\n   - 'T' is in the second row from bottom\n   - 'W' is in the second row from top\n3) Counting possible paths:\n   - From T, can move up, left, or right\n   - Need to go up and then right to reach W\n4) Tracing shortest path:\n   - Up from T\n   - Up again\n   - Right\n   - Right\n5) Counting minimum steps required:\n   4 steps are needed to reach from T to W\n\n<answer>4</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from 'N' (start) to 'p' (goal):\n\n```\nLLLLLLLL\nLXXLLXXL\nLXXXXXXL\nLLXXLLXL\nLXXLXLNL\nLXpXXLXL\nLXXLXLXL\nLLLLLLLL\n```\nLegend: 'L' = Wall, 'X' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "9",
+      "model_answer": "6",
+      "full_model_response": "Let me solve this step by step:\n\n1) Start position is 'N' at (4,6) counting from top-left (0,0)\n2) Goal position 'p' is at (5,1)\n3) Only valid moves are through 'X' passages\n4) Possible path:\n   - From N go west to (4,5)\n   - Go west to (4,4)\n   - Go west to (4,3)\n   - Go west to (4,2)\n   - Go south to (5,2)\n   - Go west to (5,1)\n\n<answer>6</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from 'p' (start) to 'u' (goal):\n\n```\nwwwwwww\nwwpwwww\nwwFFFww\nwwFwFuw\nwFFwFww\nwwFFFFw\nwwwwwww\n```\nLegend: 'w' = Wall, 'F' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "5",
+      "model_answer": "8",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, understand what we need to find:\n   - Start at 'p'\n   - End at 'u'\n   - Can only move through 'F' passages\n   - Need minimum number of steps\n\n2) Looking at the maze:\n   - 'p' is in the second row\n   - 'u' is in the fourth row\n   - Must navigate through the 'F' passages\n\n3) Tracing the shortest path:\n   - From 'p' go down (1 step)\n   - Right (2 steps)\n   - Down (3 steps)\n   - Right (4 steps)\n   - Down (5 steps)\n   - Right (6 steps)\n   - Up (7 steps)\n   - Up (8 steps)\n\n<answer>8</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from 'C' (start) to '\\' (goal):\n\n```\nooooooooo\noccCcocco\noocccccoo\noococccoo\no\\ccoocco\noocccooco\nocoocccco\noccccccco\nooooooooo\n```\nLegend: 'o' = Wall, 'c' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "5",
+      "model_answer": "5",
+      "full_model_response": "Let me solve this step by step:\n\n1) Start position is marked with 'C' in row 2\n2) Goal is marked with '\\' in row 5\n3) Can only move through 'c' passages\n4) Need to find shortest path avoiding 'o' walls\n5) Can move up, down, left, right\n6) Counting steps from start to goal:\n   * From C go left 1 step\n   * Down 1 step\n   * Left 1 step\n   * Down 2 steps\n   * Thus total = 5 steps\n\n<answer>5</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Navigate from 'I' (start) to '/' (goal):\n\n```\niiiiii\ni/iUUi\niUUiii\niUUUIi\niUUiUi\niiiiii\n```\nLegend: 'i' = Wall, 'U' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "5",
+      "model_answer": "2",
+      "full_model_response": "Let me solve this step by step:\n\n1) Looking at the start ('I') position, it's in the top row (first row)\n2) Looking at the goal ('/') position, it's in the second row\n3) From I position, I can only go down into the U passage\n4) After going down, I can move right to reach /\n5) So from I to /, I need:\n   * One step down\n   * One step right\n\n<answer>2</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from '(' (start) to '{' (goal):\n\n```\nyyyyyy\nyyyy(y\ny{yOOy\nyOOOOy\nyOOOOy\nyyyyyy\n```\nLegend: 'y' = Wall, 'O' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "6",
+      "model_answer": "3",
+      "full_model_response": "Let me solve this step by step:\n\n1) Starting point is '(' at coordinates (4,1)\n2) Goal is '{' at coordinates (1,2)\n3) Passage spaces are marked with 'O'\n4) Need to navigate through 'O' spaces from start to goal\n\nLet me count minimum steps:\n- From start (4,1) move up to first passage (2,2)\n- From passage at (2,2) move to goal at (1,2)\n\nTotal number of steps from start to goal = 3\n\n<answer>3</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from 'H' (start) to '*' (goal):\n\n```\n#########\n#W#WW#W##\n#*WWWWWW#\n#W###WW##\n#W#WWW###\n##HW#W#W#\n#WWWW##W#\n#WWW#W#W#\n#########\n```\nLegend: '#' = Wall, 'W' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "10",
+      "model_answer": "8",
+      "full_model_response": "Let me solve this step-by-step:\n\n1) Looking at the maze starting from 'H' at the bottom portion\n2) Need to find path to '*' near the top\n3) Can only move through 'W' spaces\n4) Need to count minimum steps\n5) From H, can move:\n   - up through W spaces\n   - navigate around walls\n6) Tracing shortest path:\n   - Up 1\n   - Left 1\n   - Up 2, \n   - Right 1\n   - Up 1\n   - Right 2\n   - Up 1\n\n<answer>8</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from '#' (start) to 'B' (goal):\n\n```\niiiiiii\ni!i!iii\niiii!#i\nii!!i!i\niB!!!!i\ni!!i!ii\niiiiiii\n```\nLegend: 'i' = Wall, '!' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "6",
+      "model_answer": "6",
+      "full_model_response": "Let me solve this step by step:\n\n1) Looking at the maze where:\n   - '#' is starting point\n   - 'B' is goal\n   - 'i' are walls\n   - '!' are passages\n\n2) Starting from '#', I'll count the minimum steps needed while only moving through '!' passages:\n   - Can only move up, down, left, right\n   - Cannot move diagonally\n   - Cannot pass through walls ('i')\n\n3) Tracing the shortest possible path:\n   From starting position, we need to:\n   - Move left one step\n   - Move down two steps\n   - Move left two steps\n   - Move down one step\n\n4) Counting total minimum steps: 1 + 2 + 2 + 1 = 6\n\n<answer>6</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Navigate from 'b' (start) to 'g' (goal):\n\n```\n\"\"\"\"\"\"\"\"\n\"W\"WbW\"\"\n\"WWWW\"\"\"\n\"\"\"\"WW\"\"\n\"WW\"W\"W\"\n\"\"\"\"Wg\"\"\n\"WWWWWW\"\n\"\"\"\"\"\"\"\"\n```\nLegend: '\"' = Wall, 'W' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "5",
+      "model_answer": "6",
+      "full_model_response": "Let me solve this step by step:\n\n1) Start at 'b' position (row 1, column 3)\n2) Can move to open passages ('W') and empty spaces ('\"')\n3) Can't move through walls\n4) Looking for shortest path to 'g' (row 4, column 4)\n\nGoing through possible paths:\n- From 'b', can move down\n- Then right\n- Then down twice\n- Then right\n- Then down to reach 'g'\n\nCounting each move:\n1. Down\n2. Right\n3. Down\n4. Down\n5. Right\n6. Down\n\n<answer>6</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from '4' (start) to '!' (goal):\n\n```\n~~~~~~~~~~\n~~A~AAAAA~\n~AAAAA~AA~\n~A~~~A~AA~\n~AAAAAAA~~\n~~AA~~4~A~\n~~A~AAA~A~\n~!AAAAA~A~\n~~AAA~~~A~\n~~~~~~~~~~\n```\nLegend: '~' = Wall, 'A' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "7",
+      "model_answer": "7",
+      "full_model_response": "Let me solve this step by step:\n\n1) Starting point is '4' in row 5\n2) I'll navigate through the passages marked by 'A'\n3) Goal is '!' in row 7\n4) Moving from start to goal:\n   - Left through passages\n   - Down through passages\n   - Left to reach '!'\n5) Counting each step in the shortest path:\n   - Start \u2192 3 steps left\n   - Down 1 step\n   - Left 3 steps to reach '!'\n\n<answer>7</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Navigate from ';' (start) to 'd' (goal):\n\n```\nppppppppp\np``p`p``p\np`p`p`p`p\npp`pp```p\npp`p````p\np```p`;pp\np````p``p\np``d```pp\nppppppppp\n```\nLegend: 'p' = Wall, '`' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "5",
+      "model_answer": "8",
+      "full_model_response": "Let me solve this step by step:\n\n1) Start at ';' in row 6 from top, near the right edge\n2) From start, can move left and up\n3) Need to reach 'd' in row 8 from top, left side\n4) Count minimum steps while avoiding walls ('p')\n5) Moving through passage spaces ('`'):\n   - Start at ;\n   - Go left through passages\n   - Down to next row\n   - Left to the 'd'\n\n6) Counting the steps: 4 steps left + 2 steps down + 2 steps left = 8 steps\n\n<answer>8</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from 'E' (start) to '1' (goal):\n\n```\n333333333\n3****3**3\n333*333*3\n3**3*33*3\n313E****3\n3*3*3***3\n3****33*3\n3****3**3\n333333333\n```\nLegend: '3' = Wall, '*' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "6",
+      "model_answer": "8",
+      "full_model_response": "Let me solve this step by step:\n\n1) Looking at the maze:\n   - 'E' is the starting position\n   - '1' is not shown, but based on instructions it's the goal\n   - '3' represents walls\n   - '*' represents passages we can move through\n\n2) Starting from 'E':\n   - We can move in 4 directions (up, down, left, right)\n   - Need to find the shortest path through '*' cells\n\n3) Possible paths through the '*' passages:\n   - From 'E' we can initially go up, right, or down\n   - Following each path and counting minimum steps\n   - We need to reach the edge of the maze\n\n4) Tracing shortest route:\n   - Starting at 'E'\n   - Up 1 step\n   - Right 3 steps\n   - Up 2 steps\n   - Right 2 steps reaches the right edge\n\n<answer>8</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from '(' (start) to 'd' (goal):\n\n```\niiiiiiiii\nioooooi(i\niooiioioi\nioooooooi\niooioiioi\nioooooioi\nioioioidi\nioiooiooi\niiiiiiiii\n```\nLegend: 'i' = Wall, 'o' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "5",
+      "model_answer": "14",
+      "full_model_response": "Let me solve this step by step:\n\n1) Mark the start position '(' at (1,7)\n2) Mark the goal 'd' at (6,7)\n3) Navigate through passages 'o'\n4) Count steps while avoiding walls 'i'\n5) Find shortest possible path:\n   - Go down from start\n   - Navigate through open passages\n   - Can't go through walls\n   - Move up/down/left/right until reaching 'd'\n6) Count minimum moves:\n   Down, down, down, down, down, left, left, left, left, down, right, right, right, right\n\n<answer>14</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from 'G' (start) to 'n' (goal):\n\n```\nOOOOOOOOOO\nOoOooooOoO\nOooooooOoO\nOoOoooooOO\nOoooOOooGO\nOonoOOoOoO\nOooooooOOO\nOooooooOOO\nOooooooooO\nOOOOOOOOOO\n```\nLegend: 'O' = Wall, 'o' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "9",
+      "model_answer": "6",
+      "full_model_response": "Let me solve this step by step:\n\n1) Starting position is 'G' in the 5th row, 9th column\n2) Goal is 'n' in the 6th row, 3rd column\n3) Can only move through passages ('o')\n4) Can move up, down, left, right (not diagonally)\n5) Need to find shortest path from G to n\n\nLet me trace the shortest possible path:\n- From G go left (1)\n- Keep going left through passages (2,3,4)\n- Go down (5)\n- Go left (6)\n- Goal reached\n\n<answer>6</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from '{' (start) to 'x' (goal):\n\n```\naaaaaaaaaa\na:x:a:a::a\na::::::{aa\na::::::aaa\na:a:a::::a\na::::::a:a\na::::a:a:a\na::aaaa::a\naa:aa::::a\naaaaaaaaaa\n```\nLegend: 'a' = Wall, ':' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "6",
+      "model_answer": "5",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, identify start '{' position: (2,6)\n2) Identify goal 'x' position: (1,2)\n3) Can only move through passages ':' and the goal 'x'\n4) Using BFS to find shortest path:\n   - From (2,6) to (2,5)\n   - From (2,5) to (2,4)\n   - From (2,4) to (2,3)\n   - From (2,3) to (2,2)\n   - From (2,2) to (1,2)\n\n5) Count the steps: It takes 5 moves to reach the goal\n\n<answer>5</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from 'b' (start) to 'Z' (goal):\n\n```\nqqqqqqq\nqZ||||q\nqq|||bq\nqq||q|q\nq|||||q\nqq||q|q\nqqqqqqq\n```\nLegend: 'q' = Wall, '|' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "5",
+      "model_answer": "5",
+      "full_model_response": "Let me solve this step by step:\n\n1) Starting from 'b', I can only move up and down through passages marked by '|'\n2) The path needs to go up through passages to reach 'Z'\n3) From 'b', I can:\n   - Go left one step\n   - Go up three steps\n   - Go right one step to reach 'Z'\n\n4) Counting total steps:\n   - 1 step left\n   - 3 steps up\n   - 1 step right\n   = 5 total steps\n\n<answer>5</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Navigate from 'm' (start) to '^' (goal):\n\n```\naaaaaaaaaa\na.aaa.a..a\na..a.aa.aa\na.m..a.aaa\naa.....aaa\na...a....a\naa..a.aa.a\na^a..aaa.a\na....aaa.a\naaaaaaaaaa\n```\nLegend: 'a' = Wall, '.' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "9",
+      "model_answer": "5",
+      "full_model_response": "Let me solve this step by step:\n\n1) Looking at the maze:\n   - Starting at 'm' (3,2) coordinates\n   - Goal at '^' (7,1) coordinates\n   - Need to count minimum steps through passages '.'\n   \n2) Tracing possible paths:\n   - Can move up, down, left, right through passages\n   - Can't move diagonally\n   - Can't go through walls ('a')\n\n3) Checking shortest possible route:\n   - Start at (3,2)\n   - Down to (4,2)\n   - Down to (5,2)\n   - Left to (5,1)\n   - Down to (6,1)\n   - Down to (7,1)\n\n4) Counting steps:\n   - Each movement counts as 1 step\n   - Total movements: 5\n\n<answer>5</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from '+' (start) to ')' (goal):\n\n```\nRRRRRRRRRR\nRR%%RRR%%R\nRRRR%%%%%R\nR%%%%%RR%R\nR%%%%%%%%R\nR%%R%%%RRR\nR%%+%%%%%R\nR%%%R%%)RR\nR%%%%%RR%R\nRRRRRRRRRR\n```\nLegend: 'R' = Wall, '%' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "5",
+      "model_answer": "5",
+      "full_model_response": "Let me solve this step by step:\n\n1) Start at '+' position in row 7, column 4\n2) Goal is at ')' position in row 8, column 7\n3) Can only move through '%' passages, 'R' is blocked\n4) Need to find shortest path, so will count minimum steps\n5) Moving from '+', can go:\n   - east through passages\n   - north through passages\n   - south into row 8\n6) Counting minimum steps following valid paths\n7) Shortest route: east twice, south once, east twice (5 moves)\n\n<answer>5</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Navigate from '}' (start) to 'J' (goal):\n\n```\n\"\"\"\"\"\"\"\"\n\"+\"+\"++\"\n\"++\"+++\"\n\"+\"+++J\"\n\"++++\"+\"\n\"++}+++\"\n\"\"+\"+++\"\n\"\"\"\"\"\"\"\"\n```\nLegend: '\"' = Wall, '+' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "5",
+      "model_answer": "7",
+      "full_model_response": "Let me solve this step by step:\n\n1) Starting position is '}' at second to last row\n2) Can move up, down, left, right through '+'\n3) Can't move through '\"' (walls)\n4) Need to reach 'J' in fourth row\n5) From '}', can go:\n   - Up through passages\n   - Left through passages\n   - Right through passages\n6) Tracing shortest path:\n   - Start at '}' in second to last row\n   - Up, up\n   - Right, right, right\n   - Up\n   - Right\n7) Counting moves: Total 7 moves\n\n<answer>7</answer>",
+      "score": 0.01
+    },
+    {
+      "question": "Navigate from 'f' (start) to 'z' (goal):\n\n```\n(((((((((\n(n(((nnn(\n(nn(nnn((\n(nnnn(nn(\n(f(nnn(((\n(nnn(nn((\n((nnnnnn(\n((nnnnnz(\n(((((((((\n```\nLegend: '(' = Wall, 'n' = Passage\n\nWhat is the minimum number of steps to reach the goal?\nGive only the number of steps as your final answer, no other text or formatting.",
+      "expected_answer": "9",
+      "model_answer": "12",
+      "full_model_response": "Let me solve this step by step:\n\n1. This is a pathfinding problem in a maze\n2. I'll count steps from 'f' to 'z'\n3. Looking at the maze:\n   * I need to find a path through passages ('n')\n   * Walls ('(') can't be traversed\n4. Starting from 'f', I can go:\n   * Right into the passage\n   * Then up and right\n   * Continue right through passages\n   * Down to the bottom\n   * Finally to 'z'\n5. Counting each step along the shortest possible path:\n   1->2->3->4->5->6->7->8->9->10->11->12\n\n<answer>12</answer>",
+      "score": 0.01
+    }
+  ]
+}
