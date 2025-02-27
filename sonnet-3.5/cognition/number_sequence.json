@@ -1,0 +1,420 @@
+{
+  "dataset_name": "number_sequence",
+  "model": "anthropic/claude-3.5-sonnet",
+  "size": 50,
+  "provider": "Anthropic",
+  "average_score": 0.8218,
+  "total_examples": 50,
+  "timestamp": "2025-02-26T16:19:15.789055",
+  "config": {
+    "min_terms": 4,
+    "max_terms": 8,
+    "min_value": -100,
+    "max_value": 100,
+    "max_complexity": 3,
+    "seed": 45,
+    "size": 50
+  },
+  "results": [
+    {
+      "question": "-6, 15, -6, 15, ?",
+      "expected_answer": "-6",
+      "model_answer": "-6",
+      "full_model_response": "<think>\nThis is a sequence pattern question. Let me analyze:\n-6, 15, -6, 15, ?\nLooking at the numbers:\n1. -6 to 15: increase by 21\n2. 15 to -6: decrease by 21\n3. -6 to 15: increase by 21\n4. 15 to ?: should follow the pattern and decrease by 21\n\nTherefore, the next number should be 15 - 21 = -6\nThe pattern essentially alternates between -6 and 15.\n</think>\n<answer>-6</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'multiply by -1 then add 9', 'complexity': 2, 'sequence': [-6, 15, -6, 15, -6]}"
+    },
+    {
+      "question": "10, 2, -6, -14, -22, -30, ?",
+      "expected_answer": "-38",
+      "model_answer": "-38",
+      "full_model_response": "<think>\nLet me find the pattern in this sequence:\n10 to 2: decrease by 8\n2 to -6: decrease by 8\n-6 to -14: decrease by 8\n-14 to -22: decrease by 8\n-22 to -30: decrease by 8\n\nI can see that each number decreases by 8 from the previous number.\nSo, to find the next number after -30:\n-30 - 8 = -38\n</think>\n<answer>-38</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add -8', 'complexity': 1, 'sequence': [10, 2, -6, -14, -22, -30, -38]}"
+    },
+    {
+      "question": "9, 4, 6, 5, 5, 5, 5, ?",
+      "expected_answer": "5",
+      "model_answer": "5",
+      "full_model_response": "<think>\nThis is a sequence of numbers where I need to find the next number. Let me analyze the pattern:\n9, 4, 6, 5, 5, 5, 5, ?\n\nLooking at the numbers:\n- 9 to 4: decrease by 5\n- 4 to 6: increase by 2\n- 6 to 5: decrease by 1\n- Then we see 5 repeating three more times\n- This suggests the sequence has stabilized at 5\n\nTherefore, the next number in the sequence should also be 5.\n</think>\n<answer>5</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add previous then halve', 'complexity': 2, 'sequence': [9, 4, 6, 5, 5, 5, 5, 5]}"
+    },
+    {
+      "question": "-8, -16, -32, -64, ?",
+      "expected_answer": "-128",
+      "model_answer": "-128",
+      "full_model_response": "<think>\nThis is a sequence where each number is multiplied by 2 to get the next number:\n-8 \u00d7 2 = -16\n-16 \u00d7 2 = -32\n-32 \u00d7 2 = -64\nTherefore, -64 \u00d7 2 = -128 will be the next number in the sequence\n</think>\n<answer>-128</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'double', 'complexity': 3, 'sequence': [-8, -16, -32, -64, -128]}"
+    },
+    {
+      "question": "4, 2, 1, 0, 0, ?",
+      "expected_answer": "0",
+      "model_answer": "0",
+      "full_model_response": "<think>\nThis looks like a sequence where each number is half of the previous number:\n4 \u2192 2 (4\u00f72=2)\n2 \u2192 1 (2\u00f72=1)\n1 \u2192 0 (1\u00f72=0.5, rounded to 0)\n0 \u2192 0 (0\u00f72=0)\n0 \u2192 0 (0\u00f72=0)\nFollowing this pattern, the next number will also be 0 since 0\u00f72=0\n</think>\n<answer>0</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'halve', 'complexity': 1, 'sequence': [4, 2, 1, 0, 0, 0]}"
+    },
+    {
+      "question": "7, 7, 14, 21, 35, ?",
+      "expected_answer": "56",
+      "model_answer": "56",
+      "full_model_response": "<think>\nThis is a sequence where each number follows a pattern:\n7 -> 7 (no change)\n7 -> 14 (+7)\n14 -> 21 (+7)\n21 -> 35 (+14)\n35 -> ? (+21)\n\nI notice that the difference between consecutive numbers follows its own pattern:\n+0, +7, +7, +14, +21\n\nThe increment increases: first 7 appears twice, then 14, then 21.\nSo after 35, we should add 21 to get the next number.\n35 + 21 = 56\n</think>\n<answer>56</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add previous', 'complexity': 2, 'sequence': [7, 7, 14, 21, 35, 56]}"
+    },
+    {
+      "question": "7, 14, 28, 56, 112, ?",
+      "expected_answer": "224",
+      "model_answer": "224",
+      "full_model_response": "<think>\nThis is a sequence where each subsequent number is obtained by multiplying the previous number by 2.\n7 \u00d7 2 = 14\n14 \u00d7 2 = 28\n28 \u00d7 2 = 56\n56 \u00d7 2 = 112\nTherefore, following the same pattern:\n112 \u00d7 2 = 224\n</think>\n<answer>224</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'double', 'complexity': 1, 'sequence': [7, 14, 28, 56, 112, 224]}"
+    },
+    {
+      "question": "10, 10, 20, 30, 50, 80, 130, ?",
+      "expected_answer": "210",
+      "model_answer": "210",
+      "full_model_response": "<think>\nThis appears to be a sequence where each number is the sum of the previous two numbers:\n- 10 + 10 = 20\n- 10 + 20 = 30\n- 20 + 30 = 50\n- 30 + 50 = 80\n- 50 + 80 = 130\nTherefore, the next number would be 80 + 130 = 210\n</think>\n<answer>210</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add previous', 'complexity': 2, 'sequence': [10, 10, 20, 30, 50, 80, 130, 210]}"
+    },
+    {
+      "question": "-4, -6, -10, -18, -34, -66, -130, ?",
+      "expected_answer": "-258",
+      "model_answer": "-258",
+      "full_model_response": "<think>\nLet me find the pattern between consecutive numbers:\n-4 to -6: subtract 2\n-6 to -10: subtract 4\n-10 to -18: subtract 8\n-18 to -34: subtract 16\n-34 to -66: subtract 32\n-66 to -130: subtract 64\n\nI notice that the difference between consecutive numbers doubles each time:\n2 \u2192 4 \u2192 8 \u2192 16 \u2192 32 \u2192 64 \u2192 128\n\nTherefore, to find the next number, I need to subtract 128 from -130:\n-130 - 128 = -258\n</think>\n<answer>-258</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add 1 then double', 'complexity': 3, 'sequence': [-4, -6, -10, -18, -34, -66, -130, -258]}"
+    },
+    {
+      "question": "2, 1, 0, 0, 0, 0, 0, ?",
+      "expected_answer": "0",
+      "model_answer": "0",
+      "full_model_response": "<think>\nThis looks like a sequence where I need to find the next number. Let me analyze the pattern:\n2, 1, 0, 0, 0, 0, 0, ?\n\nObserving from left to right:\n- Starts with 2\n- Goes to 1\n- Then becomes 0\n- Continues as 0 for multiple terms\n\nSince there are 5 zeros in a row, and there's no indication of any change in pattern, the next number would also be 0.\n</think>\n<answer>0</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'halve', 'complexity': 1, 'sequence': [2, 1, 0, 0, 0, 0, 0, 0]}"
+    },
+    {
+      "question": "1, 0, 0, 0, ?",
+      "expected_answer": "0",
+      "model_answer": "1",
+      "full_model_response": "<think>\nLet me analyze this sequence:\n1. Starting with 1, followed by three zeros\n2. Looking for a pattern:\n   - The sequence starts with 1 followed by zeros\n   - There are 3 zeros after the 1\n   - This suggests a possible cyclical pattern of \"1\" followed by 3 zeros\n3. Since we already have 1 and three zeros, the next number would start the pattern again\n4. Therefore, the next number should be 1\n</think>\n<answer>1</answer>",
+      "score": 0.01,
+      "metadata": "{'rule': 'halve', 'complexity': 1, 'sequence': [1, 0, 0, 0, 0]}"
+    },
+    {
+      "question": "8, 16, 32, 64, ?",
+      "expected_answer": "128",
+      "model_answer": "128",
+      "full_model_response": "<think>\nThis is a number sequence pattern.\nLet me analyze how each number relates to the next:\n8 -> 16 (multiply by 2)\n16 -> 32 (multiply by 2)\n32 -> 64 (multiply by 2)\nFollowing this pattern, the next number would be 64 multiplied by 2.\n64 \u00d7 2 = 128\n</think>\n<answer>128</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'double', 'complexity': 3, 'sequence': [8, 16, 32, 64, 128]}"
+    },
+    {
+      "question": "-1, -4, -8, -15, -26, -44, -73, ?",
+      "expected_answer": "-120",
+      "model_answer": "-120",
+      "full_model_response": "<think>\nLet me find the pattern by calculating the differences between consecutive numbers:\n-1 to -4: -3\n-4 to -8: -4\n-8 to -15: -7\n-15 to -26: -11\n-26 to -44: -18\n-44 to -73: -29\n\nI notice that the difference between consecutive terms is increasing by following this pattern:\n-3, -4 (add -1)\n-4, -7 (add -3)\n-7, -11 (add -4)\n-11, -18 (add -7)\n-18, -29 (add -11)\n-29, ? (add -18)\n\nSo, the next difference should be -29 + (-18) = -47\nTherefore, the next number should be: -73 + (-47) = -120\n</think>\n<answer>-120</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add -3 then add previous', 'complexity': 1, 'sequence': [-1, -4, -8, -15, -26, -44, -73, -120]}"
+    },
+    {
+      "question": "9, 2, 2, 1, 0, 0, 0, ?",
+      "expected_answer": "0",
+      "model_answer": "0",
+      "full_model_response": "<think>\nThis appears to be a decreasing sequence with certain patterns:\n1. From 9 to 2: decrease by 7\n2. From 2 to 2: no change\n3. From 2 to 1: decrease by 1\n4. From 1 to 0: decrease by 1\n5. From 0 to 0: no change\n6. From 0 to 0: no change\n7. For the next number, following the pattern of repeated numbers and decreasing values, it should be 0 again\n</think>\n<answer>0</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add previous then halve then halve', 'complexity': 3, 'sequence': [9, 2, 2, 1, 0, 0, 0, 0]}"
+    },
+    {
+      "question": "5, 19, 33, 47, 61, 75, 89, ?",
+      "expected_answer": "103",
+      "model_answer": "103",
+      "full_model_response": "<think>\nLooking at this sequence:\n5 to 19: difference is 14\n19 to 33: difference is 14\n33 to 47: difference is 14\n47 to 61: difference is 14\n61 to 75: difference is 14\n75 to 89: difference is 14\n\nThis is an arithmetic sequence with a common difference of 14.\nTo find the next number, add 14 to 89:\n89 + 14 = 103\n</think>\n<answer>103</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add 9 then add 5', 'complexity': 1, 'sequence': [5, 19, 33, 47, 61, 75, 89, 103]}"
+    },
+    {
+      "question": "-6, -14, -28, -50, -86, ?",
+      "expected_answer": "-144",
+      "model_answer": "-144",
+      "full_model_response": "<think>\nLet me find the pattern by calculating the differences between consecutive numbers:\n-6 to -14: decrease by 8\n-14 to -28: decrease by 14\n-28 to -50: decrease by 22\n-50 to -86: decrease by 36\n\nI notice the difference is increasing by:\n8 to 14: +6\n14 to 22: +8\n22 to 36: +14\n\nThe next difference will increase by 22 (following the same pattern of +6, +8, +14, +22)\nSo, 36 + 22 = 58\n\nTherefore, -86 - 58 = -144\n</think>\n<answer>-144</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add previous then add -8', 'complexity': 2, 'sequence': [-6, -14, -28, -50, -86, -144]}"
+    },
+    {
+      "question": "-1, -2, -4, -8, -16, -32, ?",
+      "expected_answer": "-64",
+      "model_answer": "-64",
+      "full_model_response": "<think>\nThis is a sequence where each number is multiplied by 2 to get the next number.\n-1 \u00d7 2 = -2\n-2 \u00d7 2 = -4\n-4 \u00d7 2 = -8\n-8 \u00d7 2 = -16\n-16 \u00d7 2 = -32\nTherefore, -32 \u00d7 2 = -64 will be the next number\n</think>\n<answer>-64</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'double', 'complexity': 2, 'sequence': [-1, -2, -4, -8, -16, -32, -64]}"
+    },
+    {
+      "question": "1, -3, 9, -27, 81, -243, ?",
+      "expected_answer": "729",
+      "model_answer": "729",
+      "full_model_response": "<think>\nLet me analyze the pattern in this sequence:\n1 \u2192 -3 (multiply by -3)\n-3 \u2192 9 (multiply by -3)\n9 \u2192 -27 (multiply by -3)\n-27 \u2192 81 (multiply by -3)\n81 \u2192 -243 (multiply by -3)\n-243 \u2192 ? (multiply by -3)\n\nEach number is multiplied by -3 to get the next number in the sequence.\nSo, -243 \u00d7 (-3) = 729\n</think>\n<answer>729</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'multiply by -3', 'complexity': 3, 'sequence': [1, -3, 9, -27, 81, -243, 729]}"
+    },
+    {
+      "question": "-8, -2, -1, -1, -1, -1, -1, ?",
+      "expected_answer": "-1",
+      "model_answer": "-1",
+      "full_model_response": "<think>\nLet me analyze this sequence:\n-8, -2, -1, -1, -1, -1, -1, ?\n\nI notice that:\n1. First number is -8\n2. Second number is -2\n3. Then we have five -1's in a row\n4. Looking at the pattern of change:\n   * From -8 to -2: increase by 6\n   * From -2 to -1: increase by 1\n   * Then stays at -1 for five terms\n\nThe pattern shows a series that's increasing and then stabilizing at -1\nFollowing this pattern, after five -1's, the next number should also be -1\n</think>\n<answer>-1</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'halve then halve', 'complexity': 2, 'sequence': [-8, -2, -1, -1, -1, -1, -1, -1]}"
+    },
+    {
+      "question": "10, 5, 2, 1, 0, ?",
+      "expected_answer": "0",
+      "model_answer": "-1",
+      "full_model_response": "<think>\nLooking at the sequence:\n10 \u2192 5 (subtract 5)\n5 \u2192 2 (subtract 3)\n2 \u2192 1 (subtract 1)\n1 \u2192 0 (subtract 1)\n0 \u2192 ? \n\nThe pattern shows a decreasing subtraction:\nFirst step: -5\nSecond step: -3\nThird step: -1\nFourth step: -1\n\nFollowing this pattern, the next number would be:\n0 - 1 = -1\n</think>\n\n<answer>-1</answer>",
+      "score": 0.01,
+      "metadata": "{'rule': 'halve', 'complexity': 2, 'sequence': [10, 5, 2, 1, 0, 0]}"
+    },
+    {
+      "question": "-8, -8, -16, -24, -40, ?",
+      "expected_answer": "-64",
+      "model_answer": "-72",
+      "full_model_response": "<think>\nLet me analyze the pattern in this sequence:\n-8 to -8: difference of 0\n-8 to -16: difference of -8\n-16 to -24: difference of -8\n-24 to -40: difference of -16\n\nI notice that the differences are:\n0, -8, -8, -16\n\nThe differences themselves are doubling in magnitude: 8, 8, 16\nSo the next difference should be -32\n\nPrevious number is -40\n-40 + (-32) = -72\n</think>\n<answer>-72</answer>",
+      "score": 0.01,
+      "metadata": "{'rule': 'add previous', 'complexity': 2, 'sequence': [-8, -8, -16, -24, -40, -64]}"
+    },
+    {
+      "question": "-1, -2, -4, -8, -16, -32, -64, ?",
+      "expected_answer": "-128",
+      "model_answer": "-128",
+      "full_model_response": "<think>\nLooking at the sequence:\n-1 \u2192 -2 \u2192 -4 \u2192 -8 \u2192 -16 \u2192 -32 \u2192 -64 \u2192 ?\n\nLet me check how each number changes to get the next one:\n-1 \u00d7 2 = -2\n-2 \u00d7 2 = -4\n-4 \u00d7 2 = -8\n-8 \u00d7 2 = -16\n-16 \u00d7 2 = -32\n-32 \u00d7 2 = -64\n\nI can see that each number is being multiplied by 2 to get the next number.\nSo, -64 \u00d7 2 = -128 would be the next number in the sequence.\n</think>\n<answer>-128</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'double', 'complexity': 1, 'sequence': [-1, -2, -4, -8, -16, -32, -64, -128]}"
+    },
+    {
+      "question": "-9, -14, -19, -24, -29, -34, ?",
+      "expected_answer": "-39",
+      "model_answer": "-39",
+      "full_model_response": "<think>\nLet me find the pattern in this sequence:\n-9 to -14: decrease by 5\n-14 to -19: decrease by 5\n-19 to -24: decrease by 5\n-24 to -29: decrease by 5\n-29 to -34: decrease by 5\n\nThe pattern is clearly that each number decreases by 5.\nSo, the next number will be -34 - 5 = -39\n</think>\n<answer>-39</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add -5', 'complexity': 1, 'sequence': [-9, -14, -19, -24, -29, -34, -39]}"
+    },
+    {
+      "question": "-5, -3, -2, -1, -1, -1, -1, ?",
+      "expected_answer": "-1",
+      "model_answer": "-1",
+      "full_model_response": "<think>\nLooking at this sequence, I need to find the pattern:\n-5 to -3: increase by 2\n-3 to -2: increase by 1\n-2 to -1: increase by 1\nThen we see -1 repeated three times\nThe pattern shows a gradual increase, reaching -1 and stabilizing there\nTherefore, the next number will also be -1, continuing the stable pattern\n</think>\n<answer>-1</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'halve', 'complexity': 3, 'sequence': [-5, -3, -2, -1, -1, -1, -1, -1]}"
+    },
+    {
+      "question": "8, 8, 16, 24, 40, 64, 104, ?",
+      "expected_answer": "168",
+      "model_answer": "168",
+      "full_model_response": "<think>\nLet me find the pattern by looking at the differences between consecutive numbers:\n8 to 8: +0\n8 to 16: +8\n16 to 24: +8\n24 to 40: +16\n40 to 64: +24\n64 to 104: +40\n\nI see that the difference is increasing by a factor:\nFirst difference: +8\nSecond difference: +8\nThird difference: +16 (8\u00d72)\nFourth difference: +24 (8\u00d73)\nFifth difference: +40 (8\u00d75)\nNext difference would be: +64 (8\u00d78)\n\nSo, 104 + 64 = 168\n</think>\n<answer>168</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add previous', 'complexity': 3, 'sequence': [8, 8, 16, 24, 40, 64, 104, 168]}"
+    },
+    {
+      "question": "2, 2, 4, 6, 10, 16, ?",
+      "expected_answer": "26",
+      "model_answer": "24",
+      "full_model_response": "<think>\nLet me analyze the pattern in this sequence:\n2 \u2192 2 (no change)\n2 \u2192 4 (+2)\n4 \u2192 6 (+2)\n6 \u2192 10 (+4)\n10 \u2192 16 (+6)\n16 \u2192 ? (+8)\n\nI notice that the difference between consecutive numbers is increasing by 2 each time:\n+0, +2, +2, +4, +6, +8\n\nSo, to get the next number, I need to add 8 to 16.\n16 + 8 = 24\n</think>\n<answer>24</answer>",
+      "score": 0.01,
+      "metadata": "{'rule': 'add previous', 'complexity': 1, 'sequence': [2, 2, 4, 6, 10, 16, 26]}"
+    },
+    {
+      "question": "-6, -6, -12, -18, -30, -48, -78, ?",
+      "expected_answer": "-126",
+      "model_answer": "-126",
+      "full_model_response": "<think>\nLet me find the pattern by looking at the differences between consecutive numbers:\n-6 to -6: 0\n-6 to -12: -6\n-12 to -18: -6\n-18 to -30: -12\n-30 to -48: -18\n-48 to -78: -30\n\nI see that each difference is increasing in magnitude:\n0, -6, -6, -12, -18, -30\n\nThe next difference should be -48 (following the pattern of differences doubling)\nSo, -78 - 48 = -126\n</think>\n<answer>-126</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add previous', 'complexity': 2, 'sequence': [-6, -6, -12, -18, -30, -48, -78, -126]}"
+    },
+    {
+      "question": "9, 9, 18, 27, 45, 72, 117, 189, ?",
+      "expected_answer": "306",
+      "model_answer": "306",
+      "full_model_response": "<think>\nLet me find the pattern in this sequence:\n9 \u2192 9 (no change)\n9 \u2192 18 (\u00d72)\n18 \u2192 27 (+9)\n27 \u2192 45 (+18)\n45 \u2192 72 (+27)\n72 \u2192 117 (+45)\n117 \u2192 189 (+72)\n\nI can see that in alternating steps, the sequence either multiplies by 2 or adds the previous number.\nSo, to find the next number:\n189 + 117 = 306\n</think>\n<answer>306</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add previous', 'complexity': 1, 'sequence': [9, 9, 18, 27, 45, 72, 117, 189, 306]}"
+    },
+    {
+      "question": "-4, -8, -16, -32, ?",
+      "expected_answer": "-64",
+      "model_answer": "-64",
+      "full_model_response": "<think>\nThis is a sequence where each number is being multiplied by 2 to get the next number.\n-4 \u00d7 2 = -8\n-8 \u00d7 2 = -16\n-16 \u00d7 2 = -32\nTherefore, -32 \u00d7 2 = -64 would be the next number in the sequence.\n</think>\n<answer>-64</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'double', 'complexity': 2, 'sequence': [-4, -8, -16, -32, -64]}"
+    },
+    {
+      "question": "-1, -1, -2, -3, ?",
+      "expected_answer": "-5",
+      "model_answer": "-4",
+      "full_model_response": "<think>\nLooking at the sequence:\n-1, -1, -2, -3, ?\n\nLet me find the pattern:\nFrom -1 to -1: no change (+0)\nFrom -1 to -2: decrease by 1 (-1)\nFrom -2 to -3: decrease by 1 (-1)\n\nI can see that each step's change is decreasing by 1:\nFirst change: +0\nSecond change: -1\nThird change: -1\n\nFollowing this pattern, the next number should decrease by 1 from -3.\n-3 - 1 = -4\n</think>\n<answer>-4</answer>",
+      "score": 0.01,
+      "metadata": "{'rule': 'add previous', 'complexity': 3, 'sequence': [-1, -1, -2, -3, -5]}"
+    },
+    {
+      "question": "-2, -2, -4, -6, ?",
+      "expected_answer": "-10",
+      "model_answer": "-10",
+      "full_model_response": "<think>\nThis is a number sequence where I need to find the next number.\nLet me analyze the pattern:\n-2 to -2: No change (0)\n-2 to -4: Decrease by 2\n-4 to -6: Decrease by 2\nSo it appears each number decreases by 2 more than the previous decrease.\n0, -2, -2\nTherefore, the next number should decrease by 4\n-6 - 4 = -10\n</think>\n<answer>-10</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add previous', 'complexity': 2, 'sequence': [-2, -2, -4, -6, -10]}"
+    },
+    {
+      "question": "-9, -18, -36, -72, -144, -288, ?",
+      "expected_answer": "-576",
+      "model_answer": "-576",
+      "full_model_response": "<think>\nLooking at this sequence:\n-9 \u2192 -18 \u2192 -36 \u2192 -72 \u2192 -144 \u2192 -288 \u2192 ?\n\nTo find the pattern:\n-9 to -18: multiply by 2\n-18 to -36: multiply by 2\n-36 to -72: multiply by 2\n-72 to -144: multiply by 2\n-144 to -288: multiply by 2\n\nEach number in the sequence is multiplied by 2 to get the next number.\nSo, -288 \u00d7 2 = -576 will be the next number.\n</think>\n<answer>-576</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'double', 'complexity': 2, 'sequence': [-9, -18, -36, -72, -144, -288, -576]}"
+    },
+    {
+      "question": "7, 14, 28, 56, 112, ?",
+      "expected_answer": "224",
+      "model_answer": "224",
+      "full_model_response": "<think>\nThis is a sequence where each number is multiplied by 2 to get the next number:\n7 \u00d7 2 = 14\n14 \u00d7 2 = 28\n28 \u00d7 2 = 56\n56 \u00d7 2 = 112\nTherefore, 112 \u00d7 2 = 224 would be the next number in the sequence.\n</think>\n<answer>224</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'double', 'complexity': 2, 'sequence': [7, 14, 28, 56, 112, 224]}"
+    },
+    {
+      "question": "3, 1, 0, 0, 0, 0, ?",
+      "expected_answer": "0",
+      "model_answer": "0",
+      "full_model_response": "<think>\nLet me analyze this sequence:\n1. Looking at the first few numbers: 3, 1, 0, 0, 0, 0\n2. From 3 to 1 is a decrease of 2\n3. From 1 to 0 is a decrease of 1\n4. Then it stays at 0\n5. The pattern seems to be decreasing by one less each time:\n   - First decrease: -2\n   - Second decrease: -1\n   - Then no decrease (0)\n6. Following this pattern, the next number should also be 0\n</think>\n<answer>0</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'halve', 'complexity': 1, 'sequence': [3, 1, 0, 0, 0, 0, 0]}"
+    },
+    {
+      "question": "-8, -8, -16, -24, -40, -64, -104, -168, ?",
+      "expected_answer": "-272",
+      "model_answer": "-272",
+      "full_model_response": "<think>\nLet me find the pattern in this sequence:\n-8 to -8: +0\n-8 to -16: -8\n-16 to -24: -8\n-24 to -40: -16\n-40 to -64: -24\n-64 to -104: -40\n-104 to -168: -64\n\nI see that each difference is the negative of the previous number in the sequence.\nSo, the next number should be -168 - 104 = -272\n</think>\n<answer>-272</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add previous', 'complexity': 1, 'sequence': [-8, -8, -16, -24, -40, -64, -104, -168, -272]}"
+    },
+    {
+      "question": "7, 7, 14, 21, 35, 56, ?",
+      "expected_answer": "91",
+      "model_answer": "91",
+      "full_model_response": "<think>\nLet me find the pattern:\n7 -> 7 (no change)\n7 -> 14 (add previous two: 7+7=14)\n14 -> 21 (add previous two: 7+14=21)\n21 -> 35 (add previous two: 14+21=35)\n35 -> 56 (add previous two: 21+35=56)\nSo for the next number, I need to add 35+56=91\nThe pattern is similar to Fibonacci sequence where each number is sum of previous two numbers.\n</think>\n<answer>91</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add previous', 'complexity': 2, 'sequence': [7, 7, 14, 21, 35, 56, 91]}"
+    },
+    {
+      "question": "4, -1, -2, -8, -15, ?",
+      "expected_answer": "-28",
+      "model_answer": "-23",
+      "full_model_response": "<think>\nLet me find the pattern in this sequence:\n4 to -1: decrease by 5\n-1 to -2: decrease by 1\n-2 to -8: decrease by 6\n-8 to -15: decrease by 7\n\nI notice that the decrease amount increases by 1 each time:\n5, 1, 6, 7\n\nSo the next decrease should be by 8\n-15 - 8 = -23\n</think>\n<answer>-23</answer>",
+      "score": 0.01,
+      "metadata": "{'rule': 'add previous then add -5', 'complexity': 3, 'sequence': [4, -1, -2, -8, -15, -28]}"
+    },
+    {
+      "question": "-2, 1, 0, 0, 0, ?",
+      "expected_answer": "0",
+      "model_answer": "0",
+      "full_model_response": "<think>\nLet me analyze this sequence:\n1. Starting with -2, then 1, followed by three 0's\n2. Looking at the pattern:\n   -2 \u2192 1 (difference of +3)\n   1 \u2192 0 (difference of -1)\n   0 \u2192 0 (difference of 0)\n   0 \u2192 0 (difference of 0)\n3. Since the last three numbers are 0, and this pattern seems to stabilize at 0, the next number will also be 0\n</think>\n<answer>0</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'halve then square', 'complexity': 1, 'sequence': [-2, 1, 0, 0, 0, 0]}"
+    },
+    {
+      "question": "4, 8, 16, 32, 64, ?",
+      "expected_answer": "128",
+      "model_answer": "128",
+      "full_model_response": "<think>\nLooking at the sequence:\n4 \u2192 8 (multiply by 2)\n8 \u2192 16 (multiply by 2)\n16 \u2192 32 (multiply by 2)\n32 \u2192 64 (multiply by 2)\nFollowing the pattern, each number is multiplied by 2 to get the next number.\nSo, 64 \u00d7 2 = 128\n</think>\n<answer>128</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'double', 'complexity': 2, 'sequence': [4, 8, 16, 32, 64, 128]}"
+    },
+    {
+      "question": "4, 15, 30, 56, 97, ?",
+      "expected_answer": "164",
+      "model_answer": "157",
+      "full_model_response": "<think>\nThis is a sequence where I need to find the next number. Let me find the pattern:\n15 - 4 = 11\n30 - 15 = 15\n56 - 30 = 26\n97 - 56 = 41\n\nThe difference between consecutive terms is increasing:\n11 \u2192 15 (+4)\n15 \u2192 26 (+11)\n26 \u2192 41 (+15)\n\nSo the next difference should be 41 + 19 = 60\nTherefore, the next number should be 97 + 60 = 157\n</think>\n<answer>157</answer>",
+      "score": 0.01,
+      "metadata": "{'rule': 'add 5 then add 6 then add previous', 'complexity': 3, 'sequence': [4, 15, 30, 56, 97, 164]}"
+    },
+    {
+      "question": "-3, -3, -6, -9, -15, ?",
+      "expected_answer": "-24",
+      "model_answer": "-24",
+      "full_model_response": "<think>\nThis is a sequence where I need to find the next number.\nLet me find the pattern by looking at the differences between consecutive numbers:\n-3 to -3: difference is 0\n-3 to -6: difference is -3\n-6 to -9: difference is -3\n-9 to -15: difference is -6\n\nI see the pattern in the differences: 0, -3, -3, -6\nThe differences are increasing by -3 each time.\nSo the next difference should be -9\nCurrent number is -15, adding -9 gives me -24\n</think>\n<answer>-24</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add previous', 'complexity': 1, 'sequence': [-3, -3, -6, -9, -15, -24]}"
+    },
+    {
+      "question": "-7, -8, -8, -8, -8, -8, -8, ?",
+      "expected_answer": "-8",
+      "model_answer": "-8",
+      "full_model_response": "<think>\nLooking at the sequence:\n-7, -8, -8, -8, -8, -8, -8, ?\n\nI notice that:\n1. The first number is -7\n2. It changes to -8 in the second position\n3. Then -8 repeats multiple times\n4. This pattern suggests that -8 will continue\n5. Therefore, the next number should be -8\n</think>\n<answer>-8</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add -8 then halve', 'complexity': 1, 'sequence': [-7, -8, -8, -8, -8, -8, -8, -8]}"
+    },
+    {
+      "question": "10, -20, 40, -80, 160, -320, ?",
+      "expected_answer": "640",
+      "model_answer": "640",
+      "full_model_response": "<think>\nThis is a sequence where each number is multiplied by -2 to get the next number.\n10 \u00d7 (-2) = -20\n-20 \u00d7 (-2) = 40\n40 \u00d7 (-2) = -80\n-80 \u00d7 (-2) = 160\n160 \u00d7 (-2) = -320\nTherefore, -320 \u00d7 (-2) = 640 should be the next number\n</think>\n<answer>640</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'multiply by -2', 'complexity': 1, 'sequence': [10, -20, 40, -80, 160, -320, 640]}"
+    },
+    {
+      "question": "10, 10, 20, 30, 50, ?",
+      "expected_answer": "80",
+      "model_answer": "80",
+      "full_model_response": "<think>\nThis appears to be a sequence where each number follows a pattern.\nLet me analyze the differences between consecutive numbers:\n10 to 10: +0\n10 to 20: +10\n20 to 30: +10\n30 to 50: +20\n\nI notice the increment is increasing:\nFirst increment: +0\nSecond increment: +10\nThird increment: +10\nFourth increment: +20\n\nFollowing this pattern, the next increment should be +30\nSo, 50 + 30 = 80\n</think>\n<answer>80</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add previous', 'complexity': 2, 'sequence': [10, 10, 20, 30, 50, 80]}"
+    },
+    {
+      "question": "8, 16, 32, 64, 128, ?",
+      "expected_answer": "256",
+      "model_answer": "256",
+      "full_model_response": "<think>\nThis is a number sequence where each number is being multiplied by 2 to get the next number:\n8 \u00d7 2 = 16\n16 \u00d7 2 = 32\n32 \u00d7 2 = 64\n64 \u00d7 2 = 128\nTherefore, 128 \u00d7 2 = 256 would be the next number in the sequence.\n</think>\n<answer>256</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'double', 'complexity': 1, 'sequence': [8, 16, 32, 64, 128, 256]}"
+    },
+    {
+      "question": "-1, -1, -2, -3, -5, -8, -13, -21, ?",
+      "expected_answer": "-34",
+      "model_answer": "-34",
+      "full_model_response": "<think>\nThis sequence appears to be following a pattern similar to the Fibonacci sequence, but with negative numbers.\nLet me check:\n-1 + (-1) = -2\n-1 + (-2) = -3\n-2 + (-3) = -5\n-3 + (-5) = -8\n-5 + (-8) = -13\n-8 + (-13) = -21\nTherefore, the next number would be -13 + (-21) = -34\n</think>\n<answer>-34</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add previous', 'complexity': 1, 'sequence': [-1, -1, -2, -3, -5, -8, -13, -21, -34]}"
+    },
+    {
+      "question": "-4, -4, -8, -12, -20, -32, -52, ?",
+      "expected_answer": "-84",
+      "model_answer": "-76",
+      "full_model_response": "<think>\nLet me find the pattern in this sequence:\n-4 to -4: +0\n-4 to -8: -4\n-8 to -12: -4\n-12 to -20: -8\n-20 to -32: -12\n-32 to -52: -20\n\nI see that the difference between consecutive terms increases by 4 each time:\n0, -4, -4, -8, -12, -20\n\nSo the next difference should be -20 - 4 = -24\nTherefore: -52 + (-24) = -76\n</think>\n<answer>-76</answer>",
+      "score": 0.01,
+      "metadata": "{'rule': 'add previous', 'complexity': 1, 'sequence': [-4, -4, -8, -12, -20, -32, -52, -84]}"
+    },
+    {
+      "question": "8, 9, 18, 28, 47, ?",
+      "expected_answer": "76",
+      "model_answer": "75",
+      "full_model_response": "<think>\nThis is a sequence where I need to find the next number. Let me find the pattern by looking at the differences between consecutive numbers:\n8 to 9: +1\n9 to 18: +9\n18 to 28: +10\n28 to 47: +19\n\nI can see that the differences are increasing by 8, 1, 9:\n1, 9, 10, 19\n\nFollowing this pattern, the next difference should be +28 (19 + 9)\nTherefore, 47 + 28 = 75\n</think>\n<answer>75</answer>",
+      "score": 0.01,
+      "metadata": "{'rule': 'add previous then add -9 then add 10', 'complexity': 2, 'sequence': [8, 9, 18, 28, 47, 76]}"
+    },
+    {
+      "question": "-5, -10, -20, -40, -80, -160, -320, ?",
+      "expected_answer": "-640",
+      "model_answer": "-640",
+      "full_model_response": "<think>\nLet me analyze the pattern in this sequence:\nFrom -5 to -10: multiply by 2\nFrom -10 to -20: multiply by 2\nFrom -20 to -40: multiply by 2\nFrom -40 to -80: multiply by 2\nFrom -80 to -160: multiply by 2\nFrom -160 to -320: multiply by 2\n\nI can see that each number is being multiplied by 2 to get the next number.\nSo, to find the next number after -320:\n-320 \u00d7 2 = -640\n</think>\n<answer>-640</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'double', 'complexity': 2, 'sequence': [-5, -10, -20, -40, -80, -160, -320, -640]}"
+    },
+    {
+      "question": "-10, 10, -10, 10, -10, 10, -10, ?",
+      "expected_answer": "10",
+      "model_answer": "10",
+      "full_model_response": "<think>\nThis is a sequence that alternates between -10 and 10.\nThe pattern is: -10, 10, -10, 10, -10, 10, -10\nLooking at the pattern:\n1st number: -10\n2nd number: 10\n3rd number: -10\n4th number: 10\n5th number: -10\n6th number: 10\n7th number: -10\n8th number would continue the pattern, so it would be 10\n</think>\n<answer>10</answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'multiply by -2 then halve', 'complexity': 3, 'sequence': [-10, 10, -10, 10, -10, 10, -10, 10]}"
+    }
+  ]
+}
