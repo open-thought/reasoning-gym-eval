@@ -1,0 +1,420 @@
+{
+  "dataset_name": "number_sequence",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "size": 50,
+  "provider": "Hyperbolic",
+  "average_score": 0.4251294117647059,
+  "total_examples": 50,
+  "timestamp": "2025-02-26T22:31:56.731964",
+  "config": {
+    "min_terms": 4,
+    "max_terms": 8,
+    "min_value": -100,
+    "max_value": 100,
+    "max_complexity": 3,
+    "seed": 45,
+    "size": 50
+  },
+  "results": [
+    {
+      "question": "-6, 15, -6, 15, ?",
+      "expected_answer": "-6",
+      "model_answer": null,
+      "full_model_response": "",
+      "score": 0.0,
+      "metadata": "{'rule': 'multiply by -1 then add 9', 'complexity': 2, 'sequence': [-6, 15, -6, 15, -6]}"
+    },
+    {
+      "question": "10, 2, -6, -14, -22, -30, ?",
+      "expected_answer": "-38",
+      "model_answer": null,
+      "full_model_response": "",
+      "score": 0.0,
+      "metadata": "{'rule': 'add -8', 'complexity': 1, 'sequence': [10, 2, -6, -14, -22, -30, -38]}"
+    },
+    {
+      "question": "9, 4, 6, 5, 5, 5, 5, ?",
+      "expected_answer": "5",
+      "model_answer": null,
+      "full_model_response": "",
+      "score": 0.0,
+      "metadata": "{'rule': 'add previous then halve', 'complexity': 2, 'sequence': [9, 4, 6, 5, 5, 5, 5, 5]}"
+    },
+    {
+      "question": "-8, -16, -32, -64, ?",
+      "expected_answer": "-128",
+      "model_answer": "-128",
+      "full_model_response": "\n\n<think> The pattern of the sequence appears to be obtained by multiplying the previous term by 2. To find the next term, we need to multiply -64 by 2. </think>\n<answer> -128 </answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'double', 'complexity': 3, 'sequence': [-8, -16, -32, -64, -128]}"
+    },
+    {
+      "question": "4, 2, 1, 0, 0, ?",
+      "expected_answer": "0",
+      "model_answer": null,
+      "full_model_response": "",
+      "score": 0.0,
+      "metadata": "{'rule': 'halve', 'complexity': 1, 'sequence': [4, 2, 1, 0, 0, 0]}"
+    },
+    {
+      "question": "7, 7, 14, 21, 35, ?",
+      "expected_answer": "56",
+      "model_answer": "63",
+      "full_model_response": "<think> To solve this, let's analyze the pattern in the sequence. The numbers given are 7, 7, 14, 21, 35. Looking at the differences or any mathematical operation that could connect these numbers, it seems the pattern might involve addition or possibly another operation like multiplication, considering the sequence doesn't follow a simple arithmetic progression. \nUpon closer inspection, we see:\n- 7 to 7: no change\n- 7 to 14: multiplication by 2\n- 14 to 21: addition of 7\n- 21 to 35: addition of 14\n\nThis suggests an alternating pattern of operations or a pattern where each term increases by a certain rule. Another approach could be looking at the sequence as being formed by adding 0 (to repeat the 7), then multiplying by 2 (to get 14), then adding 7 (to get 21), and then adding 14 (to get 35). This sequence seems to alternate between these operations or to follow a certain addition pattern where the increment itself increases.\n\nA more logical and consistent pattern isn't immediately obvious without more context or a specific rule given. However, a sequence that often appears in these kinds of problems involves operations that change or progress in a specific, logical manner, such as increasing by a larger amount each time or incorporating both addition and multiplication in alternating steps.\n\nLet's hypothesize that if we look at operations such as these:\n1. The first step from 7 to 7 is no operation or a repeat.\n2. The second step from 7 to 14 is a doubling (multiplication by 2).\n3. The third step from 14 to 21 adds 7.\n4. The fourth step from 21 to 35 adds 14.\n\nGiven these observations, we could consider if the pattern might continue with adding the next logical increment. The pattern of additions is +0 (for the repeat), x2 (which could be considered an addition of the number itself), +7, +14. The increase in the addition part seems to double (7 to 14). \n\nTherefore, following the pattern where the addition part seems to double each time (ignoring the first 'no operation' step):\n- Start with 7.\n- To get the next number, the operations are: stay the same, then multiply by 2, then add 7, then add 14.\n- So, after adding 14 to get 35, if we continue this logic, the next 'addition' would logically be double the previous addition of 14, which would be 28 (since 14 * 2 = 28).\n\nSo, if the next operation in the pattern is to add 28 to 35:\n35 (the last known number in the sequence) + 28 (the next 'addition' in the sequence based on observed pattern) = 63.\n\n</think>\n<answer> 63 </answer>",
+      "score": 0.01,
+      "metadata": "{'rule': 'add previous', 'complexity': 2, 'sequence': [7, 7, 14, 21, 35, 56]}"
+    },
+    {
+      "question": "7, 14, 28, 56, 112, ?",
+      "expected_answer": "224",
+      "model_answer": null,
+      "full_model_response": "",
+      "score": 0.0,
+      "metadata": "{'rule': 'double', 'complexity': 1, 'sequence': [7, 14, 28, 56, 112, 224]}"
+    },
+    {
+      "question": "10, 10, 20, 30, 50, 80, 130, ?",
+      "expected_answer": "210",
+      "model_answer": "210",
+      "full_model_response": "<think> The sequence appears to be formed by adding 10, then 10, then 10, then 20, then 30, then 50, and so on, increasing the increment by a growing amount each time. Looking closer, the pattern resembles the Fibonacci sequence where each number is the sum of the two preceding ones, but with an adjustment. The differences between the numbers are 0 (from 10 to 10), 10 (from 10 to 20), 10 (from 20 to 30), 20 (from 30 to 50), 30 (from 50 to 80), and 50 (from 80 to 130). Following this pattern, the next difference should be 80 (since the differences themselves are increasing in a pattern that resembles but isn't exactly the Fibonacci sequence). Thus, to find the next number in the sequence, we add 80 to 130. </think>\n<answer> 210 </answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add previous', 'complexity': 2, 'sequence': [10, 10, 20, 30, 50, 80, 130, 210]}"
+    },
+    {
+      "question": "-4, -6, -10, -18, -34, -66, -130, ?",
+      "expected_answer": "-258",
+      "model_answer": "-258",
+      "full_model_response": "<think> The pattern of the sequence appears to be obtained by adding -2, -4, -8, -16, -32, -64 to the previous term, which suggests that each term is increasing by a power of 2. To find the next term, we should add -128 (which is the next power of 2) to the last term. So, -130 + (-128) = -258. </think>\n<answer> -258 </answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add 1 then double', 'complexity': 3, 'sequence': [-4, -6, -10, -18, -34, -66, -130, -258]}"
+    },
+    {
+      "question": "2, 1, 0, 0, 0, 0, 0, ?",
+      "expected_answer": "0",
+      "model_answer": "0",
+      "full_model_response": "\n\n<think> The pattern appears to be a sequence of numbers where each term is decreasing by 1, but after reaching 0, it remains constant. So, the next number in the sequence should also be 0. </think>\n<answer> 0 </answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'halve', 'complexity': 1, 'sequence': [2, 1, 0, 0, 0, 0, 0, 0]}"
+    },
+    {
+      "question": "1, 0, 0, 0, ?",
+      "expected_answer": "0",
+      "model_answer": "0",
+      "full_model_response": "<think> The pattern appears to be a sequence of numbers where the first number is 1 and the rest are 0s. To determine the next number in the sequence, we need to identify the pattern or rule that governs the sequence. In this case, the sequence seems to be a simple repetition of the number 1 followed by an increasing number of 0s. However, given the provided numbers, it seems like the sequence might actually be based on a different logic, possibly related to the position of the numbers or another mathematical operation. Without a clear pattern or additional information, one might assume the sequence could continue with another 0, as there's no clear indication of what the question mark should be based on the given numbers alone. </think>\n<answer> 0 </answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'halve', 'complexity': 1, 'sequence': [1, 0, 0, 0, 0]}"
+    },
+    {
+      "question": "8, 16, 32, 64, ?",
+      "expected_answer": "128",
+      "model_answer": null,
+      "full_model_response": "",
+      "score": 0.0,
+      "metadata": "{'rule': 'double', 'complexity': 3, 'sequence': [8, 16, 32, 64, 128]}"
+    },
+    {
+      "question": "-1, -4, -8, -15, -26, -44, -73, ?",
+      "expected_answer": "-120",
+      "model_answer": "-120",
+      "full_model_response": "<think> The pattern in the sequence appears to be obtained by adding 3, then 4, then 7, then 11, and so on, increasing the increment by a growing amount each time. Let's calculate the differences between the numbers: -4 - (-1) = 3, -8 - (-4) = 4, -15 - (-8) = 7, -26 - (-15) = 11, -44 - (-26) = 18, -73 - (-44) = 29. The differences themselves are increasing by 1, 3, 4, 7, 11, which suggests a sequence of differences that might be related to Fibonacci or another well-known sequence. However, looking closer, the differences (3, 4, 7, 11, 18, 29) seem to resemble a Fibonacci-like sequence but with a different starting point. In a standard Fibonacci sequence, each number is the sum of the two preceding ones (1, 1, 2, 3, 5, 8, 13, 21, 34, 55, ...). Our sequence of differences, however, starts with 3 and 4, then continues by adding the previous two numbers to get the next: 3, 4, 7 (3+4), 11 (4+7), 18 (7+11), 29 (11+18). Following this pattern, the next difference should be 47 (18+29). Therefore, to find the next number in the original sequence, we add 47 to -73. </think>\n<answer> -120 </answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add -3 then add previous', 'complexity': 1, 'sequence': [-1, -4, -8, -15, -26, -44, -73, -120]}"
+    },
+    {
+      "question": "9, 2, 2, 1, 0, 0, 0, ?",
+      "expected_answer": "0",
+      "model_answer": "0",
+      "full_model_response": "<think> To solve this, let's look for a pattern in the sequence given: 9, 2, 2, 1, 0, 0, 0,?. One way to approach this is by looking for a mathematical relationship or a common sequence pattern. The sequence starts with 9 and then dramatically decreases to 2, repeats the 2, then decreases again to 1, and then repeats 0 three times. Without an obvious arithmetic or geometric progression, we might consider other patterns such as operations performed on the numbers (addition, subtraction, multiplication, division) or consider if the numbers represent something other than their face value (e.g., digits in a binary or another base system, or positions in a sequence). Given the sequence decreases and then holds at 0, it's possible that each step involves some form of decrementing operation or that the numbers represent a counting down. If the pattern follows a decrement and then stabilizes at 0, we could predict the next number would logically also be 0 since once the sequence reaches 0, it stays there. </think>\n<answer> 0 </answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add previous then halve then halve', 'complexity': 3, 'sequence': [9, 2, 2, 1, 0, 0, 0, 0]}"
+    },
+    {
+      "question": "5, 19, 33, 47, 61, 75, 89, ?",
+      "expected_answer": "103",
+      "model_answer": "103",
+      "full_model_response": "<think> The given sequence appears to be formed by adding a certain number to the previous term. To identify the pattern, let's examine the differences between consecutive terms: 19 - 5 = 14, 33 - 19 = 14, 47 - 33 = 14, 61 - 47 = 14, 75 - 61 = 14, 89 - 75 = 14. Since the difference between consecutive terms is constant at 14, we can add 14 to the last term in the sequence to find the next term. </think>\n<answer> 103 </answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add 9 then add 5', 'complexity': 1, 'sequence': [5, 19, 33, 47, 61, 75, 89, 103]}"
+    },
+    {
+      "question": "-6, -14, -28, -50, -86, ?",
+      "expected_answer": "-144",
+      "model_answer": null,
+      "full_model_response": "",
+      "score": 0.0,
+      "metadata": "{'rule': 'add previous then add -8', 'complexity': 2, 'sequence': [-6, -14, -28, -50, -86, -144]}"
+    },
+    {
+      "question": "-1, -2, -4, -8, -16, -32, ?",
+      "expected_answer": "-64",
+      "model_answer": null,
+      "full_model_response": "",
+      "score": 0.0,
+      "metadata": "{'rule': 'double', 'complexity': 2, 'sequence': [-1, -2, -4, -8, -16, -32, -64]}"
+    },
+    {
+      "question": "1, -3, 9, -27, 81, -243, ?",
+      "expected_answer": "729",
+      "model_answer": null,
+      "full_model_response": "",
+      "score": 0.0,
+      "metadata": "{'rule': 'multiply by -3', 'complexity': 3, 'sequence': [1, -3, 9, -27, 81, -243, 729]}"
+    },
+    {
+      "question": "-8, -2, -1, -1, -1, -1, -1, ?",
+      "expected_answer": "-1",
+      "model_answer": "-1",
+      "full_model_response": "<think> The pattern in the sequence appears to be a repetition of the number -1 after the initial -8 and -2. The number -1 is repeated 5 times after -2. To determine the next number in the sequence, we should look for a pattern or rule that applies. However, based on the given sequence, it seems that after -2, the number -1 repeats. Therefore, the next number should logically be -1 as well, following the established pattern of repetition. </think>\n<answer> -1 </answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'halve then halve', 'complexity': 2, 'sequence': [-8, -2, -1, -1, -1, -1, -1, -1]}"
+    },
+    {
+      "question": "10, 5, 2, 1, 0, ?",
+      "expected_answer": "0",
+      "model_answer": null,
+      "full_model_response": "",
+      "score": 0.0,
+      "metadata": "{'rule': 'halve', 'complexity': 2, 'sequence': [10, 5, 2, 1, 0, 0]}"
+    },
+    {
+      "question": "-8, -8, -16, -24, -40, ?",
+      "expected_answer": "-64",
+      "model_answer": "-72",
+      "full_model_response": "<think> The pattern of the sequence appears to be obtained by adding -8, -8, -16, -24, and so on to the previous term, with the difference between terms increasing by 8 each time. So, the differences between consecutive terms are -8, -8, -8, -16, -24, and if the pattern continues, the next difference should be -32 (since the differences are -8, -8, -16, -24, and the increase in the difference is 8, 8, 8, ...). Thus, to find the next term, we add -32 to the last term, -40 + (-32) = -72. </think>\n<answer> -72 </answer>",
+      "score": 0.01,
+      "metadata": "{'rule': 'add previous', 'complexity': 2, 'sequence': [-8, -8, -16, -24, -40, -64]}"
+    },
+    {
+      "question": "-1, -2, -4, -8, -16, -32, -64, ?",
+      "expected_answer": "-128",
+      "model_answer": null,
+      "full_model_response": "",
+      "score": 0.0,
+      "metadata": "{'rule': 'double', 'complexity': 1, 'sequence': [-1, -2, -4, -8, -16, -32, -64, -128]}"
+    },
+    {
+      "question": "-9, -14, -19, -24, -29, -34, ?",
+      "expected_answer": "-39",
+      "model_answer": null,
+      "full_model_response": "",
+      "score": 0.0,
+      "metadata": "{'rule': 'add -5', 'complexity': 1, 'sequence': [-9, -14, -19, -24, -29, -34, -39]}"
+    },
+    {
+      "question": "-5, -3, -2, -1, -1, -1, -1, ?",
+      "expected_answer": "-1",
+      "model_answer": null,
+      "full_model_response": "",
+      "score": 0.0,
+      "metadata": "{'rule': 'halve', 'complexity': 3, 'sequence': [-5, -3, -2, -1, -1, -1, -1, -1]}"
+    },
+    {
+      "question": "8, 8, 16, 24, 40, 64, 104, ?",
+      "expected_answer": "168",
+      "model_answer": "168",
+      "full_model_response": "\n\n<think> The pattern of the sequence appears to be obtained by adding 0, 8, 8, 16, 24, 40, ... to the previous term. To determine the next difference, let's examine the differences between consecutive terms: 8 - 8 = 0, 16 - 8 = 8, 24 - 16 = 8, 40 - 24 = 16, 64 - 40 = 24, 104 - 64 = 40. The differences between terms are 0, 8, 8, 16, 24, 40, ... which seems to be doubling the previous difference, starting from 8. So, the next difference should be 64 (doubling 32 is not in the sequence, but doubling 16 and then 24 and then 40 were in the sequence, and 8 was repeated). Thus, the next number in the sequence would be 104 + 64 = 168. </think>\n<answer> 168 </answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add previous', 'complexity': 3, 'sequence': [8, 8, 16, 24, 40, 64, 104, 168]}"
+    },
+    {
+      "question": "2, 2, 4, 6, 10, 16, ?",
+      "expected_answer": "26",
+      "model_answer": "26",
+      "full_model_response": "<think> The given sequence appears to be formed by adding 0, 2, 2, 4, 6,... to the previous term. This pattern resembles the sequence of numbers where each term is the sum of the two preceding terms, similar to the Fibonacci sequence but with a different starting point. To find the next term, we should add the last two increments (6 and 4 are the increments between the last two terms and their predecessors, but looking closely, the pattern of increments is +0, +2, +2, +4, +6, and if we follow a pattern similar to Fibonacci in the increments, the next increment should follow the sequence of increments: +2, +2, +4, +6, which suggests the increments themselves are increasing by 2, 2, 4, 6, indicating a potential sequence in the increments. Thus, the next difference should be +10 (following +2, +2, +4, +6), so we add 10 to the last term to find the next term in the sequence. </think>\n<answer> 26 </answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add previous', 'complexity': 1, 'sequence': [2, 2, 4, 6, 10, 16, 26]}"
+    },
+    {
+      "question": "-6, -6, -12, -18, -30, -48, -78, ?",
+      "expected_answer": "-126",
+      "model_answer": null,
+      "full_model_response": "",
+      "score": 0.0,
+      "metadata": "{'rule': 'add previous', 'complexity': 2, 'sequence': [-6, -6, -12, -18, -30, -48, -78, -126]}"
+    },
+    {
+      "question": "9, 9, 18, 27, 45, 72, 117, 189, ?",
+      "expected_answer": "306",
+      "model_answer": "333",
+      "full_model_response": "\n\n<think> The given sequence appears to be formed by adding a increasing sequence of numbers. Let's examine the differences between consecutive terms: 9 + 0 = 9, 9 + 9 = 18, 18 + 9 = 27, 27 + 18 = 45, 45 + 27 = 72, 72 + 45 = 117, 117 + 72 = 189. The pattern of differences is obtained by adding 9, 9, 18, 27, 45, 72, ... to the previous term. This pattern resembles the original sequence itself but shifted. Thus, to find the next difference, we should add the last difference (72) to itself (since the pattern of differences seems to be the sequence itself), which would be 72 + 72 = 144 for the next difference in the sequence of differences. Then, we add this difference to the last term in the original sequence: 189 + 144 = 333. </think>\n<answer> 333 </answer>",
+      "score": 0.01,
+      "metadata": "{'rule': 'add previous', 'complexity': 1, 'sequence': [9, 9, 18, 27, 45, 72, 117, 189, 306]}"
+    },
+    {
+      "question": "-4, -8, -16, -32, ?",
+      "expected_answer": "-64",
+      "model_answer": null,
+      "full_model_response": "",
+      "score": 0.0,
+      "metadata": "{'rule': 'double', 'complexity': 2, 'sequence': [-4, -8, -16, -32, -64]}"
+    },
+    {
+      "question": "-1, -1, -2, -3, ?",
+      "expected_answer": "-5",
+      "model_answer": "-4",
+      "full_model_response": "<think> The pattern in the sequence appears to be obtained by subtracting 0, 1, 1, and then 1 from the previous term, or alternatively, a simple incremental decrease: -1 (start), -1 (no change), -2 (decrease by 1), -3 (decrease by 1 again). Following this pattern, the next difference should also be a decrease by 1, which leads to -4 as the next number in the sequence. </think>\n<answer> -4 </answer>",
+      "score": 0.01,
+      "metadata": "{'rule': 'add previous', 'complexity': 3, 'sequence': [-1, -1, -2, -3, -5]}"
+    },
+    {
+      "question": "-2, -2, -4, -6, ?",
+      "expected_answer": "-10",
+      "model_answer": "-8",
+      "full_model_response": "<think> The pattern of the sequence appears to be obtained by subtracting 0, 2, 2, 2, ... from the previous term, starting from -2. This can be interpreted as a sequence where each term decreases by 2, starting from the second term. Thus, following this pattern, the next term should be -2 - 2 = -8, but since the pattern involves alternating subtraction of 0 and 2 after the first term, the correct next subtraction should continue the established decrease. The sequence goes as -2 (start), -2 (0 subtracted), -4 (2 subtracted), -6 (2 subtracted), so following the subtraction pattern of 2 after the initial -2, the correct sequence should decrease by 2 again, which means -6 - 2 = -8. </think>\n<answer> -8 </answer>",
+      "score": 0.01,
+      "metadata": "{'rule': 'add previous', 'complexity': 2, 'sequence': [-2, -2, -4, -6, -10]}"
+    },
+    {
+      "question": "-9, -18, -36, -72, -144, -288, ?",
+      "expected_answer": "-576",
+      "model_answer": "-576",
+      "full_model_response": "<think> The pattern in the sequence appears to be obtained by multiplying the previous term by 2. To find the next term, we can multiply -288 by 2. </think>\n<answer> -576 </answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'double', 'complexity': 2, 'sequence': [-9, -18, -36, -72, -144, -288, -576]}"
+    },
+    {
+      "question": "7, 14, 28, 56, 112, ?",
+      "expected_answer": "224",
+      "model_answer": "224",
+      "full_model_response": "<think> The given sequence appears to be obtained by multiplying the previous term by 2. To find the next term, we need to multiply 112 by 2. </think>\n<answer> 224 </answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'double', 'complexity': 2, 'sequence': [7, 14, 28, 56, 112, 224]}"
+    },
+    {
+      "question": "3, 1, 0, 0, 0, 0, ?",
+      "expected_answer": "0",
+      "model_answer": null,
+      "full_model_response": "",
+      "score": 0.0,
+      "metadata": "{'rule': 'halve', 'complexity': 1, 'sequence': [3, 1, 0, 0, 0, 0, 0]}"
+    },
+    {
+      "question": "-8, -8, -16, -24, -40, -64, -104, -168, ?",
+      "expected_answer": "-272",
+      "model_answer": null,
+      "full_model_response": "",
+      "score": 0.0,
+      "metadata": "{'rule': 'add previous', 'complexity': 1, 'sequence': [-8, -8, -16, -24, -40, -64, -104, -168, -272]}"
+    },
+    {
+      "question": "7, 7, 14, 21, 35, 56, ?",
+      "expected_answer": "91",
+      "model_answer": "98",
+      "full_model_response": "<think> The given sequence appears to be formed by adding a increasing number to the previous term. Let's analyze the differences between consecutive terms: 7 to 7 (difference of 0), 7 to 14 (difference of 7), 14 to 21 (difference of 7), 21 to 35 (difference of 14), 35 to 56 (difference of 21). The differences between terms are 0, 7, 7, 14, 21, which themselves form a sequence that seems to be doubling the previous increment (7*2=14, 14*1.5=21). Following this pattern, the next difference should be 21*2=42 (or possibly another pattern, but the sequence of differences suggests an increasing increment). So, to find the next term in the sequence, we should add 42 (or the next expected difference) to the last term, which is 56. Thus, 56 + 42 = 98. </think>\n<answer> 98 </answer>",
+      "score": 0.01,
+      "metadata": "{'rule': 'add previous', 'complexity': 2, 'sequence': [7, 7, 14, 21, 35, 56, 91]}"
+    },
+    {
+      "question": "4, -1, -2, -8, -15, ?",
+      "expected_answer": "-28",
+      "model_answer": null,
+      "full_model_response": "",
+      "score": 0.0,
+      "metadata": "{'rule': 'add previous then add -5', 'complexity': 3, 'sequence': [4, -1, -2, -8, -15, -28]}"
+    },
+    {
+      "question": "-2, 1, 0, 0, 0, ?",
+      "expected_answer": "0",
+      "model_answer": "0",
+      "full_model_response": "<think> Looking at the sequence, it seems to be starting with a negative number and then increasing by a certain pattern. The sequence goes from -2 to 1, which is an increase of 3, and then it stays at 0 for a few terms. This could suggest that the pattern involves adding a certain number to reach the next term, but since the sequence stays at 0, it might indicate that the addition becomes 0 or that there's a repeating pattern. Given the numbers provided, one possible pattern could be that the sequence increases by 3 and then maintains a steady state at 0, but without further context or a clearer pattern, another interpretation could be that the numbers are simply a collection of values without a specific arithmetic or geometric progression. However, considering sequences often have a repeating or predictable pattern, if we were to apply a simple addition pattern that fits, we might consider the jump from -2 to 1 as a +3, but then it plateaus. Without a clear rule, one might speculate the next value could continue the plateau or follow a different, unspecified pattern. Since the provided sequence does not explicitly state its rule and assuming a simple pattern, one might guess the sequence continues with 0 due to the plateau observed.</think>\n<answer> 0 </answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'halve then square', 'complexity': 1, 'sequence': [-2, 1, 0, 0, 0, 0]}"
+    },
+    {
+      "question": "4, 8, 16, 32, 64, ?",
+      "expected_answer": "128",
+      "model_answer": null,
+      "full_model_response": "",
+      "score": 0.0,
+      "metadata": "{'rule': 'double', 'complexity': 2, 'sequence': [4, 8, 16, 32, 64, 128]}"
+    },
+    {
+      "question": "4, 15, 30, 56, 97, ?",
+      "expected_answer": "164",
+      "model_answer": null,
+      "full_model_response": "",
+      "score": 0.0,
+      "metadata": "{'rule': 'add 5 then add 6 then add previous', 'complexity': 3, 'sequence': [4, 15, 30, 56, 97, 164]}"
+    },
+    {
+      "question": "-3, -3, -6, -9, -15, ?",
+      "expected_answer": "-24",
+      "model_answer": "-24 + (-15) = -39",
+      "full_model_response": "\n\n<think> The pattern of the sequence appears to be obtained by adding -3, -3, -6, -9, -15, and so on, to the previous term, with each increment being a multiple of 3. To find the next term, we should continue this pattern. The differences between the terms are -3, -3, -6, -9, -15, which themselves form a sequence where each term is increasing by 3, 3, 3, 6, and so on, more than the previous increment. However, looking closer, the pattern of differences is actually formed by adding 3, then 3, then 3, then 3, and then 6, which suggests that each step increases by 3 more than the previous step's increase. Thus, the next difference should be -15 (the last difference) - 3 (the increment between the differences) = -24 (since we are looking at the increase in the negative direction), but considering the pattern of increases (3, 3, 3, 6...), it seems more aligned with a sequence where each term's difference increases by 3, 3, 6, 9, etc., indicating a possible misunderstanding in the initial analysis. A clearer pattern emerges when recognizing the sequence as formed by adding consecutive multiples of 3: -3 (3*1), -6 (3*2), -9 (3*3), -15 (3*5), suggesting a Fibonacci-like sequence in the multipliers (1, 2, 3, 5...), thus the next multiplier should be 8, leading to the next term being -3 * 8 = -24. So, adding -24 to the last term, -15, gives us the next term in the sequence. </think>\n<answer> -24 + (-15) = -39 </answer>",
+      "score": 0.17647058823529413,
+      "metadata": "{'rule': 'add previous', 'complexity': 1, 'sequence': [-3, -3, -6, -9, -15, -24]}"
+    },
+    {
+      "question": "-7, -8, -8, -8, -8, -8, -8, ?",
+      "expected_answer": "-8",
+      "model_answer": "-8",
+      "full_model_response": "<think> To find the pattern, let's examine the given sequence: -7, -8, -8, -8, -8, -8, -8, ?. The sequence starts with -7 and then is followed by a series of -8s. Since the number -8 repeats after the initial -7, it suggests that the sequence is not based on arithmetic or geometric progression but rather on a simple repetition after an initial term. Given this, the pattern of the sequence is to start with -7 and then continue with -8 indefinitely. Thus, the next number in the sequence should also be -8. </think>\n<answer> -8 </answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add -8 then halve', 'complexity': 1, 'sequence': [-7, -8, -8, -8, -8, -8, -8, -8]}"
+    },
+    {
+      "question": "10, -20, 40, -80, 160, -320, ?",
+      "expected_answer": "640",
+      "model_answer": "640",
+      "full_model_response": "<think> The pattern appears to be obtained by multiplying the previous term by -2. So, starting from 10, the sequence goes as follows: 10 * -2 = -20, -20 * -2 = 40, 40 * -2 = -80, -80 * -2 = 160, 160 * -2 = -320. If this pattern continues, the next term would be -320 * -2 = 640. </think>\n<answer> 640 </answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'multiply by -2', 'complexity': 1, 'sequence': [10, -20, 40, -80, 160, -320, 640]}"
+    },
+    {
+      "question": "10, 10, 20, 30, 50, ?",
+      "expected_answer": "80",
+      "model_answer": "100",
+      "full_model_response": "<think> The pattern in the sequence appears to be obtained by adding 10, then 10, then 10, then 20, then 20. However, looking closer, it seems like the sequence could also be formed by adding 0+10, 0+10, 10+10, 10+20, 20+20, which suggests a doubling of the increment every two steps. Thus, following this pattern, the next difference should be 20+30 (doubling the previous increment of 20 and adding it to 20, the previous base number), making the next number in the sequence 50 + 30 + 20 = 100. But let's re-examine the sequence for a clearer, more consistent pattern: 10 to 10 (no change), 10 to 20 (add 10), 20 to 30 (add 10), 30 to 50 (add 20). If the pattern of increments is +0, +10, +10, +20, then the next increment should logically be +20 again, following a potential alternating increment pattern, but the provided sequence does not cleanly follow simple arithmetic or geometric patterns without a clear rule. However, considering a possible mistake in initial pattern identification and focusing on a simpler sequence analysis: the numbers could be part of a sequence where each term increases by a growing amount: +0 (from 10 to 10), +10 (from 10 to 20), +10 (from 20 to 30), +20 (from 30 to 50). If we were to follow a pattern of increasing increments (+10, +10, +20), the next logical increase could indeed be +30 or another incremental step. Given the inconsistency in identifying a clear pattern and the need for a logical sequence, let's reconsider the simplest form of sequence: adding 10, then 10, then 20, suggests a potential for doubling the increment. However, this doesn't hold perfectly. The sequence might actually be formed by a different logic or might be a known sequence with a specific rule not immediately apparent. Without a clear, identifiable pattern based on standard arithmetic or geometric sequences, and acknowledging the potential for a variety of interpretations, the most straightforward approach is to look for a recognizable sequence type or to apply a common sequence rule that fits the given numbers. </think>\n<answer> 100 </answer>",
+      "score": 0.01,
+      "metadata": "{'rule': 'add previous', 'complexity': 2, 'sequence': [10, 10, 20, 30, 50, 80]}"
+    },
+    {
+      "question": "8, 16, 32, 64, 128, ?",
+      "expected_answer": "256",
+      "model_answer": "256",
+      "full_model_response": "<think> The pattern of the sequence appears to be obtained by multiplying the previous term by 2. So, to find the next term, we need to multiply 128 by 2. </think>\n<answer> 256 </answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'double', 'complexity': 1, 'sequence': [8, 16, 32, 64, 128, 256]}"
+    },
+    {
+      "question": "-1, -1, -2, -3, -5, -8, -13, -21, ?",
+      "expected_answer": "-34",
+      "model_answer": "-34",
+      "full_model_response": "<think> The sequence provided appears to follow a pattern similar to the Fibonacci sequence, but with negative numbers. In the Fibonacci sequence, each number is the sum of the two preceding ones, usually starting with 0 and 1. However, this sequence starts with -1 and -1, and each subsequent number is the sum of the two preceding ones: -1 + (-1) = -2, -1 + (-2) = -3, -2 + (-3) = -5, -3 + (-5) = -8, -5 + (-8) = -13, -8 + (-13) = -21. Following this pattern, the next number would be the sum of -13 and -21. </think>\n<answer> -34 </answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add previous', 'complexity': 1, 'sequence': [-1, -1, -2, -3, -5, -8, -13, -21, -34]}"
+    },
+    {
+      "question": "-4, -4, -8, -12, -20, -32, -52, ?",
+      "expected_answer": "-84",
+      "model_answer": "-84",
+      "full_model_response": "<think> The given sequence appears to be formed by adding a increasing sequence of numbers. Let's analyze the differences between consecutive terms: -4 to -8 is a difference of -4, -8 to -12 is a difference of -4, -12 to -20 is a difference of -8, -20 to -32 is a difference of -12, and -32 to -52 is a difference of -20. The differences themselves are doubling, so the next difference should be -32 (doubling the previous difference of -20 doesn't apply here, we notice the pattern is formed by adding consecutive increments that are doubling in the sense of a Fibonacci sequence but with a negative sign). Thus, we should add -32 + -20 (the previous increment) to get -52, and to get the next term, we add -32 (the next increment in this observed pattern) to -52. </think>\n<answer> -84 </answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'add previous', 'complexity': 1, 'sequence': [-4, -4, -8, -12, -20, -32, -52, -84]}"
+    },
+    {
+      "question": "8, 9, 18, 28, 47, ?",
+      "expected_answer": "76",
+      "model_answer": "75",
+      "full_model_response": "<think> To solve this sequence, let's examine the differences between consecutive terms: 9 - 8 = 1, 18 - 9 = 9, 28 - 18 = 10, 47 - 28 = 19. It seems the differences between terms are increasing: 1, 9, 10, 19. Looking closer at these differences, it appears they might not follow a simple arithmetic progression. Let's consider if the pattern could be formed by adding a certain increasing value each time: the differences are 1, 9, 10, 19. The increase in the differences themselves seems irregular at first glance (9-1=8, 10-9=1, 19-10=9), but upon reevaluation, it seems there might have been a misunderstanding in identifying the pattern. A clearer pattern isn't immediately apparent without a more specific rule or additional sequence terms. However, considering sequences like these often involve operations more complex than simple addition or subtraction, let's reconsider the jumps: they seem to alternate in a way that suggests a possible addition of increasing numbers but not in a standard arithmetic or geometric sequence. Given the numbers, another approach is to look for a pattern that fits known sequences or to consider each term as a result of a specific operation applied to the previous term. Without a clear, identifiable pattern based on typical sequences or operations (like addition, subtraction, multiplication, division, or their combinations in a straightforward manner), and considering the possibility of an error in the initial analysis regarding the sequence's progression, a deeper or alternative analytical approach might be necessary, including considering the sequence as part of a larger mathematical problem set, such as involving polynomial relationships or other mathematical operations not yet considered. </think>\n<answer> 75 </answer>",
+      "score": 0.01,
+      "metadata": "{'rule': 'add previous then add -9 then add 10', 'complexity': 2, 'sequence': [8, 9, 18, 28, 47, 76]}"
+    },
+    {
+      "question": "-5, -10, -20, -40, -80, -160, -320, ?",
+      "expected_answer": "-640",
+      "model_answer": "-640",
+      "full_model_response": "<think> The pattern in the sequence appears to be obtained by multiplying the previous term by 2. To find the next term, we can multiply -320 by 2. </think>\n<answer> -640 </answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'double', 'complexity': 2, 'sequence': [-5, -10, -20, -40, -80, -160, -320, -640]}"
+    },
+    {
+      "question": "-10, 10, -10, 10, -10, 10, -10, ?",
+      "expected_answer": "10",
+      "model_answer": "10",
+      "full_model_response": "<think> The pattern of the sequence is alternating between -10 and 10. To find the next number in the sequence, we need to continue this alternating pattern. The last number in the sequence given is -10, so the next number should be 10. </think>\n<answer> 10 </answer>",
+      "score": 1.0,
+      "metadata": "{'rule': 'multiply by -2 then halve', 'complexity': 3, 'sequence': [-10, 10, -10, 10, -10, 10, -10, 10]}"
+    }
+  ]
+}

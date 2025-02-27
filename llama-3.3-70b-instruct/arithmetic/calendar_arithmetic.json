@@ -1,0 +1,427 @@
+{
+  "dataset_name": "calendar_arithmetic",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "size": 50,
+  "provider": "Hyperbolic",
+  "average_score": 0.8492181505860266,
+  "total_examples": 50,
+  "timestamp": "2025-02-26T22:15:04.425570",
+  "config": {
+    "year": 2022,
+    "tasks": [
+      "weekday_offset",
+      "weekday_of_date",
+      "weekday_of_date_from_first_day",
+      "recurring_event_day",
+      "count_days",
+      "count_business_days",
+      "is_leap_year"
+    ],
+    "offset_upper_bound": 100,
+    "leap_year_range": 200,
+    "seed": 45,
+    "size": 50
+  },
+  "results": [
+    {
+      "question": "Given that January 1 fell on a Thursday, which weekday occurs on March 4? Provide the full name of the weekday.",
+      "expected_answer": "Wednesday",
+      "model_answer": "Thursday",
+      "full_model_response": "<think> To find out which weekday occurs on March 4, given that January 1 fell on a Thursday, we first need to calculate the number of days from January 1 to March 4. January has 31 days, February has 28 days (since it's not a leap year), and from March 1 to March 4, there are 4 days. So, the total number of days from January 1 to March 4 is 31 + 28 + 4 = 63 days. Since 63 divided by 7 (the number of days in a week) gives a remainder of 0, it means that 63 days is a multiple of 7, which is 9 weeks. Therefore, the day of the week on March 4 would be the same as January 1, which is a Thursday. </think>\n<answer>Thursday</answer>",
+      "score": 0.1,
+      "metadata": "{'task': 'weekday_of_date_from_first_day', 'year': 2022, 'first_day': 'Thursday', 'target_date': '2022-03-04', 'delta_days': 62}"
+    },
+    {
+      "question": "Count backward 76 days from Saturday, July 2, 2022 - what's the weekday? Name the day of the week in full.",
+      "expected_answer": "Sunday",
+      "model_answer": "Sunday",
+      "full_model_response": "<think> To find the weekday 76 days before Saturday, July 2, 2022, we first need to determine the date 76 days prior. Since a week has 7 days, we can subtract the weeks first and then the remaining days. 76 days is equal to 10 weeks and 6 days (76 = 10 * 7 + 6). Subtracting 10 weeks brings us back to the same day of the week. Then, we subtract the remaining 6 days. So, if we start on a Saturday and go back 6 days, we move through Friday, Thursday, Wednesday, Tuesday, Monday, and end up on Sunday. Therefore, the weekday 76 days before Saturday, July 2, 2022, is Sunday. </think>\n<answer>Sunday</answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'weekday_offset', 'start_date': '2022-07-02', 'offset_days': -76, 'target_date': '2022-04-17'}"
+    },
+    {
+      "question": "In a year where Monday is January 1st, name the weekday of February 25. Answer using the complete weekday name.",
+      "expected_answer": "Sunday",
+      "model_answer": "Monday",
+      "full_model_response": "<think> To find the weekday of February 25 in a year where Monday is January 1st, we first need to calculate the number of days from January 1st to February 25. January has 31 days, so from January 1st to January 31st, there are 31 days. Since February 25 is the 25th day of February, we add those days to the total. 31 days in January + 25 days in February = 56 days total. Since the week repeats every 7 days, we divide 56 by 7 to find how many complete weeks have passed and the remainder to determine the day of the week. 56 divided by 7 is 8 weeks with no remainder. This means that 56 days is exactly 8 weeks, which brings us back to the same day of the week as January 1st, which is a Monday. </think>\n<answer>Monday</answer>",
+      "score": 0.1,
+      "metadata": "{'task': 'weekday_of_date_from_first_day', 'year': 2022, 'first_day': 'Monday', 'target_date': '2022-02-25', 'delta_days': 55}"
+    },
+    {
+      "question": "Between Saturday, June 11, 2022 and Monday, June 27, 2022 (counting both dates), how many times does Friday occur? Give the count numerically.",
+      "expected_answer": "2",
+      "model_answer": "2",
+      "full_model_response": "<think> To solve this, we first identify the dates given: Saturday, June 11, 2022, and Monday, June 27, 2022. We need to count how many Fridays occur between and including these dates. June 11, 2022, is a Saturday, so the first Friday after this date would be June 17, 2022. Then, we look for the next Fridays, which fall on June 24, 2022. Since the period ends on June 27, 2022, which is a Monday, we do not go beyond June 24, 2022, for counting Fridays. Thus, we count the Fridays: June 17, 2022, and June 24, 2022. </think>\n<answer> 2 </answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'count_days', 'year': 2022, 'start_date': '2022-06-11', 'end_date': '2022-06-27'}"
+    },
+    {
+      "question": "Count forward 15 days from Tuesday, June 14, 2022 - what's the weekday? Name the day of the week in full.",
+      "expected_answer": "Wednesday",
+      "model_answer": "Wednesday",
+      "full_model_response": "<think> To find the weekday 15 days from Tuesday, June 14, 2022, we first need to understand that a week has 7 days. So, 14 days from any given day will be the same day of the week. Therefore, 14 days from Tuesday, June 14, 2022, will also be a Tuesday. Since we need to count forward 15 days, we simply add one more day to Tuesday. The day after Tuesday is Wednesday. Thus, 15 days from Tuesday, June 14, 2022, will be a Wednesday. </think>\n<answer>Wednesday</answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'weekday_offset', 'start_date': '2022-06-14', 'offset_days': 15, 'target_date': '2022-06-29'}"
+    },
+    {
+      "question": "If a meeting is scheduled on the third Saturday of May 2022, on which day of the month does it occur? Express your answer as a number. Answer with -1 if the ordinal does not exist in the month.",
+      "expected_answer": "21",
+      "model_answer": "21",
+      "full_model_response": "<think> To determine the day of the month on which the third Saturday of May 2022 occurs, we first need to identify the dates of the Saturdays in May 2022. May 2022 starts on a Sunday. The first Saturday in May 2022 is the 7th, the second Saturday is the 14th, and the third Saturday is the 21st. Therefore, the meeting is scheduled on the 21st of May. </think>\n<answer> 21 </answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'recurring_event_day', 'year': 2022, 'month': 5, 'ordinal': 'third', 'weekday': 'Saturday'}"
+    },
+    {
+      "question": "What day of the week was September 18, 2022? Give the weekday name in full.",
+      "expected_answer": "Sunday",
+      "model_answer": "Sunday",
+      "full_model_response": "\n\n<think> To find out the day of the week for September 18, 2022, we can use Zeller's Congruence formula or simply refer to a calendar for that year. Given that 2022 is not a leap year, we can calculate or look up the day of the week for September 18. </think>\n<answer> Sunday </answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'weekday_of_date', 'target_date': '2022-09-18'}"
+    },
+    {
+      "question": "In a year where Monday is January 1st, name the weekday of April 3. Answer using the complete weekday name.",
+      "expected_answer": "Tuesday",
+      "model_answer": "Wednesday",
+      "full_model_response": "<think> To find the weekday of April 3 in a year where Monday is January 1st, we first calculate the number of days from January 1 to April 3. January has 31 days, February has 28 days (assuming it's not a leap year), and March has 31 days. So, from January 1 to January 31, there are 31 days. From February 1 to February 28, there are 28 days. And from March 1 to March 31, there are 31 days. Then, we have 3 days in April. In total, that's 31 + 28 + 31 + 3 = 93 days. Since we start on a Monday and 93 days is 13 weeks and 2 days (because 93 divided by 7 gives 13 weeks with a remainder of 2), we can determine the weekday by adding 2 days to Monday. Monday + 2 days = Wednesday. </think>\n<answer>Wednesday</answer>",
+      "score": 0.1,
+      "metadata": "{'task': 'weekday_of_date_from_first_day', 'year': 2022, 'first_day': 'Monday', 'target_date': '2022-04-03', 'delta_days': 92}"
+    },
+    {
+      "question": "Between Thursday, April 21, 2022 and Saturday, June 18, 2022 (counting both dates), how many times does Friday occur? Express your answer as a number.",
+      "expected_answer": "9",
+      "model_answer": "9",
+      "full_model_response": "<think> To find out how many times Friday occurs between Thursday, April 21, 2022, and Saturday, June 18, 2022, we first need to identify the dates of the Fridays within this range. Since the start date is a Thursday and the end date is a Saturday, we will include the Friday of the week that includes April 21 and the Friday of the week that includes June 18. April 22, 2022, is the first Friday, and June 17, 2022, is the last Friday within the given range. We then calculate the number of weeks between these two dates and add 1 to account for including both the first and last Fridays. The number of Fridays can be calculated by finding the difference in weeks between April 22 and June 17, and then adding 1. </think>\n<answer> 9 </answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'count_days', 'year': 2022, 'start_date': '2022-04-21', 'end_date': '2022-06-18'}"
+    },
+    {
+      "question": "On which weekday did August 18, 2022 fall? Answer using the complete weekday name.",
+      "expected_answer": "Thursday",
+      "model_answer": "Thursday",
+      "full_model_response": "<think> To determine the weekday on which August 18, 2022 fell, we can use the date and apply the Zeller's Congruence formula or simply use a calendar. However, a more straightforward approach is to recall or look up the day of the week for that specific date. Given that August 18, 2022, is the date in question, we can calculate or recall that it fell on a Thursday. </think>\n<answer>Thursday</answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'weekday_of_date', 'target_date': '2022-08-18'}"
+    },
+    {
+      "question": "If today is Tuesday, April 5, 2022, what day of the week will it be in 95 days? State the weekday (Monday through Sunday).",
+      "expected_answer": "Saturday",
+      "model_answer": "Saturday",
+      "full_model_response": "<think> To find out the day of the week in 95 days, we first need to determine the number of weeks and the remaining days in 95 days. Since there are 7 days in a week, we divide 95 by 7. This gives us 13 weeks and 4 remaining days (95 = 13 * 7 + 4). Now, we add these 4 remaining days to the current day of the week, which is Tuesday. Tuesday + 4 days would be Tuesday, Wednesday, Thursday, Friday, and Saturday, so in 95 days, it will be Saturday. </think>\n<answer> Saturday </answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'weekday_offset', 'start_date': '2022-04-05', 'offset_days': 95, 'target_date': '2022-07-09'}"
+    },
+    {
+      "question": "Determine if the year 2065 is a leap year. Answer with Yes or No.",
+      "expected_answer": "No",
+      "model_answer": "No",
+      "full_model_response": "<think> To determine if a year is a leap year, we need to check if it is divisible by 4. However, years that are divisible by 100 are not leap years unless they are also divisible by 400. The year 2065 is not divisible by 4, so it does not meet the criteria for being a leap year. </think>\n<answer> No </answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'is_leap_year', 'year': 2065, 'is_leap': False}"
+    },
+    {
+      "question": "If today is Sunday, June 19, 2022, what day of the week was it 78 days ago? Name the day of the week in full.",
+      "expected_answer": "Saturday",
+      "model_answer": "Saturday",
+      "full_model_response": "<think> To find out the day of the week 78 days ago, we first need to determine how many weeks and remaining days are in 78 days. Since there are 7 days in a week, we divide 78 by 7. 78 divided by 7 equals 11 weeks and 1 day. This means that 78 days ago is the same as 11 weeks and 1 day ago. Given that today is Sunday, if we go back 11 weeks, we will still be on a Sunday because weeks are cycles of 7 days and do not change the day of the week. Then, going back one more day from Sunday would bring us to Saturday. </think>\n<answer> Saturday </answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'weekday_offset', 'start_date': '2022-06-19', 'offset_days': -78, 'target_date': '2022-04-02'}"
+    },
+    {
+      "question": "Between Monday, April 11, 2022 and Saturday, May 7, 2022 (counting both dates), how many times does Saturday occur? Write the total number.",
+      "expected_answer": "4",
+      "model_answer": "4",
+      "full_model_response": "<think> To find out how many times Saturday occurs between Monday, April 11, 2022, and Saturday, May 7, 2022, we need to first identify the dates of all the Saturdays in this period. April 11, 2022, is a Monday, so the first Saturday after this date would be April 16, 2022. Then, we continue counting Saturdays until we reach May 7, 2022. The Saturdays in this period are April 16, 2022, April 23, 2022, April 30, 2022, and May 7, 2022. Therefore, we count the total number of Saturdays. </think>\n<answer> 4 </answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'count_days', 'year': 2022, 'start_date': '2022-04-11', 'end_date': '2022-05-07'}"
+    },
+    {
+      "question": "On which weekday did February 21, 2022 fall? Answer with the weekday's name (e.g., Monday, Tuesday, etc.).",
+      "expected_answer": "Monday",
+      "model_answer": "Monday",
+      "full_model_response": "<think> To determine the weekday on which February 21, 2022 fell, we can use Zeller's Congruence formula or simply refer to a calendar for that year. Given that 2022 is not a leap year, February has 28 days. We know that January 1, 2022, was a Saturday. We can count the days from January 1 to February 21, accounting for the days in January and the first 21 days of February to find out which day of the week it was. January has 31 days, so from January 1 to January 31, it's 31 days, which is 4 weeks and 3 days (since 31 divided by 7 leaves a remainder of 3). This means January 31 was 3 days ahead of Saturday, which would be a Tuesday. Then, moving into February, we add the first 21 days. 21 days is 3 weeks, which brings us back to the same day of the week as January 31, and then we add the extra days from the remainder, but since 21 is exactly 3 weeks, it doesn't advance the day of the week further. Thus, February 21, 2022, fell on the same weekday as January 31, 2022, which is a Monday, considering the calculation error in determining the exact day based on the initial Saturday start for January 1, 2022. Correcting the approach: knowing January 1, 2022, was a Saturday, we can accurately calculate the day for February 21 by properly accounting for each month's contribution to the day of the week shift. January 31, being 31 days after January 1, would indeed be a Monday (since 31 mod 7 = 3, and Saturday + 3 days = Tuesday, but considering the full month's passage and its effect on the weekly cycle, the correct approach involves understanding the pattern of the days). To simplify, using a calendar or a more straightforward method like referencing a known weekday for a specific date in 2022 or using an online calendar tool would directly tell us the day of the week for February 21, 2022. </think>\n<answer> Monday </answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'weekday_of_date', 'target_date': '2022-02-21'}"
+    },
+    {
+      "question": "If the first day of the year was a Wednesday, what day of the week will March 15 be? Reply with just the weekday name.",
+      "expected_answer": "Saturday",
+      "model_answer": "Wednesday",
+      "full_model_response": "<think> To find out the day of the week for March 15, we first need to calculate the number of days from January 1 to March 15. January has 31 days, February has 28 days (since it's not a leap year), and March 15 is the 15th day of March. So, the total number of days from January 1 to March 15 is 31 + 28 + 15 = 74 days. Since 74 divided by 7 leaves a remainder of 4, we can determine the day of the week by adding 4 days to Wednesday (the first day of the year). Wednesday + 4 days = Sunday. </think>\n<answer>Wednesday</answer>",
+      "score": 0.1,
+      "metadata": "{'task': 'weekday_of_date_from_first_day', 'year': 2022, 'first_day': 'Wednesday', 'target_date': '2022-03-15', 'delta_days': 73}"
+    },
+    {
+      "question": "In March 2022, if an event recurs on the last Tuesday, what is the date (day of the month) of the event? Give the count numerically. Answer with -1 if the ordinal does not exist in the month.",
+      "expected_answer": "29",
+      "model_answer": "29",
+      "full_model_response": "<think> To solve this, we need to identify the last Tuesday in March 2022. March 2022 has 31 days. We start by checking the last few days of the month to find the last Tuesday. The weeks of the month are as follows: the first week starts on March 1 (Tuesday), meaning the last week of the month would start on March 28 (Monday) since March 27 is a Sunday. Thus, the last Tuesday would fall on March 29, because March 28 is a Monday, March 29 is a Tuesday, and March 30 and March 31 are Wednesday and Thursday, respectively. So, the last Tuesday in March 2022 is indeed March 29. Therefore, the date (day of the month) of the event, which recurs on the last Tuesday, is the 29th. </think>\n<answer>29</answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'recurring_event_day', 'year': 2022, 'month': 3, 'ordinal': 'last', 'weekday': 'Tuesday'}"
+    },
+    {
+      "question": "How many Sundays are there from Wednesday, March 30, 2022 to Thursday, April 7, 2022 (inclusive of both dates)? Express your answer as a number.",
+      "expected_answer": "1",
+      "model_answer": "1",
+      "full_model_response": "<think> To find the number of Sundays between Wednesday, March 30, 2022, and Thursday, April 7, 2022, we first identify the dates of the Sundays within this range. March 30, 2022, is a Wednesday, so the first Sunday after this date would be April 3, 2022. The next Sunday would then be April 10, 2022, but since our range ends on April 7, 2022, we do not include April 10. Thus, the only Sunday within our range is April 3, 2022. However, we should also check if there's a Sunday before April 3 that is within our range. Since March 30 is a Wednesday, the Sunday before April 3 would be March 27, but this is outside our specified range starting from March 30. Therefore, there is only one Sunday within the given dates. </think>\n<answer> 1 </answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'count_days', 'year': 2022, 'start_date': '2022-03-30', 'end_date': '2022-04-07'}"
+    },
+    {
+      "question": "In August 2022, if an event recurs on the third Wednesday, what is the date (day of the month) of the event? Provide the count as a number. Answer with -1 if the ordinal does not exist in the month.",
+      "expected_answer": "17",
+      "model_answer": "17",
+      "full_model_response": "<think> To solve this problem, we first need to identify the Wednesdays in August 2022 and then find the third one. August 2022 starts on a Monday. The first Wednesday is on the 3rd, the second Wednesday is on the 10th, the third Wednesday is on the 17th, the fourth Wednesday is on the 24th, and the fifth Wednesday is on the 31st. Since we are looking for the third Wednesday and it exists, we can determine the date. </think>\n<answer>17</answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'recurring_event_day', 'year': 2022, 'month': 8, 'ordinal': 'third', 'weekday': 'Wednesday'}"
+    },
+    {
+      "question": "Determine the day of the month for the last Thursday in February 2022. Answer with a number. Answer with -1 if the ordinal does not exist in the month.",
+      "expected_answer": "24",
+      "model_answer": "24",
+      "full_model_response": "<think> To determine the day of the month for the last Thursday in February 2022, we first need to find out the number of days in February 2022. Since 2022 is not a leap year, February has 28 days. Next, we identify the first Thursday in February 2022 by checking the day of the week for February 1, 2022. Knowing that February 1, 2022, was a Tuesday, we can calculate that the first Thursday would be February 3, 2022. Then, we count the Thursdays in the month: February 3, February 10, February 17, and February 24. Thus, the last Thursday in February 2022 falls on February 24. </think>\n<answer>24</answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'recurring_event_day', 'year': 2022, 'month': 2, 'ordinal': 'last', 'weekday': 'Thursday'}"
+    },
+    {
+      "question": "If a meeting is scheduled on the third Friday of May 2022, on which day of the month does it occur? Express your answer as a number. Answer with -1 if the ordinal does not exist in the month.",
+      "expected_answer": "20",
+      "model_answer": "20",
+      "full_model_response": "<think> To find out on which day of the month the meeting occurs, we first need to identify the third Friday in May 2022. May 2022 starts on a Sunday. The Fridays in May 2022 are: 6th, 13th, 20th, and 27th. Therefore, the third Friday is on the 20th. </think>\n<answer> 20 </answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'recurring_event_day', 'year': 2022, 'month': 5, 'ordinal': 'third', 'weekday': 'Friday'}"
+    },
+    {
+      "question": "Starting from Saturday, May 14, 2022, which weekday falls after a 32-day jump? Reply with just the weekday name.",
+      "expected_answer": "Wednesday",
+      "model_answer": "Wednesday",
+      "full_model_response": "<think> To find the weekday after a 32-day jump from Saturday, May 14, 2022, we first need to understand how weekdays progress. Every 7 days, the weekday repeats itself. Since 32 is not evenly divisible by 7 (32 days = 4 weeks and 4 days), we'll calculate the jump as 4 full weeks (which brings us back to the same day of the week) plus the additional 4 days. Therefore, starting from Saturday, adding 4 weeks lands us on another Saturday, and then adding the extra 4 days moves us forward in the week: Sunday (1 day after), Monday (2 days after), Tuesday (3 days after), and Wednesday (4 days after). </think>\n<answer>Wednesday</answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'weekday_offset', 'start_date': '2022-05-14', 'offset_days': 32, 'target_date': '2022-06-15'}"
+    },
+    {
+      "question": "Starting from Friday, February 25, 2022, which weekday falls after a 53-day jump? Reply with just the weekday name.",
+      "expected_answer": "Tuesday",
+      "model_answer": "Tuesday",
+      "full_model_response": "<think> To find the weekday after a 53-day jump, we first need to understand that a week has 7 days. Starting from Friday, February 25, 2022, we can calculate the number of complete weeks (7-day periods) within 53 days by dividing 53 by 7. 53 divided by 7 equals 7 with a remainder of 4. This means that 53 days consist of 7 complete weeks and an additional 4 days. Since we start on a Friday and move forward 7 complete weeks, we end up back on a Friday. Then, moving forward an additional 4 days from Friday, we go through Saturday, Sunday, Monday, and land on Tuesday. </think>\n<answer> Tuesday </answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'weekday_offset', 'start_date': '2022-02-25', 'offset_days': 53, 'target_date': '2022-04-19'}"
+    },
+    {
+      "question": "Between Saturday, August 27, 2022 and Wednesday, November 23, 2022 (counting both dates), what's the total count of business days (Monday through Friday)? Provide the count as a number.",
+      "expected_answer": "63",
+      "model_answer": "67",
+      "full_model_response": "<think> To find the total count of business days between Saturday, August 27, 2022, and Wednesday, November 23, 2022, first, calculate the total number of days in the period, then subtract the weekends. The period starts on a Saturday and ends on a Wednesday. Count the number of complete weeks (7-day periods) in this timeframe and the remaining days. From August 27, 2022, to November 23, 2022, there are 13 complete weeks (from August 29, 2022, to November 20, 2022) because August 27 and 28 are part of the first week, and November 21 to 23 are the extra days. Each complete week has 5 business days (Monday to Friday). Additionally, for the remaining days (August 29 to November 23), count the business days individually: August 29 (Monday) to August 31 is 3 business days, September 1 to September 30 is 22 business days (all September), October 1 to October 31 is 21 or 22 business days (since October 31 is a Monday, it counts as a business day), and November 1 to November 23 has 18 business days up to the Wednesday, November 23. However, a simpler approach might be to calculate the total days and then subtract the non-business days (weekends). From August 27 to November 23, there are 89 days total. Since this includes both a Saturday at the beginning and a Wednesday at the end, we need to account for all the full weeks and the extra days. There are 12 full weeks from September 5 to November 20, providing 12 * 5 = 60 business days. The extra days are: August 29 to September 2 (4 business days since August 27 and 28 are weekend days), and November 21 to 23 (3 business days). Thus, the total is the 60 days from the complete weeks plus the additional days from the extra weeks: 60 (from complete weeks) + 4 (from the first week) + 3 (from the last week) = 67 business days. </think>\n<answer>67</answer>",
+      "score": 0.7279955689141826,
+      "metadata": "{'task': 'count_business_days', 'start_date': '2022-08-27', 'end_date': '2022-11-23'}"
+    },
+    {
+      "question": "How many business days (Monday-Friday) are there from Thursday, January 20, 2022 to Tuesday, February 1, 2022 (inclusive of both dates)? Provide the count as a number.",
+      "expected_answer": "9",
+      "model_answer": "9",
+      "full_model_response": "<think> To calculate the number of business days from Thursday, January 20, 2022, to Tuesday, February 1, 2022, we first need to identify all the days in this range and then exclude the weekends (Saturdays and Sundays). The period includes January 20 to January 31 and February 1. So, we break it down:\n- January 20 (Thursday) to January 31 (Monday) is 12 days. \n- February 1 (Tuesday) adds 1 more day.\nNow, we need to count the weekends in this period to subtract them. \n- January 22-23 (Saturday and Sunday)\n- January 29-30 (Saturday and Sunday)\nThere are 2 weekends, totaling 4 days. Thus, we subtract these from our total: 12 (January days) + 1 (February day) - 4 (weekend days) = 9 business days.\n</think>\n<answer>9</answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'count_business_days', 'start_date': '2022-01-20', 'end_date': '2022-02-01'}"
+    },
+    {
+      "question": "If today is Monday, May 23, 2022, what day of the week will it be in 59 days? Write out the full weekday name.",
+      "expected_answer": "Thursday",
+      "model_answer": "Thursday",
+      "full_model_response": "<think> To solve this problem, we need to determine the day of the week 59 days from Monday, May 23, 2022. There are 7 days in a week, so we can find the number of weeks and remaining days by dividing 59 by 7. 59 divided by 7 equals 8 with a remainder of 3. This means that 59 days from now will be 8 weeks and 3 days from Monday, May 23, 2022. Since 8 weeks will end on the same day of the week (Monday), we only need to consider where 3 additional days will take us. Monday plus 3 days will be Thursday. </think>\n<answer>Thursday</answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'weekday_offset', 'start_date': '2022-05-23', 'offset_days': 59, 'target_date': '2022-07-21'}"
+    },
+    {
+      "question": "If the first day of the year was a Friday, what day of the week will March 21 be? Reply with just the weekday name.",
+      "expected_answer": "Sunday",
+      "model_answer": "Monday",
+      "full_model_response": "<think> To find the day of the week for March 21, first determine the number of days from January 1 to March 21. January has 31 days, February has 28 days (assuming a non-leap year for simplicity, but it doesn't affect the outcome since we're only looking for the day of the week), and March up to the 21st has 21 days. So, total days = 31 + 28 + 21 = 80 days. Since the week repeats every 7 days, divide 80 by 7 to find the remainder. 80 / 7 gives a quotient of 11 with a remainder of 3. This means that from January 1, 80 days later is 11 weeks and 3 days ahead. Since January 1 is a Friday, adding 3 days moves forward to Monday (Friday, Saturday, Sunday, Monday). Therefore, March 21 will be on a Monday. </think>\n<answer>Monday</answer>",
+      "score": 0.1,
+      "metadata": "{'task': 'weekday_of_date_from_first_day', 'year': 2022, 'first_day': 'Friday', 'target_date': '2022-03-21', 'delta_days': 79}"
+    },
+    {
+      "question": "Count forward 24 days from Monday, October 24, 2022 - what's the weekday? Name the day of the week in full.",
+      "expected_answer": "Thursday",
+      "model_answer": "Thursday",
+      "full_model_response": "<think> To find the weekday 24 days from Monday, October 24, 2022, we first need to understand how weekdays progress. Every 7 days, the weekday repeats itself because there are 7 days in a week. Since we're counting forward 24 days, we divide 24 by 7 to see how many complete weeks (7-day cycles) are included in those 24 days, and what the remainder is. 24 divided by 7 gives us 3 complete weeks (since 7*3 = 21 days) and a remainder of 3 days (since 24 - 21 = 3). This means that after 3 complete weeks (which brings us back to the same day of the week), we need to count forward an additional 3 days. Starting from Monday, October 24, 2022, and moving forward 3 weeks brings us to Monday, November 14, 2022. Then, counting forward those extra 3 days: Tuesday (November 15), Wednesday (November 16), and Thursday (November 17). Therefore, 24 days from Monday, October 24, 2022, the weekday will be Thursday. </think>\n<answer>Thursday</answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'weekday_offset', 'start_date': '2022-10-24', 'offset_days': 24, 'target_date': '2022-11-17'}"
+    },
+    {
+      "question": "Given that January 1 fell on a Monday, which weekday occurs on March 6? State the weekday (Monday through Sunday).",
+      "expected_answer": "Tuesday",
+      "model_answer": "Wednesday",
+      "full_model_response": "<think> To determine the weekday that occurs on March 6, given that January 1 fell on a Monday, we first need to calculate the number of days from January 1 to March 6. January has 31 days, February has 28 days (since it's not a leap year), and from March 1 to March 6, there are 6 days. So, the total number of days from January 1 to March 6 is 31 + 28 + 6 = 65 days. Since 65 divided by 7 (the number of days in a week) gives a remainder of 2, we can conclude that March 6 is 2 days ahead of a Monday. Therefore, the weekday that occurs on March 6 is Wednesday. </think>\n<answer> Wednesday </answer>",
+      "score": 0.1,
+      "metadata": "{'task': 'weekday_of_date_from_first_day', 'year': 2022, 'first_day': 'Monday', 'target_date': '2022-03-06', 'delta_days': 64}"
+    },
+    {
+      "question": "Tell me whether 2078 is a leap year. Answer with Yes or No.",
+      "expected_answer": "No",
+      "model_answer": "No",
+      "full_model_response": "<think> To determine if 2078 is a leap year, we need to consider the rules for leap years. A year is a leap year if it is divisible by 4, but years divisible by 100 are not leap years unless they are also divisible by 400. Therefore, we will check if 2078 meets these criteria. </think>\n<answer> No </answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'is_leap_year', 'year': 2078, 'is_leap': False}"
+    },
+    {
+      "question": "If a meeting is scheduled on the fourth Thursday of October 2022, on which day of the month does it occur? Express your answer as a number. Answer with -1 if the ordinal does not exist in the month.",
+      "expected_answer": "27",
+      "model_answer": "27",
+      "full_model_response": "<think> To determine on which day of the month the meeting occurs, we first need to identify the Thursdays in October 2022. October has 31 days. We then find the first Thursday and count the Thursdays to find the fourth one. The Thursdays in October 2022 are: 6th, 13th, 20th, and 27th. The fourth Thursday is on the 27th. Thus, the meeting occurs on the 27th of the month. </think>\n<answer>27</answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'recurring_event_day', 'year': 2022, 'month': 10, 'ordinal': 'fourth', 'weekday': 'Thursday'}"
+    },
+    {
+      "question": "If the first day of the year was a Thursday, what day of the week will February 19 be? Reply with just the weekday name.",
+      "expected_answer": "Thursday",
+      "model_answer": "Friday",
+      "full_model_response": "<think> To determine the day of the week for February 19, we need to calculate the number of days from January 1 to February 19. January has 31 days, so from January 1 to January 31, there are 31 days. Since February 19 is 19 days into February, we add those days as well. 31 (January days) + 19 (February days) = 50 days. Now, we divide the total number of days by 7 to find the remainder, which tells us how many days the day of the week shifts. 50 days / 7 days per week = 7 weeks and 1 day. Since the first day of the year was a Thursday, we add one day to Thursday to find the day of the week for February 19. </think>\n<answer> Friday </answer>",
+      "score": 0.1,
+      "metadata": "{'task': 'weekday_of_date_from_first_day', 'year': 2022, 'first_day': 'Thursday', 'target_date': '2022-02-19', 'delta_days': 49}"
+    },
+    {
+      "question": "Is 1986 a leap year? Answer with Yes or No.",
+      "expected_answer": "No",
+      "model_answer": "No",
+      "full_model_response": "<think> To determine if 1986 is a leap year, we need to check if it is divisible by 4. If it is, then it is a leap year, unless it is also divisible by 100, in which case it is not a leap year, unless it is also divisible by 400. 1986 is not divisible by 4, so it does not meet the initial criteria for being a leap year. </think>\n<answer> No </answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'is_leap_year', 'year': 1986, 'is_leap': False}"
+    },
+    {
+      "question": "Determine if the year 1970 is a leap year. Answer with Yes or No.",
+      "expected_answer": "No",
+      "model_answer": "No",
+      "full_model_response": "<think> To determine if 1970 is a leap year, we need to follow the rules for leap years. A year is a leap year if it is divisible by 4, except for years that are divisible by 100 but not by 400. So, first, we check if 1970 is divisible by 4. Since 1970 divided by 4 equals 492.5, it is not divisible by 4. Therefore, 1970 does not meet the criteria for being a leap year. </think>\n<answer> No </answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'is_leap_year', 'year': 1970, 'is_leap': False}"
+    },
+    {
+      "question": "Name the day of the week for 08/12/2022. State the weekday (Monday through Sunday).",
+      "expected_answer": "Friday",
+      "model_answer": "Friday",
+      "full_model_response": "<think> To find the day of the week for 08/12/2022, I can use Zeller's Congruence formula or consider the number of\u9e4cays from a known reference date.</think>\n<answer> Friday </answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'weekday_of_date', 'target_date': '2022-08-12'}"
+    },
+    {
+      "question": "In a year where Thursday is January 1st, name the weekday of March 11. Respond with the weekday (Monday-Sunday).",
+      "expected_answer": "Wednesday",
+      "model_answer": "Thursday",
+      "full_model_response": "<think> To find the weekday of March 11 in a year where Thursday is January 1st, we first need to calculate the number of days from January 1 to March 11. January has 31 days, February has 28 days (assuming it's not a leap year), and March 11 is the 11th day of March. So, the total number of days from January 1 to March 11 is 31 (January) + 28 (February) + 11 (March) = 70 days. Since the week repeats every 7 days, we divide 70 by 7 to find how many complete weeks have passed and the remainder will tell us how many days past a complete week cycle we are. 70 divided by 7 is 10 weeks with no remainder. This means that 70 days is exactly 10 weeks, which brings us back to the same day of the week as January 1st. Therefore, if January 1st is a Thursday, March 11 will also be a Thursday. </think>\n<answer>Thursday</answer>",
+      "score": 0.1,
+      "metadata": "{'task': 'weekday_of_date_from_first_day', 'year': 2022, 'first_day': 'Thursday', 'target_date': '2022-03-11', 'delta_days': 69}"
+    },
+    {
+      "question": "Between Sunday, August 21, 2022 and Monday, October 3, 2022 (counting both dates), how many times does Friday occur? Reply with the numerical value.",
+      "expected_answer": "6",
+      "model_answer": "6",
+      "full_model_response": "<think> To find the number of Fridays between Sunday, August 21, 2022, and Monday, October 3, 2022, we should first identify the dates of the Fridays within this range. August 2022 has Fridays on the 26th, and September 2022 has Fridays on the 2nd, 9th, 16th, 23rd, and 30th. Then, in October 2022, the first Friday would be on the 7th, but since we are counting up to October 3, 2022, we do not include the October 7th Friday. Now, we add up all these Fridays. We find that August contributes 1 Friday, September contributes 4 Fridays, and there are no Fridays from October that are within our date range that we haven't already counted. Thus, the total number of Fridays between the dates is 1 (from August) + 4 (from September) = 5 Fridays, and then we also need to include the Fridays from the start of the period back in August. On August 21, 2022, the previous Friday was on the 19th, so the first Friday within our counting period is actually August 26, 2022. We should also note that September 2nd is the next Friday after August 26th, and the subsequent Fridays follow as expected. However, looking back to the initial part of the range, the first Friday within the specified range indeed occurs on the 26th of August, as previously established. Given the accurate accounting of Fridays in the respective months, we determine there's an accurate count of Fridays based on the start and end dates provided. Therefore, including the Friday of August 26th, there is a consistent pattern of Fridays up to the last one in September before October 3rd. Since we already counted those, our final tally reflects an accurate assessment of Fridays within the timeframe given. </think>\n<answer> 6 </answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'count_days', 'year': 2022, 'start_date': '2022-08-21', 'end_date': '2022-10-03'}"
+    },
+    {
+      "question": "On which weekday did August 17, 2022 fall? State the weekday (Monday through Sunday).",
+      "expected_answer": "Wednesday",
+      "model_answer": "Wednesday",
+      "full_model_response": "<think> To determine the weekday on which August 17, 2022 fell, we can use Zeller's Congruence formula or a calendar. However, a simpler approach involves using a standard calendar for the year 2022 and looking up the date August 17. Given that August 2022 starts on a Monday, we can count the days to find the weekday for the 17th. </think>\n<answer> Wednesday </answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'weekday_of_date', 'target_date': '2022-08-17'}"
+    },
+    {
+      "question": "In August 2022, if an event recurs on the first Tuesday, what is the date (day of the month) of the event? Answer with a number. Answer with -1 if the ordinal does not exist in the month.",
+      "expected_answer": "2",
+      "model_answer": "2",
+      "full_model_response": "<think> To solve this problem, we need to find the date of the first Tuesday in August 2022. We can use a calendar or calculate the day of the week for August 1, 2022, and then find the first Tuesday. August 1, 2022, is a Monday. The first Tuesday would be the next day, which is August 2, 2022. </think>\n<answer> 2 </answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'recurring_event_day', 'year': 2022, 'month': 8, 'ordinal': 'first', 'weekday': 'Tuesday'}"
+    },
+    {
+      "question": "How many business days (Monday-Friday) are there from Thursday, May 26, 2022 to Friday, September 2, 2022 (inclusive of both dates)? Express your answer as a number.",
+      "expected_answer": "72",
+      "model_answer": "73",
+      "full_model_response": "<think> To find the number of business days from Thursday, May 26, 2022, to Friday, September 2, 2022, we first need to calculate the total number of days in this period and then subtract the weekends (Saturdays and Sundays). \n\n1. Calculate the total number of days from May 26, 2022, to September 2, 2022.\nMay has 31 days, so from May 26 to May 31, there are 6 days.\nJune has 30 days.\nJuly has 31 days.\nAugust has 31 days.\nFrom September 1 to September 2, there are 2 days.\nSo, total days = 6 (remaining in May) + 30 (June) + 31 (July) + 31 (August) + 2 (in September) = 100 days.\n\n2. Calculate the number of weekends (Saturdays and Sundays) in this period.\nSince the period starts on a Thursday and ends on a Friday, we need to consider the full weekends (both Saturday and Sunday) within the complete months of June, July, and August, and the partial months of May and September.\n- May 2022 has 1 full weekend (since it starts on a Thursday, the 26th, and includes the 28th and 29th).\n- June, July, and August each have 4 full weekends (since they start on a Wednesday, Friday, and Sunday respectively, but each month has 4 weekends).\n- September 2022 has 1 weekend (since it includes the 3rd and 4th).\n\nSo, total full weekends = 1 (in May) + 4 (in June) + 4 (in July) + 4 (in August) + 1 (in September) = 14 weekends.\nEach weekend has 2 days (Saturday and Sunday), so total weekend days = 14 weekends * 2 days/weekend = 28 days.\n\n3. Subtract the total weekend days from the total days to find the number of business days.\nTotal business days = Total days - Total weekend days = 100 days - 28 days = 72 days.\n\nHowever, we need to ensure we're counting the days correctly, especially considering the start and end dates. The calculation above assumes all days are counted correctly, but let's verify the weekends and the specific days of the week for the start and end dates.\n\nGiven that May 26, 2022, is a Thursday and September 2, 2022, is a Friday, and considering the correct count of weekends and days, the approach seems to be logically sound. But to ensure accuracy, let's break it down further:\n- May 26 to May 31 includes 3 business days (Thursday, Friday, Monday) since the weekend (Saturday and Sunday) is counted as non-business days.\n- June, July, and August contribute (20 + 22 + 23) = 65 business days, since each month has approximately 4 weeks, and thus about 20-23 business days depending on how the weeks fall.\n- September 1 and 2 add 2 more business days.\n\nThus, recalculating or verifying with this breakdown:\n- May: 3 business days (26th, 27th, 30th, 31st) = 4 days (not 3, correcting the oversight).\n- June, July, August: Approximately 22 days/month * 3 months = 66 days, but accurately it's 22 (June) + 22 (July) + 23 (August) = 67 days.\n- September: 2 business days (1st, 2nd).\n\nSo, the correct total is 4 (May) + 67 (June, July, August) + 2 (September) = 73 business days.\n\n</think>\n<answer> 73 </answer>",
+      "score": 0.9329119603871474,
+      "metadata": "{'task': 'count_business_days', 'start_date': '2022-05-26', 'end_date': '2022-09-02'}"
+    },
+    {
+      "question": "What day of the week was December 20, 2022? Write out the full weekday name.",
+      "expected_answer": "Tuesday",
+      "model_answer": "Tuesday",
+      "full_model_response": "<think> To determine the day of the week for December 20, 2022, we can use Zeller's Congruence formula or a calendar. However, a simpler approach is to use a known reference point and adjust from there. Knowing that January 1, 2022, was a Saturday, we can calculate the day of the week for December 20, 2022, by adding the days from January 1 to December 20, considering leap years and the number of days in each month. December 20, 2022, falls on a Tuesday. </think>\n<answer>Tuesday</answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'weekday_of_date', 'target_date': '2022-12-20'}"
+    },
+    {
+      "question": "Determine if the year 2121 is a leap year. Answer with Yes or No.",
+      "expected_answer": "No",
+      "model_answer": "No",
+      "full_model_response": "<think> To determine if the year 2121 is a leap year, we need to recall the rules for leap years. A year is a leap year if it is divisible by 4, except for years that are divisible by 100 but not by 400. So, we first check if 2121 is divisible by 4. Since 2121 divided by 4 gives 530.25, it's not divisible by 4. Then, we don't need to check the other conditions because the first condition is not met. </think>\n<answer>No</answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'is_leap_year', 'year': 2121, 'is_leap': False}"
+    },
+    {
+      "question": "Name the day of the week for 12/07/2022. Provide the full name of the weekday.",
+      "expected_answer": "Wednesday",
+      "model_answer": "Wednesday",
+      "full_model_response": "<think> To find the day of the week for 12/07/2022, we can use Zeller's Congruence formula or look up a calendar for that specific date. December 7, 2022, falls on a Wednesday. </think>\n<answer>Wednesday</answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'weekday_of_date', 'target_date': '2022-12-07'}"
+    },
+    {
+      "question": "Determine the day of the month for the third Tuesday in April 2022. Answer with a number. Answer with -1 if the ordinal does not exist in the month.",
+      "expected_answer": "19",
+      "model_answer": "19",
+      "full_model_response": "<think> To determine the day of the month for the third Tuesday in April 2022, we need to find out which date the first Tuesday falls on and then calculate the dates of the following Tuesdays. April 2022 starts on a Friday. The first Tuesday would be on the 5th of April. If we add 7 days successively, the second Tuesday would be on the 12th, and the third Tuesday would be on the 19th. </think>\n<answer>19</answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'recurring_event_day', 'year': 2022, 'month': 4, 'ordinal': 'third', 'weekday': 'Tuesday'}"
+    },
+    {
+      "question": "Starting from Sunday, October 23, 2022, which weekday was it 34 days before? Provide the full name of the weekday.",
+      "expected_answer": "Monday",
+      "model_answer": "Monday",
+      "full_model_response": "<think> To find the weekday 34 days before Sunday, October 23, 2022, we first need to determine the date 34 days prior. Since a week has 7 days, 34 days would be 4 weeks and 6 days (because 34 divided by 7 gives 4 weeks and a remainder of 6 days). If we subtract 4 weeks (28 days) from October 23, 2022, we get September 25, 2022. Then, subtracting the remaining 6 days from September 25, 2022, we get September 19, 2022. Knowing the date, we can then find out which weekday it was. </think>\n<answer>Monday</answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'weekday_offset', 'start_date': '2022-10-23', 'offset_days': -34, 'target_date': '2022-09-19'}"
+    },
+    {
+      "question": "On which weekday did December 3, 2022 fall? Reply with just the weekday name.",
+      "expected_answer": "Saturday",
+      "model_answer": "Saturday",
+      "full_model_response": "<think> To determine the weekday on which December 3, 2022, fell, we need to use a method such as Zeller's Congruence or simply refer to a calendar for that year. Considering December 3, 2022, we find that it was a Saturday by looking at a calendar or calculating it. </think>\n<answer> Saturday </answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'weekday_of_date', 'target_date': '2022-12-03'}"
+    },
+    {
+      "question": "Starting from Thursday, October 6, 2022, which weekday was it 88 days before? Answer using the complete weekday name.",
+      "expected_answer": "Sunday",
+      "model_answer": "Sunday",
+      "full_model_response": "<think> To find the weekday 88 days before Thursday, October 6, 2022, we first need to understand how weekdays progress. Every 7 days, the weekday repeats itself. Since 88 divided by 7 gives us 12 with a remainder of 4, we know that 88 days is equivalent to 12 full weeks (which brings us back to the same day of the week) and 4 additional days. Therefore, we need to subtract 4 days from Thursday to find the weekday 88 days before. Subtracting 4 days from Thursday gives us Sunday. </think>\n<answer> Sunday </answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'weekday_offset', 'start_date': '2022-10-06', 'offset_days': -88, 'target_date': '2022-07-10'}"
+    },
+    {
+      "question": "Determine the day of the month for the last Friday in September 2022. Give the count numerically. Answer with -1 if the ordinal does not exist in the month.",
+      "expected_answer": "30",
+      "model_answer": "30",
+      "full_model_response": "<think> To find the day of the month for the last Friday in September 2022, first, we need to identify the number of days in September, which is 30. Then, we determine the day of the week for September 1, 2022, and calculate the day of the week for the last day of the month, September 30, 2022. Knowing that September 1, 2022, is a Thursday, we can calculate that September 30, 2022, is a Friday. Since the last day of the month is a Friday, we don't need to look further. Thus, the day of the month for the last Friday in September 2022 is the 30th. </think>\n<answer> 30 </answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'recurring_event_day', 'year': 2022, 'month': 9, 'ordinal': 'last', 'weekday': 'Friday'}"
+    },
+    {
+      "question": "Tell me whether 2048 is a leap year. Answer with Yes or No.",
+      "expected_answer": "Yes",
+      "model_answer": "Yes",
+      "full_model_response": "<think> To determine if 2048 is a leap year, we need to check if it is divisible by 4. If it is, then it is a leap year, unless it is also divisible by 100, in which case it is not a leap year unless it is also divisible by 400. The year 2048 is divisible by 4 and not by 100, so it meets the criteria for being a leap year. </think>\n<answer> Yes </answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'is_leap_year', 'year': 2048, 'is_leap': True}"
+    },
+    {
+      "question": "Count the occurrences of Sunday from Monday, April 4 to Tuesday, April 19, 2022 (including both start and end dates). Give the count numerically.",
+      "expected_answer": "2",
+      "model_answer": "2",
+      "full_model_response": "<think> To solve this problem, we need to identify the Sundays between Monday, April 4, 2022, and Tuesday, April 19, 2022, including both dates. First, we determine the date of the first Sunday after or on April 4, 2022, and the last Sunday before or on April 19, 2022. Since April 4, 2022, is a Monday, the first Sunday would be April 10, 2022. Then, we check the last Sunday before or on April 19, 2022, which is April 17, 2022. Now, we count the Sundays in this range: April 10, 2022, and April 17, 2022, are the two Sundays within this period. So, the number of Sundays is 2. </think>\n<answer>2</answer>",
+      "score": 1.0,
+      "metadata": "{'task': 'count_days', 'year': 2022, 'start_date': '2022-04-04', 'end_date': '2022-04-19'}"
+    }
+  ]
+}
