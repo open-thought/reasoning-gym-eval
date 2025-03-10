@@ -1,0 +1,363 @@
+{
+  "name": "intermediate_integration",
+  "category": "algebra",
+  "average_score": 0.66,
+  "total_examples": 50,
+  "config": {
+    "size": 50,
+    "seed": 45
+  },
+  "system_prompt": "Given a problem, your task is to answer the question by thinking step-by-step in a clear and specific manner.\nOnce you have thought about the reasoning process, provide the answer in the following format:\n<answer>answer here</answer>\nDo not explain your reasoning inside the answer tags, provide only the final answer. When an example is provided, you should strictly follow the format of the output/answer in that example.\n",
+  "results": [
+    {
+      "question": "Find the indefinite integral: \u222b -2*X**3*sin(X) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "2*X**3*cos(X) - 6*X**2*sin(X) - 12*X*cos(X) + 12*sin(X) + C",
+      "model_answer": "2*X**3*cos(X) + 6*X**2*sin(X) - 12*X*cos(X) + 12*sin(X) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) To integrate -2*X**3*sin(X), we can use integration by parts formula:\n   \u222bu*dv = u*v - \u222bv*du\n\n2) Let:\n   u = -2*X**3\n   dv = sin(X)*dx\n\n3) Then:\n   du = -6*X**2*dx\n   v = -cos(X)\n\n4) First application:\n   -2*X**3*(-cos(X)) - \u222b(-cos(X))*(-6*X**2)*dx\n   = 2*X**3*cos(X) - \u222b6*X**2*cos(X)*dx\n\n5) For the remaining integral, use parts again:\n   Let: u = 6*X**2, dv = cos(X)*dx\n   Then: du = 12*X*dx, v = sin(X)\n\n6) Second application:\n   6*X**2*sin(X) - \u222b12*X*sin(X)*dx\n\n7) For the last integral, use parts one more time:\n   Let: u = 12*X, dv = sin(X)*dx\n   Then: du = 12*dx, v = -cos(X)\n\n8) Final application:\n   -12*X*cos(X) - \u222b(-12*cos(X))*dx\n   = -12*X*cos(X) + 12*sin(X)\n\n9) Combining all terms:\n\n<answer>2*X**3*cos(X) + 6*X**2*sin(X) - 12*X*cos(X) + 12*sin(X) + C</answer>",
+      "score": 0.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b 3*(10*X + 10)**4 dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "6000*X**5 + 30000*X**4 + 60000*X**3 + 60000*X**2 + 30000*X + C",
+      "model_answer": "(3/50)*(10*X + 10)**5 + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, let's simplify what's inside the parentheses: (10*X + 10)\n\n2) Let's use u-substitution:\n   Let u = 10*X + 10\n   du = 10 dx\n   dx = du/10\n\n3) The integral becomes:\n   \u222b 3*(u)**4 * (du/10)\n   = (3/10) * \u222b u**4 du\n\n4) Integrate u**4:\n   (3/10) * (u**5/5)\n\n5) Substitute back:\n   (3/10) * ((10*X + 10)**5/5)\n   = (3/50) * (10*X + 10)**5\n\n6) Therefore:\n\n<answer>(3/50)*(10*X + 10)**5 + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b -2*x**3*exp(x) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "(-2*x**3 + 6*x**2 - 12*x + 12)*exp(x) + C",
+      "model_answer": "-2*x**3*exp(x) + 6*x**2*exp(x) + 12*x*exp(x) + 12*exp(x) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, let's recognize this is a product where one part is a polynomial (-2*x**3) and the other is exp(x).\n\n2) We can solve this using integration by parts with the formula: \u222bu*dv = u*v - \u222bv*du\n\n3) Let u = -2*x**3 and dv = exp(x)*dx\n   Then du = -6*x**2*dx and v = exp(x)\n\n4) First application:\n   = -2*x**3*exp(x) - \u222b(-6*x**2*exp(x))*dx\n\n5) For the remaining integral, let's use integration by parts again:\n   Let u = -6*x**2 and dv = exp(x)*dx\n   Then du = -12*x*dx and v = exp(x)\n\n6) Second application:\n   = -2*x**3*exp(x) - [-6*x**2*exp(x) - \u222b(-12*x*exp(x))*dx]\n\n7) One more time:\n   Let u = -12*x and dv = exp(x)*dx\n   Then du = -12*dx and v = exp(x)\n\n8) Final application:\n   = -2*x**3*exp(x) - [-6*x**2*exp(x) - (-12*x*exp(x) - \u222b(-12*exp(x))*dx)]\n\n9) Simplify:\n   = -2*x**3*exp(x) + 6*x**2*exp(x) + 12*x*exp(x) + 12*exp(x) + C\n\n<answer>-2*x**3*exp(x) + 6*x**2*exp(x) + 12*x*exp(x) + 12*exp(x) + C</answer>",
+      "score": 0.0
+    },
+    {
+      "question": "Find the indefinite integral: \u222b -sin(x)*cos(x) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-sin(x)**2/2 + C",
+      "model_answer": "1/4*cos(2*x) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, recall that -sin(x)*cos(x) can be written as -1/2 * sin(2x) using the double angle formula\n\n2) So our integral becomes: \u222b -1/2 * sin(2x) dx\n\n3) To integrate sin(2x), we use the formula: \u222b sin(ax) dx = -1/a * cos(ax) + C\n\n4) In this case, a = 2, so:\n   -1/2 * \u222b sin(2x) dx = -1/2 * (-1/2 * cos(2x)) + C = 1/4 * cos(2x) + C\n\n<answer>1/4*cos(2*x) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Find the indefinite integral: \u222b -18*sqrt(6*X + 1) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-2*(6*X + 1)**(3/2) + C",
+      "model_answer": "-2*(6*X + 1)**(3/2) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, let's identify this as a square root integral: \u222b -18*sqrt(6*X + 1) dx\n\n2) Let's use substitution method:\n   Let u = 6*X + 1\n   du = 6 dx\n   dx = du/6\n\n3) Rewriting the integral:\n   -18 * \u222b sqrt(u) * (du/6)\n   = -3 * \u222b sqrt(u) du\n\n4) The integral of sqrt(u) is (2/3)*u**(3/2) + C\n\n5) Substituting back:\n   -3 * (2/3)*(6*X + 1)**(3/2) + C\n   = -2*(6*X + 1)**(3/2) + C\n\n<answer>-2*(6*X + 1)**(3/2) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b -sin(X)*cos(X) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-sin(X)**2/2 + C",
+      "model_answer": "1/4*cos(2*X) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, recall that -sin(X)*cos(X) can be rewritten using the double angle formula:\n   -sin(X)*cos(X) = -1/2 * sin(2*X)\n\n2) To find the antiderivative of -1/2 * sin(2*X):\n   \u222b -1/2 * sin(2*X) dx = -1/2 * (-1/2 * cos(2*X)) + C\n   \n3) Simplify:\n   = 1/4 * cos(2*X) + C\n\n<answer>1/4*cos(2*X) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b -21*sin(7*x + 9)**3*cos(7*x + 9) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-3*sin(7*x + 9)**4/4 + C",
+      "model_answer": "-3*(sin(7*x + 9)**4)/4 + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, recognize this is a function of sin(7*x + 9) to the third power times cos(7*x + 9)\n\n2) Let's use u-substitution:\n   Let u = sin(7*x + 9)\n   du/dx = 7*cos(7*x + 9)\n   dx = du/(7*cos(7*x + 9))\n\n3) The integral becomes:\n   \u222b -21*u**3*cos(7*x + 9) * (du/(7*cos(7*x + 9)))\n   = -3*\u222b u**3 du\n\n4) This is a straightforward power rule integration:\n   -3*\u222b u**3 du = -3*(u**4/4) + C\n\n5) Substitute back u = sin(7*x + 9):\n\n<answer>-3*(sin(7*x + 9)**4)/4 + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Find the indefinite integral: \u222b x**3*cos(x) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "x**3*sin(x) + 3*x**2*cos(x) - 6*x*sin(x) - 6*cos(x) + C",
+      "model_answer": "x**3*sin(x) + 3*x**2*cos(x) - 6*x*sin(x) - 6*cos(x) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) To integrate x\u00b3cos(x), we can use integration by parts multiple times.\n   Let u = x\u00b3 and dv = cos(x)dx\n\n2) First integration by parts:\n   u = x\u00b3, dv = cos(x)dx\n   du = 3x\u00b2dx, v = sin(x)\n   Result: x\u00b3*sin(x) - \u222b3x\u00b2*sin(x)dx\n\n3) Second integration by parts:\n   u = 3x\u00b2, dv = sin(x)dx\n   du = 6x dx, v = -cos(x)\n   Result: x\u00b3*sin(x) + 3x\u00b2*cos(x) - \u222b6x*cos(x)dx\n\n4) Third integration by parts:\n   u = 6x, dv = cos(x)dx\n   du = 6dx, v = sin(x)\n   Result: x\u00b3*sin(x) + 3x\u00b2*cos(x) - 6x*sin(x) + \u222b6*sin(x)dx\n\n5) Final integration:\n   x\u00b3*sin(x) + 3x\u00b2*cos(x) - 6x*sin(x) - 6*cos(x) + C\n\n<answer>x**3*sin(x) + 3*x**2*cos(x) - 6*x*sin(x) - 6*cos(x) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b 8*sqrt(1 - 8*X) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-2*(1 - 8*X)**(3/2)/3 + C",
+      "model_answer": "-(2/3)*(1 - 8*X)**(3/2) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, let's recognize this is a square root integral with a linear expression inside.\n\n2) Let's substitute u = 1 - 8*X\n   Then du = -8 dx\n   dx = -du/8\n\n3) The integral becomes:\n   \u222b 8*sqrt(u) * (-du/8)\n   = -\u222b sqrt(u) du\n\n4) The integral of sqrt(u) is:\n   (2/3)*u**(3/2) + C\n\n5) Substituting back u = 1 - 8*X:\n   -(2/3)*(1 - 8*X)**(3/2) + C\n\n<answer>-(2/3)*(1 - 8*X)**(3/2) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Find the indefinite integral: \u222b (42*X - 24)*exp(-7*X**2 + 8*X - 10) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-3*exp(-7*X**2 + 8*X - 10) + C",
+      "model_answer": "-3*exp(-7*X**2 + 8*X - 10) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) This is an integral of the form \u222b P(X) * exp(Q(X)) dx, where:\n   - P(X) = 42*X - 24\n   - Q(X) = -7*X**2 + 8*X - 10\n\n2) To solve this, we can use the fact that if P(X) is proportional to the derivative of Q(X), then the integral will be a constant multiple of exp(Q(X)).\n\n3) The derivative of Q(X) is:\n   Q'(X) = -14*X + 8\n\n4) We need P(X) to be proportional to Q'(X).\n   P(X) = 42*X - 24 = -3*(-14*X + 8)\n\n5) Therefore, P(X) is indeed proportional to Q'(X), with a factor of -3.\n\n6) The integral will be:\n   -3 * exp(-7*X**2 + 8*X - 10) + C\n\n<answer>-3*exp(-7*X**2 + 8*X - 10) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b 9*sin(3*x - 2)*cos(3*x - 2)**3 dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-3*cos(3*x - 2)**4/4 + C",
+      "model_answer": "-(27/8)*cos(3*x - 2)**2 - (9/16)*cos(2*(3*x - 2)) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, let's recall the power reduction formula for cos\u00b3(x):\n   cos\u00b3(x) = (3/4)cos(x) + (1/4)cos(3x)\n\n2) In our integral, we have: \u222b 9*sin(3*x - 2)*cos(3*x - 2)**3 dx\n\n3) Using the power reduction formula with u = 3*x - 2:\n   \u222b 9*sin(u)*[(3/4)cos(u) + (1/4)cos(3*u)] dx\n   = \u222b (27/4)*sin(u)*cos(u) dx + \u222b (9/4)*sin(u)*cos(3*u) dx\n\n4) For the first part:\n   (27/4)*\u222b sin(u)*cos(u) dx = (27/8)*sin\u00b2(u)\n\n5) For the second part:\n   (9/4)*\u222b sin(u)*cos(3*u) dx = -(9/16)*cos(2*u)\n\n6) Substituting back u = 3*x - 2:\n\n<answer>-(27/8)*cos(3*x - 2)**2 - (9/16)*cos(2*(3*x - 2)) + C</answer>",
+      "score": 0.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b (30 - 12*X)*exp(2*X**2 - 10*X + 6) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-3*exp(2*X**2 - 10*X + 6) + C",
+      "model_answer": "(15/2)*exp(2*X**2 - 10*X + 6) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) Let's identify the parts:\n   - We have (30 - 12*X) multiplied by exp(2*X**2 - 10*X + 6)\n   - Let's call u = 2*X**2 - 10*X + 6\n\n2) Looking at the structure:\n   - The derivative of u with respect to X is 4*X - 10\n   - The integrand has a term (-12*X) which relates to this derivative\n\n3) This suggests using the substitution method:\n   - exp(u) has derivative exp(u) * du/dx\n   - The 30 term will integrate to (30/4)*exp(u)\n   - The -12*X term will integrate to (-12/4)*exp(u)\n\n4) Combining the terms:\n   - \u222b(30 - 12*X)*exp(2*X**2 - 10*X + 6) dx = (15/2)*exp(2*X**2 - 10*X + 6) + C\n\n<answer>(15/2)*exp(2*X**2 - 10*X + 6) + C</answer>",
+      "score": 0.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b -2*(4*X - 9)**3 dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-32*X**4 + 288*X**3 - 972*X**2 + 1458*X + C",
+      "model_answer": "-((4*X - 9)**4/8) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, let's look at the structure: -2*(4*X - 9)**3\n   This is a negative constant times a cube of a linear expression\n\n2) Let's use substitution method:\n   Let u = 4*X - 9\n   Then du = 4*dx\n   dx = du/4\n\n3) The integral becomes:\n   \u222b -2*(u)**3 * (1/4)*du\n   = -(1/2)*\u222b u**3 du\n\n4) The integral of u**3 is u**4/4\n\n5) So we have:\n   -(1/2)*(u**4/4) + C\n   = -(u**4/8) + C\n\n6) Substituting back u = 4*X - 9:\n   -((4*X - 9)**4/8) + C\n\n<answer>-((4*X - 9)**4/8) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b -16*sin(8*x - 6)**3*cos(8*x - 6) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-sin(8*x - 6)**4/2 + C",
+      "model_answer": "-2*sin(8*x - 6)**4 + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, let's recognize this as a form where we can use u-substitution\n   Let u = sin(8*x - 6)\n   du/dx = 8*cos(8*x - 6)\n   dx = du/(8*cos(8*x - 6))\n\n2) The integral becomes:\n   \u222b -16*u**3*cos(8*x - 6) dx\n   = \u222b -16*u**3*(1/8)du\n   = -2*u**4 + C\n\n3) Substituting back:\n   = -2*sin(8*x - 6)**4 + C\n\n<answer>-2*sin(8*x - 6)**4 + C</answer>",
+      "score": 0.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b 9*sqrt(3*x - 1) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "2*(3*x - 1)**(3/2) + C",
+      "model_answer": "2*(3*x - 1)**(3/2) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, let's identify the structure: we have 9 multiplied by sqrt(3*x - 1)\n\n2) For sqrt(3*x - 1), let's use substitution:\n   Let u = 3*x - 1\n   Then du = 3 dx\n   dx = du/3\n\n3) Now our integral becomes:\n   \u222b 9*sqrt(u) * (1/3)du\n   = 3*\u222b sqrt(u) du\n\n4) The antiderivative of sqrt(u) is (2/3)*u**(3/2) + C\n\n5) Therefore:\n   3 * (2/3)*u**(3/2) + C\n   = 2*u**(3/2) + C\n\n6) Substitute back u = 3*x - 1:\n   2*(3*x - 1)**(3/2) + C\n\n<answer>2*(3*x - 1)**(3/2) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b -2*asin(X) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-2*Integral(asin(X), X) + C",
+      "model_answer": "-2*X*asin(X) - 2*sqrt(1-X**2) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, recall that the antiderivative of asin(X) is:\n   X*asin(X) + sqrt(1-X**2) + C\n\n2) Since we have -2*asin(X), we multiply the above by -2:\n   -2*(X*asin(X) + sqrt(1-X**2))\n   = -2*X*asin(X) - 2*sqrt(1-X**2)\n\n3) Don't forget to add the constant of integration\n\n<answer>-2*X*asin(X) - 2*sqrt(1-X**2) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b 2*asin(2*x) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "2*Integral(asin(2*x), x) + C",
+      "model_answer": "2*x*asin(2*x) + sqrt(1-4*x**2) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, let's consider that the antiderivative of asin(x) is:\n   x*asin(x) + sqrt(1-x**2) + C\n\n2) For our problem \u222b 2*asin(2*x) dx, we need to use u-substitution:\n   Let u = 2*x\n   du = 2 dx\n   dx = du/2\n\n3) Our integral becomes:\n   \u222b 2*asin(u) * (1/2) du = \u222b asin(u) du\n\n4) Using the formula from step 1:\n   u*asin(u) + sqrt(1-u**2) + C\n\n5) Substituting back u = 2*x:\n   2*x*asin(2*x) + sqrt(1-(2*x)**2) + C\n   = 2*x*asin(2*x) + sqrt(1-4*x**2) + C\n\n<answer>2*x*asin(2*x) + sqrt(1-4*x**2) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b -6*sin(6*x - 9)*cos(6*x - 9)**2 dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "cos(6*x - 9)**3/3 + C",
+      "model_answer": "1/2*cos(6*x - 9) + 1/6*cos(18*x - 27) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, let's recognize that this is a product of -6*sin(6*x - 9) and cos(6*x - 9)**2\n\n2) Let's make a substitution to make this easier:\n   Let u = 6*x - 9\n   Then du/dx = 6\n   dx = du/6\n\n3) The integral becomes:\n   \u222b -6*sin(u)*cos(u)**2 * (1/6) du\n   = -1 * \u222b sin(u)*cos(u)**2 du\n\n4) We can use the identity cos(u)**2 = (1 + cos(2*u))/2\n\n5) After substituting and integrating:\n   -1 * \u222b sin(u) * (1 + cos(2*u))/2 du\n   = -1/2 * (\u222b sin(u) du + \u222b sin(u)*cos(2*u) du)\n   = -1/2 * (-cos(u) - cos(3*u)/3) + C\n\n6) Substituting back u = 6*x - 9:\n\n<answer>1/2*cos(6*x - 9) + 1/6*cos(18*x - 27) + C</answer>",
+      "score": 0.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b 2*exp(X)*cos(X) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "exp(X)*sin(X) + exp(X)*cos(X) + C",
+      "model_answer": "exp(X)*sin(X) + exp(X)*cos(X) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) To find the antiderivative of exp(X)*cos(X), we can use integration by parts.\n   Let u = exp(X) and dv = cos(X)dx\n\n2) Then du = exp(X)dx and v = sin(X)\n\n3) Using the formula \u222budv = uv - \u222bvdu:\n   \u222bexp(X)*cos(X)dx = exp(X)*sin(X) - \u222bexp(X)*sin(X)dx\n\n4) Now we need to solve \u222bexp(X)*sin(X)dx\n   Let u = exp(X) and dv = sin(X)dx\n   Then du = exp(X)dx and v = -cos(X)\n\n5) \u222bexp(X)*sin(X)dx = -exp(X)*cos(X) + \u222bexp(X)*cos(X)dx\n\n6) Let's call our original integral I = \u222bexp(X)*cos(X)dx\n   Then I = exp(X)*sin(X) - (-exp(X)*cos(X) + I)\n   2I = exp(X)*sin(X) + exp(X)*cos(X)\n   I = (exp(X)*sin(X) + exp(X)*cos(X))/2\n\n7) Since our original problem is 2*\u222bexp(X)*cos(X)dx, we multiply our result by 2\n\n<answer>exp(X)*sin(X) + exp(X)*cos(X) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b 2*x**3*sin(x) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-2*x**3*cos(x) + 6*x**2*sin(x) + 12*x*cos(x) - 12*sin(x) + C",
+      "model_answer": "-2*x**3*cos(x) + 6*x**2*sin(x) + 12*x*cos(x) + 12*sin(x) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) To integrate this, we need to use integration by parts multiple times.\n   Let u = 2*x**3 and dv = sin(x)dx\n\n2) First integration by parts:\n   u = 2*x**3\n   du = 6*x**2 dx\n   dv = sin(x)dx\n   v = -cos(x)\n   Result: -2*x**3*cos(x) + \u222b 6*x**2*cos(x)dx\n\n3) Second integration by parts:\n   u = 6*x**2\n   du = 12*x dx\n   dv = cos(x)dx\n   v = sin(x)\n   Result: -2*x**3*cos(x) + 6*x**2*sin(x) - \u222b 12*x*sin(x)dx\n\n4) Third integration by parts:\n   u = 12*x\n   du = 12 dx\n   dv = sin(x)dx\n   v = -cos(x)\n   Result: -2*x**3*cos(x) + 6*x**2*sin(x) + 12*x*cos(x) + \u222b 12*cos(x)dx\n\n5) Final integration:\n   -2*x**3*cos(x) + 6*x**2*sin(x) + 12*x*cos(x) + 12*sin(x) + C\n\n<answer>-2*x**3*cos(x) + 6*x**2*sin(x) + 12*x*cos(x) + 12*sin(x) + C</answer>",
+      "score": 0.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b -sin(X)*cos(X) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-sin(X)**2/2 + C",
+      "model_answer": "1/4*cos(2*X) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, recall that -sin(X)*cos(X) can be rewritten using the double angle formula:\n   -sin(X)*cos(X) = -1/2 * sin(2*X)\n\n2) To find the antiderivative of -1/2 * sin(2*X):\n   \u222b -1/2 * sin(2*X) dx = -1/2 * (-1/2 * cos(2*X)) = 1/4 * cos(2*X)\n\n3) Don't forget to add the constant of integration C\n\n<answer>1/4*cos(2*X) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b 24*sqrt(8*X - 5) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "2*(8*X - 5)**(3/2) + C",
+      "model_answer": "2*(8*X - 5)**(3/2) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, let's identify this as a square root integral: \u222b 24*sqrt(8*X - 5) dx\n\n2) Let's use substitution method:\n   Let u = 8*X - 5\n   du = 8 dx\n   dx = du/8\n\n3) The integral becomes:\n   24\u222b sqrt(u) * (du/8)\n   = 3\u222b sqrt(u) du\n\n4) The integral of sqrt(u) is:\n   (2/3)*u**(3/2) + C\n\n5) Substituting back u = 8*X - 5:\n   3 * (2/3)*(8*X - 5)**(3/2) + C\n   = 2*(8*X - 5)**(3/2) + C\n\n<answer>2*(8*X - 5)**(3/2) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b 14*sqrt(-7*x - 10) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-4*(-7*x - 10)**(3/2)/3 + C",
+      "model_answer": "-(4/3)*(-7*x - 10)**(3/2) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) Let's first identify the form. This is a square root function with a linear expression inside.\n\n2) Let's make a substitution to simplify:\n   Let u = -7*x - 10\n   Then du = -7*dx\n   dx = -du/7\n\n3) The integral becomes:\n   \u222b 14*sqrt(u) * (-du/7)\n   = -2*\u222b sqrt(u) du\n\n4) The integral of sqrt(u) is:\n   (2/3)*u**(3/2) + C\n\n5) Substituting back:\n   -2*((2/3)*(-7*x - 10)**(3/2)) + C\n   = -(4/3)*(-7*x - 10)**(3/2) + C\n\n<answer>-(4/3)*(-7*x - 10)**(3/2) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b -2*asin(2*x) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-2*Integral(asin(2*x), x) + C",
+      "model_answer": "-2*x*asin(2*x) - sqrt(1-4*x**2) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, let's recall the antiderivative of arcsin(x):\n   \u222b arcsin(x) dx = x*arcsin(x) + \u221a(1-x\u00b2) + C\n\n2) In our case, we have -2*asin(2*x), so we need to:\n   - Deal with the -2 coefficient\n   - Handle the 2*x inside asin\n   \n3) Using u-substitution where u = 2*x:\n   - du = 2 dx\n   - dx = du/2\n\n4) Therefore:\n   -2 * \u222b asin(u) * (du/2)\n   = -1 * \u222b asin(u) du\n\n5) Using the formula from step 1:\n   -1 * (u*asin(u) + \u221a(1-u\u00b2) + C)\n\n6) Substituting back u = 2*x:\n   -2*x*asin(2*x) - \u221a(1-(2*x)**2) + C\n   = -2*x*asin(2*x) - \u221a(1-4*x**2) + C\n\n<answer>-2*x*asin(2*x) - sqrt(1-4*x**2) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b 18*sin(6*x + 8)**4*cos(6*x + 8) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "3*sin(6*x + 8)**5/5 + C",
+      "model_answer": "3*sin(6*x + 8)**5/5 + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) This is an integral involving sin(6*x + 8)**4 and cos(6*x + 8)\n\n2) Let's use substitution:\n   Let u = sin(6*x + 8)\n   Then du/dx = 6*cos(6*x + 8)\n   dx = du/(6*cos(6*x + 8))\n\n3) The integral becomes:\n   \u222b 18*u**4*cos(6*x + 8) dx\n   = \u222b 18*u**4*(du/6)\n   = 3*\u222b u**4 du\n\n4) Integrate u**4:\n   3*\u222b u**4 du = 3*(u**5/5)\n\n5) Substitute back:\n   3*(sin(6*x + 8)**5/5)\n\n6) Therefore, the indefinite integral is:\n   3*sin(6*x + 8)**5/5 + C\n\n<answer>3*sin(6*x + 8)**5/5 + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b -3*sqrt(-3*X - 2) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "2*(-3*X - 2)**(3/2)/3 + C",
+      "model_answer": "(2/3)*(-3*X - 2)**(3/2) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, let's identify the structure: we have -3 multiplied by sqrt(-3*X - 2)\n\n2) Let's make a substitution to simplify:\n   Let u = -3*X - 2\n   Then du = -3 dX\n   dX = -du/3\n\n3) The integral becomes:\n   \u222b -3*sqrt(u) * (-du/3)\n   = \u222b sqrt(u) du\n\n4) The integral of sqrt(u) is:\n   (2/3)*u**(3/2) + C\n\n5) Substitute back:\n   (2/3)*(-3*X - 2)**(3/2) + C\n\n6) This is our final answer in the required format.\n\n<answer>(2/3)*(-3*X - 2)**(3/2) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Find the indefinite integral: \u222b -exp(x)*sin(x) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-exp(x)*sin(x)/2 + exp(x)*cos(x)/2 + C",
+      "model_answer": "(1/2)*exp(x)*(sin(x) - cos(x)) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) To integrate -exp(x)*sin(x), we can use integration by parts twice.\n   Let u = -exp(x) and dv = sin(x)dx\n\n2) First integration by parts:\n   u = -exp(x)\n   dv = sin(x)dx\n   du = -exp(x)dx\n   v = -cos(x)\n   \n   Result: -exp(x)*(-cos(x)) - \u222b(-exp(x))*(-cos(x))dx\n   = exp(x)*cos(x) - \u222bexp(x)*cos(x)dx\n\n3) Second integration by parts:\n   For \u222bexp(x)*cos(x)dx\n   u = exp(x)\n   dv = cos(x)dx\n   du = exp(x)dx\n   v = sin(x)\n   \n   Result: exp(x)*sin(x) - \u222bexp(x)*sin(x)dx\n\n4) From steps 2 and 3:\n   Original integral = exp(x)*cos(x) - [exp(x)*sin(x) - \u222bexp(x)*sin(x)dx]\n\n5) Let y = \u222b-exp(x)*sin(x)dx\n   y = exp(x)*cos(x) - exp(x)*sin(x) + y\n\n6) Solving for y:\n   0 = exp(x)*cos(x) - exp(x)*sin(x)\n   y = (1/2)*exp(x)*(sin(x) - cos(x)) + C\n\n<answer>(1/2)*exp(x)*(sin(x) - cos(x)) + C</answer>",
+      "score": 0.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b (6 - 20*x)*exp(-10*x**2 + 6*x + 7) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "exp(-10*x**2 + 6*x + 7) + C",
+      "model_answer": "-exp(-10*x**2 + 6*x + 7) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) This is a product where one part is (6 - 20*x) and the other is exp(-10*x**2 + 6*x + 7)\n\n2) Let's identify the derivative of the exponent: -10*x**2 + 6*x + 7\n   The derivative of this is: -20*x + 6\n\n3) Notice that (6 - 20*x) is -1 times (-6 + 20*x)\n   And (-6 + 20*x) is exactly the negative of the derivative of the exponent\n\n4) When we have an integral where one factor is the negative of the derivative of the exponent in e, \n   the result is simply -exp(exponent)\n\n5) Therefore, \u222b (6 - 20*x)*exp(-10*x**2 + 6*x + 7) dx = -exp(-10*x**2 + 6*x + 7) + C\n\n<answer>-exp(-10*x**2 + 6*x + 7) + C</answer>",
+      "score": 0.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b 2*x**3*cos(x) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "2*x**3*sin(x) + 6*x**2*cos(x) - 12*x*sin(x) - 12*cos(x) + C",
+      "model_answer": "2*x**3*sin(x) + 6*x**2*cos(x) - 12*x*sin(x) - 12*cos(x) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) This is an integration by parts problem where we need to integrate multiple times.\n2) Let u = 2*x**3 and dv = cos(x)dx\n3) Then du = 6*x**2 dx and v = sin(x)\n4) First integration: 2*x**3*sin(x) - \u222b 6*x**2*sin(x)dx\n5) For the remaining integral, let u = 6*x**2 and dv = sin(x)dx\n6) Then du = 12*x dx and v = -cos(x)\n7) Second integration: 2*x**3*sin(x) + 6*x**2*cos(x) - \u222b 12*x*cos(x)dx\n8) For the remaining integral, let u = 12*x and dv = cos(x)dx\n9) Then du = 12 dx and v = sin(x)\n10) Third integration: 2*x**3*sin(x) + 6*x**2*cos(x) - 12*x*sin(x) + \u222b 12*sin(x)dx\n11) Final integration: 2*x**3*sin(x) + 6*x**2*cos(x) - 12*x*sin(x) - 12*cos(x) + C\n\n<answer>2*x**3*sin(x) + 6*x**2*cos(x) - 12*x*sin(x) - 12*cos(x) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b -(5*X + 3)**3 dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-125*X**4/4 - 75*X**3 - 135*X**2/2 - 27*X + C",
+      "model_answer": "-125/4*X**4 - 75*X**3 - 67.5*X**2 - 27*X + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, let's expand -(5*X + 3)**3\n   -(5*X + 3)**3 = -(125*X**3 + 225*X**2 + 135*X + 27)\n\n2) Now we can integrate each term:\n   - For -125*X**3: \u222b(-125*X**3)dx = -125/4 * X**4\n   - For -225*X**2: \u222b(-225*X**2)dx = -225/3 * X**3\n   - For -135*X: \u222b(-135*X)dx = -135/2 * X**2\n   - For -27: \u222b(-27)dx = -27*X\n\n3) Combining all terms and adding the constant of integration:\n   -125/4 * X**4 - 75*X**3 - 67.5*X**2 - 27*X + C\n\n<answer>-125/4*X**4 - 75*X**3 - 67.5*X**2 - 27*X + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b -3*X**3*exp(X) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "(-3*X**3 + 9*X**2 - 18*X + 18)*exp(X) + C",
+      "model_answer": "-3*X**3*exp(X) + 9*X**2*exp(X) + 18*X*exp(X) + 18*exp(X) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) For integrals involving exp(X) multiplied by polynomials, we can use integration by parts repeatedly.\n\n2) Let's use the formula: \u222bu*dv = u*v - \u222bv*du\n\n3) For this integral, we have:\n   u = -3*X**3\n   dv = exp(X)*dx\n\n4) Then:\n   du = -9*X**2*dx\n   v = exp(X)\n\n5) First integration:\n   \u222b(-3*X**3*exp(X))dx = -3*X**3*exp(X) - \u222b(-9*X**2*exp(X))dx\n\n6) Second integration:\n   \u222b(-9*X**2*exp(X))dx = -9*X**2*exp(X) - \u222b(-18*X*exp(X))dx\n\n7) Third integration:\n   \u222b(-18*X*exp(X))dx = -18*X*exp(X) - \u222b(-18*exp(X))dx\n\n8) Final integration:\n   \u222b(-18*exp(X))dx = -18*exp(X)\n\n9) Combining all terms:\n   -3*X**3*exp(X) + 9*X**2*exp(X) + 18*X*exp(X) + 18*exp(X) + C\n\n<answer>-3*X**3*exp(X) + 9*X**2*exp(X) + 18*X*exp(X) + 18*exp(X) + C</answer>",
+      "score": 0.0
+    },
+    {
+      "question": "Find the indefinite integral: \u222b -X**3*cos(X) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-X**3*sin(X) - 3*X**2*cos(X) + 6*X*sin(X) + 6*cos(X) + C",
+      "model_answer": "-X**3*sin(X) + 3*X**2*cos(X) - 6*X*sin(X) + 6*cos(X) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) To integrate -X**3*cos(X), we can use integration by parts multiple times.\n\n2) Let's use u = -X**3 and dv = cos(X)dx\n   Then du = -3*X**2 dx and v = sin(X)\n\n3) First integration by parts:\n   -X**3*sin(X) - \u222b(-3*X**2*sin(X))dx\n\n4) For the remaining integral, let u = -3*X**2 and dv = sin(X)dx\n   Then du = -6*X dx and v = -cos(X)\n\n5) Second integration by parts:\n   -X**3*sin(X) + 3*X**2*cos(X) - \u222b(-6*X*(-cos(X)))dx\n\n6) For the last integral, let u = -6*X and dv = cos(X)dx\n   Then du = -6 dx and v = sin(X)\n\n7) Final integration by parts:\n   -X**3*sin(X) + 3*X**2*cos(X) - 6*X*sin(X) + 6*cos(X)\n\n8) Add the constant of integration C\n\n<answer>-X**3*sin(X) + 3*X**2*cos(X) - 6*X*sin(X) + 6*cos(X) + C</answer>",
+      "score": 0.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b -log(X) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-X*log(X) + X + C",
+      "model_answer": "-X*log(X) + X + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) To find the antiderivative of -log(X), we can use integration by parts.\n2) Let u = -log(X) and dv = dx\n3) Then du = -1/X dx and v = X\n4) Using the formula \u222bu dv = uv - \u222bv du\n5) = -X*log(X) - \u222bX*(-1/X) dx\n6) = -X*log(X) + \u222b1 dx\n7) = -X*log(X) + X + C\n\n<answer>-X*log(X) + X + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Find the indefinite integral: \u222b (14 - 4*x)*exp(-x**2 + 7*x + 8) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "2*exp(-x**2 + 7*x + 8) + C",
+      "model_answer": "-2*exp(-x**2 + 7*x + 8) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, let's look at the structure: we have (14 - 4*x) multiplied by exp(-x**2 + 7*x + 8)\n\n2) This is a product where one part is a polynomial and the other is an exponential.\n\n3) Looking at the exponential part: exp(-x**2 + 7*x + 8)\n   The derivative of the exponent (-x**2 + 7*x + 8) is (-2*x + 7)\n\n4) For integrals of this form, we can use the fact that:\n   If f'(x) is the derivative of what's in the exponent,\n   then \u222b f'(x)*exp(f(x)) dx = exp(f(x)) + C\n\n5) In this case, we want to make our integrand look like (-2*x + 7)*exp(-x**2 + 7*x + 8)\n\n6) Comparing (14 - 4*x) with (-2*x + 7):\n   14 - 4*x = -4*x + 14\n   We need to divide by -2 to match the form we want\n\n7) Therefore:\n   (14 - 4*x)*exp(-x**2 + 7*x + 8) = -2*(-2*x + 7)*exp(-x**2 + 7*x + 8)\n\n8) Using the rule from step 4:\n   The integral will be -2*exp(-x**2 + 7*x + 8) + C\n\n<answer>-2*exp(-x**2 + 7*x + 8) + C</answer>",
+      "score": 0.0
+    },
+    {
+      "question": "Find the indefinite integral: \u222b -4*exp(4*X - 3) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-exp(4*X - 3) + C",
+      "model_answer": "-exp(4*X - 3) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) The integral is \u222b -4*exp(4*X - 3) dx\n\n2) First, let's recognize that exp(4*X - 3) = exp(4*X) * exp(-3)\n\n3) So we have: \u222b -4*exp(4*X) * exp(-3) dx = -4*exp(-3) * \u222b exp(4*X) dx\n\n4) For exp(4*X), we can use the rule: \u222b exp(a*X) dx = (1/a)*exp(a*X) + C\n\n5) In this case, a = 4, so:\n   -4*exp(-3) * (1/4)*exp(4*X) + C = -exp(-3)*exp(4*X) + C\n\n6) We can combine the exponentials:\n   -exp(4*X - 3) + C\n\n<answer>-exp(4*X - 3) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b -3*X**3*cos(X) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C",
+      "model_answer": "-3*X**3*sin(X) + 9*X**2*cos(X) - 18*X*sin(X) + 18*cos(X) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) To find the antiderivative of -3*X**3*cos(X), we need to use integration by parts multiple times.\n\n2) Let's use u = -3*X**3 and dv = cos(X)dx\n   Then du = -9*X**2 dx and v = sin(X)\n\n3) First integration:\n   -3*X**3*sin(X) - \u222b -9*X**2*sin(X)dx\n\n4) For the remaining integral, let u = -9*X**2 and dv = sin(X)dx\n   Then du = -18*X dx and v = -cos(X)\n\n5) Second integration:\n   -3*X**3*sin(X) + 9*X**2*cos(X) - \u222b -18*X*cos(X)dx\n\n6) For the last integral, let u = -18*X and dv = cos(X)dx\n   Then du = -18 dx and v = sin(X)\n\n7) Final integration:\n   -3*X**3*sin(X) + 9*X**2*cos(X) - 18*X*sin(X) + 18*cos(X) + C\n\n<answer>-3*X**3*sin(X) + 9*X**2*cos(X) - 18*X*sin(X) + 18*cos(X) + C</answer>",
+      "score": 0.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b X**3*sin(X) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-X**3*cos(X) + 3*X**2*sin(X) + 6*X*cos(X) - 6*sin(X) + C",
+      "model_answer": "-X**3*cos(X) + 3*X**2*sin(X) + 6*X*cos(X) + 6*sin(X) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) To find \u222b X**3*sin(X) dx, we can use integration by parts multiple times\n   Let u = X**3 and dv = sin(X)dx\n\n2) First integration by parts:\n   u = X**3, dv = sin(X)dx\n   du = 3*X**2 dx, v = -cos(X)\n   Result: -X**3*cos(X) + \u222b 3*X**2*cos(X) dx\n\n3) Second integration by parts:\n   u = 3*X**2, dv = cos(X)dx\n   du = 6*X dx, v = sin(X)\n   Result: -X**3*cos(X) + 3*X**2*sin(X) - \u222b 6*X*sin(X) dx\n\n4) Third integration by parts:\n   u = 6*X, dv = sin(X)dx\n   du = 6 dx, v = -cos(X)\n   Result: -X**3*cos(X) + 3*X**2*sin(X) + 6*X*cos(X) + \u222b 6*cos(X) dx\n\n5) Final integration:\n   -X**3*cos(X) + 3*X**2*sin(X) + 6*X*cos(X) + 6*sin(X) + C\n\n<answer>-X**3*cos(X) + 3*X**2*sin(X) + 6*X*cos(X) + 6*sin(X) + C</answer>",
+      "score": 0.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b -10*exp(5*X + 1) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-2*exp(5*X + 1) + C",
+      "model_answer": "-2*exp(5*X + 1) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) The integral is \u222b -10*exp(5*X + 1) dx\n\n2) Let's identify the parts:\n   * -10 is a constant\n   * exp(5*X + 1) is e raised to (5*X + 1)\n\n3) For exponential functions, when integrating exp(ax), we get (1/a)*exp(ax) + C\n\n4) In this case:\n   * We have -10*exp(5*X + 1)\n   * The derivative of 5*X + 1 with respect to X is 5\n   * So we'll divide by 5\n\n5) Therefore:\n   * (-10/5)*exp(5*X + 1) + C\n   * = -2*exp(5*X + 1) + C\n\n<answer>-2*exp(5*X + 1) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Find the indefinite integral: \u222b X*sin(X) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "Integral(X*sin(X), X) + C",
+      "model_answer": "-X*cos(X) + sin(X) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) To integrate X*sin(X), we can use integration by parts formula:\n   \u222bu dv = u*v - \u222bv du\n\n2) Let:\n   u = X\n   dv = sin(X) dx\n\n3) Then:\n   du = dx\n   v = -cos(X)\n\n4) Applying integration by parts:\n   \u222bX*sin(X) dx = -X*cos(X) - \u222b(-cos(X)) dx\n\n5) Simplify:\n   = -X*cos(X) + \u222bcos(X) dx\n   = -X*cos(X) + sin(X) + C\n\n<answer>-X*cos(X) + sin(X) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Find the indefinite integral: \u222b -3*x**3*exp(x) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "(-3*x**3 + 9*x**2 - 18*x + 18)*exp(x) + C",
+      "model_answer": "-3*x**3*exp(x) + 9*x**2*exp(x) + 18*x*exp(x) + 18*exp(x) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) We need to integrate -3*x**3*exp(x)\n\n2) This is a product of x**3 and exp(x), so we can use integration by parts\n   Let u = -3*x**3 and dv = exp(x)dx\n\n3) Then du = -9*x**2 dx and v = exp(x)\n\n4) First iteration:\n   -3*x**3*exp(x) - \u222b(-9*x**2*exp(x))dx\n\n5) For the remaining integral, let u = -9*x**2 and dv = exp(x)dx\n   Then du = -18*x dx and v = exp(x)\n\n6) Second iteration:\n   -3*x**3*exp(x) - [-9*x**2*exp(x) - \u222b(-18*x*exp(x))dx]\n\n7) For the last integral, let u = -18*x and dv = exp(x)dx\n   Then du = -18 dx and v = exp(x)\n\n8) Final iteration:\n   -3*x**3*exp(x) - [-9*x**2*exp(x) - [-18*x*exp(x) - \u222b(-18*exp(x))dx]]\n\n9) Solving the final integral and combining terms:\n   -3*x**3*exp(x) - [-9*x**2*exp(x) - [-18*x*exp(x) - [-18*exp(x)]]] + C\n\n10) Simplifying:\n    -3*x**3*exp(x) + 9*x**2*exp(x) + 18*x*exp(x) + 18*exp(x) + C\n\n<answer>-3*x**3*exp(x) + 9*x**2*exp(x) + 18*x*exp(x) + 18*exp(x) + C</answer>",
+      "score": 0.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b -8*exp(8*x - 10) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-exp(8*x - 10) + C",
+      "model_answer": "-1*exp(8*x - 10) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) The integral is \u222b -8*exp(8*x - 10) dx\n\n2) Using the rule for exponential functions: \u222b exp(ax) dx = (1/a)*exp(ax) + C\n\n3) In this case:\n   - We have -8*exp(8*x - 10)\n   - The coefficient is -8\n   - The exponent is (8*x - 10)\n\n4) Therefore:\n   - The integral will be (-8/8)*exp(8*x - 10) + C\n   - This simplifies to -1*exp(8*x - 10) + C\n\n<answer>-1*exp(8*x - 10) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b 2*(2*X - 9)**4 dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "32*X**5/5 - 144*X**4 + 1296*X**3 - 5832*X**2 + 13122*X + C",
+      "model_answer": "(2*X - 9)**5/5 + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, let's use u-substitution:\n   Let u = 2*X - 9\n   Then du = 2*dx\n   dx = du/2\n\n2) The integral becomes:\n   \u222b 2*(u)**4 dx = \u222b 2*(u)**4 * (du/2) = \u222b u**4 du\n\n3) Integrate u**4:\n   \u222b u**4 du = u**5/5\n\n4) Substitute back 2*X - 9 for u:\n   (2*X - 9)**5/5\n\n5) Therefore, the indefinite integral is:\n   (2*X - 9)**5/5 + C\n\n<answer>(2*X - 9)**5/5 + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Find the indefinite integral: \u222b -(5*x - 6)**4 dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-125*x**5 + 750*x**4 - 1800*x**3 + 2160*x**2 - 1296*x + C",
+      "model_answer": "-((5*x - 6)**5/25) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, let's recognize this is a power rule integration with a negative sign.\n\n2) For the power rule: \u222bx^n dx = (x^(n+1))/(n+1) + C\n\n3) Here we have \u222b-(5*x - 6)**4 dx\n   This is equivalent to -\u222b(5*x - 6)**4 dx\n\n4) Let's set u = 5*x - 6\n   Then du = 5 dx\n   dx = du/5\n\n5) The integral becomes:\n   -\u222bu**4 * (1/5) du\n   = -(1/5)\u222bu**4 du\n   = -(1/5) * (u**5/5) + C\n   = -(u**5/25) + C\n\n6) Substituting back u = 5*x - 6:\n   = -((5*x - 6)**5/25) + C\n\n<answer>-((5*x - 6)**5/25) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b 3*exp(x)*sin(x) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "3*exp(x)*sin(x)/2 - 3*exp(x)*cos(x)/2 + C",
+      "model_answer": "(3/2)*exp(x)*sin(x) + (3/2)*exp(x)*cos(x) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) To integrate 3*exp(x)*sin(x), we can use integration by parts twice.\n   Let u = sin(x) and dv = 3*exp(x)dx\n\n2) First integration by parts:\n   \u222b3*exp(x)*sin(x)dx = 3*exp(x)*sin(x) - \u222b3*exp(x)*cos(x)dx\n\n3) For the remaining integral, let u = cos(x) and dv = 3*exp(x)dx\n\n4) Second integration by parts:\n   -\u222b3*exp(x)*cos(x)dx = -3*exp(x)*cos(x) - \u222b3*exp(x)*sin(x)dx\n\n5) Let's call our original integral I = \u222b3*exp(x)*sin(x)dx\n   Then: I = 3*exp(x)*sin(x) - (-3*exp(x)*cos(x) - I)\n\n6) Solving for I:\n   2*I = 3*exp(x)*sin(x) + 3*exp(x)*cos(x)\n   I = (3/2)*exp(x)*sin(x) + (3/2)*exp(x)*cos(x) + C\n\n<answer>(3/2)*exp(x)*sin(x) + (3/2)*exp(x)*cos(x) + C</answer>",
+      "score": 0.0
+    },
+    {
+      "question": "Find the indefinite integral: \u222b 6*sin(3*X - 6)*cos(3*X - 6)**2 dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-2*cos(3*X - 6)**3/3 + C",
+      "model_answer": "-cos(3*X - 6)/2 - cos(9*X - 18)/6 + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, let's make a substitution to simplify:\n   Let u = 3*X - 6\n   Then du/dx = 3, so dx = du/3\n\n2) The integral becomes:\n   \u222b 6*sin(u)*cos(u)**2 * (1/3) du\n   = 2*\u222b sin(u)*cos(u)**2 du\n\n3) We can use the identity cos(u)**2 = (1 + cos(2*u))/2:\n   = 2*\u222b sin(u)*((1 + cos(2*u))/2) du\n   = \u222b sin(u) + sin(u)*cos(2*u) du\n\n4) For sin(u)*cos(2*u), we can use the product-to-sum formula:\n   sin(u)*cos(2*u) = (sin(3*u) + sin(-u))/2 = (sin(3*u) - sin(u))/2\n\n5) Substituting back:\n   = \u222b sin(u) + (sin(3*u) - sin(u))/2 du\n   = \u222b (sin(u)/2 + sin(3*u)/2) du\n   = -cos(u)/2 - cos(3*u)/6 + C\n\n6) Finally, substituting back u = 3*X - 6:\n   = -cos(3*X - 6)/2 - cos(9*X - 18)/6 + C\n\n<answer>-cos(3*X - 6)/2 - cos(9*X - 18)/6 + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b 12*sqrt(-6*x - 10) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-4*(-6*x - 10)**(3/2)/3 + C",
+      "model_answer": "-(4/3)*(-6*x - 10)**(3/2) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, let's look at what's inside the square root: -6*x - 10\n   This is a linear expression.\n\n2) Let's use substitution to make this easier.\n   Let u = -6*x - 10\n   Then du = -6 dx\n   dx = -1/6 du\n\n3) The integral becomes:\n   \u222b 12*sqrt(u) * (-1/6) du\n   = -2 * \u222b sqrt(u) du\n\n4) The antiderivative of sqrt(u) is (2/3)*u**(3/2)\n\n5) So we have:\n   -2 * (2/3)*u**(3/2) + C\n   = -(4/3)*u**(3/2) + C\n\n6) Substitute back:\n   -(4/3)*(-6*x - 10)**(3/2) + C\n\n<answer>-(4/3)*(-6*x - 10)**(3/2) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b -8*sin(8*x + 8)*cos(8*x + 8)**3 dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "cos(8*x + 8)**4/4 + C",
+      "model_answer": "cos(8*x + 8)**4/4 + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, let's recognize that this integral involves sin(u)*cos(u)\u00b3 where u = 8x + 8\n\n2) We can use the substitution u = 8x + 8\n   du/dx = 8\n   dx = du/8\n\n3) The integral becomes: \u222b -8*sin(u)*cos(u)\u00b3 * (1/8) du\n   = -1 * \u222b sin(u)*cos(u)\u00b3 du\n\n4) Let's use the substitution v = cos(u)\n   dv = -sin(u)du\n   -du = dv/sin(u)\n\n5) The integral becomes: \u222b v\u00b3 dv = v\u2074/4\n\n6) Substituting back cos(u) for v:\n   = cos(u)\u2074/4\n\n7) Finally, substituting back 8x + 8 for u:\n   = cos(8*x + 8)**4/4 + C\n\n<answer>cos(8*x + 8)**4/4 + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b X**3*cos(2*X) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "Integral(X**3*cos(2*X), X) + C",
+      "model_answer": "(1/2)*X**3*sin(2*X) + (3/4)*X**2*cos(2*X) + (3/4)*X*sin(2*X) + (3/8)*cos(2*X) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) To integrate X**3*cos(2*X), we can use integration by parts formula: \u222bu*dv = u*v - \u222bv*du\n\n2) Let u = X**3 and dv = cos(2*X)dx\n   Then du = 3*X**2 dx and v = (1/2)*sin(2*X)\n\n3) First application:\n   \u222bX**3*cos(2*X)dx = (1/2)*X**3*sin(2*X) - \u222b(1/2)*sin(2*X)*3*X**2dx\n   = (1/2)*X**3*sin(2*X) - (3/2)*\u222bX**2*sin(2*X)dx\n\n4) For the remaining integral, let's use parts again:\n   Let u = X**2 and dv = sin(2*X)dx\n   Then du = 2*X dx and v = -1/2*cos(2*X)\n\n5) Second application:\n   -(3/2)*\u222bX**2*sin(2*X)dx = -(3/2)*[-1/2*X**2*cos(2*X) - \u222b(-1/2)*cos(2*X)*2*X dx]\n   = (3/4)*X**2*cos(2*X) + (3/2)*\u222bX*cos(2*X)dx\n\n6) For the last integral, one more integration by parts:\n   Let u = X and dv = cos(2*X)dx\n   Then du = dx and v = (1/2)*sin(2*X)\n\n7) Final application:\n   (3/2)*\u222bX*cos(2*X)dx = (3/2)*[X*(1/2)*sin(2*X) - \u222b(1/2)*sin(2*X)dx]\n   = (3/4)*X*sin(2*X) + (3/8)*cos(2*X)\n\n8) Combining all terms:\n\n<answer>(1/2)*X**3*sin(2*X) + (3/4)*X**2*cos(2*X) + (3/4)*X*sin(2*X) + (3/8)*cos(2*X) + C</answer>",
+      "score": 0.0
+    },
+    {
+      "question": "Find the indefinite integral: \u222b -X*sin(X) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-Integral(X*sin(X), X) + C",
+      "model_answer": "X*cos(X) - sin(X) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) To integrate -X*sin(X), we can use integration by parts formula:\n   \u222bu dv = u*v - \u222bv du\n\n2) Let:\n   u = -X\n   dv = sin(X) dx\n\n3) Then:\n   du = -1 dx\n   v = -cos(X)\n\n4) Applying integration by parts:\n   \u222b(-X*sin(X)) dx = -X*(-cos(X)) - \u222b(-cos(X))(-1) dx\n\n5) Simplifying:\n   = X*cos(X) - \u222bcos(X) dx\n\n6) We know that \u222bcos(X) dx = sin(X)\n\n7) Therefore:\n   = X*cos(X) - sin(X) + C\n\n<answer>X*cos(X) - sin(X) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b (6*x + 18)*exp(-x**2 - 6*x - 7) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-3*exp(-x**2 - 6*x - 7) + C",
+      "model_answer": "-3*exp(-x**2 - 6*x - 7) + C",
+      "full_model_response": "Let me solve this step by step:\n\n1) First, let's look at the structure: we have (6*x + 18) multiplied by exp(-x**2 - 6*x - 7)\n\n2) This is a product where one part is a polynomial and the other is an exponential.\n\n3) Let's observe that the derivative of (-x**2 - 6*x - 7) is (-2*x - 6)\n\n4) The integrand has the form: (6*x + 18)*exp(-x**2 - 6*x - 7)\n   This is equivalent to -3*(-2*x - 6)*exp(-x**2 - 6*x - 7)\n\n5) This means we can use the fact that the integral of f'(x)*exp(f(x)) = exp(f(x)) + C\n\n6) In our case, f(x) = -x**2 - 6*x - 7\n   And our integrand is -3 times the derivative of f(x) times exp(f(x))\n\n7) Therefore, the integral will be -3*exp(-x**2 - 6*x - 7) + C\n\n<answer>-3*exp(-x**2 - 6*x - 7) + C</answer>",
+      "score": 1.0
+    }
+  ]
+}
