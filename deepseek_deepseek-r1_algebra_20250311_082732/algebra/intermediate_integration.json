@@ -1,0 +1,363 @@
+{
+  "name": "intermediate_integration",
+  "category": "algebra",
+  "average_score": 0.94,
+  "total_examples": 50,
+  "config": {
+    "size": 50,
+    "seed": 45
+  },
+  "system_prompt": "Given a problem, your task is to answer the question by thinking step-by-step in a clear and specific manner.\nOnce you have thought about the reasoning process, provide the answer in the following format:\n<answer>answer here</answer>\nDo not explain your reasoning inside the answer tags, provide only the final answer. When an example is provided, you should strictly follow the format of the output/answer in that example.\n",
+  "results": [
+    {
+      "question": "Find the indefinite integral: \u222b -2*X**3*sin(X) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "2*X**3*cos(X) - 6*X**2*sin(X) - 12*X*cos(X) + 12*sin(X) + C",
+      "model_answer": "-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C",
+      "full_model_response": "<answer>-2*X**3*cos(X) + 6*X**2*sin(X) + 12*X*cos(X) - 12*sin(X) + C</answer>\n\nWait, but according to my calculation earlier, the answer was 2*X**3*cos(X) -6*X**2*sin(X) -12*X*cos(X) +12*sin(X) + C, but the assistant's answer here is different. Did I make a mistake in the signs?\n\nWait, let me check again. The original integral is \u222b -2*X**3*sin(X) dx. Let's retrace the steps.\n\nOriginal setup:\n\nu = X^3 \u2192 du = 3X^2 dx\n\ndv = -2 sin(X) dx \u2192 v = 2 cos(X)\n\nWait, wait, perhaps I made a mistake in the initial substitution. Let me redo the integration by parts correctly.\n\nWait, perhaps I should set u = X^3, and dv = -2 sin(X) dx. Then du = 3X^2 dx, and integrating dv gives v = 2 cos(X) because the integral of sin(X) is -cos(X), multiplied by -2 gives 2 cos(X).\n\nSo \u222b-2 X^3 sin(X) dx = u*v - \u222bv du = X^3 * 2 cos(X) - \u222b2 cos(X) * 3 X^2 dx = 2 X^3 cos(X) - 6 \u222bX^2 cos(X) dx.\n\nThen, for \u222bX^2 cos(X) dx:\n\nu = X^2 \u2192 du=2X dx\n\ndv=cos(X) dx \u2192 v=sin(X)\n\nSo \u222bX^2 cos(X) dx = X^2 sin(X) - \u222b2X sin(X) dx.\n\nThe integral of 2X sin(X) dx: \n\nu = 2X \u2192 du=2 dx\n\ndv=sin(X) dx \u2192 v=-cos(X)\n\nSo \u222b2X sin(X) dx = -2X cos(X) + \u222b2 cos(X) dx = -2X cos(X) + 2 sin(X).\n\nSo putting it back:\n\n\u222bX^2 cos(X) dx = X^2 sin(X) - [ -2X cos(X) + 2 sin(X) ] = X^2 sin(X) + 2X cos(X) - 2 sin(X).\n\nThen, going back to the main integral:\n\n2 X^3 cos(X) -6 [X^2 sin(X) + 2X cos(X) - 2 sin(X)] = 2 X^3 cos(X) -6 X^2 sin(X) -12 X cos(X) +12 sin(X).\n\nSo that's the same as before. So the answer should be 2 X^3 cos(X) -6 X^2 sin(X) -12 X cos(X) +12 sin(X) + C.\n\nBut the assistant's answer given here is \"-2*X**3*cos(X) + 6*X**2*sin(X) + 12*X*cos(X) - 12*sin(X) + C\". Which is different. Wait, but that's probably because when we set u and dv differently.\n\nAlternatively, perhaps the assistant factored the negative sign from the original integral first. Let me see. Suppose I factor out the -2, so \u222b-2 X^3 sin(X) dx = -2 \u222bX^3 sin(X) dx. Then, integrating X^3 sin(X) dx by parts three times. Let's try that.\n\nLet me try integrating X^3 sin(X) dx:\n\nFirst, u = X^3, dv = sin(X) dx \u2192 du=3X^2 dx, v= -cos(X).\n\nSo \u222bX^3 sin(X) dx = -X^3 cos(X) + 3 \u222bX^2 cos(X) dx.\n\nThen, \u222bX^2 cos(X) dx:\n\nu = X^2, dv = cos(X) dx \u2192 du=2X dx, v= sin(X).\n\nSo \u222bX^2 cos(X) dx = X^2 sin(X) - 2 \u222bX sin(X) dx.\n\nThen, \u222bX sin(X) dx:\n\nu = X, dv = sin(X) dx \u2192 du=dx, v= -cos(X).\n\nSo \u222bX sin(X) dx = -X cos(X) + \u222bcos(X) dx = -X cos(X) + sin(X).\n\nPutting back:\n\n\u222bX^2 cos(X) dx = X^2 sin(X) - 2*(-X cos(X) + sin(X)) = X^2 sin(X) + 2X cos(X) - 2 sin(X).\n\nThen \u222bX^3 sin(X) dx = -X^3 cos(X) + 3*(X^2 sin(X) + 2X cos(X) - 2 sin(X)) = -X^3 cos(X) +3 X^2 sin(X) +6 X cos(X) -6 sin(X).\n\nMultiply by -2 from earlier:\n\n-2*( -X^3 cos(X) +3 X^2 sin(X) +6 X cos(X) -6 sin(X) ) = 2 X^3 cos(X) -6 X^2 sin(X) -12 X cos(X) +12 sin(X) + C.\n\nWhich matches my original calculation. So the correct answer should be that. But in the example answer provided, the signs are different. For example, the first term is -2 X^3 cos(X), which contradicts. So perhaps there was a mistake in the assistant's calculation here.\n\nTherefore, the correct answer is 2*X**3*cos(X) -6*X**2*sin(X) -12*X*cos(X) +12*sin(X) + C. But the example answer here is different. Wait, looking back at the original problem, the assistant's answer in the example was:\n\n<answer>-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C</answer>\n\nWait, no, that was an example provided in the user's instructions. The correct answer for the current problem is different. Therefore, the correct answer for the problem \u222b-2 X^3 sin(X) dx is indeed 2 X^3 cos(X) -6 X^2 sin(X) -12 X cos(X) +12 sin(X) + C.\n\nBut the assistant's answer given here has a mistake. The assistant provided:\n\n-2*X**3*cos(X) + 6*X**2*sin(X) + 12*X*cos(X) - 12*sin(X) + C.\n\nBut that would be incorrect. Wait, perhaps I made a mistake in the sign when multiplying by -2? Let me check:\n\nIf \u222bX^3 sin(X) dx = -X^3 cos(X) +3 X^2 sin(X) +6 X cos(X) -6 sin(X) + C.\n\nThen multiplying by -2 gives:\n\n-2*(-X^3 cos(X) +3 X^2 sin(X) +6 X cos(X) -6 sin(X)) = 2 X^3 cos(X) -6 X^2 sin(X) -12 X cos(X) +12 sin(X) + C.\n\nYes, that's correct. So the assistant's answer in this case is wrong. But the user's example answer was for a different problem. So I think the correct answer should be the one I derived. But according to the problem's guidelines, I need to provide the correct answer. However, the assistant's answer here is different. Maybe I made a mistake. Wait, but when I checked the derivative, it worked out. So the correct answer is 2*X**3*cos(X) -6*X**2*sin(X) -12*X*cos(X) +12*sin(X) + C. But the assistant's answer here has the first term as -2*X**3*cos(X), which doesn't match. So maybe the assistant made a mistake here. Therefore, I should provide the correct answer as per the calculations.",
+      "score": 0.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b 3*(10*X + 10)**4 dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "6000*X**5 + 30000*X**4 + 60000*X**3 + 60000*X**2 + 30000*X + C",
+      "model_answer": "(3*(10*X + 10)**5)/50 + C",
+      "full_model_response": "<answer>(3*(10*X + 10)**5)/50 + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b -2*x**3*exp(x) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "(-2*x**3 + 6*x**2 - 12*x + 12)*exp(x) + C",
+      "model_answer": "-2*exp(x)*x**3 + 6*exp(x)*x**2 - 12*exp(x)*x + 12*exp(x) + C",
+      "full_model_response": "<answer>-2*exp(x)*x**3 + 6*exp(x)*x**2 - 12*exp(x)*x + 12*exp(x) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Find the indefinite integral: \u222b -sin(x)*cos(x) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-sin(x)**2/2 + C",
+      "model_answer": "(cos(x)**2)/2 + C",
+      "full_model_response": "<answer>(cos(x)**2)/2 + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Find the indefinite integral: \u222b -18*sqrt(6*X + 1) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-2*(6*X + 1)**(3/2) + C",
+      "model_answer": "-2*(6*X + 1)**(3/2) + C",
+      "full_model_response": "<answer>-2*(6*X + 1)**(3/2) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b -sin(X)*cos(X) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-sin(X)**2/2 + C",
+      "model_answer": "-1/2*sin(X)**2 + C",
+      "full_model_response": "<answer>-1/2*sin(X)**2 + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b -21*sin(7*x + 9)**3*cos(7*x + 9) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-3*sin(7*x + 9)**4/4 + C",
+      "model_answer": "-3/4*sin(7*x + 9)**4 + C",
+      "full_model_response": "<answer>-3/4*sin(7*x + 9)**4 + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Find the indefinite integral: \u222b x**3*cos(x) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "x**3*sin(x) + 3*x**2*cos(x) - 6*x*sin(x) - 6*cos(x) + C",
+      "model_answer": "x**3*sin(x) + 3*x**2*cos(x) - 6*x*sin(x) - 6*cos(x) + C",
+      "full_model_response": "<answer>x**3*sin(x) + 3*x**2*cos(x) - 6*x*sin(x) - 6*cos(x) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b 8*sqrt(1 - 8*X) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-2*(1 - 8*X)**(3/2)/3 + C",
+      "model_answer": "- (2/3)*(1 - 8*X)**(3/2) + C",
+      "full_model_response": "<answer>- (2/3)*(1 - 8*X)**(3/2) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Find the indefinite integral: \u222b (42*X - 24)*exp(-7*X**2 + 8*X - 10) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-3*exp(-7*X**2 + 8*X - 10) + C",
+      "model_answer": "-3*exp(-7*X**2 + 8*X - 10) + C",
+      "full_model_response": "<answer>-3*exp(-7*X**2 + 8*X - 10) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b 9*sin(3*x - 2)*cos(3*x - 2)**3 dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-3*cos(3*x - 2)**4/4 + C",
+      "model_answer": "-3/4*cos(3*x - 2)**4 + C",
+      "full_model_response": "<answer>-3/4*cos(3*x - 2)**4 + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b (30 - 12*X)*exp(2*X**2 - 10*X + 6) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-3*exp(2*X**2 - 10*X + 6) + C",
+      "model_answer": "-3*exp(2*X**2 - 10*X + 6) + C",
+      "full_model_response": "<answer>-3*exp(2*X**2 - 10*X + 6) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b -2*(4*X - 9)**3 dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-32*X**4 + 288*X**3 - 972*X**2 + 1458*X + C",
+      "model_answer": "- (4*X - 9)**4 / 8 + C",
+      "full_model_response": "<answer>- (4*X - 9)**4 / 8 + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b -16*sin(8*x - 6)**3*cos(8*x - 6) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-sin(8*x - 6)**4/2 + C",
+      "model_answer": "-sin(8*x - 6)**4/2 + C",
+      "full_model_response": "<answer>-sin(8*x - 6)**4/2 + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b 9*sqrt(3*x - 1) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "2*(3*x - 1)**(3/2) + C",
+      "model_answer": "2*(3*x - 1)**(3/2) + C",
+      "full_model_response": "<answer>2*(3*x - 1)**(3/2) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b -2*asin(X) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-2*Integral(asin(X), X) + C",
+      "model_answer": "-2*X*asin(X) - 2*(1 - X**2)**(1/2) + C",
+      "full_model_response": "<answer>-2*X*asin(X) - 2*(1 - X**2)**(1/2) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b 2*asin(2*x) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "2*Integral(asin(2*x), x) + C",
+      "model_answer": "2*x*asin(2*x) + sqrt(1 - 4*x**2) + C",
+      "full_model_response": "<answer>2*x*asin(2*x) + sqrt(1 - 4*x**2) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b -6*sin(6*x - 9)*cos(6*x - 9)**2 dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "cos(6*x - 9)**3/3 + C",
+      "model_answer": "(1/3)*cos(6*x - 9)**3 + C",
+      "full_model_response": "<answer>(1/3)*cos(6*x - 9)**3 + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b 2*exp(X)*cos(X) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "exp(X)*sin(X) + exp(X)*cos(X) + C",
+      "model_answer": "exp(X)*sin(X) + exp(X)*cos(X) + C",
+      "full_model_response": "<answer>exp(X)*sin(X) + exp(X)*cos(X) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b 2*x**3*sin(x) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-2*x**3*cos(x) + 6*x**2*sin(x) + 12*x*cos(x) - 12*sin(x) + C",
+      "model_answer": "-2*x**3*cos(x) + 6*x**2*sin(x) + 12*x*cos(x) - 12*sin(x) + C",
+      "full_model_response": "<answer>-2*x**3*cos(x) + 6*x**2*sin(x) + 12*x*cos(x) - 12*sin(x) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b -sin(X)*cos(X) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-sin(X)**2/2 + C",
+      "model_answer": "(1/2)*cos(X)**2 + C",
+      "full_model_response": "<answer>(1/2)*cos(X)**2 + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b 24*sqrt(8*X - 5) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "2*(8*X - 5)**(3/2) + C",
+      "model_answer": "2*(8*X - 5)**(3/2)/3 + C",
+      "full_model_response": "<answer>2*(8*X - 5)**(3/2)/3 + C</answer>",
+      "score": 0.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b 14*sqrt(-7*x - 10) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-4*(-7*x - 10)**(3/2)/3 + C",
+      "model_answer": "-4/3*(-7*x - 10)**(3/2) + C",
+      "full_model_response": "<answer>-4/3*(-7*x - 10)**(3/2) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b -2*asin(2*x) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-2*Integral(asin(2*x), x) + C",
+      "model_answer": "-2*x*asin(2*x) - sqrt(1 - 4*x**2) + C",
+      "full_model_response": "<answer>-2*x*asin(2*x) - sqrt(1 - 4*x**2) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b 18*sin(6*x + 8)**4*cos(6*x + 8) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "3*sin(6*x + 8)**5/5 + C",
+      "model_answer": "3*sin(6*x + 8)**5/5 + C",
+      "full_model_response": "<answer>3*sin(6*x + 8)**5/5 + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b -3*sqrt(-3*X - 2) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "2*(-3*X - 2)**(3/2)/3 + C",
+      "model_answer": "-2/3*(-3*X - 2)**(3/2) + C",
+      "full_model_response": "<answer>-2/3*(-3*X - 2)**(3/2) + C</answer>",
+      "score": 0.0
+    },
+    {
+      "question": "Find the indefinite integral: \u222b -exp(x)*sin(x) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-exp(x)*sin(x)/2 + exp(x)*cos(x)/2 + C",
+      "model_answer": "exp(x)*(cos(x) - sin(x))/2 + C",
+      "full_model_response": "<answer>exp(x)*(cos(x) - sin(x))/2 + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b (6 - 20*x)*exp(-10*x**2 + 6*x + 7) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "exp(-10*x**2 + 6*x + 7) + C",
+      "model_answer": "exp(-10*x**2 + 6*x + 7) + C",
+      "full_model_response": "<answer>exp(-10*x**2 + 6*x + 7) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b 2*x**3*cos(x) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "2*x**3*sin(x) + 6*x**2*cos(x) - 12*x*sin(x) - 12*cos(x) + C",
+      "model_answer": "2*x**3*sin(x) + 6*x**2*cos(x) - 12*x*sin(x) - 12*cos(x) + C",
+      "full_model_response": "<answer>2*x**3*sin(x) + 6*x**2*cos(x) - 12*x*sin(x) - 12*cos(x) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b -(5*X + 3)**3 dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-125*X**4/4 - 75*X**3 - 135*X**2/2 - 27*X + C",
+      "model_answer": "-(5*X + 3)**4/(20) + C",
+      "full_model_response": "<answer>-(5*X + 3)**4/(20) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b -3*X**3*exp(X) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "(-3*X**3 + 9*X**2 - 18*X + 18)*exp(X) + C",
+      "model_answer": "-3*X**3*exp(X) + 9*X**2*exp(X) - 18*X*exp(X) + 18*exp(X) + C",
+      "full_model_response": "<answer>-3*X**3*exp(X) + 9*X**2*exp(X) - 18*X*exp(X) + 18*exp(X) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Find the indefinite integral: \u222b -X**3*cos(X) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-X**3*sin(X) - 3*X**2*cos(X) + 6*X*sin(X) + 6*cos(X) + C",
+      "model_answer": "-X**3*sin(X) - 3*X**2*cos(X) + 6*X*sin(X) + 6*cos(X) + C",
+      "full_model_response": "<answer>-X**3*sin(X) - 3*X**2*cos(X) + 6*X*sin(X) + 6*cos(X) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b -log(X) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-X*log(X) + X + C",
+      "model_answer": "-X*log(X) + X + C",
+      "full_model_response": "<answer>-X*log(X) + X + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Find the indefinite integral: \u222b (14 - 4*x)*exp(-x**2 + 7*x + 8) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "2*exp(-x**2 + 7*x + 8) + C",
+      "model_answer": "2*exp(-x**2 + 7*x + 8) + C",
+      "full_model_response": "<answer>2*exp(-x**2 + 7*x + 8) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Find the indefinite integral: \u222b -4*exp(4*X - 3) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-exp(4*X - 3) + C",
+      "model_answer": "-exp(4*X - 3) + C",
+      "full_model_response": "<answer>-exp(4*X - 3) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b -3*X**3*cos(X) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C",
+      "model_answer": "-3*X**3*sin(X) -9*X**2*cos(X) +18*X*sin(X) +18*cos(X) + C",
+      "full_model_response": "<answer>-3*X**3*sin(X) -9*X**2*cos(X) +18*X*sin(X) +18*cos(X) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b X**3*sin(X) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-X**3*cos(X) + 3*X**2*sin(X) + 6*X*cos(X) - 6*sin(X) + C",
+      "model_answer": "-X**3*cos(X) + 3*X**2*sin(X) + 6*X*cos(X) - 6*sin(X) + C",
+      "full_model_response": "<answer>-X**3*cos(X) + 3*X**2*sin(X) + 6*X*cos(X) - 6*sin(X) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b -10*exp(5*X + 1) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-2*exp(5*X + 1) + C",
+      "model_answer": "-2*exp(5*X + 1) + C",
+      "full_model_response": "<answer>-2*exp(5*X + 1) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Find the indefinite integral: \u222b X*sin(X) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "Integral(X*sin(X), X) + C",
+      "model_answer": "-X*cos(X) + sin(X) + C",
+      "full_model_response": "<answer>-X*cos(X) + sin(X) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Find the indefinite integral: \u222b -3*x**3*exp(x) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "(-3*x**3 + 9*x**2 - 18*x + 18)*exp(x) + C",
+      "model_answer": "-3*x**3*exp(x) + 9*x**2*exp(x) - 18*x*exp(x) + 18*exp(x) + C",
+      "full_model_response": "<answer>-3*x**3*exp(x) + 9*x**2*exp(x) - 18*x*exp(x) + 18*exp(x) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b -8*exp(8*x - 10) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-exp(8*x - 10) + C",
+      "model_answer": "-exp(8*x - 10) + C",
+      "full_model_response": "<answer>-exp(8*x - 10) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b 2*(2*X - 9)**4 dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "32*X**5/5 - 144*X**4 + 1296*X**3 - 5832*X**2 + 13122*X + C",
+      "model_answer": "(2*X - 9)**5/5 + C",
+      "full_model_response": "<answer>(2*X - 9)**5/5 + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Find the indefinite integral: \u222b -(5*x - 6)**4 dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-125*x**5 + 750*x**4 - 1800*x**3 + 2160*x**2 - 1296*x + C",
+      "model_answer": "- (5*x - 6)**5 / 25 + C",
+      "full_model_response": "<answer>- (5*x - 6)**5 / 25 + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b 3*exp(x)*sin(x) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "3*exp(x)*sin(x)/2 - 3*exp(x)*cos(x)/2 + C",
+      "model_answer": "3*exp(x)*(sin(x) - cos(x))/2 + C",
+      "full_model_response": "<answer>3*exp(x)*(sin(x) - cos(x))/2 + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Find the indefinite integral: \u222b 6*sin(3*X - 6)*cos(3*X - 6)**2 dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-2*cos(3*X - 6)**3/3 + C",
+      "model_answer": "-2/3*cos(3*X - 6)**3 + C",
+      "full_model_response": "<answer>-2/3*cos(3*X - 6)**3 + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Calculate the antiderivative: \u222b 12*sqrt(-6*x - 10) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-4*(-6*x - 10)**(3/2)/3 + C",
+      "model_answer": "-4/3*(-6*x - 10)**(3/2) + C",
+      "full_model_response": "<answer>-4/3*(-6*x - 10)**(3/2) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b -8*sin(8*x + 8)*cos(8*x + 8)**3 dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "cos(8*x + 8)**4/4 + C",
+      "model_answer": "(1/4)*cos(8*x + 8)**4 + C",
+      "full_model_response": "<answer>(1/4)*cos(8*x + 8)**4 + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b X**3*cos(2*X) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "Integral(X**3*cos(2*X), X) + C",
+      "model_answer": "(1/2)*X**3*sin(2*X) + (3/4)*X**2*cos(2*X) - (3/4)*X*sin(2*X) - (3/8)*cos(2*X) + C",
+      "full_model_response": "<answer>(1/2)*X**3*sin(2*X) + (3/4)*X**2*cos(2*X) - (3/4)*X*sin(2*X) - (3/8)*cos(2*X) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Find the indefinite integral: \u222b -X*sin(X) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-Integral(X*sin(X), X) + C",
+      "model_answer": "X*cos(X) - sin(X) + C",
+      "full_model_response": "<answer>X*cos(X) - sin(X) + C</answer>",
+      "score": 1.0
+    },
+    {
+      "question": "Evaluate the indefinite integral: \u222b (6*x + 18)*exp(-x**2 - 6*x - 7) dx\nWhen performing calculations, please follow these guidelines:\n1. Use ** instead of ^ to represent exponents. For example, write 7*X**2 instead of 7*X^2.\n2. Always include the * symbol for all multiplication operations in your reasoning steps. For example, write `-3*X**3*sin(X) - 9*X**2*cos(X) + 18*X*sin(X) + 18*cos(X) + C` instead of `-3x3sin(x) - 9x2cos(x) + 18xsin(x) + 18cos(x) + C`.\n3. Use `exp(x)` or `E**(x)` for the exponential function (i.e. use capital E for Euler's number).\n",
+      "expected_answer": "-3*exp(-x**2 - 6*x - 7) + C",
+      "model_answer": "-3*exp(-x**2 - 6*x -7) + C",
+      "full_model_response": "<answer>-3*exp(-x**2 - 6*x -7) + C</answer>",
+      "score": 1.0
+    }
+  ]
+}
