@@ -1,0 +1,90 @@
+{
+  "name": "quantum_lock",
+  "category": "graphs",
+  "average_best_score": 0.9,
+  "average_mean_score": 0.9,
+  "total_examples": 5,
+  "config": {
+    "size": 5,
+    "seed": 45
+  },
+  "system_prompt": "Given a problem, your task is to answer the question by thinking step-by-step in a clear and specific manner.\nOnce you have thought about the reasoning process, provide the answer in the following format:\n<answer>answer here</answer>\nDo not explain your reasoning inside the answer tags, provide only the final answer. When an example is provided, you should strictly follow the format of the output/answer in that example.\n",
+  "completions_per_prompt": 1,
+  "results": [
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 18\nButtons:\nA: Multiply 2 (when any)\nB: Subtract 2 (when green)\nC: Add 2 (when any)",
+      "expected_answer": "C \u2192 A \u2192 A \u2192 A \u2192 C",
+      "best_model_answer": "C \u2192 A \u2192 A \u2192 A \u2192 C",
+      "best_full_model_response": "To solve this problem, I need to find the shortest sequence of button presses that will take me from 0 to 18, tracking both the number value and the light color.\n\nLet me trace different possible paths:\n\nStarting state: Value = 0, Light = Red\n\nPath 1:\n- Press C: 0 + 2 = 2 (light turns green)\n- Press A: 2 \u00d7 2 = 4 (light turns red)\n- Press A: 4 \u00d7 2 = 8 (light turns green)\n- Press A: 8 \u00d7 2 = 16 (light turns red)\n- Press C: 16 + 2 = 18 (light turns green)\nSequence: C \u2192 A \u2192 A \u2192 A \u2192 C (5 steps)\n\nPath 2:\n- Press C: 0 + 2 = 2 (light turns green)\n- Press C: 2 + 2 = 4 (light turns red)\n- Press A: 4 \u00d7 2 = 8 (light turns green)\n- Press A: 8 \u00d7 2 = 16 (light turns red)\n- Press C: 16 + 2 = 18 (light turns green)\nSequence: C \u2192 C \u2192 A \u2192 A \u2192 C (5 steps)\n\nI've explored other paths (including those starting with A and those involving button B), but none produce a shorter sequence than 5 steps.\n\n<answer>C \u2192 A \u2192 A \u2192 A \u2192 C</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "C \u2192 A \u2192 A \u2192 A \u2192 C",
+          "full_model_response": "To solve this problem, I need to find the shortest sequence of button presses that will take me from 0 to 18, tracking both the number value and the light color.\n\nLet me trace different possible paths:\n\nStarting state: Value = 0, Light = Red\n\nPath 1:\n- Press C: 0 + 2 = 2 (light turns green)\n- Press A: 2 \u00d7 2 = 4 (light turns red)\n- Press A: 4 \u00d7 2 = 8 (light turns green)\n- Press A: 8 \u00d7 2 = 16 (light turns red)\n- Press C: 16 + 2 = 18 (light turns green)\nSequence: C \u2192 A \u2192 A \u2192 A \u2192 C (5 steps)\n\nPath 2:\n- Press C: 0 + 2 = 2 (light turns green)\n- Press C: 2 + 2 = 4 (light turns red)\n- Press A: 4 \u00d7 2 = 8 (light turns green)\n- Press A: 8 \u00d7 2 = 16 (light turns red)\n- Press C: 16 + 2 = 18 (light turns green)\nSequence: C \u2192 C \u2192 A \u2192 A \u2192 C (5 steps)\n\nI've explored other paths (including those starting with A and those involving button B), but none produce a shorter sequence than 5 steps.\n\n<answer>C \u2192 A \u2192 A \u2192 A \u2192 C</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 8\nButtons:\nA: Subtract 1 (when green)\nB: Add 1 (when green)\nC: Add 1 (when any)",
+      "expected_answer": "C \u2192 B \u2192 C \u2192 B \u2192 C \u2192 B \u2192 C \u2192 B",
+      "best_model_answer": "C \u2192 B \u2192 C \u2192 B \u2192 C \u2192 B \u2192 C \u2192 B",
+      "best_full_model_response": "To solve this problem, I need to find the shortest sequence of buttons to go from 0 (red) to 8.\n\nFirst, let me understand what each button does:\n- A: Subtracts 1 only when light is green (does nothing when red)\n- B: Adds 1 only when light is green (does nothing when red)\n- C: Adds 1 regardless of light color\n\nStarting at 0 with a red light, I need to trace different possible sequences:\n\nOption 1: Using only C button\nInitial: 0 (red)\nPress C: 1 (green)\nPress C: 2 (red)\nPress C: 3 (green)\nPress C: 4 (red)\nPress C: 5 (green)\nPress C: 6 (red)\nPress C: 7 (green)\nPress C: 8 (red)\n\nOption 2: Alternating C and B\nInitial: 0 (red)\nPress C: 1 (green) - Used C because only it works on red\nPress B: 2 (red) - Used B because it works on green\nPress C: 3 (green) - Used C because only it works on red\nPress B: 4 (red) - Used B because it works on green\nPress C: 5 (green) - Used C because only it works on red\nPress B: 6 (red) - Used B because it works on green\nPress C: 7 (green) - Used C because only it works on red\nPress B: 8 (red) - Used B because it works on green\n\nBoth sequences take 8 steps, but the C\u2192B alternating pattern is more efficient since it uses each button when it's most appropriate.\n\n<answer>C \u2192 B \u2192 C \u2192 B \u2192 C \u2192 B \u2192 C \u2192 B</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "C \u2192 B \u2192 C \u2192 B \u2192 C \u2192 B \u2192 C \u2192 B",
+          "full_model_response": "To solve this problem, I need to find the shortest sequence of buttons to go from 0 (red) to 8.\n\nFirst, let me understand what each button does:\n- A: Subtracts 1 only when light is green (does nothing when red)\n- B: Adds 1 only when light is green (does nothing when red)\n- C: Adds 1 regardless of light color\n\nStarting at 0 with a red light, I need to trace different possible sequences:\n\nOption 1: Using only C button\nInitial: 0 (red)\nPress C: 1 (green)\nPress C: 2 (red)\nPress C: 3 (green)\nPress C: 4 (red)\nPress C: 5 (green)\nPress C: 6 (red)\nPress C: 7 (green)\nPress C: 8 (red)\n\nOption 2: Alternating C and B\nInitial: 0 (red)\nPress C: 1 (green) - Used C because only it works on red\nPress B: 2 (red) - Used B because it works on green\nPress C: 3 (green) - Used C because only it works on red\nPress B: 4 (red) - Used B because it works on green\nPress C: 5 (green) - Used C because only it works on red\nPress B: 6 (red) - Used B because it works on green\nPress C: 7 (green) - Used C because only it works on red\nPress B: 8 (red) - Used B because it works on green\n\nBoth sequences take 8 steps, but the C\u2192B alternating pattern is more efficient since it uses each button when it's most appropriate.\n\n<answer>C \u2192 B \u2192 C \u2192 B \u2192 C \u2192 B \u2192 C \u2192 B</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 24\nButtons:\nA: Multiply 2 (when any)\nB: Add 2 (when any)\nC: Multiply 2 (when green)",
+      "expected_answer": "B \u2192 A \u2192 B \u2192 A \u2192 A",
+      "best_model_answer": "B \u2192 A \u2192 B \u2192 A \u2192 A",
+      "best_full_model_response": "To solve this problem, I need to find the shortest sequence of button presses that will transform 0 into 24.\n\nLet me understand the button operations:\n- Button A: Multiplies the current number by 2 (works regardless of light color)\n- Button B: Adds 2 to the current number (works regardless of light color)\n- Button C: Multiplies the current number by 2, but only when the light is green\n\nStarting from 0 (red), I need to track both the number and the light color after each button press.\n\nFirst, I need to get a non-zero number since multiplying 0 by anything gives 0:\n- Start: 0 (red)\n- Press B: 0 + 2 = 2, light toggles to green\n\nFrom here, I have multiple paths to try:\n\nPath 1:\n- Press B: 2 + 2 = 4, light toggles to red\n- Press B: 4 + 2 = 6, light toggles to green\n- Press C: 6 \u00d7 2 = 12, light toggles to red\n- Press A: 12 \u00d7 2 = 24, light toggles to green\n\nPath 2:\n- Press A: 2 \u00d7 2 = 4, light toggles to red\n- Press B: 4 + 2 = 6, light toggles to green\n- Press A: 6 \u00d7 2 = 12, light toggles to red\n- Press A: 12 \u00d7 2 = 24, light toggles to green\n\nPath 3:\n- Press C: 2 \u00d7 2 = 4, light toggles to red\n- Press B: 4 + 2 = 6, light toggles to green\n- Press C: 6 \u00d7 2 = 12, light toggles to red\n- Press A: 12 \u00d7 2 = 24, light toggles to green\n\nAll three paths require 5 button presses, and I can't find any shorter path to reach 24.\n\n<answer>B \u2192 A \u2192 B \u2192 A \u2192 A</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "B \u2192 A \u2192 B \u2192 A \u2192 A",
+          "full_model_response": "To solve this problem, I need to find the shortest sequence of button presses that will transform 0 into 24.\n\nLet me understand the button operations:\n- Button A: Multiplies the current number by 2 (works regardless of light color)\n- Button B: Adds 2 to the current number (works regardless of light color)\n- Button C: Multiplies the current number by 2, but only when the light is green\n\nStarting from 0 (red), I need to track both the number and the light color after each button press.\n\nFirst, I need to get a non-zero number since multiplying 0 by anything gives 0:\n- Start: 0 (red)\n- Press B: 0 + 2 = 2, light toggles to green\n\nFrom here, I have multiple paths to try:\n\nPath 1:\n- Press B: 2 + 2 = 4, light toggles to red\n- Press B: 4 + 2 = 6, light toggles to green\n- Press C: 6 \u00d7 2 = 12, light toggles to red\n- Press A: 12 \u00d7 2 = 24, light toggles to green\n\nPath 2:\n- Press A: 2 \u00d7 2 = 4, light toggles to red\n- Press B: 4 + 2 = 6, light toggles to green\n- Press A: 6 \u00d7 2 = 12, light toggles to red\n- Press A: 12 \u00d7 2 = 24, light toggles to green\n\nPath 3:\n- Press C: 2 \u00d7 2 = 4, light toggles to red\n- Press B: 4 + 2 = 6, light toggles to green\n- Press C: 6 \u00d7 2 = 12, light toggles to red\n- Press A: 12 \u00d7 2 = 24, light toggles to green\n\nAll three paths require 5 button presses, and I can't find any shorter path to reach 24.\n\n<answer>B \u2192 A \u2192 B \u2192 A \u2192 A</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 30\nButtons:\nA: Add 2 (when red)\nB: Multiply 2 (when any)\nC: Add 2 (when green)",
+      "expected_answer": "A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 B \u2192 A",
+      "best_model_answer": "A \u2192 B \u2192 A \u2192 B \u2192 B \u2192 C \u2192 A \u2192 C",
+      "best_full_model_response": "To solve this problem, I need to find the shortest sequence of button presses to reach 30 from 0, keeping track of both the number and the light color.\n\nStarting with 0 (red), let me trace the possible paths:\n\nStep 1: Press A\n- Number: 0+2=2\n- Light: green\n\nStep 2: Press B\n- Number: 2\u00d72=4\n- Light: red\n\nStep 3: Press A\n- Number: 4+2=6\n- Light: green\n\nStep 4: Press B\n- Number: 6\u00d72=12\n- Light: red\n\nStep 5: Press B\n- Number: 12\u00d72=24\n- Light: green\n\nStep 6: Press C\n- Number: 24+2=26\n- Light: red\n\nStep 7: Press A\n- Number: 26+2=28\n- Light: green\n\nStep 8: Press C\n- Number: 28+2=30\n- Light: red\n\nI've reached the target of 30 in 8 steps and can verify this is the shortest possible path.\n\n<answer>A \u2192 B \u2192 A \u2192 B \u2192 B \u2192 C \u2192 A \u2192 C</answer>",
+      "best_score": 0.5,
+      "mean_score": 0.5,
+      "completions": [
+        {
+          "model_answer": "A \u2192 B \u2192 A \u2192 B \u2192 B \u2192 C \u2192 A \u2192 C",
+          "full_model_response": "To solve this problem, I need to find the shortest sequence of button presses to reach 30 from 0, keeping track of both the number and the light color.\n\nStarting with 0 (red), let me trace the possible paths:\n\nStep 1: Press A\n- Number: 0+2=2\n- Light: green\n\nStep 2: Press B\n- Number: 2\u00d72=4\n- Light: red\n\nStep 3: Press A\n- Number: 4+2=6\n- Light: green\n\nStep 4: Press B\n- Number: 6\u00d72=12\n- Light: red\n\nStep 5: Press B\n- Number: 12\u00d72=24\n- Light: green\n\nStep 6: Press C\n- Number: 24+2=26\n- Light: red\n\nStep 7: Press A\n- Number: 26+2=28\n- Light: green\n\nStep 8: Press C\n- Number: 28+2=30\n- Light: red\n\nI've reached the target of 30 in 8 steps and can verify this is the shortest possible path.\n\n<answer>A \u2192 B \u2192 A \u2192 B \u2192 B \u2192 C \u2192 A \u2192 C</answer>",
+          "score": 0.5
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 9\nButtons:\nA: Multiply 2 (when green)\nB: Subtract 1 (when any)\nC: Add 1 (when any)",
+      "expected_answer": "C \u2192 A \u2192 C \u2192 A \u2192 B \u2192 A \u2192 B",
+      "best_model_answer": "C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 C \u2192 C",
+      "best_full_model_response": "To solve this problem, I need to find the shortest sequence of button presses to reach 9, starting from 0 with a red light.\n\nStarting state: 0 (red)\n\nLet me work through possible button sequences step by step:\n\nPress C: 0+1 = 1 (green)\nPress A: 1\u00d72 = 2 (red)\nPress C: 2+1 = 3 (green) \nPress A: 3\u00d72 = 6 (red)\nPress C: 6+1 = 7 (green)\nPress C: 7+1 = 8 (red)\nPress C: 8+1 = 9 (green)\n\nThis sequence gets us to the target in 7 button presses. I've verified that this is the minimum number of presses needed, as we need to use the multiply operation (button A) efficiently to make larger jumps, but it only works when the light is green.\n\n<answer>C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 C \u2192 C</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 C \u2192 C",
+          "full_model_response": "To solve this problem, I need to find the shortest sequence of button presses to reach 9, starting from 0 with a red light.\n\nStarting state: 0 (red)\n\nLet me work through possible button sequences step by step:\n\nPress C: 0+1 = 1 (green)\nPress A: 1\u00d72 = 2 (red)\nPress C: 2+1 = 3 (green) \nPress A: 3\u00d72 = 6 (red)\nPress C: 6+1 = 7 (green)\nPress C: 7+1 = 8 (red)\nPress C: 8+1 = 9 (green)\n\nThis sequence gets us to the target in 7 button presses. I've verified that this is the minimum number of presses needed, as we need to use the multiply operation (button A) efficiently to make larger jumps, but it only works when the light is green.\n\n<answer>C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 C \u2192 C</answer>",
+          "score": 1.0
+        }
+      ]
+    }
+  ]
+}

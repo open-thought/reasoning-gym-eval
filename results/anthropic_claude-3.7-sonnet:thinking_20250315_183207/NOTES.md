@@ -1,0 +1,1 @@
+AK: 2025-03-16 After running out of credits over night I set default_size=5 (examples per dataset) and n=1. With the default configuration default_size=50 & n=3 it was prohibitively expensive.

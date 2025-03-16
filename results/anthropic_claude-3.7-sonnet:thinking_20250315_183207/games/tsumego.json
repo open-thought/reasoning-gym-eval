@@ -1,0 +1,90 @@
+{
+  "name": "tsumego",
+  "category": "games",
+  "average_best_score": 0.8,
+  "average_mean_score": 0.8,
+  "total_examples": 5,
+  "config": {
+    "size": 5,
+    "seed": 45
+  },
+  "system_prompt": "Given a problem, your task is to answer the question by thinking step-by-step in a clear and specific manner.\nOnce you have thought about the reasoning process, provide the answer in the following format:\n<answer>answer here</answer>\nDo not explain your reasoning inside the answer tags, provide only the final answer. When an example is provided, you should strictly follow the format of the output/answer in that example.\n",
+  "completions_per_prompt": 1,
+  "results": [
+    {
+      "question": "Here's a Go challenge. Playing as Black, how can you capture as many white stones as possible?\n\n```\n   A B C D E F G H I J K\n11 . . . . . O X X . . .\n10 . . X . O X O O X . .\n 9 O . . O . X O . . . .\n 8 . . . . . . X . . . .\n 7 . . . . . X . . . . .\n 6 . X . . . . . . . . .\n 5 . O . . . . . X . . .\n 4 X . . . . . . . . . .\n 3 . . . . . . . . . . .\n 2 . . . . . . . . . . .\n 1 O . . . . . . . . . .\n```\n\nX - Black\nO - White\n\nSpecify your move in coordinates (e.g. 'C4' for column C, row 4)",
+      "expected_answer": "H9",
+      "best_model_answer": "H9",
+      "best_full_model_response": "Looking at the Go board, I need to find where I can capture the most white stones with a single move.\n\nFirst, I'll analyze all the white stones on the board to identify any that might be in atari (having only one liberty left):\n\n1. F11 (White): Adjacent to E11 (empty), G11 (Black), F10 (Black)\n   - F11 has only one liberty at E11, so playing at E11 would capture 1 stone.\n\n2. E10 (White): Adjacent to D10 (empty), E9 (empty), F10 (Black), E11 (empty)\n   - E10 has multiple liberties, can't capture with one move.\n\n3. G10-H10-G9 (connected White group): \n   - G10 connects to H10 and G9\n   - Their shared liberties are only at H9\n   - All other adjacent points are occupied by Black stones (F10, I10, F9, G8, G11)\n   - This group has only one liberty at H9, so playing at H9 would capture all 3 stones.\n\n4. The isolated white stones at A9, D9, B5, and A1 all have multiple liberties.\n\nTherefore, playing at H9 would capture the most white stones (3), while playing at E11 would only capture 1 stone.\n\n<answer>H9</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "H9",
+          "full_model_response": "Looking at the Go board, I need to find where I can capture the most white stones with a single move.\n\nFirst, I'll analyze all the white stones on the board to identify any that might be in atari (having only one liberty left):\n\n1. F11 (White): Adjacent to E11 (empty), G11 (Black), F10 (Black)\n   - F11 has only one liberty at E11, so playing at E11 would capture 1 stone.\n\n2. E10 (White): Adjacent to D10 (empty), E9 (empty), F10 (Black), E11 (empty)\n   - E10 has multiple liberties, can't capture with one move.\n\n3. G10-H10-G9 (connected White group): \n   - G10 connects to H10 and G9\n   - Their shared liberties are only at H9\n   - All other adjacent points are occupied by Black stones (F10, I10, F9, G8, G11)\n   - This group has only one liberty at H9, so playing at H9 would capture all 3 stones.\n\n4. The isolated white stones at A9, D9, B5, and A1 all have multiple liberties.\n\nTherefore, playing at H9 would capture the most white stones (3), while playing at E11 would only capture 1 stone.\n\n<answer>H9</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Tsumego time. Black to play and capture some stones.\nFind the key move.\n\n```\n   A B C D E F G H I\n 9 . . . . . . . . .\n 8 . . . . . . O . .\n 7 . . . . . . . . O\n 6 . . . . . . . . X\n 5 . . . X . . . . .\n 4 O . X O X . . . X\n 3 O X O O . . . . .\n 2 . X X O X X . . .\n 1 X X . X . O . . .\n```\n\nX - Black\nO - White\n\nSpecify your move in coordinates (e.g. 'C4' for column C, row 4)",
+      "expected_answer": "E3",
+      "best_model_answer": "E3",
+      "best_full_model_response": "Looking at this tsumego problem, I need to find a move that captures some white stones.\n\nI'll analyze the white groups on the board:\n\n1. A3-A4 group: Has liberties at A2 and B4\n2. C3-D3-D2-D4 group: Has only one liberty at E3\n3. F1 stone: Has liberties at E1 and G1\n4. G8 stone: Has multiple liberties\n5. I7 stone: Has multiple liberties\n\nThe white group at C3-D3-D2-D4 is the most vulnerable with only one liberty at E3. If Black plays at E3, those four white stones would be captured immediately.\n\nNone of the other white groups can be captured in a single move.\n\n<answer>E3</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "E3",
+          "full_model_response": "Looking at this tsumego problem, I need to find a move that captures some white stones.\n\nI'll analyze the white groups on the board:\n\n1. A3-A4 group: Has liberties at A2 and B4\n2. C3-D3-D2-D4 group: Has only one liberty at E3\n3. F1 stone: Has liberties at E1 and G1\n4. G8 stone: Has multiple liberties\n5. I7 stone: Has multiple liberties\n\nThe white group at C3-D3-D2-D4 is the most vulnerable with only one liberty at E3. If Black plays at E3, those four white stones would be captured immediately.\n\nNone of the other white groups can be captured in a single move.\n\n<answer>E3</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Here's a Go challenge. Playing as Black, how can you capture as many white stones as possible?\n\n```\n   A B C D E F G H I J K\n11 . . . . . . . . . . .\n10 X . . . . . O . . . .\n 9 . X . . . . . . . . .\n 8 X O X . . . . . O . .\n 7 O O . X . . . . . . .\n 6 X O X . . O . . . X .\n 5 . X . . . . O . . . X\n 4 . . . X . . . . X . .\n 3 . . . . . . . . . O .\n 2 . . . . . X . . . . .\n 1 . . . . . . . . . . .\n```\n\nX - Black\nO - White\n\nSpecify your move in coordinates (e.g. 'C4' for column C, row 4)",
+      "expected_answer": "C7",
+      "best_model_answer": null,
+      "best_full_model_response": "",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "I have a Go problem for you. Black moves next - can you capture some of the white stones?\n\n```\n   A B C D E F G H I J K L M\n13 . . . . . . . . . . . . .\n12 . . . . . . X . . . . . .\n11 O . . . . . . X . . . . .\n10 . . . . . . . . . . . . .\n 9 . . . . . X . X . . . . .\n 8 . . O . X O O O X . . . .\n 7 . . X . . X O X . . . . .\n 6 . . . . . . X . . . X . .\n 5 . . . O O . . . O . . . .\n 4 . . . . . . . . . . . . .\n 3 . . . X . . . . . . . . .\n 2 . . . . . . . . . . . . .\n 1 . . . . . . . . . . X . .\n```\n\nX - Black\nO - White\n\nSpecify your move in coordinates (e.g. 'C4' for column C, row 4)",
+      "expected_answer": "G9",
+      "best_model_answer": "G9",
+      "best_full_model_response": "Looking at the Go board, I need to find opportunities for Black to capture White stones with a single move.\n\nFirst, let me analyze all the White stone groups on the board to check their liberties:\n\n1. Single White stone at A11: Has liberties at A10 and B11 (2 liberties)\n2. Single White stone at C8: Has liberties at B8, C9 and D8 (3 liberties)\n3. Two connected White stones at D5-E5: Has multiple liberties\n4. Single White stone at I5: Has liberties in all four directions\n5. Four connected White stones at F8-G8-H8-G7: This group looks interesting!\n\nExamining the F8-G8-H8-G7 White group more carefully:\n- F8 is surrounded by Black stones at E8, F7, F9 and White at G8\n- G8 connects to F8, G7, H8, and has one empty point at G9\n- H8 is surrounded by G8 (White), and Black stones at H7, H9, I8\n- G7 is surrounded by Black stones at F7, G6, H7 and White at G8\n\nThis White group has only ONE liberty - at G9. If Black plays at G9, all four White stones will be captured.\n\n<answer>G9</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "G9",
+          "full_model_response": "Looking at the Go board, I need to find opportunities for Black to capture White stones with a single move.\n\nFirst, let me analyze all the White stone groups on the board to check their liberties:\n\n1. Single White stone at A11: Has liberties at A10 and B11 (2 liberties)\n2. Single White stone at C8: Has liberties at B8, C9 and D8 (3 liberties)\n3. Two connected White stones at D5-E5: Has multiple liberties\n4. Single White stone at I5: Has liberties in all four directions\n5. Four connected White stones at F8-G8-H8-G7: This group looks interesting!\n\nExamining the F8-G8-H8-G7 White group more carefully:\n- F8 is surrounded by Black stones at E8, F7, F9 and White at G8\n- G8 connects to F8, G7, H8, and has one empty point at G9\n- H8 is surrounded by G8 (White), and Black stones at H7, H9, I8\n- G7 is surrounded by Black stones at F7, G6, H7 and White at G8\n\nThis White group has only ONE liberty - at G9. If Black plays at G9, all four White stones will be captured.\n\n<answer>G9</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Here's a Go challenge. Playing as Black, how can you capture as many white stones as possible?\n\n```\n   A B C D E F G H I\n 9 O . . . . . O . O\n 8 . . . X X . . . .\n 7 . X X O O X . . .\n 6 . O X O . . . . .\n 5 . . X X . X O . .\n 4 . . . . . . O . O\n 3 . . . . . O . . .\n 2 . . . . . . . . .\n 1 . . . . . . . . .\n```\n\nX - Black\nO - White\n\nSpecify your move in coordinates (e.g. 'C4' for column C, row 4)",
+      "expected_answer": "E6",
+      "best_model_answer": "E6",
+      "best_full_model_response": "Looking at this Go position, I need to find a move that captures the most white stones.\n\nFirst, I'll analyze each white group and its liberties (empty adjacent points):\n\n1. The white stone at A9 has liberties at A8 and B9\n2. The white stone at G9 has liberties at F9 and H9\n3. The white stone at I9 has liberties at H9 and I8\n4. The white group at D7-E7-D6:\n   - This group is connected and surrounded by black stones except at E6\n   - D7 connects to E7 and D6\n   - The only liberty for this entire group is at E6\n5. The white stone at B6 has liberties at A6 and B5\n6. The connected white stones at G5-G4 have multiple liberties (F4, G3, H4, H5)\n7. The white stone at I4 has liberties at H4, I3, and I5\n8. The white stone at F3 has liberties at E3, F2, F4, and G3\n\nThe D7-E7-D6 group is the only group with just one liberty, meaning it can be captured in a single move. Playing at E6 would capture all three white stones in this group.\n\nNo other move would capture more than one stone immediately.\n\n<answer>E6</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "E6",
+          "full_model_response": "Looking at this Go position, I need to find a move that captures the most white stones.\n\nFirst, I'll analyze each white group and its liberties (empty adjacent points):\n\n1. The white stone at A9 has liberties at A8 and B9\n2. The white stone at G9 has liberties at F9 and H9\n3. The white stone at I9 has liberties at H9 and I8\n4. The white group at D7-E7-D6:\n   - This group is connected and surrounded by black stones except at E6\n   - D7 connects to E7 and D6\n   - The only liberty for this entire group is at E6\n5. The white stone at B6 has liberties at A6 and B5\n6. The connected white stones at G5-G4 have multiple liberties (F4, G3, H4, H5)\n7. The white stone at I4 has liberties at H4, I3, and I5\n8. The white stone at F3 has liberties at E3, F2, F4, and G3\n\nThe D7-E7-D6 group is the only group with just one liberty, meaning it can be captured in a single move. Playing at E6 would capture all three white stones in this group.\n\nNo other move would capture more than one stone immediately.\n\n<answer>E6</answer>",
+          "score": 1.0
+        }
+      ]
+    }
+  ]
+}

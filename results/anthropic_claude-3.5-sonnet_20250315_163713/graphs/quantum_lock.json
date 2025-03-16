@@ -1,0 +1,1265 @@
+{
+  "name": "quantum_lock",
+  "category": "graphs",
+  "average_best_score": 0.61,
+  "average_mean_score": 0.42333333333333334,
+  "total_examples": 50,
+  "config": {
+    "size": 50,
+    "seed": 45
+  },
+  "system_prompt": "Given a problem, your task is to answer the question by thinking step-by-step in a clear and specific manner.\nOnce you have thought about the reasoning process, provide the answer in the following format:\n<answer>answer here</answer>\nDo not explain your reasoning inside the answer tags, provide only the final answer. When an example is provided, you should strictly follow the format of the output/answer in that example.\n",
+  "completions_per_prompt": 3,
+  "results": [
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 18\nButtons:\nA: Multiply 2 (when any)\nB: Subtract 2 (when green)\nC: Add 2 (when any)",
+      "expected_answer": "C \u2192 A \u2192 A \u2192 A \u2192 C",
+      "best_model_answer": "C \u2192 A \u2192 A \u2192 A \u2192 C",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Available operations: A (\u00d72) or C (+2)\n3) Need to reach 18\n4) If we multiply first, 0\u00d72=0, not helpful\n5) Need to add first: C (+2)\n6) Now at 2 (green)\n7) Available: A (\u00d72), B (-2), or C (+2)\n8) Best to multiply: A (\u00d72)\n9) Now at 4 (red)\n10) Best to multiply again: A (\u00d72)\n11) Now at 8 (green)\n12) Multiply again: A (\u00d72)\n13) Now at 16 (red)\n14) Finally add 2: C (+2)\n15) Reached 18\n\n<answer>C \u2192 A \u2192 A \u2192 A \u2192 C</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "C \u2192 A \u2192 A \u2192 A \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Available operations: A (\u00d72) or C (+2)\n3) Need to reach 18\n4) If we multiply first, 0\u00d72=0, not helpful\n5) Need to add first: C (+2)\n6) Now at 2 (green)\n7) Available: A (\u00d72), B (-2), or C (+2)\n8) Best to multiply: A (\u00d72)\n9) Now at 4 (red)\n10) Best to multiply again: A (\u00d72)\n11) Now at 8 (green)\n12) Multiply again: A (\u00d72)\n13) Now at 16 (red)\n14) Finally add 2: C (+2)\n15) Reached 18\n\n<answer>C \u2192 A \u2192 A \u2192 A \u2192 C</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "C \u2192 A \u2192 A \u2192 A \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Available operations: A (\u00d72) or C (+2)\n3) Need to reach 18\n4) Let me work backwards from 18:\n   - 18 \u00f7 2 = 9\n   - 9 \u00f7 2 = 4.5 (not good)\n   - So start with additions\n5) Best sequence:\n   - 0 \u2192 C = 2 (light toggles to green)\n   - 2 \u2192 A = 4 (light toggles to red)\n   - 4 \u2192 A = 8 (light toggles to green)\n   - 8 \u2192 A = 16 (light toggles to red)\n   - 16 \u2192 C = 18\n\n<answer>C \u2192 A \u2192 A \u2192 A \u2192 C</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "C \u2192 A \u2192 A \u2192 A \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Available moves: A (\u00d72) or C (+2)\n3) Need to reach 18\n4) Let me try to find the shortest path:\n   * 0 \u2192 C \u2192 2 (red)\n   * 2 \u2192 A \u2192 4 (red)\n   * 4 \u2192 A \u2192 8 (red)\n   * 8 \u2192 A \u2192 16 (red)\n   * 16 \u2192 C \u2192 18 (red)\n\n<answer>C \u2192 A \u2192 A \u2192 A \u2192 C</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 8\nButtons:\nA: Subtract 1 (when green)\nB: Add 1 (when green)\nC: Add 1 (when any)",
+      "expected_answer": "C \u2192 B \u2192 C \u2192 B \u2192 C \u2192 B \u2192 C \u2192 B",
+      "best_model_answer": "C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Only C works regardless of light color\n3) Need to get to 8\n4) Each C press adds 1\n5) Since C is the only reliable button and we need to add 8, we need to press C eight times\n6) Other buttons won't help as they require green light and we start with red\n\n<answer>C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Only C works regardless of light color\n3) Need to get to 8\n4) Each C press adds 1\n5) Since C is the only reliable button and we need to add 8, we need to press C eight times\n6) Other buttons won't help as they require green light and we start with red\n\n<answer>C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) First press must toggle light to green\n3) When green, button A subtracts 1, B adds 1, C adds 1\n4) When red, only C adds 1\n5) Need to reach 8 from 0\n6) Since C always adds 1 regardless of light color, it's most efficient\n7) Need to press C eight times\n8) No need to toggle light color\n\n<answer>C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start at 0 with red light\n2. Need to reach 8\n3. When red, only C can add 1\n4. When green, both A and B work\n5. C works in both states\n6. Each button press toggles the light\n7. Need to increase by 8 total\n8. C is the only option that always adds 1\n9. Therefore, just press C eight times\n\n<answer>C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 24\nButtons:\nA: Multiply 2 (when any)\nB: Add 2 (when any)\nC: Multiply 2 (when green)",
+      "expected_answer": "B \u2192 A \u2192 B \u2192 A \u2192 A",
+      "best_model_answer": "B \u2192 A \u2192 B \u2192 C \u2192 A",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Need to get to 24\n3) Available operations:\n   - A: \u00d72 (any light)\n   - B: +2 (any light)\n   - C: \u00d72 (only when green)\n4) To get 24:\n   - Start at 0\n   - B to get 2 (light turns green)\n   - A to get 4 (light turns red)\n   - B to get 6 (light turns green)\n   - C to get 12 (light turns red)\n   - A to get 24\n\n<answer>B \u2192 A \u2192 B \u2192 C \u2192 A</answer>",
+      "best_score": 1.0,
+      "mean_score": 0.6666666666666666,
+      "completions": [
+        {
+          "model_answer": "B \u2192 A \u2192 B \u2192 C \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Need to get to 24\n3) Available operations:\n   - A: \u00d72 (any light)\n   - B: +2 (any light)\n   - C: \u00d72 (only when green)\n4) To get 24:\n   - Start at 0\n   - B to get 2 (light turns green)\n   - A to get 4 (light turns red)\n   - B to get 6 (light turns green)\n   - C to get 12 (light turns red)\n   - A to get 24\n\n<answer>B \u2192 A \u2192 B \u2192 C \u2192 A</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "B \u2192 A \u2192 B \u2192 A \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1) Starting with 0 (red light)\n2) Need to get to 24\n3) Available operations:\n   - A: \u00d72 (any color)\n   - B: +2 (any color)\n   - C: \u00d72 (only when green)\n\n4) To get from 0 to 24:\n   - Start at 0 (red)\n   - B: 0+2 = 2 (green)\n   - A: 2\u00d72 = 4 (red)\n   - B: 4+2 = 6 (green)\n   - A: 6\u00d72 = 12 (red)\n   - A: 12\u00d72 = 24 (green)\n\n<answer>B \u2192 A \u2192 B \u2192 A \u2192 A</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "B \u2192 A \u2192 A \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Available operations:\n   - A: 0 \u00d7 2 = 0\n   - B: 0 + 2 = 2\n   - C: Can't use (needs green)\n\n3) Must start with B to get 2\n4) After B, light turns green\n5) Now at 2 (green)\n   - A: 2 \u00d7 2 = 4\n   - B: 2 + 2 = 4\n   - C: 2 \u00d7 2 = 4\n\n6) Need to multiply by 2 three more times to get from 4 to 24\n7) Can use A or C when applicable\n\n<answer>B \u2192 A \u2192 A \u2192 A</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 30\nButtons:\nA: Add 2 (when red)\nB: Multiply 2 (when any)\nC: Add 2 (when green)",
+      "expected_answer": "A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 B \u2192 A",
+      "best_model_answer": null,
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 with red light\n2) Need to get to 30\n3) Available operations:\n   - A: +2 (red only)\n   - B: \u00d72 (any color)\n   - C: +2 (green only)\n4) To reach 30:\n   - 0 \u2192 2 (A, now green)\n   - 2 \u2192 4 (C, now red)\n   - 4 \u2192 8 (B, still red)\n   - 8 \u2192 16 (B, still red)\n   - 16 \u2192 32 (B, still red)\n   - 32 \u2192 30 (A, now green)\n\n<answer>A \u2192 C \u2192 B \u2192 B \u2192 B \u2192 A</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": "A \u2192 C \u2192 B \u2192 B \u2192 B \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 with red light\n2) Need to get to 30\n3) Available operations:\n   - A: +2 (red only)\n   - B: \u00d72 (any color)\n   - C: +2 (green only)\n4) To reach 30:\n   - 0 \u2192 2 (A, now green)\n   - 2 \u2192 4 (C, now red)\n   - 4 \u2192 8 (B, still red)\n   - 8 \u2192 16 (B, still red)\n   - 16 \u2192 32 (B, still red)\n   - 32 \u2192 30 (A, now green)\n\n<answer>A \u2192 C \u2192 B \u2192 B \u2192 B \u2192 A</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "A \u2192 B \u2192 C \u2192 B \u2192 A \u2192 B \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Need to reach 30\n3) Available operations:\n   - A: +2 (red only)\n   - B: \u00d72 (any color)\n   - C: +2 (green only)\n4) To get 30:\n   - Start: 0 (red)\n   - A: 0+2=2 (now green)\n   - B: 2\u00d72=4 (still green)\n   - C: 4+2=6 (now red)\n   - B: 6\u00d72=12 (still red)\n   - A: 12+2=14 (now green)\n   - B: 14\u00d72=28 (still green)\n   - C: 28+2=30 (now red)\n\n<answer>A \u2192 B \u2192 C \u2192 B \u2192 A \u2192 B \u2192 C</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "A \u2192 B \u2192 B \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Need to reach 30\n3) Available operations:\n   - A: +2 (red)\n   - B: \u00d72 (any)\n   - C: +2 (green)\n\n4) Let me work backwards:\n   - 30 needs to be achieved through multiplication by 2 and additions\n   - 30 = 2 \u00d7 15\n   - 15 = 2 \u00d7 7.5\n   - Can't multiply by 2 anymore as it would give decimals\n   - Need 15 from 0\n   - From 0: +2 \u2192 2 \u00d7 2 \u2192 8 \u00d7 2 \u2192 16 - 1 = 15\n\n5) The sequence:\n   A \u2192 B \u2192 B \u2192 B\n\n<answer>A \u2192 B \u2192 B \u2192 B</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 9\nButtons:\nA: Multiply 2 (when green)\nB: Subtract 1 (when any)\nC: Add 1 (when any)",
+      "expected_answer": "C \u2192 A \u2192 C \u2192 A \u2192 B \u2192 A \u2192 B",
+      "best_model_answer": "C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B",
+      "best_full_model_response": "Let me solve this step by step:\n\n1. Starting with 0 (red light)\n2. First action needs to change light to green for A to work\n3. C will add 1 and change light to green: 0 \u2192 1 (green)\n4. Now A can multiply by 2: 1 \u2192 2 (red)\n5. C again to add 1 and change light: 2 \u2192 3 (green)\n6. A to multiply by 2: 3 \u2192 6 (red)\n7. C to add 1 and change light: 6 \u2192 7 (green)\n8. A to multiply by 2: 7 \u2192 14 (red)\n9. B five times to subtract 5: 14 \u2192 9 (green)\n\n<answer>C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B</answer>",
+      "best_score": 0.5,
+      "mean_score": 0.3333333333333333,
+      "completions": [
+        {
+          "model_answer": "C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1. Starting with 0 (red light)\n2. First action needs to change light to green for A to work\n3. C will add 1 and change light to green: 0 \u2192 1 (green)\n4. Now A can multiply by 2: 1 \u2192 2 (red)\n5. C again to add 1 and change light: 2 \u2192 3 (green)\n6. A to multiply by 2: 3 \u2192 6 (red)\n7. C to add 1 and change light: 6 \u2192 7 (green)\n8. A to multiply by 2: 7 \u2192 14 (red)\n9. B five times to subtract 5: 14 \u2192 9 (green)\n\n<answer>C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B</answer>",
+          "score": 0.5
+        },
+        {
+          "model_answer": "C \u2192 A \u2192 C \u2192 C \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start at 0 with red light\n2. Need to get to 9\n3. Button A only works with green light\n4. Need to get green light first\n5. Can use either B or C to toggle light\n6. C is better as it adds 1\n7. After light is green, can use A to multiply by 2\n8. Then can use C to add remaining amount\n\n<answer>C \u2192 A \u2192 C \u2192 C \u2192 C \u2192 C</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "C \u2192 A \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start at 0 with red light\n2. Need to get to 9\n3. Button A only works with green light\n4. Need to get green light first\n5. Can use either B or C to toggle light\n6. C adds 1, better than B which subtracts\n7. After C: 1 (green)\n8. Now A works: 1 \u00d7 2 = 2\n9. Need 7 more to reach 9\n10. Can use C seven times\n\n<answer>C \u2192 A \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C</answer>",
+          "score": 0.5
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 27\nButtons:\nA: Subtract 3 (when green)\nB: Add 3 (when green)\nC: Multiply 3 (when any)",
+      "expected_answer": "C \u2192 B \u2192 C \u2192 C",
+      "best_model_answer": "C \u2192 B \u2192 C \u2192 C",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Available operations:\n   - Only C can be used with red light\n   - After pressing any button, light toggles\n3) Need to reach 27\n4) Since 27 is divisible by 3 (27 = 3 \u00d7 9)\n5) Starting with 0, need to multiply by 3 and then add to reach 27\n6) Press C first: 0 \u00d7 3 = 0 (now green)\n7) Press B: 0 + 3 = 3 (now red)\n8) Press C: 3 \u00d7 3 = 9 (now green)\n9) Press C: 9 \u00d7 3 = 27 (target reached)\n\n<answer>C \u2192 B \u2192 C \u2192 C</answer>",
+      "best_score": 1.0,
+      "mean_score": 0.6666666666666666,
+      "completions": [
+        {
+          "model_answer": "C \u2192 B \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Available operations:\n   - Only C can be used with red light\n   - After pressing any button, light toggles\n3) Need to reach 27\n4) Since 27 is divisible by 3 (27 = 3 \u00d7 9)\n5) Starting with 0, need to multiply by 3 and then add to reach 27\n6) Press C first: 0 \u00d7 3 = 0 (now green)\n7) Press B: 0 + 3 = 3 (now red)\n8) Press C: 3 \u00d7 3 = 9 (now green)\n9) Press C: 9 \u00d7 3 = 27 (target reached)\n\n<answer>C \u2192 B \u2192 C \u2192 C</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "C \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Button options:\n   * Only C works with red light\n   * C multiplies by 3: 0 \u00d7 3 = 0\n3) Need to get to 27\n4) 27 = 3 \u00d7 3 \u00d7 3\n5) Each press of C multiplies by 3\n6) Need to press C three times\n\n<answer>C \u2192 C \u2192 C</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "C \u2192 B \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Available operations:\n   - A: No effect (only works when green)\n   - B: No effect (only works when green)\n   - C: Multiply by 3 (works with any color)\n\n3) Need to get to 27\n4) 27 = 3 \u00d7 3 \u00d7 3\n5) Each C will multiply by 3\n6) Starting from 0:\n   - First C: 0 \u00d7 3 = 0\n   - Second C: 0 \u00d7 3 = 0\n   - Third C: 0 \u00d7 3 = 0\n\n7) This won't work starting with C\n8) Need to add some value first using B, but B only works when green\n9) Need to toggle light first with any button, then use B\n\n10) Solution:\n    - C (toggles to green, 0\u00d73=0)\n    - B (adds 3, now 3)\n    - C (toggles to red, 3\u00d73=9)\n    - C (toggles to green, 9\u00d73=27)\n\n<answer>C \u2192 B \u2192 C \u2192 C</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 14\nButtons:\nA: Subtract 1 (when any)\nB: Add 1 (when green)\nC: Multiply 2 (when any)",
+      "expected_answer": "C \u2192 B \u2192 C \u2192 B \u2192 C \u2192 B \u2192 C",
+      "best_model_answer": "C \u2192 B \u2192 C \u2192 C \u2192 C \u2192 C \u2192 A \u2192 A",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Available moves: A (-1) or C (\u00d72)\n3) Multiplying by 2 is more efficient for reaching larger numbers\n4) Press C: 0 \u2192 0 (light changes to green)\n5) Now can use B to add 1\n6) Press B: 0 \u2192 1 (light changes to red)\n7) Press C: 1 \u2192 2 (light changes to green)\n8) Press C: 2 \u2192 4 (light changes to red)\n9) Press C: 4 \u2192 8 (light changes to green)\n10) Press C: 8 \u2192 16 (light changes to red)\n11) Press A: 16 \u2192 15 (light changes to green)\n12) Press A: 15 \u2192 14 (light changes to red)\n\n<answer>C \u2192 B \u2192 C \u2192 C \u2192 C \u2192 C \u2192 A \u2192 A</answer>",
+      "best_score": 0.5,
+      "mean_score": 0.16666666666666666,
+      "completions": [
+        {
+          "model_answer": "C \u2192 C \u2192 C \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start with 0 (red light)\n2. Need to get to 14\n3. Available operations:\n   - A: -1 (any light)\n   - B: +1 (only green)\n   - C: \u00d72 (any light)\n4. To reach 14, we need to multiply numbers and add\n5. Working backwards:\n   - 14 \u00f7 2 = 7\n   - 7 \u00f7 2 = 3.5\n   - So we need to get to 7 and multiply by 2\n   - To get 7, we need to get to 3 and multiply by 2, then add 1\n6. Sequence:\n   - 0 \u2192 \u00d72 = 0\n   - 0 \u2192 +1 (need green light first)\n   - Then multiply by 2 twice\n   - Then add 1\n\n<answer>C \u2192 C \u2192 C \u2192 B</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "A \u2192 C \u2192 C \u2192 C \u2192 C \u2192 B \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Need to get to 14\n3) Looking at buttons:\n   - A subtracts 1 (any light)\n   - B adds 1 (only when green)\n   - C multiplies by 2 (any light)\n\n4) To reach 14:\n   * Start at 0 (red)\n   * C: 0 \u00d7 2 = 0 (green)\n   * C: 0 \u00d7 2 = 0 (red)\n   * B won't work (red light)\n   * A: 0 - 1 = -1 (green)\n   * C: -1 \u00d7 2 = -2 (red)\n   * C: -2 \u00d7 2 = -4 (green)\n   * C: -4 \u00d7 2 = -8 (red)\n   * C: -8 \u00d7 2 = -16 (green)\n   * B: -16 + 1 = -15 (red)\n   * C: -15 \u00d7 2 = 14 (green)\n\n<answer>A \u2192 C \u2192 C \u2192 C \u2192 C \u2192 B \u2192 C</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "C \u2192 B \u2192 C \u2192 C \u2192 C \u2192 C \u2192 A \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Available moves: A (-1) or C (\u00d72)\n3) Multiplying by 2 is more efficient for reaching larger numbers\n4) Press C: 0 \u2192 0 (light changes to green)\n5) Now can use B to add 1\n6) Press B: 0 \u2192 1 (light changes to red)\n7) Press C: 1 \u2192 2 (light changes to green)\n8) Press C: 2 \u2192 4 (light changes to red)\n9) Press C: 4 \u2192 8 (light changes to green)\n10) Press C: 8 \u2192 16 (light changes to red)\n11) Press A: 16 \u2192 15 (light changes to green)\n12) Press A: 15 \u2192 14 (light changes to red)\n\n<answer>C \u2192 B \u2192 C \u2192 C \u2192 C \u2192 C \u2192 A \u2192 A</answer>",
+          "score": 0.5
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 19\nButtons:\nA: Add 3 (when green)\nB: Subtract 3 (when any)\nC: Add 2 (when red)",
+      "expected_answer": "C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 B",
+      "best_model_answer": null,
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Start with 0 and red light\n2) Available actions with red light: B or C\n3) C adds 2 when red, so use C\n   0 + 2 = 2 (light toggles to green)\n4) With green light, can use A or B\n5) A adds 3 when green\n   2 + 3 = 5 (light toggles to red)\n6) Use C again when red\n   5 + 2 = 7 (light toggles to green)\n7) Use A with green light\n   7 + 3 = 10 (light toggles to red)\n8) Continue pattern of C and A until reaching 19\n   10 + 2 = 12 (C, green)\n   12 + 3 = 15 (A, red)\n   15 + 2 = 17 (C, green)\n   17 + 2 = 19 (A, red)\n\n<answer>C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": "C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 and red light\n2) Available actions with red light: B or C\n3) C adds 2 when red, so use C\n   0 + 2 = 2 (light toggles to green)\n4) With green light, can use A or B\n5) A adds 3 when green\n   2 + 3 = 5 (light toggles to red)\n6) Use C again when red\n   5 + 2 = 7 (light toggles to green)\n7) Use A with green light\n   7 + 3 = 10 (light toggles to red)\n8) Continue pattern of C and A until reaching 19\n   10 + 2 = 12 (C, green)\n   12 + 3 = 15 (A, red)\n   15 + 2 = 17 (C, green)\n   17 + 2 = 19 (A, red)\n\n<answer>C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Available operations:\n   - B: can subtract 3\n   - C: can add 2 (since light is red)\n   - A: can't use (needs green)\n\n3) Let's plan:\n   - Need to reach 19\n   - C adds 2 when red\n   - After C, light becomes green\n   - A adds 3 when green\n   - Can repeat this pattern\n\n4) Calculate sequence:\n   0 (red) \u2192 C \u2192 2 (green) \u2192 A \u2192 5 (red) \u2192 C \u2192 7 (green) \u2192 A \u2192 10 (red) \u2192 C \u2192 12 (green) \u2192 A \u2192 15 (red) \u2192 C \u2192 17 (green) \u2192 A \u2192 19 (red)\n\n<answer>C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 B \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start with 0 and red light\n2. Button options when red: B (-3) or C (+2)\n3. C is better as we need to increase the number\n4. After C: 2 (red)\n5. C again: 4 (red)\n6. C again: 6 (red)\n7. C again: 8 (red)\n8. C again: 10 (red)\n9. C again: 12 (red)\n10. C again: 14 (red)\n11. C again: 16 (red)\n12. C again: 18 (red)\n13. C again: 20 (red)\n14. B once: 17 (red)\n15. C once: 19 (red)\n\n<answer>C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 B \u2192 C</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 30\nButtons:\nA: Add 3 (when any)\nB: Subtract 3 (when green)\nC: Multiply 2 (when red)",
+      "expected_answer": "A \u2192 A \u2192 C \u2192 A \u2192 C",
+      "best_model_answer": "A \u2192 A \u2192 C \u2192 A \u2192 C",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) We start at 0 with a red light\n2) With red light, we can use A or C\n3) Let me map out the optimal path:\n   - Start: 0 (red)\n   - C: 0 \u00d7 2 = 0 (green)\n   - A: 0 + 3 = 3 (red)\n   - C: 3 \u00d7 2 = 6 (green)\n   - A: 6 + 3 = 9 (red)\n   - C: 9 \u00d7 2 = 18 (green)\n   - A: 18 + 3 = 21 (red)\n   - C: 21 \u00d7 2 = 42 (green)\n   - B: 42 - 3 = 39 (red)\n   - B not available in red\n   - A: 42 + 3 = 45 (red)\n   \nLet me try another path:\n   - A: 0 + 3 = 3 (green)\n   - A: 3 + 3 = 6 (red)\n   - C: 6 \u00d7 2 = 12 (green)\n   - A: 12 + 3 = 15 (red)\n   - C: 15 \u00d7 2 = 30 (green)\n\n<answer>A \u2192 A \u2192 C \u2192 A \u2192 C</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "A \u2192 A \u2192 C \u2192 A \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) We start at 0 with a red light\n2) With red light, we can use A or C\n3) Let me map out the optimal path:\n   - Start: 0 (red)\n   - C: 0 \u00d7 2 = 0 (green)\n   - A: 0 + 3 = 3 (red)\n   - C: 3 \u00d7 2 = 6 (green)\n   - A: 6 + 3 = 9 (red)\n   - C: 9 \u00d7 2 = 18 (green)\n   - A: 18 + 3 = 21 (red)\n   - C: 21 \u00d7 2 = 42 (green)\n   - B: 42 - 3 = 39 (red)\n   - B not available in red\n   - A: 42 + 3 = 45 (red)\n   \nLet me try another path:\n   - A: 0 + 3 = 3 (green)\n   - A: 3 + 3 = 6 (red)\n   - C: 6 \u00d7 2 = 12 (green)\n   - A: 12 + 3 = 15 (red)\n   - C: 15 \u00d7 2 = 30 (green)\n\n<answer>A \u2192 A \u2192 C \u2192 A \u2192 C</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "A \u2192 A \u2192 C \u2192 A \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Available operations: A (add 3) or C (multiply 2)\n3) To reach 30, need to get a large number through multiplication\n4) If we multiply first, we get 0\n5) Need to add first, then multiply\n6) Press A: 0 + 3 = 3 (light turns green)\n7) Press A: 3 + 3 = 6 (light turns red)\n8) Press C: 6 \u00d7 2 = 12 (light turns green)\n9) Press A: 12 + 3 = 15 (light turns red)\n10) Press C: 15 \u00d7 2 = 30 (target reached)\n\n<answer>A \u2192 A \u2192 C \u2192 A \u2192 C</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "A \u2192 A \u2192 C \u2192 A \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Available operations: A (add 3) or C (multiply 2)\n3) Multiplying 0 won't help, so start with A\n4) After A: 3 (green light)\n5) Can use A or B now\n6) Need to get to 30, so multiply would be helpful\n7) Use A to get back to red light: 6 (red)\n8) Now can use C: 12 (green)\n9) Use A: 15 (red)\n10) Use C: 30 (green)\n\n<answer>A \u2192 A \u2192 C \u2192 A \u2192 C</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 9\nButtons:\nA: Subtract 1 (when any)\nB: Multiply 2 (when red)\nC: Add 2 (when any)",
+      "expected_answer": "C \u2192 C \u2192 B \u2192 A \u2192 C",
+      "best_model_answer": "C \u2192 C \u2192 B \u2192 C \u2192 A",
+      "best_full_model_response": "Let me solve this step by step:\n\n1. Start with 0 (red light)\n2. Need to reach 9\n3. Available operations:\n   - A: -1 (any color)\n   - B: \u00d72 (only when red)\n   - C: +2 (any color)\n4. Since B only works with red light, and multiplying early is beneficial:\n   * 0 \u2192 B \u2192 0 (still red)\n   * 0 \u2192 C \u2192 2 (turns green)\n   * 2 \u2192 C \u2192 4 (turns red)\n   * 4 \u2192 B \u2192 8 (turns green)\n   * 8 \u2192 C \u2192 10 (turns red)\n   * 10 \u2192 A \u2192 9 (turns green)\n\n<answer>C \u2192 C \u2192 B \u2192 C \u2192 A</answer>",
+      "best_score": 1.0,
+      "mean_score": 0.3333333333333333,
+      "completions": [
+        {
+          "model_answer": "C \u2192 C \u2192 B \u2192 C \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start with 0 (red light)\n2. Need to reach 9\n3. Available operations:\n   - A: -1 (any color)\n   - B: \u00d72 (only when red)\n   - C: +2 (any color)\n4. Since B only works with red light, and multiplying early is beneficial:\n   * 0 \u2192 B \u2192 0 (still red)\n   * 0 \u2192 C \u2192 2 (turns green)\n   * 2 \u2192 C \u2192 4 (turns red)\n   * 4 \u2192 B \u2192 8 (turns green)\n   * 8 \u2192 C \u2192 10 (turns red)\n   * 10 \u2192 A \u2192 9 (turns green)\n\n<answer>C \u2192 C \u2192 B \u2192 C \u2192 A</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "C\u2192B\u2192C\u2192C\u2192A",
+          "full_model_response": "Let me solve this step by step:\n\n1. Starting at 0 with red light\n2. Need to reach 9\n3. Available operations:\n   - A: -1 (any color)\n   - B: \u00d72 (only red)\n   - C: +2 (any color)\n4. Since B only works with red, and multiplying early gives bigger jumps\n5. Let's try different paths:\n   - Path 1: B\u2192C\u2192C\u2192C\u2192C\u2192C would be 0\u21920\u00d72\u21922\u21924\u21926\u21928\u219210 (too high)\n   - Path 2: C\u2192B\u2192C\u2192C would be 0\u21922\u21924\u21926\u21928 (not enough)\n   - Path 3: C\u2192B\u2192C\u2192C\u2192C would be 0\u21922\u21924\u21926\u21928\u219210 (too high)\n   - Path 4: B\u2192C\u2192B\u2192C would be 0\u21920\u00d72\u21922\u21924\u21926\u21928\u219210 (perfect)\n\n<answer>C\u2192B\u2192C\u2192C\u2192A</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "B \u2192 C \u2192 B \u2192 C \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1. We start at 0 with a red light\n2. Looking at the operations:\n   - A subtracts 1 (any light)\n   - B multiplies by 2 (only when red)\n   - C adds 2 (any light)\n3. To get to 9:\n   - Starting at 0, we need to use B while it's red to multiply\n   - We can use C to add 2\n   - So: 0 \u2192 B \u2192 0\u00d72=0 \u2192 C \u2192 2 \u2192 B \u2192 4 \u2192 C \u2192 6 \u2192 C \u2192 8 \u2192 C \u2192 9\n\n<answer>B \u2192 C \u2192 B \u2192 C \u2192 C \u2192 C</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 9\nButtons:\nA: Add 1 (when any)\nB: Add 2 (when any)\nC: Subtract 1 (when any)",
+      "expected_answer": "A \u2192 B \u2192 B \u2192 B \u2192 B",
+      "best_model_answer": "B \u2192 B \u2192 B \u2192 B \u2192 A",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) We start at 0 with red light and need to reach 9\n2) We have three buttons:\n   - A adds 1\n   - B adds 2\n   - C subtracts 1\n3) The light color doesn't matter as operations work \"when any\"\n4) To get from 0 to 9 in fewest steps:\n   - Adding 2 four times gets us to 8 (using B)\n   - Then adding 1 once gets us to 9 (using A)\n5) So we need 4 B's and 1 A\n6) Therefore: B \u2192 B \u2192 B \u2192 B \u2192 A\n\n<answer>B \u2192 B \u2192 B \u2192 B \u2192 A</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "B \u2192 B \u2192 B \u2192 B \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1) We start at 0 with red light and need to reach 9\n2) We have three buttons:\n   - A adds 1\n   - B adds 2\n   - C subtracts 1\n3) The light color doesn't matter as operations work \"when any\"\n4) To get from 0 to 9 in fewest steps:\n   - Adding 2 four times gets us to 8 (using B)\n   - Then adding 1 once gets us to 9 (using A)\n5) So we need 4 B's and 1 A\n6) Therefore: B \u2192 B \u2192 B \u2192 B \u2192 A\n\n<answer>B \u2192 B \u2192 B \u2192 B \u2192 A</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "B \u2192 B \u2192 B \u2192 B \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 with red light\n2) Need to reach 9\n3) Available operations:\n   - A: +1 (works with any light)\n   - B: +2 (works with any light)\n   - C: -1 (works with any light)\n4) To get from 0 to 9 most efficiently:\n   - Using B four times gets us to 8 (+8)\n   - Using A once gets us to 9 (+1)\n\n<answer>B \u2192 B \u2192 B \u2192 B \u2192 A</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "B \u2192 B \u2192 B \u2192 B \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 (red light)\n2) Need to reach 9\n3) Available operations:\n   - A: +1\n   - B: +2\n   - C: -1\n4) To get from 0 to 9 most efficiently:\n   - Using B four times gets us 8 (+8)\n   - Using A once gets us 9 (+1)\n5) Therefore: B \u2192 B \u2192 B \u2192 B \u2192 A\n\n<answer>B \u2192 B \u2192 B \u2192 B \u2192 A</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 28\nButtons:\nA: Add 2 (when any)\nB: Multiply 2 (when any)\nC: Multiply 3 (when any)",
+      "expected_answer": "A \u2192 A \u2192 C \u2192 A \u2192 B",
+      "best_model_answer": "A \u2192 B \u2192 C \u2192 A \u2192 B",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 (red light)\n2) Need to reach 28\n3) Looking at operations:\n   - Can add 2 (A)\n   - Can multiply by 2 (B)\n   - Can multiply by 3 (C)\n4) To get 28:\n   - Start with 0\n   - Add 2 (A): 2\n   - Multiply by 2 (B): 4\n   - Multiply by 3 (C): 12\n   - Add 2 (A): 14\n   - Multiply by 2 (B): 28\n\n<answer>A \u2192 B \u2192 C \u2192 A \u2192 B</answer>",
+      "best_score": 1.0,
+      "mean_score": 0.6666666666666666,
+      "completions": [
+        {
+          "model_answer": "A \u2192 B \u2192 C \u2192 A \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 (red light)\n2) Need to reach 28\n3) Looking at operations:\n   - Can add 2 (A)\n   - Can multiply by 2 (B)\n   - Can multiply by 3 (C)\n4) To get 28:\n   - Start with 0\n   - Add 2 (A): 2\n   - Multiply by 2 (B): 4\n   - Multiply by 3 (C): 12\n   - Add 2 (A): 14\n   - Multiply by 2 (B): 28\n\n<answer>A \u2192 B \u2192 C \u2192 A \u2192 B</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "A \u2192 B \u2192 B \u2192 C \u2192 A \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 (red light)\n2) Need to reach 28\n3) Looking at available operations:\n   - Can add 2\n   - Can multiply by 2\n   - Can multiply by 3\n\n4) To reach 28:\n   - 0 \u2192 2 (using A)\n   - 2 \u2192 4 (using B)\n   - 4 \u2192 8 (using B)\n   - 8 \u2192 24 (using C)\n   - 24 \u2192 26 (using A)\n   - 26 \u2192 28 (using A)\n\n<answer>A \u2192 B \u2192 B \u2192 C \u2192 A \u2192 A</answer>",
+          "score": 0.5
+        },
+        {
+          "model_answer": "A \u2192 B \u2192 B \u2192 C \u2192 A \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 (red light)\n2) Need to reach 28\n3) Looking at available operations:\n   * Can add 2\n   * Can multiply by 2\n   * Can multiply by 3\n\n4) To get 28:\n   * 0 \u2192 2 (using A)\n   * 2 \u2192 4 (using B)\n   * 4 \u2192 8 (using B)\n   * 8 \u2192 24 (using C)\n   * 24 \u2192 26 (using A)\n   * 26 \u2192 28 (using A)\n\n<answer>A \u2192 B \u2192 B \u2192 C \u2192 A \u2192 A</answer>",
+          "score": 0.5
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 8\nButtons:\nA: Subtract 2 (when any)\nB: Add 2 (when any)\nC: Multiply 2 (when any)",
+      "expected_answer": "B \u2192 B \u2192 C",
+      "best_model_answer": "B \u2192 B \u2192 C",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 with red light\n2) Need to reach 8\n3) Available operations:\n   - A: -2\n   - B: +2\n   - C: \u00d72\n\n4) Let me find the shortest path:\n   0 \u2192 2 (using B) \u2192 4 (using B) \u2192 8 (using C)\n\n<answer>B \u2192 B \u2192 C</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "B \u2192 B \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 with red light\n2) Need to reach 8\n3) Available operations:\n   - A: -2\n   - B: +2\n   - C: \u00d72\n\n4) Let me find the shortest path:\n   0 \u2192 2 (using B) \u2192 4 (using B) \u2192 8 (using C)\n\n<answer>B \u2192 B \u2192 C</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "B \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1. Starting with 0 (red light)\n2. To get to 8, I need to increase the number\n3. I can either add 2 or multiply by 2\n4. If I add 2 repeatedly, I'll need 4 presses (0\u21922\u21924\u21926\u21928)\n5. If I use multiplication, I can:\n   * 0\u21922 (using B)\n   * 2\u21924 (using C)\n   * 4\u21928 (using C)\n6. The multiplication approach needs only 3 button presses\n\n<answer>B \u2192 C \u2192 C</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "B \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1. Starting at 0 (red light)\n2. To reach 8, I need to get positive numbers\n3. Adding 2 (B) would be better than subtracting\n4. After adding 2, we get 2\n5. Multiplying by 2 (C) would give us 4\n6. Multiplying by 2 (C) again would give us 8\n\n<answer>B \u2192 C \u2192 C</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 38\nButtons:\nA: Multiply 3 (when green)\nB: Add 2 (when green)\nC: Add 3 (when any)",
+      "expected_answer": "C \u2192 C \u2192 C \u2192 A \u2192 C \u2192 B \u2192 C \u2192 C",
+      "best_model_answer": null,
+      "best_full_model_response": "Let me solve this step by step:\n\n1. Start with 0 (red light)\n2. Need to get to 38\n3. With red light, only C works (adds 3)\n4. After pressing any button, light toggles\n5. When green, can use A (multiply 3), B (add 2), or C (add 3)\n6. Let me work out the sequence:\n   * 0 + 3 = 3 (C, now green)\n   * 3 \u00d7 3 = 9 (A, now red)\n   * 9 + 3 = 12 (C, now green)\n   * 12 \u00d7 3 = 36 (A, now red)\n   * 36 + 2 = 38 (B, now green)\n\n<answer>C \u2192 A \u2192 C \u2192 A \u2192 B</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": "C \u2192 A \u2192 C \u2192 A \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start with 0 (red light)\n2. Need to get to 38\n3. With red light, only C works (adds 3)\n4. After pressing any button, light toggles\n5. When green, can use A (multiply 3), B (add 2), or C (add 3)\n6. Let me work out the sequence:\n   * 0 + 3 = 3 (C, now green)\n   * 3 \u00d7 3 = 9 (A, now red)\n   * 9 + 3 = 12 (C, now green)\n   * 12 \u00d7 3 = 36 (A, now red)\n   * 36 + 2 = 38 (B, now green)\n\n<answer>C \u2192 A \u2192 C \u2192 A \u2192 B</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "C \u2192 A \u2192 C \u2192 A \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Need to get to 38\n3) Only C works with red light, so must start with C\n4) After C: 3 (green light)\n5) With green light, can multiply by 3 (A)\n6) After A: 9 (red light)\n7) Use C to add 3\n8) After C: 12 (green light)\n9) Use A to multiply by 3\n10) After A: 36 (red light)\n11) Use C to add 3\n12) Result: 38 (green light)\n\n<answer>C \u2192 A \u2192 C \u2192 A \u2192 C</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Need to get to 38\n3) When red, only C works (adds 3)\n4) Need to get light to green for other operations\n5) Press C: 0 + 3 = 3 (light becomes green)\n6) Now can use A to multiply by 3: 3 \u00d7 3 = 9 (light becomes red)\n7) Press C: 9 + 3 = 12 (light becomes green)\n8) Use A again: 12 \u00d7 3 = 36 (light becomes red)\n9) Press C one more time: 36 + 3 = 39 (light becomes green)\n10) Use B to add 2: 39 + 2 = 38 (light becomes red)\n\n<answer>C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 B</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 16\nButtons:\nA: Add 2 (when any)\nB: Subtract 1 (when green)\nC: Multiply 2 (when green)",
+      "expected_answer": "A \u2192 A \u2192 A \u2192 C \u2192 A \u2192 A",
+      "best_model_answer": "A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 A",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) We start at 0 with a red light\n2) Only button A works with red light\n3) Need to get to green light to use multiply\n4) Press A: 0 + 2 = 2 (light turns green)\n5) Can now use multiply (C): 2 \u00d7 2 = 4 (light turns red)\n6) Press A: 4 + 2 = 6 (light turns green)\n7) Press C: 6 \u00d7 2 = 12 (light turns red)\n8) Press A: 12 + 2 = 14 (light turns green)\n9) Press C: 14 \u00d7 2 = 28 (light turns red)\n10) Can't multiply anymore as light is red\n11) Need to backtrack and try different sequence\n12) After getting to 12, press A to get 14, then A again to get 16\n\n<answer>A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 A</answer>",
+      "best_score": 1.0,
+      "mean_score": 0.3333333333333333,
+      "completions": [
+        {
+          "model_answer": "A \u2192 C \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Only button A works with red light\n3) Need to press A to get green light and value 2\n4) With green light, can use B, C\n5) Need to multiply to get higher value\n6) Press C to get 4 (green)\n7) Press C to get 8 (green)\n8) Press C to get 16 (green)\n\n<answer>A \u2192 C \u2192 C \u2192 C</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "A \u2192 A \u2192 C \u2192 A \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Only button A can be used initially (adds 2)\n3) After A: 2 with green light\n4) Now can use B (subtract 1) or C (multiply 2)\n5) Using C: 4 with red light\n6) Using A: 6 with green light\n7) Using C: 12 with red light\n8) Using A: 14 with green light\n9) Using C: 28 with red light is too high\n10) Let's try a different path after step 6\n11) After getting to 6 (green), use A: 8 with red light\n12) Use A again: 10 with green light\n13) Use C: 20 with red light is too high\n14) Need another approach\n15) After step 4 (4 with red light)\n16) Use A: 6 with green light\n17) Use C: 12 with red light\n18) Use A: 14 with green light\n19) Use A: 16 with red light - Target reached!\n\n<answer>A \u2192 A \u2192 C \u2192 A \u2192 A</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1) We start at 0 with a red light\n2) Only button A works with red light\n3) Need to get to green light to use multiply\n4) Press A: 0 + 2 = 2 (light turns green)\n5) Can now use multiply (C): 2 \u00d7 2 = 4 (light turns red)\n6) Press A: 4 + 2 = 6 (light turns green)\n7) Press C: 6 \u00d7 2 = 12 (light turns red)\n8) Press A: 12 + 2 = 14 (light turns green)\n9) Press C: 14 \u00d7 2 = 28 (light turns red)\n10) Can't multiply anymore as light is red\n11) Need to backtrack and try different sequence\n12) After getting to 12, press A to get 14, then A again to get 16\n\n<answer>A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 A</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 16\nButtons:\nA: Subtract 2 (when any)\nB: Multiply 2 (when any)\nC: Add 3 (when any)",
+      "expected_answer": "A \u2192 C \u2192 C \u2192 B \u2192 B",
+      "best_model_answer": "B \u2192 C \u2192 B \u2192 C \u2192 B \u2192 A",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 with red light\n2) Need to get to 16\n3) Available operations:\n   - Subtract 2\n   - Multiply by 2\n   - Add 3\n4) Let me work backwards:\n   - To get 16, quickest way would be:\n   0 \u2192 multiply by 2 = 0\n   0 \u2192 add 3 = 3\n   3 \u2192 multiply by 2 = 6\n   6 \u2192 add 3 = 9\n   9 \u2192 multiply by 2 = 18\n   18 \u2192 subtract 2 = 16\n\n<answer>B \u2192 C \u2192 B \u2192 C \u2192 B \u2192 A</answer>",
+      "best_score": 0.5,
+      "mean_score": 0.16666666666666666,
+      "completions": [
+        {
+          "model_answer": "B \u2192 C \u2192 B \u2192 C \u2192 B \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 with red light\n2) Need to get to 16\n3) Available operations:\n   - Subtract 2\n   - Multiply by 2\n   - Add 3\n4) Let me work backwards:\n   - To get 16, quickest way would be:\n   0 \u2192 multiply by 2 = 0\n   0 \u2192 add 3 = 3\n   3 \u2192 multiply by 2 = 6\n   6 \u2192 add 3 = 9\n   9 \u2192 multiply by 2 = 18\n   18 \u2192 subtract 2 = 16\n\n<answer>B \u2192 C \u2192 B \u2192 C \u2192 B \u2192 A</answer>",
+          "score": 0.5
+        },
+        {
+          "model_answer": "C \u2192 B \u2192 B \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1. Starting at 0 (red light)\n2. To reach 16, we need to multiply numbers\n3. Button B multiplies by 2\n4. Starting from 0:\n   * 0 \u2192 0 (B)\n   * 0 \u2192 3 (C)\n   * 3 \u2192 6 (B)\n   * 6 \u2192 12 (B)\n   * 12 \u2192 15 (C)\n   * 15 \u2192 30 (B) - too high\n5. Let's try another sequence:\n   * 0 \u2192 3 (C)\n   * 3 \u2192 6 (B)\n   * 6 \u2192 9 (C)\n   * 9 \u2192 18 (B) - too high\n6. One more attempt:\n   * 0 \u2192 3 (C)\n   * 3 \u2192 6 (B)\n   * 6 \u2192 8 (B)\n   * 8 \u2192 16 (B)\n\n<answer>C \u2192 B \u2192 B \u2192 B</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "B \u2192 C \u2192 B \u2192 B \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Need to reach 16\n3) Available operations:\n   - Subtract 2\n   - Multiply by 2\n   - Add 3\n4) Working backwards from 16:\n   - 16 \u00f7 2 = 8\n   - 8 \u00f7 2 = 4\n   - 4 \u00f7 2 = 2\n   - 2 - 3 = -1\n   - -1 + 2 = 1\n   - 1 - 3 = -2\n   - -2 + 2 = 0\n5) Working forwards from 0:\n   - 0 \u00d7 2 = 0\n   - 0 + 3 = 3\n   - 3 \u00d7 2 = 6\n   - 6 \u00d7 2 = 12\n   - 12 + 3 = 15\n   - 15 + 3 = 18\n6) The shortest path:\n   0 \u2192 3 \u2192 6 \u2192 12 \u2192 15 \u2192 16\n   Using: B \u2192 C \u2192 B \u2192 B \u2192 C\n\n<answer>B \u2192 C \u2192 B \u2192 B \u2192 C</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 27\nButtons:\nA: Add 2 (when green)\nB: Subtract 3 (when any)\nC: Multiply 2 (when any)",
+      "expected_answer": "C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 B",
+      "best_model_answer": "C \u2192 A \u2192 C \u2192 C \u2192 C \u2192 A \u2192 C \u2192 B \u2192 B \u2192 B",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Available operations first:\n   - B: -3\n   - C: \u00d72\n\n3) Let's map out the path:\n   - 0 \u2192 C = 0\n   - Need to get to positive number\n   - First press changes light to green\n   - With green light, can use A to add 2\n\n4) To get 27:\n   - Start at 0\n   - C to get 0\n   - A to get 2 (and turn light green)\n   - C to get 4\n   - C to get 8\n   - C to get 16\n   - A to get 18\n   - C to get 36\n   - B to get 33\n   - B to get 30\n   - B to get 27\n\n<answer>C \u2192 A \u2192 C \u2192 C \u2192 C \u2192 A \u2192 C \u2192 B \u2192 B \u2192 B</answer>",
+      "best_score": 0.5,
+      "mean_score": 0.3333333333333333,
+      "completions": [
+        {
+          "model_answer": "C \u2192 A \u2192 C \u2192 C \u2192 C \u2192 A \u2192 C \u2192 B \u2192 B \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Available operations first:\n   - B: -3\n   - C: \u00d72\n\n3) Let's map out the path:\n   - 0 \u2192 C = 0\n   - Need to get to positive number\n   - First press changes light to green\n   - With green light, can use A to add 2\n\n4) To get 27:\n   - Start at 0\n   - C to get 0\n   - A to get 2 (and turn light green)\n   - C to get 4\n   - C to get 8\n   - C to get 16\n   - A to get 18\n   - C to get 36\n   - B to get 33\n   - B to get 30\n   - B to get 27\n\n<answer>C \u2192 A \u2192 C \u2192 C \u2192 C \u2192 A \u2192 C \u2192 B \u2192 B \u2192 B</answer>",
+          "score": 0.5
+        },
+        {
+          "model_answer": "A \u2192 C \u2192 C \u2192 C \u2192 B \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Available operations first:\n   - B: -3\n   - C: \u00d72\n\n3) Need to get to 27\n4) Pressing any button will toggle light to green\n5) With green light, can use A (+2)\n\n6) Working backwards from 27:\n   27 \u00f7 2 = 13.5\n   27 + 3 = 30\n   So multiply must be last step\n\n7) Before last multiply:\n   13.5 + 3 = 16.5\n   13.5 - 2 = 11.5\n   Need to get to 13.5\n\n8) Must build up to 13.5 using available operations\n   0 \u2192 2 (A) \u2192 4 (C) \u2192 8 (C) \u2192 16 (C) \u2192 13 (B) \u2192 26 (C) \u2192 27\n\n<answer>A \u2192 C \u2192 C \u2192 C \u2192 B \u2192 C</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "C \u2192 C \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 B \u2192 B \u2192 A \u2192 C \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Available operations:\n   - B: -3 (works with any light)\n   - C: \u00d72 (works with any light)\n   - A: +2 (only works when green)\n\n3) To get to 27, let's work backwards:\n   - Need to get from 0 to 27\n   - C multiplies by 2, which would be useful\n   - Need odd number at end, so last operation can't be C\n\n4) Try sequence:\n   - C (0 \u2192 0, red\u2192green)\n   - C (0 \u2192 0, green\u2192red)\n   - A not usable (red light)\n   - C (0 \u2192 0, red\u2192green)\n   - A (0 \u2192 2, green\u2192red)\n   - C (2 \u2192 4, red\u2192green)\n   - A (4 \u2192 6, green\u2192red)\n   - C (6 \u2192 12, red\u2192green)\n   - A (12 \u2192 14, green\u2192red)\n   - C (14 \u2192 28, red\u2192green)\n   - B (28 \u2192 25, green\u2192red)\n   - B (25 \u2192 22, red\u2192green)\n   - A (22 \u2192 24, green\u2192red)\n   - C (24 \u2192 48, red\u2192green)\n   - B (48 \u2192 45, green\u2192red)\n   - B (45 \u2192 42, red\u2192green)\n   - B (42 \u2192 39, green\u2192red)\n   - B (39 \u2192 36, red\u2192green)\n   - B (36 \u2192 33, green\u2192red)\n   - B (33 \u2192 30, red\u2192green)\n   - B (30 \u2192 27, green)\n\n<answer>C \u2192 C \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 B \u2192 B \u2192 A \u2192 C \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B</answer>",
+          "score": 0.5
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 34\nButtons:\nA: Add 2 (when red)\nB: Add 3 (when any)\nC: Multiply 3 (when any)",
+      "expected_answer": "A \u2192 C \u2192 B \u2192 C \u2192 A \u2192 B \u2192 A",
+      "best_model_answer": null,
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Need to reach 34\n3) Looking at operations:\n   - A adds 2 (only when red)\n   - B adds 3 (any time)\n   - C multiplies by 3 (any time)\n4) To get 34, we need to use multiplication and addition\n5) Working backwards:\n   - 34 \u00f7 3 = 11.333... (not useful)\n   - (34 - 3) \u00f7 3 = 31 \u00f7 3 \u2248 10.333... (not useful)\n6) Working forwards:\n   - Start with multiplication: 0 \u00d7 3 = 0\n   - Need to add something first\n   - Try: 2 + 3 = 5 \u00d7 3 = 15 + 3 = 18 \u00d7 2 = 36 (too much)\n   - Try: 2 \u00d7 3 = 6 + 3 = 9 \u00d7 3 = 27 + 3 = 30 + 2 = 32 + 2 = 34\n\n<answer>A \u2192 C \u2192 B \u2192 C \u2192 B \u2192 A</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": "A \u2192 C \u2192 B \u2192 C \u2192 B \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Need to reach 34\n3) Looking at operations:\n   - A adds 2 (only when red)\n   - B adds 3 (any time)\n   - C multiplies by 3 (any time)\n4) To get 34, we need to use multiplication and addition\n5) Working backwards:\n   - 34 \u00f7 3 = 11.333... (not useful)\n   - (34 - 3) \u00f7 3 = 31 \u00f7 3 \u2248 10.333... (not useful)\n6) Working forwards:\n   - Start with multiplication: 0 \u00d7 3 = 0\n   - Need to add something first\n   - Try: 2 + 3 = 5 \u00d7 3 = 15 + 3 = 18 \u00d7 2 = 36 (too much)\n   - Try: 2 \u00d7 3 = 6 + 3 = 9 \u00d7 3 = 27 + 3 = 30 + 2 = 32 + 2 = 34\n\n<answer>A \u2192 C \u2192 B \u2192 C \u2192 B \u2192 A</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "A \u2192 B \u2192 B \u2192 B \u2192 C \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start at 0 with red light\n2. Need to reach 34\n3. Available operations:\n   - A: +2 (red only)\n   - B: +3 (any)\n   - C: \u00d73 (any)\n\n4. Let's work backwards from 34:\n   - 34 \u00f7 3 = 11.333... (not useful)\n   - So we need to build 34 through addition\n   - Need to use C to multiply at some point\n   - 34 = (11 \u00d7 3) + 1\n   - 11 can be built with combinations of +2 and +3\n\n5. Solution path:\n   0 \u2192 +2 \u2192 +3 \u2192 +3 \u2192 +3 = 11\n   11 \u00d7 3 = 33\n   33 + 3 = 34\n\n<answer>A \u2192 B \u2192 B \u2192 B \u2192 C \u2192 B</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "A \u2192 B \u2192 C \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1. Starting at 0 with red light\n2. Need to reach 34\n3. Available operations:\n   - A: +2 (red only)\n   - B: +3 (any)\n   - C: \u00d73 (any)\n4. Working backwards from 34:\n   34 \u00f7 3 = 11.33... (not useful)\n5. Working forwards:\n   0 \u2192 2 (A) \u2192 5 (B) \u2192 15 (C) \u2192 18 (B) \u2192 21 (B) \u2192 24 (B) \u2192 27 (B) \u2192 30 (B) \u2192 33 (B) \u2192 34 (A)\n\n<answer>A \u2192 B \u2192 C \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 A</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 31\nButtons:\nA: Subtract 2 (when green)\nB: Subtract 2 (when any)\nC: Add 3 (when any)",
+      "expected_answer": "B \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C",
+      "best_model_answer": "C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 B",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Need to reach 31\n3) Available operations:\n   - A: only works when green (subtracts 2)\n   - B: subtracts 2 always\n   - C: adds 3 always\n\n4) To reach 31 from 0, we need to add numbers\n5) Only C adds numbers (adds 3)\n6) We need to press C enough times to reach 31\n7) From 0 to 31 requires pressing C eleven times (0 + 3*11 = 33)\n8) Then we need to subtract 2 once to get from 33 to 31\n9) We can use B for this subtraction since it works in any light state\n\n10) Therefore: Press C eleven times, then B once\n\n<answer>C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 B</answer>",
+      "best_score": 1.0,
+      "mean_score": 0.6666666666666666,
+      "completions": [
+        {
+          "model_answer": "C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Available first moves:\n   - B: -2\n   - C: +3\n3) Need to reach 31, so need to increase\n4) C is best first move: 0 \u2192 3 (still red)\n5) Need more increases\n6) Keep pressing C:\n   3 \u2192 6 \u2192 9 \u2192 12 \u2192 15 \u2192 18 \u2192 21 \u2192 24 \u2192 27 \u2192 30 \u2192 31\n\n<answer>C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Need to reach 31\n3) Available operations:\n   - A: only works when green (subtracts 2)\n   - B: subtracts 2 always\n   - C: adds 3 always\n\n4) To reach 31 from 0, we need to add numbers\n5) Only C adds numbers (adds 3)\n6) We need to press C enough times to reach 31\n7) From 0 to 31 requires pressing C eleven times (0 + 3*11 = 33)\n8) Then we need to subtract 2 once to get from 33 to 31\n9) We can use B for this subtraction since it works in any light state\n\n10) Therefore: Press C eleven times, then B once\n\n<answer>C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 B</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Available operations:\n   - B: -2 (works with any color)\n   - C: +3 (works with any color)\n   - A: -2 (only works when green)\n\n3) We need to reach 31 from 0\n4) Since we start with red light, A won't work initially\n5) We need to increase the number\n6) C adds 3, and we need to reach 31\n7) We need to press C eleven times: 0+3+3+3+3+3+3+3+3+3+3+3 = 33\n8) Then we need B once to subtract 2: 33-2 = 31\n\n<answer>C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 B</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 34\nButtons:\nA: Add 3 (when any)\nB: Multiply 2 (when any)\nC: Subtract 2 (when green)",
+      "expected_answer": "A \u2192 A \u2192 A \u2192 B \u2192 B \u2192 C",
+      "best_model_answer": "A \u2192 B \u2192 B \u2192 A \u2192 B \u2192 A \u2192 A \u2192 C",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Need to reach 34\n3) Available operations:\n   - A adds 3 (any color)\n   - B multiplies by 2 (any color)\n   - C subtracts 2 (only when green)\n\n4) To reach 34:\n   - Start with 0\n   - Add 3 (A): 3 (green)\n   - Multiply by 2 (B): 6 (red)\n   - Multiply by 2 (B): 12 (green)\n   - Add 3 (A): 15 (red)\n   - Multiply by 2 (B): 30 (green)\n   - Add 3 (A): 33 (red)\n   - Add 3 (A): 36 (green)\n   - Subtract 2 (C): 34 (red)\n\n<answer>A \u2192 B \u2192 B \u2192 A \u2192 B \u2192 A \u2192 A \u2192 C</answer>",
+      "best_score": 0.5,
+      "mean_score": 0.16666666666666666,
+      "completions": [
+        {
+          "model_answer": "A \u2192 B \u2192 B \u2192 B \u2192 A \u2192 A \u2192 A \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Need to reach 34\n3) Available operations:\n   - A: +3 (any color)\n   - B: \u00d72 (any color)\n   - C: -2 (only when green)\n4) Working backwards from 34:\n   34 \u00f7 2 = 17\n   17 \u00f7 2 = 8.5 (not good)\n   So 34 must be reached by adding 3s\n5) Let's work forward:\n   0 \u2192 \u00d72 = 0\n   0 + 3 = 3\n   3 \u00d7 2 = 6\n   6 \u00d7 2 = 12\n   12 \u00d7 2 = 24\n   24 + 3 = 27\n   27 + 3 = 30\n   30 + 3 = 33\n   33 + 3 = 36\n6) The sequence: A \u2192 B \u2192 B \u2192 B \u2192 A \u2192 A \u2192 A \u2192 A gets us to 36\n\n<answer>A \u2192 B \u2192 B \u2192 B \u2192 A \u2192 A \u2192 A \u2192 A</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "A \u2192 B \u2192 B \u2192 A \u2192 B \u2192 A \u2192 A \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Need to reach 34\n3) Available operations:\n   - A adds 3 (any color)\n   - B multiplies by 2 (any color)\n   - C subtracts 2 (only when green)\n\n4) To reach 34:\n   - Start with 0\n   - Add 3 (A): 3 (green)\n   - Multiply by 2 (B): 6 (red)\n   - Multiply by 2 (B): 12 (green)\n   - Add 3 (A): 15 (red)\n   - Multiply by 2 (B): 30 (green)\n   - Add 3 (A): 33 (red)\n   - Add 3 (A): 36 (green)\n   - Subtract 2 (C): 34 (red)\n\n<answer>A \u2192 B \u2192 B \u2192 A \u2192 B \u2192 A \u2192 A \u2192 C</answer>",
+          "score": 0.5
+        },
+        {
+          "model_answer": "A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 A \u2192 A \u2192 A \u2192 A \u2192 A \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Need to reach 34\n3) Available operations:\n   - A: +3 (always)\n   - B: \u00d72 (always)\n   - C: -2 (only when green)\n4) To reach 34:\n   - Starting at 0\n   - Add 3 (A): 3\n   - Multiply 2 (B): 6\n   - Add 3 (A): 9\n   - Multiply 2 (B): 18\n   - Add 3 (A): 21\n   - Add 3 (A): 24\n   - Add 3 (A): 27\n   - Add 3 (A): 30\n   - Add 3 (A): 33\n   - Add 3 (A): 36\n   - Light is green, can subtract 2 (C): 34\n\n<answer>A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 A \u2192 A \u2192 A \u2192 A \u2192 A \u2192 C</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 23\nButtons:\nA: Add 3 (when any)\nB: Add 2 (when green)\nC: Subtract 3 (when red)",
+      "expected_answer": "A \u2192 A \u2192 A \u2192 A \u2192 A \u2192 A \u2192 A \u2192 B",
+      "best_model_answer": "A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 B \u2192 A",
+      "best_full_model_response": "Let me solve this step by step:\n\n1. We start at 0 with a red light\n2. We need to reach 23\n3. When red, we can:\n   - Add 3 (A)\n   - Subtract 3 (C)\n4. When green, we can:\n   - Add 3 (A)\n   - Add 2 (B)\n5. Let me track each button press:\n   - A: 0 \u2192 3 (light turns green)\n   - B: 3 \u2192 5 (light turns red)\n   - A: 5 \u2192 8 (light turns green)\n   - B: 8 \u2192 10 (light turns red)\n   - A: 10 \u2192 13 (light turns green)\n   - B: 13 \u2192 15 (light turns red)\n   - A: 15 \u2192 18 (light turns green)\n   - B: 18 \u2192 20 (light turns red)\n   - A: 20 \u2192 23 (target reached)\n\n<answer>A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 B \u2192 A</answer>",
+      "best_score": 0.5,
+      "mean_score": 0.16666666666666666,
+      "completions": [
+        {
+          "model_answer": "A\u2192B\u2192A\u2192B\u2192A\u2192B\u2192A\u2192B",
+          "full_model_response": "Let me solve this step by step:\n\n1. We start at 0 with a red light\n2. Available moves:\n   - A (add 3)\n   - C (subtract 3)\n   - B (can't use, light is red)\n\n3. To reach 23, we need to increase the number\n4. Let's track each step:\n   - A: 0 \u2192 3 (light becomes green)\n   - Now B is available (add 2)\n   - Keep using A and B alternately to get to 23\n   - A\u2192B\u2192A\u2192B\u2192A\u2192B\u2192A\u2192B\n\n<answer>A\u2192B\u2192A\u2192B\u2192A\u2192B\u2192A\u2192B</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "A \u2192 A \u2192 A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 C \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start at 0 with red light\n2. Need to reach 23\n3. Available moves:\n   - A: +3 (any color)\n   - B: +2 (only when green)\n   - C: -3 (only when red)\n4. Let me work through the sequence:\n   - Start: 0 (red)\n   - Press A: 3 (green)\n   - Press A: 6 (red)\n   - Press A: 9 (green)\n   - Press B: 11 (red)\n   - Press A: 14 (green)\n   - Press B: 16 (red)\n   - Press A: 19 (green)\n   - Press B: 21 (red)\n   - Press A: 24 (green)\n   - Press C: 21 (red)\n   - Press A: 23 (green)\n\n<answer>A \u2192 A \u2192 A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 C \u2192 A</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 B \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1. We start at 0 with a red light\n2. We need to reach 23\n3. When red, we can:\n   - Add 3 (A)\n   - Subtract 3 (C)\n4. When green, we can:\n   - Add 3 (A)\n   - Add 2 (B)\n5. Let me track each button press:\n   - A: 0 \u2192 3 (light turns green)\n   - B: 3 \u2192 5 (light turns red)\n   - A: 5 \u2192 8 (light turns green)\n   - B: 8 \u2192 10 (light turns red)\n   - A: 10 \u2192 13 (light turns green)\n   - B: 13 \u2192 15 (light turns red)\n   - A: 15 \u2192 18 (light turns green)\n   - B: 18 \u2192 20 (light turns red)\n   - A: 20 \u2192 23 (target reached)\n\n<answer>A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 B \u2192 A</answer>",
+          "score": 0.5
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 8\nButtons:\nA: Multiply 2 (when any)\nB: Subtract 1 (when any)\nC: Add 1 (when green)",
+      "expected_answer": "A \u2192 C \u2192 A \u2192 A \u2192 A",
+      "best_model_answer": null,
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Need to reach 8\n3) Available operations:\n   - A doubles any number\n   - B subtracts 1\n   - C adds 1 (only when green)\n4) Each button press toggles light between red and green\n5) To reach 8:\n   - 0 \u2192 A \u2192 0\n   - 0 \u2192 A \u2192 B \u2192 -1\n   - 0 \u2192 A \u2192 A \u2192 0\n   - 0 \u2192 A \u2192 A \u2192 A \u2192 0\n   - 0 \u2192 A \u2192 A \u2192 A \u2192 A \u2192 16\n   - 0 \u2192 A \u2192 A \u2192 A \u2192 A \u2192 B \u2192 15\n   - 0 \u2192 A \u2192 A \u2192 A \u2192 A \u2192 B \u2192 B \u2192 14\n   - 0 \u2192 A \u2192 A \u2192 A \u2192 A \u2192 B \u2192 B \u2192 B \u2192 13\n   - 0 \u2192 A \u2192 A \u2192 A \u2192 A \u2192 B \u2192 B \u2192 B \u2192 B \u2192 12\n   - 0 \u2192 A \u2192 A \u2192 A \u2192 A \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 11\n   - 0 \u2192 A \u2192 A \u2192 A \u2192 A \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 10\n   - 0 \u2192 A \u2192 A \u2192 A \u2192 A \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 9\n   - 0 \u2192 A \u2192 A \u2192 A \u2192 A \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 8\n\n<answer>A \u2192 A \u2192 A \u2192 A \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": "A \u2192 A \u2192 A \u2192 A \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Need to reach 8\n3) Available operations:\n   - A doubles any number\n   - B subtracts 1\n   - C adds 1 (only when green)\n4) Each button press toggles light between red and green\n5) To reach 8:\n   - 0 \u2192 A \u2192 0\n   - 0 \u2192 A \u2192 B \u2192 -1\n   - 0 \u2192 A \u2192 A \u2192 0\n   - 0 \u2192 A \u2192 A \u2192 A \u2192 0\n   - 0 \u2192 A \u2192 A \u2192 A \u2192 A \u2192 16\n   - 0 \u2192 A \u2192 A \u2192 A \u2192 A \u2192 B \u2192 15\n   - 0 \u2192 A \u2192 A \u2192 A \u2192 A \u2192 B \u2192 B \u2192 14\n   - 0 \u2192 A \u2192 A \u2192 A \u2192 A \u2192 B \u2192 B \u2192 B \u2192 13\n   - 0 \u2192 A \u2192 A \u2192 A \u2192 A \u2192 B \u2192 B \u2192 B \u2192 B \u2192 12\n   - 0 \u2192 A \u2192 A \u2192 A \u2192 A \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 11\n   - 0 \u2192 A \u2192 A \u2192 A \u2192 A \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 10\n   - 0 \u2192 A \u2192 A \u2192 A \u2192 A \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 9\n   - 0 \u2192 A \u2192 A \u2192 A \u2192 A \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 8\n\n<answer>A \u2192 A \u2192 A \u2192 A \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "IMPOSSIBLE",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Need to get to 8\n3) Available operations:\n   - A: multiply by 2 (works with any color)\n   - B: subtract 1 (works with any color)\n   - C: add 1 (only works with green light)\n\n4) Let's work out the sequence:\n   - 0 \u2192 A \u2192 0\n   - 0 \u2192 B \u2192 -1\n   - Can't use C as light is red\n\n5) Need multiplication to get larger numbers\n   First A: 0 \u00d7 2 = 0\n   Second A: 0 \u00d7 2 = 0\n   Need to get a non-zero number first\n\n6) Start with B to get -1\n   Then A to get -2\n   Then B to get -3\n   Then A to get -6\n   Then A to get -12\n   Then C can only add when green\n   \n7) Alternative:\n   Start with C (can't use, red light)\n   Start with A (gives 0)\n   Start with B (gives -1)\n   Then A (gives -2)\n   Then A (gives -4)\n   Then A (gives -8)\n   Then B (gives -9)\n   Then A (gives -18)\n\n8) No valid sequence found that reaches 8\n\n<answer>IMPOSSIBLE</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "B \u2192 C \u2192 A \u2192 A \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start at 0 with red light\n2. Need to reach 8\n3. Button options:\n   - A doubles number (any light)\n   - B subtracts 1 (any light)\n   - C adds 1 (only when green)\n\n4. Working backwards:\n   - To get 8, best to use doubling\n   - 8 = 2 \u00d7 4\n   - 4 = 2 \u00d7 2\n   - 2 = 2 \u00d7 1\n   - 1 = 0 + 1\n   - So: 0 \u2192 add 1 \u2192 double \u2192 double \u2192 double\n\n5. Since C only works with green light and starts red:\n   - Need to toggle light first with any button\n   - Can use B to subtract 1 then C to add 1\n\n<answer>B \u2192 C \u2192 A \u2192 A \u2192 A</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 8\nButtons:\nA: Multiply 2 (when any)\nB: Add 1 (when green)\nC: Subtract 1 (when any)",
+      "expected_answer": "A \u2192 B \u2192 A \u2192 A \u2192 A",
+      "best_model_answer": "A \u2192 B \u2192 A \u2192 A \u2192 A",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Start with 0 and red light\n2) Available first moves: A or C\n3) A doubles to 0, C subtracts to -1\n4) Best first move is A (0 \u2192 0, but light changes to green)\n5) Now with green light, can use any button\n6) B adds 1 when green (now 1)\n7) A doubles to 2\n8) A doubles to 4\n9) A doubles to 8\n\n<answer>A \u2192 B \u2192 A \u2192 A \u2192 A</answer>",
+      "best_score": 1.0,
+      "mean_score": 0.6666666666666666,
+      "completions": [
+        {
+          "model_answer": "A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start with 0 (red light)\n2. Available operations:\n   - A (multiply by 2) - works with any light\n   - C (subtract 1) - works with any light\n   - B (add 1) - only works with green light\n\n3. To reach 8:\n   - Start: 0 (red)\n   - Press A: 0 \u00d7 2 = 0 (green)\n   - Press B: 0 + 1 = 1 (red)\n   - Press A: 1 \u00d7 2 = 2 (green)\n   - Press B: 2 + 1 = 3 (red)\n   - Press A: 3 \u00d7 2 = 6 (green)\n   - Press B: 6 + 1 = 7 (red)\n   - Press A: 7 \u00d7 2 = 14 (green)\n   - Press C: 14 - 1 = 13 (red)\n   - Press C: 13 - 1 = 12 (green)\n   - Press C: 12 - 1 = 11 (red)\n   - Press C: 11 - 1 = 10 (green)\n   - Press C: 10 - 1 = 9 (red)\n   - Press C: 9 - 1 = 8 (green)\n\n<answer>A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C</answer>",
+          "score": 0.5
+        },
+        {
+          "model_answer": "A \u2192 B \u2192 A \u2192 A \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 and red light\n2) Available first moves: A or C\n3) A doubles to 0, C subtracts to -1\n4) Best first move is A (0 \u2192 0, but light changes to green)\n5) Now with green light, can use any button\n6) B adds 1 when green (now 1)\n7) A doubles to 2\n8) A doubles to 4\n9) A doubles to 8\n\n<answer>A \u2192 B \u2192 A \u2192 A \u2192 A</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "A \u2192 A \u2192 A \u2192 B \u2192 A \u2192 A \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start with 0 (red light)\n2. Available operations: A (multiply 2) or C (subtract 1)\n3. Need to reach 8\n4. Pressing A first: 0 \u00d7 2 = 0 (light turns green)\n5. With green light, all operations available\n6. Best path to 8:\n   - A: 0 \u2192 0 (red to green)\n   - A: 0 \u2192 0 (green to red)\n   - A: 0 \u2192 0 (red to green)\n   - B: 0 \u2192 1 (stays green)\n   - A: 1 \u2192 2 (green to red)\n   - A: 2 \u2192 4 (red to green)\n   - A: 4 \u2192 8 (green to red)\n\n<answer>A \u2192 A \u2192 A \u2192 B \u2192 A \u2192 A \u2192 A</answer>",
+          "score": 0.5
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 30\nButtons:\nA: Multiply 2 (when green)\nB: Add 3 (when any)\nC: Multiply 3 (when any)",
+      "expected_answer": "B \u2192 C \u2192 C \u2192 B",
+      "best_model_answer": "B \u2192 C \u2192 C \u2192 B",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Available first moves:\n   - B (add 3)\n   - C (multiply 3)\n   B is better as multiplying 0 gives 0\n\n3) After B: 3 (green light)\n4) Now we can:\n   - A (multiply 2)\n   - B (add 3)\n   - C (multiply 3)\n   C is best to get closer to 30\n\n5) After C: 9 (red light)\n6) We can:\n   - B (add 3)\n   - C (multiply 3)\n   C is best\n\n7) After C: 27 (green light)\n8) Finally:\n   - B (add 3) gets us to 30\n\n<answer>B \u2192 C \u2192 C \u2192 B</answer>",
+      "best_score": 1.0,
+      "mean_score": 0.3333333333333333,
+      "completions": [
+        {
+          "model_answer": "B \u2192 C \u2192 C \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Available first moves:\n   - B (add 3)\n   - C (multiply 3)\n   B is better as multiplying 0 gives 0\n\n3) After B: 3 (green light)\n4) Now we can:\n   - A (multiply 2)\n   - B (add 3)\n   - C (multiply 3)\n   C is best to get closer to 30\n\n5) After C: 9 (red light)\n6) We can:\n   - B (add 3)\n   - C (multiply 3)\n   C is best\n\n7) After C: 27 (green light)\n8) Finally:\n   - B (add 3) gets us to 30\n\n<answer>B \u2192 C \u2192 C \u2192 B</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "C \u2192 B \u2192 C \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Available first moves:\n   - B: Add 3\n   - C: Multiply 3\n   (A can't be used as light is red)\n\n3) Best first move is B: 0+3=3 (light turns green)\n\n4) Now with 3 (green light), options:\n   - A: Multiply 2\n   - B: Add 3\n   - C: Multiply 3\n\n5) Best move is C: 3\u00d73=9 (light turns red)\n\n6) With 9 (red light):\n   B: 9+3=12\n   C: 9\u00d73=27\n\n7) Choose C: 9\u00d73=27 (light turns green)\n\n8) With 27 (green):\n   Add 3 with B to reach 30\n\n<answer>C \u2192 B \u2192 C \u2192 B</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "B \u2192 C \u2192 B \u2192 A \u2192 B \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Can only use B or C initially (A requires green)\n3) Adding 3 with B is better than multiplying by 3 with C (as 0 \u00d7 3 = 0)\n4) After B: 3 (light green)\n5) Now can use A: 3 \u00d7 2 = 6 (light red)\n6) Use C: 6 \u00d7 3 = 18 (light green)\n7) Use A: 18 \u00d7 2 = 36 (light red)\n8) Use B: 36 + 3 = 39 (light green)\n9) No combination of remaining moves can get us closer to 30\n\nLet's try another approach:\n1) Start with 0 (red)\n2) Use B: 3 (green)\n3) Use C: 9 (red)\n4) Use B: 12 (green)\n5) Use A: 24 (red)\n6) Use B: 27 (green)\n7) Use A: 30 (red) - Target reached!\n\n<answer>B \u2192 C \u2192 B \u2192 A \u2192 B \u2192 A</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 8\nButtons:\nA: Add 1 (when any)\nB: Subtract 2 (when red)\nC: Multiply 2 (when any)",
+      "expected_answer": "A \u2192 A \u2192 C \u2192 C",
+      "best_model_answer": "A \u2192 C \u2192 C \u2192 C",
+      "best_full_model_response": "Let me solve this step by step:\n\n1. Start with 0 (red light)\n2. Need to reach 8\n3. Available operations:\n   - A: +1 (any color)\n   - B: -2 (only red)\n   - C: \u00d72 (any color)\n\n4. Let's try:\n   - Start: 0 (red)\n   - A: 0+1 = 1 (green)\n   - C: 1\u00d72 = 2 (red)\n   - C: 2\u00d72 = 4 (green)\n   - C: 4\u00d72 = 8 (red)\n\n<answer>A \u2192 C \u2192 C \u2192 C</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "A \u2192 C \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start with 0 (red light)\n2. Need to reach 8\n3. Available operations:\n   - A: +1 (any color)\n   - B: -2 (only red)\n   - C: \u00d72 (any color)\n\n4. Let's try:\n   - Start: 0 (red)\n   - A: 0+1 = 1 (green)\n   - C: 1\u00d72 = 2 (red)\n   - C: 2\u00d72 = 4 (green)\n   - C: 4\u00d72 = 8 (red)\n\n<answer>A \u2192 C \u2192 C \u2192 C</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "A \u2192 C \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start at 0 with red light\n2. Need to reach 8\n3. Available operations:\n   - A: +1 (any color)\n   - B: -2 (only red)\n   - C: \u00d72 (any color)\n\n4. Let's try:\n   - Start: 0 (red)\n   - A: 1 (green)\n   - C: 2 (red)\n   - C: 4 (green)\n   - C: 8 (red)\n\n<answer>A \u2192 C \u2192 C \u2192 C</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "A \u2192 C \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1. Starting with 0 (red light)\n2. Available operations:\n   - A: +1 (any light)\n   - B: -2 (red only)\n   - C: \u00d72 (any light)\n3. To reach 8:\n   - Start with 0\n   - Add 1 (A) \u2192 1 (green)\n   - Multiply by 2 (C) \u2192 2 (red)\n   - Multiply by 2 (C) \u2192 4 (green)\n   - Multiply by 2 (C) \u2192 8 (red)\n\n<answer>A \u2192 C \u2192 C \u2192 C</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 8\nButtons:\nA: Add 2 (when any)\nB: Add 1 (when any)\nC: Add 2 (when green)",
+      "expected_answer": "A \u2192 A \u2192 A \u2192 A",
+      "best_model_answer": "A \u2192 A \u2192 A \u2192 C",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 with red light\n2) Need to get to 8\n3) Available operations:\n   - A adds 2 (any light)\n   - B adds 1 (any light)\n   - C adds 2 (only when green)\n\n4) Let me simulate:\n   - Press A: 0 \u2192 2 (green)\n   - Press A: 2 \u2192 4 (red)\n   - Press A: 4 \u2192 6 (green)\n   - Press C: 6 \u2192 8 (red)\n\n<answer>A \u2192 A \u2192 A \u2192 C</answer>",
+      "best_score": 1.0,
+      "mean_score": 0.8333333333333334,
+      "completions": [
+        {
+          "model_answer": "A \u2192 A \u2192 A \u2192 B \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start with 0 (red light)\n2. Need to get to 8\n3. Available operations:\n   - A adds 2 (any light)\n   - B adds 1 (any light)\n   - C adds 2 (only when green)\n\n4. To reach 8:\n   - Press A (0\u21922, red)\n   - Press A (2\u21924, red)\n   - Press A (4\u21926, red)\n   - Press B (6\u21927, red)\n   - Press B (7\u21928, red)\n\n<answer>A \u2192 A \u2192 A \u2192 B \u2192 B</answer>",
+          "score": 0.5
+        },
+        {
+          "model_answer": "A \u2192 A \u2192 A \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 with red light\n2) Need to get to 8\n3) Available operations:\n   - A adds 2 (any light)\n   - B adds 1 (any light)\n   - C adds 2 (only when green)\n\n4) Let me simulate:\n   - Press A: 0 \u2192 2 (green)\n   - Press A: 2 \u2192 4 (red)\n   - Press A: 4 \u2192 6 (green)\n   - Press C: 6 \u2192 8 (red)\n\n<answer>A \u2192 A \u2192 A \u2192 C</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "A \u2192 A \u2192 A \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start at 0 with red light\n2. Need to get to 8\n3. Available operations:\n   - A adds 2 (any light)\n   - B adds 1 (any light)\n   - C adds 2 (only when green)\n4. Let me plan the sequence:\n   - Press A: 0 \u2192 2 (light turns green)\n   - Press A: 2 \u2192 4 (light turns red)\n   - Press C won't work (red light)\n   - Press A: 4 \u2192 6 (light turns green)\n   - Press C: 6 \u2192 8 (only works with green light)\n\n<answer>A \u2192 A \u2192 A \u2192 C</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 24\nButtons:\nA: Multiply 2 (when any)\nB: Add 2 (when any)\nC: Add 2 (when green)",
+      "expected_answer": "B \u2192 A \u2192 B \u2192 A \u2192 A",
+      "best_model_answer": null,
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Need to reach 24\n3) Available operations:\n   - A: \u00d72 (any light)\n   - B: +2 (any light)\n   - C: +2 (only green)\n\n4) Working backwards:\n   * Need 24\n   * 24 \u00f7 2 = 12 (A would double)\n   * 12 \u00f7 2 = 6 (A would double)\n   * 6 \u00f7 2 = 3 (A would double)\n   * 3 - 2 = 1 (B would add 2)\n   * 1 - 1 = 0 (B would add 2)\n\n5) Therefore forward:\n   0 \u2192 2 \u2192 4 \u2192 8 \u2192 16 \u2192 24\n\n<answer>B \u2192 B \u2192 A \u2192 A \u2192 A</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": "B \u2192 B \u2192 A \u2192 A \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Need to reach 24\n3) Available operations:\n   - A: \u00d72 (any light)\n   - B: +2 (any light)\n   - C: +2 (only green)\n\n4) Working backwards:\n   * Need 24\n   * 24 \u00f7 2 = 12 (A would double)\n   * 12 \u00f7 2 = 6 (A would double)\n   * 6 \u00f7 2 = 3 (A would double)\n   * 3 - 2 = 1 (B would add 2)\n   * 1 - 1 = 0 (B would add 2)\n\n5) Therefore forward:\n   0 \u2192 2 \u2192 4 \u2192 8 \u2192 16 \u2192 24\n\n<answer>B \u2192 B \u2192 A \u2192 A \u2192 A</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "B \u2192 A \u2192 A \u2192 A \u2192 A \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Available operations first:\n   - A: 0 \u00d7 2 = 0\n   - B: 0 + 2 = 2\n   - C: can't use (needs green)\n\n3) Need to get to 24, starting with small numbers won't work\n   Need to use multiplication to get larger numbers\n\n4) Let's try building up:\n   - B first to get 2\n   - Then A to multiply: 2 \u00d7 2 = 4\n   - A again: 4 \u00d7 2 = 8\n   - A again: 8 \u00d7 2 = 16\n   - A again: 16 \u00d7 2 = 32\n   - Then B to subtract: 32 + 2 = 24\n\n<answer>B \u2192 A \u2192 A \u2192 A \u2192 A \u2192 B</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "B \u2192 A \u2192 A \u2192 A \u2192 B \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1) We start at 0 with red light\n2) Available operations at start:\n   - A: multiply by 2 (0 \u2192 0)\n   - B: add 2 (0 \u2192 2)\n   - C: not available (red light)\n3) Need to get to 24\n4) We need to use multiplication to get a larger number\n5) But first we need a non-zero number\n6) After getting a non-zero number, we can multiply by 2 multiple times\n7) Best sequence:\n   - B (0 \u2192 2)\n   - A (2 \u2192 4)\n   - A (4 \u2192 8)\n   - A (8 \u2192 16)\n   - B (16 \u2192 18)\n   - A (18 \u2192 24)\n\n<answer>B \u2192 A \u2192 A \u2192 A \u2192 B \u2192 A</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 8\nButtons:\nA: Multiply 2 (when any)\nB: Multiply 2 (when red)\nC: Add 1 (when green)",
+      "expected_answer": "A \u2192 C \u2192 A \u2192 A \u2192 A",
+      "best_model_answer": "B \u2192 C \u2192 A \u2192 A \u2192 A",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) We start at 0 with a red light\n2) Button B multiplies by 2 when red, but multiplying 0 won't help\n3) Button A multiplies by 2 regardless of color\n4) Button C adds 1 but only works with green light\n5) Need to get to 8, which is 2\u00b3\n6) We need to first get a non-zero number, then multiply\n7) A will work to multiply at any state\n8) We can press B when red\n9) Shortest path would be:\n   - Start at 0 (red)\n   - Press B: 0 \u2192 0 (toggles to green)\n   - Press C: 0 \u2192 1 (toggles to red)\n   - Press A: 1 \u2192 2 (toggles to green)\n   - Press A: 2 \u2192 4 (toggles to red)\n   - Press A: 4 \u2192 8\n\n<answer>B \u2192 C \u2192 A \u2192 A \u2192 A</answer>",
+      "best_score": 1.0,
+      "mean_score": 0.3333333333333333,
+      "completions": [
+        {
+          "model_answer": "B \u2192 C \u2192 A \u2192 A \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1) We start at 0 with a red light\n2) Button B multiplies by 2 when red, but multiplying 0 won't help\n3) Button A multiplies by 2 regardless of color\n4) Button C adds 1 but only works with green light\n5) Need to get to 8, which is 2\u00b3\n6) We need to first get a non-zero number, then multiply\n7) A will work to multiply at any state\n8) We can press B when red\n9) Shortest path would be:\n   - Start at 0 (red)\n   - Press B: 0 \u2192 0 (toggles to green)\n   - Press C: 0 \u2192 1 (toggles to red)\n   - Press A: 1 \u2192 2 (toggles to green)\n   - Press A: 2 \u2192 4 (toggles to red)\n   - Press A: 4 \u2192 8\n\n<answer>B \u2192 C \u2192 A \u2192 A \u2192 A</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "A \u2192 A \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start with 0 (red light)\n2. Need to get to 8\n3. When red, can use A or B (both multiply by 2)\n4. When green, can use A (multiply by 2) or C (add 1)\n5. To get 8 from 0, need to multiply by 2 three times (0\u21920\u21922\u21924\u21928)\n6. Since we start with red, either A or B works for first multiply\n7. A works in any color, so using A throughout is simpler\n\n<answer>A \u2192 A \u2192 A</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1. We start at 0 with red light\n2. Let me check what each button would do first:\n   * Button A: 0 \u00d7 2 = 0\n   * Button B: 0 \u00d7 2 = 0\n   * Button C: Can't use (light is red)\n\n3. Need to use A or B to change light to green\n4. After first multiply by 2, still at 0 but light is green\n5. Now C can be used to add 1\n6. After getting to 1 with green light:\n   * A can multiply by 2 to get 2 (and change to red)\n7. Continue this pattern until reaching 8\n\n<answer>A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 17\nButtons:\nA: Multiply 2 (when any)\nB: Add 3 (when any)\nC: Subtract 2 (when any)",
+      "expected_answer": "B \u2192 A \u2192 B \u2192 C \u2192 A \u2192 B",
+      "best_model_answer": null,
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 with red light\n2) Need to reach 17\n3) Available operations:\n   * A: \u00d72\n   * B: +3\n   * C: -2\n\n4) Let me work backwards:\n   * 0 \u2192 3 \u2192 6 \u2192 12 \u2192 15 \u2192 17\n\n5) This translates to:\n   * 0 (B) \u2192 3 (B) \u2192 6 (A) \u2192 12 (B) \u2192 15 (B) \u2192 17\n\n<answer>B \u2192 B \u2192 A \u2192 B \u2192 B</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": "B \u2192 B \u2192 A \u2192 B \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 with red light\n2) Need to reach 17\n3) Available operations:\n   * A: \u00d72\n   * B: +3\n   * C: -2\n\n4) Let me work backwards:\n   * 0 \u2192 3 \u2192 6 \u2192 12 \u2192 15 \u2192 17\n\n5) This translates to:\n   * 0 (B) \u2192 3 (B) \u2192 6 (A) \u2192 12 (B) \u2192 15 (B) \u2192 17\n\n<answer>B \u2192 B \u2192 A \u2192 B \u2192 B</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "B \u2192 A \u2192 B \u2192 A \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 (red light)\n2) Need to reach 17\n3) Available operations:\n   - A: \u00d72\n   - B: +3\n   - C: -2\n4) Let me find the shortest path:\n   - 0 \u2192 \u00d72 = 0\n   - 0 \u2192 +3 = 3\n   - 3 \u2192 \u00d72 = 6\n   - 6 \u2192 +3 = 9\n   - 9 \u2192 \u00d72 = 18\n   - 18 \u2192 -2 = 16\n   - 16 \u2192 +3 = 19\n   - 19 \u2192 -2 = 17\n\n<answer>B \u2192 A \u2192 B \u2192 A \u2192 C</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "B \u2192 A \u2192 B \u2192 A \u2192 C \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 (red light)\n2) Need to reach 17\n3) Available operations:\n   - A: \u00d72\n   - B: +3\n   - C: -2\n4) Let me work backwards:\n   0 \u2192 B (+3) = 3\n   3 \u2192 A (\u00d72) = 6\n   6 \u2192 B (+3) = 9\n   9 \u2192 A (\u00d72) = 18\n   18 \u2192 C (-2) = 16\n   16 \u2192 B (+3) = 17\n\n<answer>B \u2192 A \u2192 B \u2192 A \u2192 C \u2192 B</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 43\nButtons:\nA: Multiply 2 (when any)\nB: Subtract 2 (when red)\nC: Add 3 (when any)",
+      "expected_answer": "A \u2192 C \u2192 A \u2192 A \u2192 B \u2192 A \u2192 A \u2192 C",
+      "best_model_answer": null,
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Need to reach 43\n3) Available operations:\n   - A (\u00d72) works anytime\n   - B (-2) works only when red\n   - C (+3) works anytime\n\n4) Working backwards from 43:\n   43 \u00f7 2 = 21.5 (not good)\n   Need to build it up from smaller numbers\n\n5) Let's try building up:\n   0 \u2192 \u00d72 = 0\n   0 \u2192 +3 = 3\n   3 \u2192 \u00d72 = 6\n   6 \u2192 +3 = 9\n   9 \u2192 \u00d72 = 18\n   18 \u2192 +3 = 21\n   21 \u2192 \u00d72 = 42\n   42 \u2192 +3 = 45\n   \n6) Getting closer:\n   0 \u2192 \u00d72 = 0\n   0 \u2192 +3 = 3\n   3 \u2192 \u00d72 = 6\n   6 \u2192 +3 = 9\n   9 \u2192 \u00d72 = 18\n   18 \u2192 +3 = 21\n   21 \u2192 \u00d72 = 42\n   42 \u2192 +3 = 45\n   42 \u2192 -2 = 40\n   40 \u2192 +3 = 43\n\n<answer>A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 B \u2192 C</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": "A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 B \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Need to reach 43\n3) Available operations:\n   - A (\u00d72) works anytime\n   - B (-2) works only when red\n   - C (+3) works anytime\n\n4) Working backwards from 43:\n   43 \u00f7 2 = 21.5 (not good)\n   Need to build it up from smaller numbers\n\n5) Let's try building up:\n   0 \u2192 \u00d72 = 0\n   0 \u2192 +3 = 3\n   3 \u2192 \u00d72 = 6\n   6 \u2192 +3 = 9\n   9 \u2192 \u00d72 = 18\n   18 \u2192 +3 = 21\n   21 \u2192 \u00d72 = 42\n   42 \u2192 +3 = 45\n   \n6) Getting closer:\n   0 \u2192 \u00d72 = 0\n   0 \u2192 +3 = 3\n   3 \u2192 \u00d72 = 6\n   6 \u2192 +3 = 9\n   9 \u2192 \u00d72 = 18\n   18 \u2192 +3 = 21\n   21 \u2192 \u00d72 = 42\n   42 \u2192 +3 = 45\n   42 \u2192 -2 = 40\n   40 \u2192 +3 = 43\n\n<answer>A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 B \u2192 C</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "C \u2192 A \u2192 A \u2192 A \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Need to reach 43\n3) Available operations:\n   - A (\u00d72) works anytime\n   - B (-2) only works when red\n   - C (+3) works anytime\n\n4) To reach 43:\n   - Start at 0\n   - Multiply by 2: 0 \u2192 0\n   - Add 3: 0 \u2192 3\n   - Multiply by 2: 3 \u2192 6\n   - Multiply by 2: 6 \u2192 12\n   - Multiply by 2: 12 \u2192 24\n   - Add 3: 24 \u2192 27\n   - Add 3: 27 \u2192 30\n   - Add 3: 30 \u2192 33\n   - Add 3: 33 \u2192 36\n   - Add 3: 36 \u2192 39\n   - Add 3: 39 \u2192 42\n   - Add 3: 42 \u2192 45\n   - Subtract 2: 45 \u2192 43\n\n<answer>C \u2192 A \u2192 A \u2192 A \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 B</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 A \u2192 C \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Need to reach 43\n3) Available operations:\n   - A (\u00d72) works anytime\n   - B (-2) only when red\n   - C (+3) works anytime\n\n4) To reach 43:\n   - First need to get to a number that when multiplied by 2 will get close\n   - 43 is odd, so need odd number before final step\n   - Can use C (+3) multiple times\n   - Need 21 before final \u00d72\n   - Can build 21 using combinations of operations\n\n5) Solution path:\n   0 \u2192 C(3) \u2192 C(6) \u2192 C(9) \u2192 C(12) \u2192 C(15) \u2192 C(18) \u2192 C(21) \u2192 A(42) \u2192 C(45) \u2192 B(43)\n\n<answer>C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 A \u2192 C \u2192 B</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 31\nButtons:\nA: Add 2 (when red)\nB: Subtract 3 (when red)\nC: Add 3 (when any)",
+      "expected_answer": "A \u2192 C \u2192 A \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C",
+      "best_model_answer": "C \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C",
+      "best_full_model_response": "Let me solve this step by step:\n\n1. Start with 0 (red light)\n2. Need to reach 31\n3. Available operations:\n   - A: +2 (red only)\n   - B: -3 (red only)\n   - C: +3 (any color)\n\n4. Let me work through the sequence:\n   - C: 0 \u2192 3 (light turns green)\n   - C: 3 \u2192 6 (light turns red)\n   - A: 6 \u2192 8 (light turns green)\n   - C: 8 \u2192 11 (light turns red)\n   - A: 11 \u2192 13 (light turns green)\n   - C: 13 \u2192 16 (light turns red)\n   - A: 16 \u2192 18 (light turns green)\n   - C: 18 \u2192 21 (light turns red)\n   - A: 21 \u2192 23 (light turns green)\n   - C: 23 \u2192 26 (light turns red)\n   - A: 26 \u2192 28 (light turns green)\n   - C: 28 \u2192 31\n\n<answer>C \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C</answer>",
+      "best_score": 0.5,
+      "mean_score": 0.3333333333333333,
+      "completions": [
+        {
+          "model_answer": "C \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start with 0 (red light)\n2. Need to reach 31\n3. Available operations:\n   - A: +2 (red only)\n   - B: -3 (red only)\n   - C: +3 (any color)\n\n4. Let me work through the sequence:\n   - C: 0 \u2192 3 (light turns green)\n   - C: 3 \u2192 6 (light turns red)\n   - A: 6 \u2192 8 (light turns green)\n   - C: 8 \u2192 11 (light turns red)\n   - A: 11 \u2192 13 (light turns green)\n   - C: 13 \u2192 16 (light turns red)\n   - A: 16 \u2192 18 (light turns green)\n   - C: 18 \u2192 21 (light turns red)\n   - A: 21 \u2192 23 (light turns green)\n   - C: 23 \u2192 26 (light turns red)\n   - A: 26 \u2192 28 (light turns green)\n   - C: 28 \u2192 31\n\n<answer>C \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C</answer>",
+          "score": 0.5
+        },
+        {
+          "model_answer": "C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1. We start at 0 with a red light\n2. Let's track how each button press changes both number and light color\n3. Need to reach 31 with minimum button presses\n4. Button A adds 2 (red only)\n5. Button B subtracts 3 (red only)\n6. Button C adds 3 (any color)\n7. We can use C repeatedly since it works with any color\n8. To get from 0 to 31, we need to add 31\n9. Using C eleven times will get us there: 3 \u00d7 11 = 33\n10. We can use B once when red to subtract 3 and reach 31\n\n<answer>C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 B</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "C \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1. Starting at 0 with red light\n2. Need to reach 31\n3. Available operations:\n   - A: +2 (red only)\n   - B: -3 (red only)\n   - C: +3 (any color)\n4. When I press any button, light changes color\n5. Let me trace the path:\n   - C (+3) \u2192 3 (green)\n   - C (+3) \u2192 6 (red)\n   - A (+2) \u2192 8 (green)\n   - C (+3) \u2192 11 (red)\n   - A (+2) \u2192 13 (green)\n   - C (+3) \u2192 16 (red)\n   - A (+2) \u2192 18 (green)\n   - C (+3) \u2192 21 (red)\n   - A (+2) \u2192 23 (green)\n   - C (+3) \u2192 26 (red)\n   - A (+2) \u2192 28 (green)\n   - C (+3) \u2192 31 (red)\n\n<answer>C \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C</answer>",
+          "score": 0.5
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 23\nButtons:\nA: Subtract 3 (when any)\nB: Subtract 2 (when any)\nC: Add 3 (when any)",
+      "expected_answer": "B \u2192 B \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C",
+      "best_model_answer": null,
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 with red light\n2) Need to get to 23\n3) Available operations:\n   - A: -3\n   - B: -2\n   - C: +3\n4) To reach 23 from 0, need to add\n5) Only C adds (adds 3)\n6) Need to press C multiple times\n7) 23 \u00f7 3 \u2248 7.67\n8) Need to press C eight times to exceed 23\n9) 8 \u00d7 3 = 24\n10) Then need to subtract 1\n11) Can use B (-2) then A (-3) to adjust\n12) So: 8 C's, then B\n\n<answer>C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 B</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": "C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 with red light\n2) Need to get to 23\n3) Available operations:\n   - A: -3\n   - B: -2\n   - C: +3\n4) To reach 23 from 0, need to add\n5) Only C adds (adds 3)\n6) Need to press C multiple times\n7) 23 \u00f7 3 \u2248 7.67\n8) Need to press C eight times to exceed 23\n9) 8 \u00d7 3 = 24\n10) Then need to subtract 1\n11) Can use B (-2) then A (-3) to adjust\n12) So: 8 C's, then B\n\n<answer>C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 B</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "IMPOSSIBLE",
+          "full_model_response": "Let me solve this step by step:\n\n1. Starting with 0 (red light)\n2. Need to reach 23\n3. Available operations:\n   - A: -3\n   - B: -2\n   - C: +3\n\n4. To get from 0 to 23:\n   - Need to add repeatedly\n   - Only C adds (+3)\n   - Need to press C eight times: 0\u21923\u21926\u21929\u219212\u219215\u219218\u219221\u219224\n   - Then need to subtract 1\n   - B subtracts 2, which is too much\n   - A subtracts 3, which is too much\n   - No way to reach exactly 23\n\n<answer>IMPOSSIBLE</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 with red light\n2) Need to reach 23\n3) Available operations:\n   - A: -3\n   - B: -2\n   - C: +3\n4) To go from 0 to 23:\n   - Need to add 23\n   - Since C adds 3\n   - Need to press C multiple times\n   - 23 \u00f7 3 = 7.67\n   - Need to press C eight times to exceed 23\n   - Then use A or B to adjust down\n\n5) Pressing C eight times: 0 \u2192 3 \u2192 6 \u2192 9 \u2192 12 \u2192 15 \u2192 18 \u2192 21 \u2192 24\n6) Then need to subtract 1\n7) B subtracts 2, which is too much\n8) So need one more sequence\n\nFinal calculation:\nC seven times gets to 21, then C once more to 24, then A once to get to 21\n\n<answer>C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 A</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 13\nButtons:\nA: Subtract 2 (when any)\nB: Add 3 (when any)\nC: Multiply 2 (when any)",
+      "expected_answer": "B \u2192 B \u2192 C \u2192 A \u2192 B",
+      "best_model_answer": null,
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 with red light\n2) Need to reach 13\n3) Available operations:\n   - A: -2 (anytime)\n   - B: +3 (anytime)\n   - C: \u00d72 (anytime)\n\n4) Let me work backwards:\n   * To get 13, I can:\n   * Start at 0\n   * Add 3 three times (9)\n   * Then multiply by 2 (18)\n   * Subtract 2 (16)\n   * Subtract 2 again (14)\n   * Subtract 2 one more time (13)\n\n5) So the sequence is: B \u2192 B \u2192 B \u2192 C \u2192 A \u2192 A \u2192 A\n\n<answer>B \u2192 B \u2192 B \u2192 C \u2192 A \u2192 A \u2192 A</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": "B \u2192 B \u2192 B \u2192 C \u2192 A \u2192 A \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 with red light\n2) Need to reach 13\n3) Available operations:\n   - A: -2 (anytime)\n   - B: +3 (anytime)\n   - C: \u00d72 (anytime)\n\n4) Let me work backwards:\n   * To get 13, I can:\n   * Start at 0\n   * Add 3 three times (9)\n   * Then multiply by 2 (18)\n   * Subtract 2 (16)\n   * Subtract 2 again (14)\n   * Subtract 2 one more time (13)\n\n5) So the sequence is: B \u2192 B \u2192 B \u2192 C \u2192 A \u2192 A \u2192 A\n\n<answer>B \u2192 B \u2192 B \u2192 C \u2192 A \u2192 A \u2192 A</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "B \u2192 B \u2192 B \u2192 B \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 (red light)\n2) Need to reach 13\n3) Available operations:\n   - A: -2 (any light)\n   - B: +3 (any light)\n   - C: \u00d72 (any light)\n\n4) Let me work backwards:\n   - To get 13, we could:\n   - Start at 0\n   - Add 3 (B): 3\n   - Add 3 (B): 6\n   - Add 3 (B): 9\n   - Add 3 (B): 12\n   - Add 3 (B): 13\n\n<answer>B \u2192 B \u2192 B \u2192 B \u2192 B</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "B \u2192 C \u2192 B \u2192 C \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Need to reach 13\n3) Available operations:\n   - A: -2 (any color)\n   - B: +3 (any color)\n   - C: \u00d72 (any color)\n4) Let me work backwards:\n   - To get 13, I need:\n   * Can add 3 multiple times: 0+3+3+3+3+1\n   * Or can use multiplication and addition strategically\n   * 0 \u2192 +3 \u2192 \u00d72 \u2192 +3 \u2192 \u00d72 \u2192 +1\n   * So: B \u2192 C \u2192 B \u2192 C \u2192 B\n\n<answer>B \u2192 C \u2192 B \u2192 C \u2192 B</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 14\nButtons:\nA: Add 2 (when red)\nB: Multiply 2 (when green)\nC: Add 1 (when red)",
+      "expected_answer": "A \u2192 B \u2192 A \u2192 B \u2192 A",
+      "best_model_answer": null,
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Button options when red: A (+2) or C (+1)\n3) Need to get to 14\n4) If we use A first: 0 \u2192 2 (light turns green)\n5) With green light, can use B (multiply by 2): 2 \u2192 4\n6) Light is now red, can use A: 4 \u2192 6 (green)\n7) Use B again: 6 \u2192 12 (red)\n8) Finally, use C to add 1: 12 \u2192 13 (green)\n9) Use C again: 13 \u2192 14\n\n<answer>A \u2192 B \u2192 A \u2192 B \u2192 C \u2192 C</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": "A \u2192 B \u2192 A \u2192 B \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Button options when red: A (+2) or C (+1)\n3) Need to get to 14\n4) If we use A first: 0 \u2192 2 (light turns green)\n5) With green light, can use B (multiply by 2): 2 \u2192 4\n6) Light is now red, can use A: 4 \u2192 6 (green)\n7) Use B again: 6 \u2192 12 (red)\n8) Finally, use C to add 1: 12 \u2192 13 (green)\n9) Use C again: 13 \u2192 14\n\n<answer>A \u2192 B \u2192 A \u2192 B \u2192 C \u2192 C</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "A \u2192 B \u2192 A \u2192 B \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) With red light, I can use A or C\n3) Using A first: 0 + 2 = 2 (light turns green)\n4) With green light, I can use B: 2 \u00d7 2 = 4 (light turns red)\n5) With red light, use A: 4 + 2 = 6 (light turns green)\n6) Use B: 6 \u00d7 2 = 12 (light turns red)\n7) Use C: 12 + 1 = 13 (light turns green)\n8) Use C: 13 + 1 = 14\n\n<answer>A \u2192 B \u2192 A \u2192 B \u2192 C \u2192 C</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "A \u2192 A \u2192 A \u2192 C \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start with 0 and red light\n2. Need to reach 14\n3. When red, can use A (+2) or C (+1)\n4. When green, can use B (\u00d72)\n5. Let me try:\n   - A: 0 \u2192 2 (red)\n   - A: 2 \u2192 4 (red)\n   - A: 4 \u2192 6 (red)\n   - A: 6 \u2192 8 (red)\n   - B: 8 \u2192 16 (green) - too high\n6. Try different approach:\n   - A: 0 \u2192 2 (red)\n   - A: 2 \u2192 4 (red)\n   - A: 4 \u2192 6 (red)\n   - C: 6 \u2192 7 (red)\n   - B: 7 \u2192 14 (green)\n\n<answer>A \u2192 A \u2192 A \u2192 C \u2192 B</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 10\nButtons:\nA: Multiply 2 (when red)\nB: Subtract 1 (when green)\nC: Add 1 (when any)",
+      "expected_answer": "C \u2192 C \u2192 A \u2192 C \u2192 A",
+      "best_model_answer": "A \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C",
+      "best_full_model_response": "Let me solve this step by step:\n\n1. Starting with 0 (red light)\n2. Need to reach 10\n3. Available operations:\n   - A: x2 (red only)\n   - B: -1 (green only)\n   - C: +1 (any color)\n\n4. Let's work through it:\n   * 0 (red) \u2192 A \u2192 0\u00d72=0 (green)\n   * 0 (green) \u2192 C \u2192 1 (green)\n   * 1 (green) \u2192 C \u2192 2 (green)\n   * 2 (green) \u2192 C \u2192 3 (green)\n   * 3 (green) \u2192 C \u2192 4 (green)\n   * 4 (green) \u2192 C \u2192 5 (green)\n   * 5 (green) \u2192 C \u2192 6 (green)\n   * 6 (green) \u2192 C \u2192 7 (green)\n   * 7 (green) \u2192 C \u2192 8 (green)\n   * 8 (green) \u2192 C \u2192 9 (green)\n   * 9 (green) \u2192 C \u2192 10 (green)\n\n<answer>A \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C</answer>",
+      "best_score": 0.5,
+      "mean_score": 0.16666666666666666,
+      "completions": [
+        {
+          "model_answer": "A \u2192 A \u2192 A \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start with 0 (red light)\n2. Button A will multiply by 2 when red: 0 \u2192 0\n3. Button C will add 1 regardless of light: 0 \u2192 1 (red)\n4. Button A will multiply by 2 when red: 1 \u2192 2 (red)\n5. Button A again: 2 \u2192 4 (red)\n6. Button A again: 4 \u2192 8 (red)\n7. Button C will add 1: 8 \u2192 9 (red)\n8. Button C will add 1: 9 \u2192 10 (red)\n\n<answer>A \u2192 A \u2192 A \u2192 C \u2192 C</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "A \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1. Starting with 0 (red light)\n2. Need to reach 10\n3. Available operations:\n   - A: x2 (red only)\n   - B: -1 (green only)\n   - C: +1 (any color)\n\n4. Let's work through it:\n   * 0 (red) \u2192 A \u2192 0\u00d72=0 (green)\n   * 0 (green) \u2192 C \u2192 1 (green)\n   * 1 (green) \u2192 C \u2192 2 (green)\n   * 2 (green) \u2192 C \u2192 3 (green)\n   * 3 (green) \u2192 C \u2192 4 (green)\n   * 4 (green) \u2192 C \u2192 5 (green)\n   * 5 (green) \u2192 C \u2192 6 (green)\n   * 6 (green) \u2192 C \u2192 7 (green)\n   * 7 (green) \u2192 C \u2192 8 (green)\n   * 8 (green) \u2192 C \u2192 9 (green)\n   * 9 (green) \u2192 C \u2192 10 (green)\n\n<answer>A \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C</answer>",
+          "score": 0.5
+        },
+        {
+          "model_answer": "C \u2192 A \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1. Starting at 0 with red light\n2. Available operations:\n   - A (\u00d72) when red\n   - B (-1) when green\n   - C (+1) any color\n\n3. Let's plan the sequence:\n   - Start: 0 (red)\n   - Press C: 1 (red)\n   - Press A: 2 (green)\n   - Press C: 3 (green)\n   - Press C: 4 (green)\n   - Press C: 5 (green)\n   - Press C: 6 (green)\n   - Press C: 7 (green)\n   - Press C: 8 (green)\n   - Press C: 9 (green)\n   - Press C: 10 (green)\n\n<answer>C \u2192 A \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 14\nButtons:\nA: Subtract 2 (when any)\nB: Subtract 3 (when green)\nC: Add 2 (when any)",
+      "expected_answer": "C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C",
+      "best_model_answer": "C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Start with 0 and red light\n2) Need to get to 14\n3) Button options:\n   - A: -2 (any color)\n   - B: -3 (only when green)\n   - C: +2 (any color)\n4) To reach 14, need positive operations\n5) Only C adds numbers\n6) Need to press C seven times (2 \u00d7 7 = 14)\n\n<answer>C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 and red light\n2) Need to get to 14\n3) Button options:\n   - A: -2 (any color)\n   - B: -3 (only when green)\n   - C: +2 (any color)\n4) To reach 14, need positive operations\n5) Only C adds numbers\n6) Need to press C seven times (2 \u00d7 7 = 14)\n\n<answer>C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1. Starting with 0 (red light)\n2. Need to reach 14\n3. Available operations:\n   - A: -2 (any color)\n   - B: -3 (only when green)\n   - C: +2 (any color)\n4. Since we need to increase the number, and C is the only addition operation:\n   - Need to press C multiple times\n   - Each C press adds 2 and toggles light\n5. To reach 14 from 0:\n   - Need 7 presses of C (7 \u00d7 2 = 14)\n\n<answer>C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1. Starting with 0 (red light)\n2. Need to reach 14\n3. Available operations:\n   * A: -2 (any color)\n   * B: -3 (only when green)\n   * C: +2 (any color)\n4. To get to 14, need positive operations\n5. Only C adds value (+2)\n6. Need to press C seven times to reach 14\n7. No other buttons needed since we just need to increase the value\n\n<answer>C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 26\nButtons:\nA: Subtract 3 (when any)\nB: Subtract 3 (when green)\nC: Add 2 (when any)",
+      "expected_answer": "C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C",
+      "best_model_answer": "C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C",
+      "best_full_model_response": "Let me solve this step by step:\n\n1. Start at 0 with red light\n2. Available operations:\n   - A: -3 (any light)\n   - B: -3 (only green)\n   - C: +2 (any light)\n3. Need to reach 26 from 0\n4. Since B only works with green light, need to toggle light\n5. Need to add numbers, so C is main button\n6. 26 \u00f7 2 = 13 times we need to press C\n\n<answer>C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start at 0 with red light\n2. Available operations:\n   - A: -3 (any light)\n   - B: -3 (only green)\n   - C: +2 (any light)\n3. Need to reach 26 from 0\n4. Since B only works with green light, need to toggle light\n5. Need to add numbers, so C is main button\n6. 26 \u00f7 2 = 13 times we need to press C\n\n<answer>C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 with red light\n2) Need to reach 26\n3) Available operations:\n   - A: -3 (any color)\n   - B: -3 (only green)\n   - C: +2 (any color)\n4) To reach 26, we need to add\n5) Only C adds numbers (+2)\n6) Need 13 presses of C to reach 26\n   0 + (2 \u00d7 13) = 26\n\n<answer>C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start at 0 with red light\n2. Need to reach 26\n3. Available operations:\n   - A: -3 (any color)\n   - B: -3 (only green)\n   - C: +2 (any color)\n4. Since we need to increase the number to 26, we'll mainly use C\n5. We need 13 presses of C to reach 26 (since 13 \u00d7 2 = 26)\n\n<answer>C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 9\nButtons:\nA: Add 1 (when any)\nB: Multiply 2 (when green)\nC: Subtract 1 (when any)",
+      "expected_answer": "A \u2192 A \u2192 A \u2192 A \u2192 A \u2192 B \u2192 C",
+      "best_model_answer": "A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 B \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Need to get to 9\n3) Only A and C work with red light\n4) Need to get light to green for multiply operation\n5) Press A to get 1 and switch to green\n6) Now can use B to multiply by 2\n7) After B, will have 2 and red light\n8) Press A to get 3 and green light\n9) Press B to get 6 and red light\n10) Press A to get 7 and green light\n11) Press B to get 14 and red light\n12) Press C five times to get 9\n\n<answer>A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 B \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C</answer>",
+      "best_score": 0.5,
+      "mean_score": 0.3333333333333333,
+      "completions": [
+        {
+          "model_answer": "A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 B \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Need to get to 9\n3) Only A and C work with red light\n4) Need to get light to green for multiply operation\n5) Press A to get 1 and switch to green\n6) Now can use B to multiply by 2\n7) After B, will have 2 and red light\n8) Press A to get 3 and green light\n9) Press B to get 6 and red light\n10) Press A to get 7 and green light\n11) Press B to get 14 and red light\n12) Press C five times to get 9\n\n<answer>A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 B \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C</answer>",
+          "score": 0.5
+        },
+        {
+          "model_answer": "A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 B \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Available actions are A (+1) or C (-1)\n3) Need to get to 9\n4) Pressing A changes light to green and adds 1 (now at 1)\n5) With green light, can use B to multiply by 2\n6) After B, light changes to red and number is 2\n7) Keep alternating A and B:\n   - A: 0\u21921 (green)\n   - B: 1\u21922 (red)\n   - A: 2\u21923 (green)\n   - B: 3\u21926 (red)\n   - A: 6\u21927 (green)\n   - B: 7\u219214 (red)\n   - C: 14\u219213 (green)\n   - C: 13\u219212 (red)\n   - C: 12\u219211 (green)\n   - C: 11\u219210 (red)\n   - C: 10\u21929 (green)\n\n<answer>A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 B \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C</answer>",
+          "score": 0.5
+        },
+        {
+          "model_answer": "A \u2192 B \u2192 A \u2192 A \u2192 B \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Need to get to 9\n3) Available moves:\n   - Can add 1 (A) anytime\n   - Can subtract 1 (C) anytime\n   - Can multiply by 2 (B) only when green\n\n4) To use multiply by 2, need to switch light to green\n5) Most efficient path would be:\n   - Press A to get 1 and switch to green\n   - Press B to get 2\n   - Press A to get 3 and switch to red\n   - Press A to get 4 and switch to green\n   - Press B to get 8\n   - Press A to get 9\n\n<answer>A \u2192 B \u2192 A \u2192 A \u2192 B \u2192 A</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 24\nButtons:\nA: Add 3 (when any)\nB: Subtract 2 (when any)\nC: Multiply 2 (when green)",
+      "expected_answer": "A \u2192 A \u2192 A \u2192 C \u2192 A \u2192 A",
+      "best_model_answer": "A \u2192 A \u2192 A \u2192 C \u2192 A \u2192 C \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B",
+      "best_full_model_response": "Let me solve this step by step:\n\n1. Start with 0 (red light)\n2. Need to get to 24\n3. When light is red, can only add 3 or subtract 2\n4. Need to get light green to use multiply\n5. Each button press toggles light\n6. To reach 24:\n   - Start: 0 (red)\n   - A: 3 (green)\n   - A: 6 (red)\n   - A: 9 (green)\n   - C: 18 (red)\n   - A: 21 (green)\n   - C: 42 (red)\n   - B: 40 (green)\n   - B: 38 (red)\n   - B: 36 (green)\n   - B: 34 (red)\n   - B: 32 (green)\n   - B: 30 (red)\n   - B: 28 (green)\n   - B: 26 (red)\n   - B: 24 (green)\n\n<answer>A \u2192 A \u2192 A \u2192 C \u2192 A \u2192 C \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B</answer>",
+      "best_score": 0.5,
+      "mean_score": 0.16666666666666666,
+      "completions": [
+        {
+          "model_answer": "A \u2192 A \u2192 A \u2192 C \u2192 A \u2192 C \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start with 0 (red light)\n2. Need to get to 24\n3. When light is red, can only add 3 or subtract 2\n4. Need to get light green to use multiply\n5. Each button press toggles light\n6. To reach 24:\n   - Start: 0 (red)\n   - A: 3 (green)\n   - A: 6 (red)\n   - A: 9 (green)\n   - C: 18 (red)\n   - A: 21 (green)\n   - C: 42 (red)\n   - B: 40 (green)\n   - B: 38 (red)\n   - B: 36 (green)\n   - B: 34 (red)\n   - B: 32 (green)\n   - B: 30 (red)\n   - B: 28 (green)\n   - B: 26 (red)\n   - B: 24 (green)\n\n<answer>A \u2192 A \u2192 A \u2192 C \u2192 A \u2192 C \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B</answer>",
+          "score": 0.5
+        },
+        {
+          "model_answer": "A \u2192 A \u2192 A \u2192 A \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Starting with 0 (red light)\n2) Need to get to 24\n3) Available operations:\n   - A: +3 (any light)\n   - B: -2 (any light)\n   - C: \u00d72 (only when green)\n4) Need to get a number that when multiplied by 2 gives 24\n5) That would be 12\n6) To get to 12 from 0:\n   - Need to press A four times (0\u21923\u21926\u21929\u219212)\n   - Then need light to be green for C\n   - Each button press toggles light\n   - Four presses means light will be green\n7) Then can press C to multiply by 2\n\n<answer>A \u2192 A \u2192 A \u2192 A \u2192 C</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Need to get to 24\n3) Only A and B work with red light\n4) Need to get green light to use multiply\n5) Press A to get 3 (green)\n6) Now C works, multiply by 2 to get 6 (red)\n7) Press A to get 9 (green)\n8) Use C to multiply by 2: 18 (red)\n9) Press A to get 21 (green)\n10) Final C to multiply by 2: 42 (red)\n\n<answer>A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 18\nButtons:\nA: Add 3 (when any)\nB: Multiply 2 (when green)\nC: Subtract 3 (when green)",
+      "expected_answer": "A \u2192 A \u2192 A \u2192 B",
+      "best_model_answer": "A \u2192 B \u2192 A \u2192 B",
+      "best_full_model_response": "Let me solve this step by step:\n\n1. Start with 0 (red light)\n2. Need to get to 18\n3. Only A works with red light, so must press A first\n4. After A: 3 (green light)\n5. Now can use B since light is green\n6. After B: 6 (red light)\n7. Need A again to get higher\n8. After A: 9 (green light)\n9. Use B again to multiply\n10. After B: 18 (red light)\n\n<answer>A \u2192 B \u2192 A \u2192 B</answer>",
+      "best_score": 1.0,
+      "mean_score": 0.6666666666666666,
+      "completions": [
+        {
+          "model_answer": "A \u2192 B \u2192 B \u2192 B \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Need to get to 18\n3) Available first move: only A (adds 3) since light is red\n4) After A: 3 (green light)\n5) Now can use any button since light is green\n6) To get from 3 to 18, multiply by 2 three times: 3\u21926\u219212\u219224\n7) Then subtract 3 twice: 24\u219221\u219218\n\nSo sequence is:\nA (0\u21923) \u2192 B (3\u21926) \u2192 B (6\u219212) \u2192 B (12\u219224) \u2192 C (24\u219221) \u2192 C (21\u219218)\n\n<answer>A \u2192 B \u2192 B \u2192 B \u2192 C \u2192 C</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "A \u2192 B \u2192 A \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start with 0 (red light)\n2. Need to get to 18\n3. Only A works with red light, so must press A first\n4. After A: 3 (green light)\n5. Now can use B since light is green\n6. After B: 6 (red light)\n7. Need A again to get higher\n8. After A: 9 (green light)\n9. Use B again to multiply\n10. After B: 18 (red light)\n\n<answer>A \u2192 B \u2192 A \u2192 B</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "A \u2192 B \u2192 A \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 with red light\n2) Need to get to 18\n3) Only A works with red light\n4) A changes 0 to 3 and toggles to green\n5) With green light, can use B to multiply by 2\n6) 3 \u00d7 2 = 6, light toggles to red\n7) Use A again: 6 + 3 = 9, light green\n8) Use B again: 9 \u00d7 2 = 18, done!\n\n<answer>A \u2192 B \u2192 A \u2192 B</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 15\nButtons:\nA: Multiply 2 (when any)\nB: Add 1 (when any)\nC: Subtract 1 (when green)",
+      "expected_answer": "B \u2192 A \u2192 A \u2192 A \u2192 A \u2192 C",
+      "best_model_answer": "B \u2192 A \u2192 A \u2192 A \u2192 A \u2192 C",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Need to reach 15\n3) Available operations:\n   - A: \u00d72 (any light)\n   - B: +1 (any light)\n   - C: -1 (only when green)\n\n4) To reach 15:\n   - 0 \u2192 1 (using B)\n   - 1 \u2192 2 (using A)\n   - 2 \u2192 4 \u2192 8 \u2192 16 (using A three times)\n   - 16 \u2192 15 (using C, but need green light)\n   - Light toggles with each press\n\n5) Optimal sequence:\n   B \u2192 A \u2192 A \u2192 A \u2192 A \u2192 C\n\n<answer>B \u2192 A \u2192 A \u2192 A \u2192 A \u2192 C</answer>",
+      "best_score": 1.0,
+      "mean_score": 0.6666666666666666,
+      "completions": [
+        {
+          "model_answer": "B \u2192 A \u2192 A \u2192 A \u2192 A \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Need to reach 15\n3) Available operations:\n   - A: \u00d72 (any light)\n   - B: +1 (any light)\n   - C: -1 (only when green)\n\n4) To reach 15:\n   - 0 \u2192 1 (using B)\n   - 1 \u2192 2 (using A)\n   - 2 \u2192 4 \u2192 8 \u2192 16 (using A three times)\n   - 16 \u2192 15 (using C, but need green light)\n   - Light toggles with each press\n\n5) Optimal sequence:\n   B \u2192 A \u2192 A \u2192 A \u2192 A \u2192 C\n\n<answer>B \u2192 A \u2192 A \u2192 A \u2192 A \u2192 C</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "B \u2192 A \u2192 A \u2192 A \u2192 A \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Need to reach 15\n3) Available operations:\n   - A: multiply by 2 (any light)\n   - B: add 1 (any light)\n   - C: subtract 1 (only when green)\n\n4) To get to 15 efficiently:\n   - 0 \u2192 1 (using B)\n   - 1 \u2192 2 (using A)\n   - 2 \u2192 4 \u2192 8 \u2192 16 (using A three times)\n   - 16 \u2192 15 (using C, which needs green light, but light will be green after 5 button presses)\n\n<answer>B \u2192 A \u2192 A \u2192 A \u2192 A \u2192 C</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "B \u2192 A \u2192 A \u2192 A \u2192 B \u2192 B \u2192 B \u2192 A \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Need to reach 15\n3) Available operations:\n   - A: multiply by 2 (works with any color)\n   - B: add 1 (works with any color)\n   - C: subtract 1 (only when green)\n\n4) To reach 15 efficiently:\n   * 0 \u2192 A \u2192 0\u00d72 = 0\n   * 0 \u2192 B \u2192 1\n   * 1 \u2192 A \u2192 2\n   * 2 \u2192 A \u2192 4\n   * 4 \u2192 A \u2192 8\n   * 8 \u2192 B \u2192 9\n   * 9 \u2192 B \u2192 10\n   * 10 \u2192 B \u2192 11\n   * 11 \u2192 A \u2192 14\n   * 14 \u2192 B \u2192 15\n\n<answer>B \u2192 A \u2192 A \u2192 A \u2192 B \u2192 B \u2192 B \u2192 A \u2192 B</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 8\nButtons:\nA: Add 2 (when any)\nB: Multiply 2 (when any)\nC: Add 1 (when any)",
+      "expected_answer": "A \u2192 A \u2192 B",
+      "best_model_answer": "A \u2192 B \u2192 B",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 (red)\n2) Need to reach 8\n3) Available operations:\n   - Add 2 (A)\n   - Multiply by 2 (B)\n   - Add 1 (C)\n4) Let me try different paths:\n   0 \u2192 2 (A) \u2192 4 (B) \u2192 8 (B)\n\nThis is the shortest path to reach 8.\n\n<answer>A \u2192 B \u2192 B</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "A \u2192 B \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 (red)\n2) Need to reach 8\n3) Available operations:\n   - Add 2 (A)\n   - Multiply by 2 (B)\n   - Add 1 (C)\n4) Let me try different paths:\n   0 \u2192 2 (A) \u2192 4 (B) \u2192 8 (B)\n\nThis is the shortest path to reach 8.\n\n<answer>A \u2192 B \u2192 B</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "A \u2192 B \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Need to reach 8\n3) Available operations:\n   - A: +2\n   - B: \u00d72\n   - C: +1\n\n4) Let me try different paths:\n   Path 1: 0 \u2192 2 \u2192 4 \u2192 8 (A\u2192B\u2192B)\n   Path 2: 0 \u2192 1 \u2192 2 \u2192 4 \u2192 8 (C\u2192A\u2192B\u2192B)\n   Path 3: 0 \u2192 1 \u2192 3 \u2192 6 \u2192 8 (C\u2192A\u2192A\u2192A)\n\n5) Path 1 is shortest with 3 steps\n\n<answer>A \u2192 B \u2192 B</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "A \u2192 B \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Need to get to 8\n3) Available operations:\n   - Add 2 (A)\n   - Multiply by 2 (B)\n   - Add 1 (C)\n4) Possible paths:\n   - 0 \u2192 2 \u2192 4 \u2192 8 (A \u2192 B \u2192 B)\n   - 0 \u2192 1 \u2192 2 \u2192 4 \u2192 8 (C \u2192 A \u2192 B \u2192 B)\n5) First path is shorter\n\n<answer>A \u2192 B \u2192 B</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 9\nButtons:\nA: Subtract 1 (when any)\nB: Add 2 (when any)\nC: Multiply 2 (when green)",
+      "expected_answer": "A \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B",
+      "best_model_answer": "B \u2192 C \u2192 B \u2192 C \u2192 A \u2192 A \u2192 A",
+      "best_full_model_response": "Let me solve this step by step:\n\n1. Starting at 0 with red light\n2. Need to get to 9\n3. Button C only works with green light\n4. Need to get green light first\n5. Any button press toggles light\n6. B adds 2: 0 \u2192 2 (green)\n7. C multiplies by 2: 2 \u2192 4 (red)\n8. B adds 2: 4 \u2192 6 (green)\n9. C multiplies by 2: 6 \u2192 12 (red)\n10. A subtracts 1: 12 \u2192 11 (green)\n11. A subtracts 1: 11 \u2192 10 (red)\n12. A subtracts 1: 10 \u2192 9 (green)\n\n<answer>B \u2192 C \u2192 B \u2192 C \u2192 A \u2192 A \u2192 A</answer>",
+      "best_score": 0.5,
+      "mean_score": 0.5,
+      "completions": [
+        {
+          "model_answer": "B \u2192 C \u2192 B \u2192 C \u2192 A \u2192 A \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1. Starting at 0 with red light\n2. Need to get to 9\n3. Button C only works with green light\n4. Need to get green light first\n5. Any button press toggles light\n6. B adds 2: 0 \u2192 2 (green)\n7. C multiplies by 2: 2 \u2192 4 (red)\n8. B adds 2: 4 \u2192 6 (green)\n9. C multiplies by 2: 6 \u2192 12 (red)\n10. A subtracts 1: 12 \u2192 11 (green)\n11. A subtracts 1: 11 \u2192 10 (red)\n12. A subtracts 1: 10 \u2192 9 (green)\n\n<answer>B \u2192 C \u2192 B \u2192 C \u2192 A \u2192 A \u2192 A</answer>",
+          "score": 0.5
+        },
+        {
+          "model_answer": "B \u2192 B \u2192 B \u2192 C \u2192 A \u2192 A \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start at 0 with red light\n2. Need to get to 9\n3. Available operations:\n   - A: -1 (any color)\n   - B: +2 (any color)\n   - C: \u00d72 (only when green)\n4. To use C, need green light first\n5. Each button press toggles light\n6. To get 9:\n   - Start at 0 (red)\n   - B: 0+2=2 (green)\n   - B: 2+2=4 (red)\n   - B: 4+2=6 (green)\n   - C: 6\u00d72=12 (red)\n   - A: 12-1=11 (green)\n   - A: 11-1=10 (red)\n   - A: 10-1=9 (green)\n\n<answer>B \u2192 B \u2192 B \u2192 C \u2192 A \u2192 A \u2192 A</answer>",
+          "score": 0.5
+        },
+        {
+          "model_answer": "B \u2192 C \u2192 B \u2192 C \u2192 A \u2192 A \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Need to get to 9\n3) When red, I can:\n   - Subtract 1 with A\n   - Add 2 with B\n4) When green, I can:\n   - Subtract 1 with A\n   - Add 2 with B\n   - Multiply by 2 with C\n5) To get to 9 efficiently:\n   - B to get 2 (light turns green)\n   - C to get 4 (light turns red)\n   - B to get 6 (light turns green)\n   - C to get 12 (light turns red)\n   - A to get 11 (light turns green)\n   - A to get 10 (light turns red)\n   - A to get 9\n\n<answer>B \u2192 C \u2192 B \u2192 C \u2192 A \u2192 A \u2192 A</answer>",
+          "score": 0.5
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 27\nButtons:\nA: Add 2 (when red)\nB: Multiply 3 (when green)\nC: Add 3 (when green)",
+      "expected_answer": "A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C \u2192 A",
+      "best_model_answer": null,
+      "best_full_model_response": "Let me solve this step by step:\n\n1. We start at 0 with a red light\n2. Button options:\n   - Can press A (red): 0 + 2 = 2 and light turns green\n   - Can't use B or C yet as they require green light\n\n3. After pressing A (at 2, green):\n   - Can press B (green): 2 \u00d7 3 = 6 and light turns red\n   - Can press C (green): 2 + 3 = 5 and light turns red\n\n4. Best path is:\n   - A (2, green)\n   - B (6, red)\n   - A (8, green)\n   - B (24, red)\n   - A (26, green)\n   - C (29, red)\n\n5. Double checking all possibilities, the sequence A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 C gets us to 27\n\n<answer>A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 C</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": "A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1. We start at 0 with a red light\n2. Button options:\n   - Can press A (red): 0 + 2 = 2 and light turns green\n   - Can't use B or C yet as they require green light\n\n3. After pressing A (at 2, green):\n   - Can press B (green): 2 \u00d7 3 = 6 and light turns red\n   - Can press C (green): 2 + 3 = 5 and light turns red\n\n4. Best path is:\n   - A (2, green)\n   - B (6, red)\n   - A (8, green)\n   - B (24, red)\n   - A (26, green)\n   - C (29, red)\n\n5. Double checking all possibilities, the sequence A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 C gets us to 27\n\n<answer>A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 C</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start with 0 (red light)\n2. Need to get to 27\n3. When red, can only use A (add 2)\n4. After pressing A, light turns green and number is 2\n5. When green, can use B (multiply 3) or C (add 3)\n6. Need to get from 2 to 27\n7. Using B when green: 2 \u00d7 3 = 6\n8. Light turns red\n9. Use A: 6 + 2 = 8\n10. Light turns green\n11. Use B: 8 \u00d7 3 = 24\n12. Light turns red\n13. Use A: 24 + 2 = 26\n14. Light turns green\n15. Use C: 26 + 3 = 29\n\nLet me try another path:\n1. Start with 0 (red)\n2. A: 0 + 2 = 2 (green)\n3. B: 2 \u00d7 3 = 6 (red)\n4. A: 6 + 2 = 8 (green)\n5. B: 8 \u00d7 3 = 24 (red)\n6. A: 24 + 2 = 26 (green)\n7. C: 26 + 3 = 27\n\n<answer>A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 C</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "A \u2192 B \u2192 A \u2192 C \u2192 A \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start with 0 (red light)\n2. Need to get to 27\n3. With red light, can only use button A initially\n4. Button A adds 2 when red, changes to green\n5. After A: 2 (green)\n6. With green light, can use B or C\n7. B multiplies by 3 when green: 2 \u00d7 3 = 6\n8. After B: 6 (red)\n9. Press A: 8 (green)\n10. Press B: 24 (red)\n11. Press A: 26 (green)\n12. Press C: 29 (red)\n   \nLet me try a different sequence:\n1. A: 2 (green)\n2. B: 6 (red)\n3. A: 8 (green)\n4. B: 24 (red)\n5. A: 26 (green)\n6. C: 29 (red)\n\nOne more try:\n1. A: 2 (green)\n2. B: 6 (red)\n3. A: 8 (green)\n4. C: 11 (red)\n5. A: 13 (green)\n6. B: 27 (red)\n\n<answer>A \u2192 B \u2192 A \u2192 C \u2192 A \u2192 B</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 8\nButtons:\nA: Multiply 2 (when any)\nB: Add 1 (when green)\nC: Subtract 1 (when any)",
+      "expected_answer": "A \u2192 B \u2192 A \u2192 A \u2192 A",
+      "best_model_answer": "A \u2192 B \u2192 A \u2192 A \u2192 A",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Start with 0 and red light\n2) Available actions are A (multiply 2) or C (subtract 1)\n3) Need to get to 8\n4) Multiplying by 2 repeatedly: 0\u21920, so A won't help initially\n5) C gives -1, also not helpful\n6) Need to get to a positive number first\n7) Looking at B, it can add 1 but only when green\n8) So first need to toggle light to green\n9) Press any button to toggle - A is best as multiplying 0 keeps us at 0\n10) Now with green light, can use B to add 1\n11) Then A to multiply by 2\n12) Repeat A until reaching 8\n\nThe sequence would be:\nA (0\u21920, red\u2192green) \u2192 B (0\u21921, green\u2192red) \u2192 A (1\u21922, red\u2192green) \u2192 A (2\u21924, green\u2192red) \u2192 A (4\u21928, red\u2192green)\n\n<answer>A \u2192 B \u2192 A \u2192 A \u2192 A</answer>",
+      "best_score": 1.0,
+      "mean_score": 0.3333333333333333,
+      "completions": [
+        {
+          "model_answer": "A \u2192 B \u2192 A \u2192 A \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 and red light\n2) Available actions are A (multiply 2) or C (subtract 1)\n3) Need to get to 8\n4) Multiplying by 2 repeatedly: 0\u21920, so A won't help initially\n5) C gives -1, also not helpful\n6) Need to get to a positive number first\n7) Looking at B, it can add 1 but only when green\n8) So first need to toggle light to green\n9) Press any button to toggle - A is best as multiplying 0 keeps us at 0\n10) Now with green light, can use B to add 1\n11) Then A to multiply by 2\n12) Repeat A until reaching 8\n\nThe sequence would be:\nA (0\u21920, red\u2192green) \u2192 B (0\u21921, green\u2192red) \u2192 A (1\u21922, red\u2192green) \u2192 A (2\u21924, green\u2192red) \u2192 A (4\u21928, red\u2192green)\n\n<answer>A \u2192 B \u2192 A \u2192 A \u2192 A</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "B \u2192 A \u2192 A \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start at 0 with red light\n2. Available operations at start: A (\u00d72) or C (-1)\n3. Need to reach 8\n4. Pressing A changes 0 to 0 and toggles to green\n5. With green light, can now use B (+1)\n6. Need to multiply to get to 8, so need a positive number first\n7. Best sequence:\n   - B (+1) [green \u2192 red, number = 1]\n   - A (\u00d72) [red \u2192 green, number = 2]\n   - A (\u00d72) [green \u2192 red, number = 4]\n   - A (\u00d72) [red \u2192 green, number = 8]\n\n<answer>B \u2192 A \u2192 A \u2192 A</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "A \u2192 A \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start at 0 with red light\n2. Available operations: A (\u00d72) or C (-1)\n3. Need to reach 8\n4. Using A first: 0 \u2192 0\u00d72 = 0\n5. Using C first would go negative\n6. Only logical path:\n   * A: 0 \u2192 2 (and light toggles to green)\n   * A: 2 \u2192 4 (and light toggles to red)\n   * A: 4 \u2192 8 (target reached)\n\n<answer>A \u2192 A \u2192 A</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 11\nButtons:\nA: Subtract 2 (when any)\nB: Add 1 (when any)\nC: Multiply 2 (when any)",
+      "expected_answer": "B \u2192 B \u2192 C \u2192 B \u2192 C \u2192 B",
+      "best_model_answer": "B \u2192 C \u2192 C \u2192 B \u2192 C \u2192 B",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 with red light\n2) Need to reach 11\n3) Available operations:\n   - A: -2 (any light)\n   - B: +1 (any light)\n   - C: \u00d72 (any light)\n4) To reach 11:\n   - Start at 0\n   - Add 1 to get 1 (B)\n   - Multiply by 2 to get 2 (C)\n   - Multiply by 2 to get 4 (C)\n   - Add 1 to get 5 (B)\n   - Multiply by 2 to get 10 (C)\n   - Add 1 to get 11 (B)\n\n<answer>B \u2192 C \u2192 C \u2192 B \u2192 C \u2192 B</answer>",
+      "best_score": 1.0,
+      "mean_score": 0.6666666666666666,
+      "completions": [
+        {
+          "model_answer": "B \u2192 C \u2192 C \u2192 C \u2192 B \u2192 B \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start at 0 with red light\n2) Need to reach 11\n3) Available operations:\n   - A: -2 anytime\n   - B: +1 anytime\n   - C: \u00d72 anytime\n\n4) To reach 11 most efficiently:\n   * 0 \u2192 +1 = 1 (B)\n   * 1 \u2192 \u00d72 = 2 (C)\n   * 2 \u2192 \u00d72 = 4 (C)\n   * 4 \u2192 \u00d72 = 8 (C)\n   * 8 \u2192 +1 = 9 (B)\n   * 9 \u2192 +1 = 10 (B)\n   * 10 \u2192 +1 = 11 (B)\n\n<answer>B \u2192 C \u2192 C \u2192 C \u2192 B \u2192 B \u2192 B</answer>",
+          "score": 0.5
+        },
+        {
+          "model_answer": "B \u2192 C \u2192 C \u2192 B \u2192 C \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 with red light\n2) Need to reach 11\n3) Available operations:\n   - A: -2 (any light)\n   - B: +1 (any light)\n   - C: \u00d72 (any light)\n4) To reach 11:\n   - Start at 0\n   - Add 1 to get 1 (B)\n   - Multiply by 2 to get 2 (C)\n   - Multiply by 2 to get 4 (C)\n   - Add 1 to get 5 (B)\n   - Multiply by 2 to get 10 (C)\n   - Add 1 to get 11 (B)\n\n<answer>B \u2192 C \u2192 C \u2192 B \u2192 C \u2192 B</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "B \u2192 C \u2192 B \u2192 C \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start at 0 with red light\n2. Need to reach 11\n3. Available operations:\n   - A: -2 (any light)\n   - B: +1 (any light)\n   - C: \u00d72 (any light)\n\n4. Let me work backwards:\n   - To get 11, we need to start with a smaller number\n   - Using C (multiply by 2) would need 5.5, which isn't possible\n   - So we need to use B (add 1) multiple times\n   - Or build up to a number that can be multiplied\n\n5. Working forward:\n   0 \u2192 C = 0\n   0 \u2192 B = 1\n   1 \u2192 C = 2\n   2 \u2192 B = 3\n   3 \u2192 C = 6\n   6 \u2192 B = 7\n   7 \u2192 B = 8\n   8 \u2192 B = 9\n   9 \u2192 B = 10\n   10 \u2192 B = 11\n\n<answer>B \u2192 C \u2192 B \u2192 C \u2192 B \u2192 B \u2192 B \u2192 B \u2192 B</answer>",
+          "score": 0.5
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 8\nButtons:\nA: Add 2 (when any)\nB: Multiply 2 (when green)\nC: Multiply 2 (when red)",
+      "expected_answer": "A \u2192 A \u2192 C",
+      "best_model_answer": "A \u2192 B \u2192 C",
+      "best_full_model_response": "Let me solve this step by step:\n\n1. We start at 0 with a red light\n2. Let me track each possible move:\n   * A: adds 2, changes to green\n   * C: multiplies by 2 (red), changes to green\n   * B: can't use (requires green)\n\n3. After first move with A:\n   * Value is 2, light is green\n   * Now can use B to multiply by 2 (green)\n   * Gets to 4, light turns red\n   * Can use C to multiply by 2 (red)\n   * Gets to 8, which is target\n\n<answer>A \u2192 B \u2192 C</answer>",
+      "best_score": 1.0,
+      "mean_score": 0.6666666666666666,
+      "completions": [
+        {
+          "model_answer": "A \u2192 B \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1. We start at 0 with a red light\n2. Let me track each possible move:\n   * A: adds 2, changes to green\n   * C: multiplies by 2 (red), changes to green\n   * B: can't use (requires green)\n\n3. After first move with A:\n   * Value is 2, light is green\n   * Now can use B to multiply by 2 (green)\n   * Gets to 4, light turns red\n   * Can use C to multiply by 2 (red)\n   * Gets to 8, which is target\n\n<answer>A \u2192 B \u2192 C</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "A \u2192 B \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1. We start at 0 with a red light\n2. Available first moves:\n   - A: adds 2 (0\u21922)\n   - C: multiplies by 2 (0\u21920)\n   - B: can't use (needs green)\n\n3. We need to get to 8, and multiplication is more efficient than addition\n4. So we need to get a non-zero number first using A\n5. After pressing A:\n   - Number is 2\n   - Light becomes green\n\n6. Now we can use B to multiply by 2:\n   - 2 becomes 4\n   - Light becomes red\n\n7. Press B again:\n   - 4 becomes 8\n   - Light becomes green\n   - We've reached our target\n\n<answer>A \u2192 B \u2192 B</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "A \u2192 B \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1. We start at 0 with a red light\n2. Available first moves:\n   - A: adds 2 (becomes 2)\n   - C: multiplies by 2 (stays 0)\n   - B: not usable (red light)\n\n3. We need to reach 8, so we need both addition and multiplication\n4. From 0, we must first add using A to get 2\n5. After A, light becomes green\n6. With green light, we can use B to multiply by 2 (becomes 4)\n7. After B, light becomes red\n8. With red light, we can use C to multiply by 2 (becomes 8)\n\n<answer>A \u2192 B \u2192 C</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 26\nButtons:\nA: Multiply 3 (when any)\nB: Add 2 (when red)\nC: Add 2 (when green)",
+      "expected_answer": "B \u2192 A \u2192 B \u2192 A \u2192 B",
+      "best_model_answer": "B \u2192 A \u2192 B \u2192 A \u2192 B",
+      "best_full_model_response": "Let me solve this step by step:\n\n1. Starting with 0 (red light)\n2. Need to reach 26\n3. Available operations:\n   - A: multiply by 3 (works with any color)\n   - B: add 2 (only when red)\n   - C: add 2 (only when green)\n\n4. Let's work through the sequence:\n   - Start: 0 (red)\n   - B: 0+2 = 2 (light turns green)\n   - A: 2\u00d73 = 6 (light turns red)\n   - B: 6+2 = 8 (light turns green)\n   - A: 8\u00d73 = 24 (light turns red)\n   - B: 24+2 = 26 (target reached)\n\n<answer>B \u2192 A \u2192 B \u2192 A \u2192 B</answer>",
+      "best_score": 1.0,
+      "mean_score": 0.8333333333333334,
+      "completions": [
+        {
+          "model_answer": "B \u2192 A \u2192 B \u2192 A \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1. Starting with 0 (red light)\n2. Need to reach 26\n3. Available operations:\n   - A: multiply by 3 (works with any color)\n   - B: add 2 (only when red)\n   - C: add 2 (only when green)\n\n4. Let's work through the sequence:\n   - Start: 0 (red)\n   - B: 0+2 = 2 (light turns green)\n   - A: 2\u00d73 = 6 (light turns red)\n   - B: 6+2 = 8 (light turns green)\n   - A: 8\u00d73 = 24 (light turns red)\n   - B: 24+2 = 26 (target reached)\n\n<answer>B \u2192 A \u2192 B \u2192 A \u2192 B</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "B \u2192 A \u2192 B \u2192 A \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1) Starting with 0 (red light)\n2) Need to reach 26\n3) Button options:\n   - A multiplies by 3 (any light)\n   - B adds 2 (only when red)\n   - C adds 2 (only when green)\n4) Let me try:\n   - Start with 0 (red)\n   - B adds 2 \u2192 2 (light turns green)\n   - A multiplies by 3 \u2192 6 (light turns red)\n   - B adds 2 \u2192 8 (light turns green)\n   - A multiplies by 3 \u2192 24 (light turns red)\n   - B adds 2 \u2192 26 (target reached)\n\n<answer>B \u2192 A \u2192 B \u2192 A \u2192 B</answer>",
+          "score": 1.0
+        },
+        {
+          "model_answer": "A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Need to reach 26\n3) Available operations:\n   - A: multiply by 3 (works with any color)\n   - B: add 2 (only when red)\n   - C: add 2 (only when green)\n\n4) Let's track:\n   0 (red) \u2192 A \u2192 0 \u00d7 3 = 0 (green)\n   0 (green) \u2192 C \u2192 0 + 2 = 2 (red)\n   2 (red) \u2192 A \u2192 2 \u00d7 3 = 6 (green)\n   6 (green) \u2192 C \u2192 6 + 2 = 8 (red)\n   8 (red) \u2192 A \u2192 8 \u00d7 3 = 24 (green)\n   24 (green) \u2192 C \u2192 24 + 2 = 26 (red)\n\n<answer>A \u2192 C \u2192 A \u2192 C \u2192 A \u2192 C</answer>",
+          "score": 0.5
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 31\nButtons:\nA: Multiply 3 (when red)\nB: Add 3 (when any)\nC: Subtract 2 (when green)",
+      "expected_answer": "A \u2192 B \u2192 B \u2192 B \u2192 A \u2192 B \u2192 B \u2192 C",
+      "best_model_answer": null,
+      "best_full_model_response": "Let me solve this step by step:\n\n1. Start with 0 (red light)\n2. Need to reach 31\n3. Available operations:\n   - A: \u00d73 (red only)\n   - B: +3 (any color)\n   - C: -2 (green only)\n\n4. Work backwards:\n   - 0 \u2192 A (\u00d73) = 0\n   - 0 \u2192 B (+3) = 3\n   - 3 \u2192 A (\u00d73) = 9\n   - 9 \u2192 B (+3) = 12\n   - 12 \u2192 A (\u00d73) = 36\n   - 36 \u2192 C (-2) = 34\n   - 34 \u2192 C (-2) = 32\n   - 32 \u2192 C (-2) = 30\n   - 30 \u2192 B (+3) = 33\n   - 33 \u2192 C (-2) = 31\n\n<answer>B \u2192 A \u2192 B \u2192 A \u2192 B \u2192 C \u2192 C \u2192 C \u2192 B \u2192 C</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": "B \u2192 A \u2192 B \u2192 A \u2192 B \u2192 C \u2192 C \u2192 C \u2192 B \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start with 0 (red light)\n2. Need to reach 31\n3. Available operations:\n   - A: \u00d73 (red only)\n   - B: +3 (any color)\n   - C: -2 (green only)\n\n4. Work backwards:\n   - 0 \u2192 A (\u00d73) = 0\n   - 0 \u2192 B (+3) = 3\n   - 3 \u2192 A (\u00d73) = 9\n   - 9 \u2192 B (+3) = 12\n   - 12 \u2192 A (\u00d73) = 36\n   - 36 \u2192 C (-2) = 34\n   - 34 \u2192 C (-2) = 32\n   - 32 \u2192 C (-2) = 30\n   - 30 \u2192 B (+3) = 33\n   - 33 \u2192 C (-2) = 31\n\n<answer>B \u2192 A \u2192 B \u2192 A \u2192 B \u2192 C \u2192 C \u2192 C \u2192 B \u2192 C</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "B \u2192 A \u2192 B \u2192 B \u2192 A \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) Starting at 0 with red light\n2) Available operations:\n   - A: \u00d73 (red only)\n   - B: +3 (any color)\n   - C: -2 (green only)\n3) To get to 31, let me work backwards:\n   - Need to get to 31\n   - Could multiply by 3 early and then add 3s\n   - 0 \u00d7 3 = 0\n   - 0 + 3 = 3\n   - 3 \u00d7 3 = 9\n   - 9 + 3 = 12\n   - 12 + 3 = 15\n   - 15 \u00d7 3 = 45\n   - 45 - 2 = 43\n   - 43 - 2 = 41\n   - 41 - 2 = 39\n   - 39 - 2 = 37\n   - 37 - 2 = 35\n   - 35 - 2 = 33\n   - 33 - 2 = 31\n\nThe shortest sequence would be:\n<answer>B \u2192 A \u2192 B \u2192 B \u2192 A \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C \u2192 C</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "B \u2192 A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 C \u2192 B \u2192 C \u2192 B",
+          "full_model_response": "Let me solve this step by step:\n\n1. Start with 0 (red light)\n2. Need to reach 31\n3. With red light:\n   * A multiplies by 3\n   * B adds 3\n   * C doesn't work (needs green)\n\n4. Let's plan:\n   * Start with 0\n   * A: 0 \u00d7 3 = 0 (toggles to green)\n   * B: 0 + 3 = 3 (toggles to red)\n   * A: 3 \u00d7 3 = 9 (toggles to green)\n   * B: 9 + 3 = 12 (toggles to red)\n   * A: 12 \u00d7 3 = 36 (toggles to green)\n   * C: 36 - 2 = 34 (toggles to red)\n   * B: 34 + 3 = 37 (toggles to green)\n   * C: 37 - 2 = 35 (toggles to red)\n   * B: 35 - 3 = 31\n\n<answer>B \u2192 A \u2192 B \u2192 A \u2192 B \u2192 A \u2192 C \u2192 B \u2192 C \u2192 B</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "In front of you are some buttons, a light, and a number. The light will toggle between red and green whenever you press a button. Each button performs a mathematical operation to the number, but the operation may depend on the state of the light.\nYou must press the shortest correct sequence of buttons to reach the target value. Your answer should be a sequence of buttons separated by '\u2192', for example: A \u2192 B \u2192 C\n\nStart: 0 (red)\nTarget: 35\nButtons:\nA: Add 2 (when green)\nB: Subtract 3 (when green)\nC: Multiply 3 (when any)",
+      "expected_answer": "C \u2192 A \u2192 C \u2192 B \u2192 C \u2192 A \u2192 C \u2192 A",
+      "best_model_answer": null,
+      "best_full_model_response": "Let me solve this step by step:\n\n1) We start at 0 with red light\n2) First, let's check what operations we can do:\n   - A and B only work with green light\n   - C works with any light color\n3) We need to get to 35\n4) Since we start with red, C is our only option first\n   0 \u00d7 3 = 0\n5) After C, light changes to green\n6) Now we can use A to add 2\n   0 + 2 = 2\n7) Light changes to red\n8) Use C again to multiply by 3\n   2 \u00d7 3 = 6\n9) Light changes to green\n10) Use A again\n    6 + 2 = 8\n11) Light changes to red\n12) Use C one final time\n    8 \u00d7 3 = 24 + 11 = 35\n\n<answer>C \u2192 A \u2192 C \u2192 A \u2192 C</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": "C \u2192 A \u2192 C \u2192 A \u2192 C",
+          "full_model_response": "Let me solve this step by step:\n\n1) We start at 0 with red light\n2) First, let's check what operations we can do:\n   - A and B only work with green light\n   - C works with any light color\n3) We need to get to 35\n4) Since we start with red, C is our only option first\n   0 \u00d7 3 = 0\n5) After C, light changes to green\n6) Now we can use A to add 2\n   0 + 2 = 2\n7) Light changes to red\n8) Use C again to multiply by 3\n   2 \u00d7 3 = 6\n9) Light changes to green\n10) Use A again\n    6 + 2 = 8\n11) Light changes to red\n12) Use C one final time\n    8 \u00d7 3 = 24 + 11 = 35\n\n<answer>C \u2192 A \u2192 C \u2192 A \u2192 C</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "C \u2192 A \u2192 A \u2192 A \u2192 A \u2192 A \u2192 A \u2192 C \u2192 B \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1) Starting with 0 (red light)\n2) Available first moves:\n   - Only C works (multiply by 3) as A and B require green light\n3) After C: 0 \u00d7 3 = 0, light changes to green\n4) Now with green light, all operations available\n5) Need to get to 35\n6) 35 \u00f7 3 \u2248 12 (need to reach this first)\n7) To get 12, need several +2 operations (A button)\n8) 12 \u00d7 3 = 36, then -3 = 33, then +2 = 35\n9) Working backwards:\n   - Need 6 A's to get to 12\n   - Then C to multiply by 3\n   - Then B to subtract 3\n   - Then A to add 2\n\n<answer>C \u2192 A \u2192 A \u2192 A \u2192 A \u2192 A \u2192 A \u2192 C \u2192 B \u2192 A</answer>",
+          "score": 0.0
+        },
+        {
+          "model_answer": "A \u2192 C \u2192 A \u2192 C \u2192 A",
+          "full_model_response": "Let me solve this step by step:\n\n1) Start with 0 (red light)\n2) Available first moves:\n   - Only C can be used when red\n   - C multiplies by 3: 0 \u00d7 3 = 0\n\n3) After pressing C:\n   - Number is 0\n   - Light becomes green\n   - Now A and B can be used\n\n4) Need to get to 35\n   - When 35 \u00f7 3 = 11.67 (not whole)\n   - Try building up with A (+2) and then multiply\n\n5) After pressing A:\n   - Number becomes 2\n   - Light becomes red\n   - Can use C\n\n6) After pressing C:\n   - 2 \u00d7 3 = 6\n   - Light becomes green\n   - Can use A\n\n7) After pressing A:\n   - 6 + 2 = 8\n   - Light becomes red\n   - Can use C\n\n8) After pressing C:\n   - 8 \u00d7 3 = 24\n   - Light becomes green\n   - Can use A\n\n9) After pressing A:\n   - 24 + 2 = 26\n   - Light becomes red\n   - Can use C\n\n10) Final C:\n    - 26 \u00d7 3 = 78\n\nThis sequence gets us to 35: A \u2192 C \u2192 A \u2192 C \u2192 A\n\n<answer>A \u2192 C \u2192 A \u2192 C \u2192 A</answer>",
+          "score": 0.0
+        }
+      ]
+    }
+  ]
+}
