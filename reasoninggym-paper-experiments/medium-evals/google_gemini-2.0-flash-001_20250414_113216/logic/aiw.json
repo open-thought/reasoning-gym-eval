@@ -1,0 +1,771 @@
+{
+  "name": "aiw",
+  "category": "logic",
+  "average_best_score": 0.04,
+  "average_mean_score": 0.04,
+  "total_examples": 50,
+  "config": {
+    "size": 50,
+    "seed": 45,
+    "task_type_weights": [
+      0.5,
+      0.25,
+      0.25
+    ],
+    "max_entities": 10
+  },
+  "system_prompt": "Given a problem, your task is to answer the question by thinking step-by-step in a clear and specific manner.\nOnce you have thought about the reasoning process, provide the answer in the following format:\n<answer>answer here</answer>\nDo not explain your reasoning inside the answer tags, provide only the final answer. When an example is provided, you should strictly follow the format of the output/answer in that example.\n",
+  "completions_per_prompt": 1,
+  "results": [
+    {
+      "question": "Jessica has 5 sisters and she also has 2 brothers. How many sisters does William's brother have?",
+      "expected_answer": "6",
+      "best_model_answer": null,
+      "best_full_model_response": "William's brother is also Jessica's brother. Since Jessica has 5 sisters, all of Jessica's siblings share the same sisters. Therefore, William's brother also has 5 sisters.\n\n</answer>5</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "William's brother is also Jessica's brother. Since Jessica has 5 sisters, all of Jessica's siblings share the same sisters. Therefore, William's brother also has 5 sisters.\n\n</answer>5</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Susan has 10 male colleagues and she also has 10 female colleagues. These are all colleagues that Susan has. All these mentioned persons around Susan are colleagues of each other. James has 4 male colleagues and 9 female colleagues in total. All these mentioned persons around James are colleagues of each other. The people in the circle around James do not have other colleagues aside - with the only exception of Matilda. She is colleague of James and she is also colleague of Susan, being part of Susan's circle. How many female colleagues does Matilda have?",
+      "expected_answer": "11",
+      "best_model_answer": null,
+      "best_full_model_response": "Let $M_S$ be the set of male colleagues of Susan, and $F_S$ be the set of female colleagues of Susan.\nLet $M_J$ be the set of male colleagues of James, and $F_J$ be the set of female colleagues of James.\nWe are given that $|M_S| = 10$ and $|F_S| = 10$.\nWe are also given that $|M_J| = 4$ and $|F_J| = 9$.\nSusan has a total of $10 + 10 = 20$ colleagues.\nJames has a total of $4 + 9 = 13$ colleagues.\nMatilda is a colleague of both Susan and James.\nLet $C_S$ be the set of Susan's colleagues. Then $|C_S| = 20$. Since Susan is not her own colleague, the total number of people is $20+1 = 21$.\nLet $C_J$ be the set of James' colleagues. Then $|C_J| = 13$. Since James is not his own colleague, the total number of people is $13+1 = 14$.\n\nSince Matilda is a colleague of Susan, she is in $C_S$. Since Matilda is a colleague of James, she is in $C_J$.\nThe colleagues of James do not have other colleagues aside from Matilda. This means that all the people in $C_J$ are colleagues of each other. Also, $C_J \\setminus \\{Matilda\\} \\subset C_S$.\nSince Matilda is a colleague of Susan, she is either male or female.\nIf Matilda is female, then the number of female colleagues of Susan is 10, so $|F_S| = 10$.\nIf Matilda is male, then the number of male colleagues of Susan is 10, so $|M_S| = 10$.\n\nWe want to find the number of female colleagues that Matilda has.\nSince Matilda is a colleague of James, she knows all of James' colleagues.\nThe colleagues of James are 4 males and 9 females.\nSince the people around James do not have other colleagues aside from Matilda, all of James' colleagues are colleagues of Matilda.\nThe only other colleagues Matilda has are Susan's colleagues, but not James' colleagues.\n\nSince Matilda is a colleague of both Susan and James, she must be one of the people counted in $|M_S|$, $|F_S|$, $|M_J|$, or $|F_J|$.\nIf Matilda is female, then the number of females in Susan's circle is $10 + 1 = 11$, which includes Susan and Matilda.\nIf Matilda is male, then the number of males in Susan's circle is $10 + 1 = 11$, which includes Susan and Matilda.\nLet's assume Matilda is female. Then $|F_S| = 10$, so there are 10 female colleagues of Susan.\nSince Matilda is female, she is one of the 10 female colleagues of Susan.\nSince Matilda is a colleague of James, she knows all of James' colleagues. James has 9 female colleagues.\nSince James' colleagues don't know anyone outside the circle of James (except Matilda), these are all the female colleagues of Matilda.\n\nWe know that the colleagues of James are 4 males and 9 females.\nSince Matilda is also a colleague of Susan, we need to figure out how many female colleagues Matilda has in total.\nSince the people in James' circle do not have other colleagues aside from Matilda, the 9 female colleagues of James are also colleagues of Matilda.\nThus, Matilda has at least 9 female colleagues.\n\nSince the people around James do not have other colleagues aside - with the only exception of Matilda, it means that the only female colleagues Matilda has are the 9 female colleagues of James.\n\nTherefore, Matilda has 9 female colleagues.\n\n</answer>\n9\n",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Let $M_S$ be the set of male colleagues of Susan, and $F_S$ be the set of female colleagues of Susan.\nLet $M_J$ be the set of male colleagues of James, and $F_J$ be the set of female colleagues of James.\nWe are given that $|M_S| = 10$ and $|F_S| = 10$.\nWe are also given that $|M_J| = 4$ and $|F_J| = 9$.\nSusan has a total of $10 + 10 = 20$ colleagues.\nJames has a total of $4 + 9 = 13$ colleagues.\nMatilda is a colleague of both Susan and James.\nLet $C_S$ be the set of Susan's colleagues. Then $|C_S| = 20$. Since Susan is not her own colleague, the total number of people is $20+1 = 21$.\nLet $C_J$ be the set of James' colleagues. Then $|C_J| = 13$. Since James is not his own colleague, the total number of people is $13+1 = 14$.\n\nSince Matilda is a colleague of Susan, she is in $C_S$. Since Matilda is a colleague of James, she is in $C_J$.\nThe colleagues of James do not have other colleagues aside from Matilda. This means that all the people in $C_J$ are colleagues of each other. Also, $C_J \\setminus \\{Matilda\\} \\subset C_S$.\nSince Matilda is a colleague of Susan, she is either male or female.\nIf Matilda is female, then the number of female colleagues of Susan is 10, so $|F_S| = 10$.\nIf Matilda is male, then the number of male colleagues of Susan is 10, so $|M_S| = 10$.\n\nWe want to find the number of female colleagues that Matilda has.\nSince Matilda is a colleague of James, she knows all of James' colleagues.\nThe colleagues of James are 4 males and 9 females.\nSince the people around James do not have other colleagues aside from Matilda, all of James' colleagues are colleagues of Matilda.\nThe only other colleagues Matilda has are Susan's colleagues, but not James' colleagues.\n\nSince Matilda is a colleague of both Susan and James, she must be one of the people counted in $|M_S|$, $|F_S|$, $|M_J|$, or $|F_J|$.\nIf Matilda is female, then the number of females in Susan's circle is $10 + 1 = 11$, which includes Susan and Matilda.\nIf Matilda is male, then the number of males in Susan's circle is $10 + 1 = 11$, which includes Susan and Matilda.\nLet's assume Matilda is female. Then $|F_S| = 10$, so there are 10 female colleagues of Susan.\nSince Matilda is female, she is one of the 10 female colleagues of Susan.\nSince Matilda is a colleague of James, she knows all of James' colleagues. James has 9 female colleagues.\nSince James' colleagues don't know anyone outside the circle of James (except Matilda), these are all the female colleagues of Matilda.\n\nWe know that the colleagues of James are 4 males and 9 females.\nSince Matilda is also a colleague of Susan, we need to figure out how many female colleagues Matilda has in total.\nSince the people in James' circle do not have other colleagues aside from Matilda, the 9 female colleagues of James are also colleagues of Matilda.\nThus, Matilda has at least 9 female colleagues.\n\nSince the people around James do not have other colleagues aside - with the only exception of Matilda, it means that the only female colleagues Matilda has are the 9 female colleagues of James.\n\nTherefore, Matilda has 9 female colleagues.\n\n</answer>\n9\n",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Susan has 10 sisters and she also has 8 brothers. How many sisters does Thomas's brother have?",
+      "expected_answer": "11",
+      "best_model_answer": null,
+      "best_full_model_response": "Thomas is one of Susan's 8 brothers. Therefore, Thomas's brother is also one of Susan's 8 brothers. Since Susan has 10 sisters, Thomas's brother has 10 sisters.\n\n</answer>\n10\n",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Thomas is one of Susan's 8 brothers. Therefore, Thomas's brother is also one of Susan's 8 brothers. Since Susan has 10 sisters, Thomas's brother has 10 sisters.\n\n</answer>\n10\n",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Jennifer has 9 male friends and she also has 5 female friends. They all are friends with each other and have no other friends aside. How many female friends does Thomas, a male friend of Jennifer, have?",
+      "expected_answer": "6",
+      "best_model_answer": null,
+      "best_full_model_response": "Thomas is one of Jennifer's 9 male friends. Since all of Jennifer's friends are friends with each other, Thomas is friends with all of Jennifer's female friends. Therefore, Thomas has 5 female friends.\n\n5\n",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Thomas is one of Jennifer's 9 male friends. Since all of Jennifer's friends are friends with each other, Thomas is friends with all of Jennifer's female friends. Therefore, Thomas has 5 female friends.\n\n5\n",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Susan has 6 brothers and she also has 9 sisters. How many sisters does Susan's brother have?",
+      "expected_answer": "10",
+      "best_model_answer": null,
+      "best_full_model_response": "Susan's brothers share the same sisters as Susan. Therefore, each of Susan's brothers has 9 sisters.\n\n</answer>9</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Susan's brothers share the same sisters as Susan. Therefore, each of Susan's brothers has 9 sisters.\n\n</answer>9</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Elizabeth has 8 sisters and she also has 4 brothers. How many sisters does David's brother have?",
+      "expected_answer": "9",
+      "best_model_answer": null,
+      "best_full_model_response": "David is one of Elizabeth's brothers. Therefore, David has 8 sisters. David's brother also shares the same sisters as David. Thus, David's brother has 8 sisters.\n\n8\n",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "David is one of Elizabeth's brothers. Therefore, David has 8 sisters. David's brother also shares the same sisters as David. Thus, David's brother has 8 sisters.\n\n8\n",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Sarah has 3 brothers and she also has 4 sisters. How many sisters does Sarah's brother have?",
+      "expected_answer": "5",
+      "best_model_answer": null,
+      "best_full_model_response": "Sarah's brother has the same sisters as Sarah. Since Sarah has 4 sisters, Sarah's brother also has 4 sisters.\n\n</answer>4</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Sarah's brother has the same sisters as Sarah. Since Sarah has 4 sisters, Sarah's brother also has 4 sisters.\n\n</answer>4</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Mary has 8 male colleagues and she also has 6 female colleagues. These are all colleagues that Mary has. All these mentioned persons around Mary are colleagues of each other. Thomas has 7 male colleagues and 1 female colleagues in total. All these mentioned persons around Thomas are colleagues of each other. The people in the circle around Thomas do not have other colleagues aside - with the only exception of Matilda. She is colleague of Thomas and she is also colleague of Mary, being part of Mary's circle. How many female colleagues does Matilda have?",
+      "expected_answer": "7",
+      "best_model_answer": null,
+      "best_full_model_response": "Let $M$ be the set of Mary's colleagues, and $T$ be the set of Thomas's colleagues.\nMary has 8 male colleagues and 6 female colleagues. So, $|M| = 8 + 6 = 14$.\nThomas has 7 male colleagues and 1 female colleague. So, $|T| = 7 + 1 = 8$.\nMatilda is a colleague of both Mary and Thomas, so Matilda $\\in M$ and Matilda $\\in T$.\nSince Matilda is a colleague of Mary, and Mary has 6 female colleagues, one of them is Matilda. Thus, Mary has 5 other female colleagues.\nSince Matilda is a colleague of Thomas, and Thomas has 1 female colleague, that female colleague must be Matilda.\nLet $M_M$ be the number of male colleagues of Mary, $F_M$ be the number of female colleagues of Mary.\nLet $M_T$ be the number of male colleagues of Thomas, $F_T$ be the number of female colleagues of Thomas.\n$M_M = 8$, $F_M = 6$.\n$M_T = 7$, $F_T = 1$.\nSince Matilda is in both groups, we can say that the group around Thomas is a subset of the group around Mary, with the exception of some of Mary's colleagues.\nThe people around Thomas are only colleagues with each other, except for Matilda.\nSince Matilda is a female colleague of Mary, the 6 female colleagues of Mary are Matilda plus 5 other females.\nThe colleagues of Thomas are 7 males and 1 female (Matilda).\nThe colleagues of Mary are 8 males and 6 females (including Matilda).\nSince Matilda is a colleague of Mary, she is also a colleague of Mary's 8 male colleagues and 5 other female colleagues.\nSince Matilda is a colleague of Thomas, she is also a colleague of Thomas's 7 male colleagues.\nThe female colleagues of Matilda are the 5 female colleagues of Mary (excluding Matilda) and the 0 female colleagues of Thomas (excluding Matilda).\nTherefore, Matilda has 5 female colleagues.\n\n</answer>5</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Let $M$ be the set of Mary's colleagues, and $T$ be the set of Thomas's colleagues.\nMary has 8 male colleagues and 6 female colleagues. So, $|M| = 8 + 6 = 14$.\nThomas has 7 male colleagues and 1 female colleague. So, $|T| = 7 + 1 = 8$.\nMatilda is a colleague of both Mary and Thomas, so Matilda $\\in M$ and Matilda $\\in T$.\nSince Matilda is a colleague of Mary, and Mary has 6 female colleagues, one of them is Matilda. Thus, Mary has 5 other female colleagues.\nSince Matilda is a colleague of Thomas, and Thomas has 1 female colleague, that female colleague must be Matilda.\nLet $M_M$ be the number of male colleagues of Mary, $F_M$ be the number of female colleagues of Mary.\nLet $M_T$ be the number of male colleagues of Thomas, $F_T$ be the number of female colleagues of Thomas.\n$M_M = 8$, $F_M = 6$.\n$M_T = 7$, $F_T = 1$.\nSince Matilda is in both groups, we can say that the group around Thomas is a subset of the group around Mary, with the exception of some of Mary's colleagues.\nThe people around Thomas are only colleagues with each other, except for Matilda.\nSince Matilda is a female colleague of Mary, the 6 female colleagues of Mary are Matilda plus 5 other females.\nThe colleagues of Thomas are 7 males and 1 female (Matilda).\nThe colleagues of Mary are 8 males and 6 females (including Matilda).\nSince Matilda is a colleague of Mary, she is also a colleague of Mary's 8 male colleagues and 5 other female colleagues.\nSince Matilda is a colleague of Thomas, she is also a colleague of Thomas's 7 male colleagues.\nThe female colleagues of Matilda are the 5 female colleagues of Mary (excluding Matilda) and the 0 female colleagues of Thomas (excluding Matilda).\nTherefore, Matilda has 5 female colleagues.\n\n</answer>5</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Linda has 9 male friends and she also has 8 female friends. They all are friends with each other and have no other friends aside. How many female friends does Joseph, a male friend of Linda, have?",
+      "expected_answer": "9",
+      "best_model_answer": null,
+      "best_full_model_response": "Joseph is one of Linda's 9 male friends. Since all of Linda's friends are friends with each other, Joseph is friends with all of Linda's female friends. Therefore, Joseph has 8 female friends.\n\n</answer>8</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Joseph is one of Linda's 9 male friends. Since all of Linda's friends are friends with each other, Joseph is friends with all of Linda's female friends. Therefore, Joseph has 8 female friends.\n\n</answer>8</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Jennifer has 9 male colleagues and she also has 5 female colleagues. These are all colleagues that Jennifer has. All these mentioned persons around Jennifer are colleagues of each other. Joseph has 8 male colleagues and 8 female colleagues in total. All these mentioned persons around Joseph are colleagues of each other. The people in the circle around Joseph do not have other colleagues aside - with the only exception of Matilda. She is colleague of Joseph and she is also colleague of Jennifer, being part of Jennifer's circle. How many female colleagues does Matilda have?",
+      "expected_answer": "6",
+      "best_model_answer": null,
+      "best_full_model_response": "Let's analyze the information provided:\n\n*   Jennifer has 9 male colleagues and 5 female colleagues. This means there are 9 + 1 (Jennifer) + 5 = 15 people in Jennifer's circle.\n*   Joseph has 8 male colleagues and 8 female colleagues. This means there are 8 + 1 (Joseph) + 8 = 17 people in Joseph's circle.\n*   Matilda is a colleague of both Jennifer and Joseph.\n*   Joseph's circle has no other colleagues except Matilda.\n\nSince Matilda is in both circles, we need to figure out how many female colleagues she has in total.\n\nJennifer's circle: 5 female colleagues + Jennifer = 6 females. Since Matilda is in this circle, if Matilda is Jennifer, then Matilda has 5 female colleagues. However, the problem states that Jennifer has 5 female colleagues, so Matilda is one of those 5 female colleagues. Thus, in Jennifer's circle, Matilda has 4 female colleagues besides herself.\n\nJoseph's circle: 8 female colleagues. Since Matilda is in this circle, she has 8 female colleagues.\n\nSince Matilda is part of both circles, we need to consider the overlap. We know that Matilda is one of Jennifer's 5 female colleagues. This means that 4 of Jennifer's other female colleagues are *not* in Joseph's circle (otherwise, they would be colleagues of Joseph too, which is impossible since Joseph's circle has no connections to the outside world except Matilda).\n\nTherefore, Matilda has 8 female colleagues in Joseph's circle.\n\n</answer>8</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Let's analyze the information provided:\n\n*   Jennifer has 9 male colleagues and 5 female colleagues. This means there are 9 + 1 (Jennifer) + 5 = 15 people in Jennifer's circle.\n*   Joseph has 8 male colleagues and 8 female colleagues. This means there are 8 + 1 (Joseph) + 8 = 17 people in Joseph's circle.\n*   Matilda is a colleague of both Jennifer and Joseph.\n*   Joseph's circle has no other colleagues except Matilda.\n\nSince Matilda is in both circles, we need to figure out how many female colleagues she has in total.\n\nJennifer's circle: 5 female colleagues + Jennifer = 6 females. Since Matilda is in this circle, if Matilda is Jennifer, then Matilda has 5 female colleagues. However, the problem states that Jennifer has 5 female colleagues, so Matilda is one of those 5 female colleagues. Thus, in Jennifer's circle, Matilda has 4 female colleagues besides herself.\n\nJoseph's circle: 8 female colleagues. Since Matilda is in this circle, she has 8 female colleagues.\n\nSince Matilda is part of both circles, we need to consider the overlap. We know that Matilda is one of Jennifer's 5 female colleagues. This means that 4 of Jennifer's other female colleagues are *not* in Joseph's circle (otherwise, they would be colleagues of Joseph too, which is impossible since Joseph's circle has no connections to the outside world except Matilda).\n\nTherefore, Matilda has 8 female colleagues in Joseph's circle.\n\n</answer>8</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Linda has 5 brothers and she also has 2 sisters. How many sisters does Linda's brother have?",
+      "expected_answer": "3",
+      "best_model_answer": "2",
+      "best_full_model_response": "Linda's brothers share the same sisters as Linda. Since Linda has 2 sisters, her brothers also have 2 sisters.\n<answer>2</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": "2",
+          "full_model_response": "Linda's brothers share the same sisters as Linda. Since Linda has 2 sisters, her brothers also have 2 sisters.\n<answer>2</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Sarah has 8 male colleagues and she also has 9 female colleagues. These are all colleagues that Sarah has. All these mentioned persons around Sarah are colleagues of each other. James has 5 male colleagues and 9 female colleagues in total. All these mentioned persons around James are colleagues of each other. The people in the circle around James do not have other colleagues aside - with the only exception of Matilda. She is colleague of James and she is also colleague of Sarah, being part of Sarah's circle. How many female colleagues does Matilda have?",
+      "expected_answer": "10",
+      "best_model_answer": null,
+      "best_full_model_response": "Let $M_S$ be the set of male colleagues of Sarah and $F_S$ be the set of female colleagues of Sarah.\nLet $M_J$ be the set of male colleagues of James and $F_J$ be the set of female colleagues of James.\nWe are given $|M_S| = 8$ and $|F_S| = 9$.\nWe are given $|M_J| = 5$ and $|F_J| = 9$.\nAll the people in the circle around James do not have other colleagues aside from Matilda. Matilda is a colleague of both James and Sarah. Thus, Matilda is in both Sarah's circle and James' circle.\nSince Matilda is a colleague of Sarah, Matilda is female.\nThe total number of colleagues Sarah has is $8 + 9 = 17$. The total number of people in Sarah's circle including Sarah is $17 + 1 = 18$.\nThe total number of colleagues James has is $5 + 9 = 14$. The total number of people in James' circle including James is $14 + 1 = 15$.\n\nLet $M_S'$ be the set of male colleagues of Sarah excluding James. Let $F_S'$ be the set of female colleagues of Sarah excluding Matilda.\nLet $M_J'$ be the set of male colleagues of James excluding Sarah. Let $F_J'$ be the set of female colleagues of James excluding Matilda.\n\nSarah has 8 male colleagues and 9 female colleagues. One of Sarah's colleagues is Matilda.\nJames has 5 male colleagues and 9 female colleagues. One of James' colleagues is Matilda.\nThe people in James' circle are James, his 5 male colleagues, his 9 female colleagues, and Matilda.\nThe people in Sarah's circle are Sarah, her 8 male colleagues, and her 9 female colleagues.\nMatilda is a female colleague of Sarah and James.\nSince everyone around James are colleagues of each other and have no other colleagues except Matilda, the 5 male colleagues of James and the 9 female colleagues of James are not colleagues of Sarah.\nThus, the male colleagues of Sarah are not the male colleagues of James.\nThe female colleagues of Sarah are not the female colleagues of James.\nSince Matilda is a colleague of both James and Sarah, and all the people around James are colleagues of each other and have no other colleagues aside from Matilda, it means that the 5 male colleagues of James are not colleagues of Sarah. Also, the 9 female colleagues of James (excluding Matilda) are not colleagues of Sarah.\n\nMatilda is a colleague of James.\nThe female colleagues of James are 9.\nThe male colleagues of James are 5.\nThe colleagues of James are the 5 male colleagues, the 9 female colleagues, and Matilda.\nMatilda is a colleague of Sarah.\nThe male colleagues of Sarah are 8.\nThe female colleagues of Sarah are 9.\nMatilda is one of Sarah's female colleagues.\nWe want to find the number of female colleagues Matilda has.\nMatilda's colleagues are the 5 male colleagues of James, the 8 male colleagues of Sarah, James, Sarah, and the 8 other female colleagues of Sarah and the 8 other female colleagues of James.\nMatilda's female colleagues are the 8 female colleagues of Sarah and the 8 female colleagues of James.\nThus, the number of female colleagues of Matilda is $8 + 8 = 16$.\n\nThe number of female colleagues Matilda has is 8 (excluding herself) + 8 (excluding herself) = 16.\nThe number of female colleagues Matilda has is 9 - 1 + 9 - 1 = 8 + 8 = 16.\n\n</answer>\n16\n",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Let $M_S$ be the set of male colleagues of Sarah and $F_S$ be the set of female colleagues of Sarah.\nLet $M_J$ be the set of male colleagues of James and $F_J$ be the set of female colleagues of James.\nWe are given $|M_S| = 8$ and $|F_S| = 9$.\nWe are given $|M_J| = 5$ and $|F_J| = 9$.\nAll the people in the circle around James do not have other colleagues aside from Matilda. Matilda is a colleague of both James and Sarah. Thus, Matilda is in both Sarah's circle and James' circle.\nSince Matilda is a colleague of Sarah, Matilda is female.\nThe total number of colleagues Sarah has is $8 + 9 = 17$. The total number of people in Sarah's circle including Sarah is $17 + 1 = 18$.\nThe total number of colleagues James has is $5 + 9 = 14$. The total number of people in James' circle including James is $14 + 1 = 15$.\n\nLet $M_S'$ be the set of male colleagues of Sarah excluding James. Let $F_S'$ be the set of female colleagues of Sarah excluding Matilda.\nLet $M_J'$ be the set of male colleagues of James excluding Sarah. Let $F_J'$ be the set of female colleagues of James excluding Matilda.\n\nSarah has 8 male colleagues and 9 female colleagues. One of Sarah's colleagues is Matilda.\nJames has 5 male colleagues and 9 female colleagues. One of James' colleagues is Matilda.\nThe people in James' circle are James, his 5 male colleagues, his 9 female colleagues, and Matilda.\nThe people in Sarah's circle are Sarah, her 8 male colleagues, and her 9 female colleagues.\nMatilda is a female colleague of Sarah and James.\nSince everyone around James are colleagues of each other and have no other colleagues except Matilda, the 5 male colleagues of James and the 9 female colleagues of James are not colleagues of Sarah.\nThus, the male colleagues of Sarah are not the male colleagues of James.\nThe female colleagues of Sarah are not the female colleagues of James.\nSince Matilda is a colleague of both James and Sarah, and all the people around James are colleagues of each other and have no other colleagues aside from Matilda, it means that the 5 male colleagues of James are not colleagues of Sarah. Also, the 9 female colleagues of James (excluding Matilda) are not colleagues of Sarah.\n\nMatilda is a colleague of James.\nThe female colleagues of James are 9.\nThe male colleagues of James are 5.\nThe colleagues of James are the 5 male colleagues, the 9 female colleagues, and Matilda.\nMatilda is a colleague of Sarah.\nThe male colleagues of Sarah are 8.\nThe female colleagues of Sarah are 9.\nMatilda is one of Sarah's female colleagues.\nWe want to find the number of female colleagues Matilda has.\nMatilda's colleagues are the 5 male colleagues of James, the 8 male colleagues of Sarah, James, Sarah, and the 8 other female colleagues of Sarah and the 8 other female colleagues of James.\nMatilda's female colleagues are the 8 female colleagues of Sarah and the 8 female colleagues of James.\nThus, the number of female colleagues of Matilda is $8 + 8 = 16$.\n\nThe number of female colleagues Matilda has is 8 (excluding herself) + 8 (excluding herself) = 16.\nThe number of female colleagues Matilda has is 9 - 1 + 9 - 1 = 8 + 8 = 16.\n\n</answer>\n16\n",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Margaret has 4 sisters and she also has 1 brothers. How many sisters does Charles's brother have?",
+      "expected_answer": "5",
+      "best_model_answer": null,
+      "best_full_model_response": "Margaret is one of Charles's brother's sisters. Since Margaret has 4 sisters, all of them are sisters of Charles's brother.\n\nTherefore, Charles's brother has 4 sisters.\n\n</answer>\n4</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Margaret is one of Charles's brother's sisters. Since Margaret has 4 sisters, all of them are sisters of Charles's brother.\n\nTherefore, Charles's brother has 4 sisters.\n\n</answer>\n4</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Linda has 4 male friends and she also has 1 female friends. They all are friends with each other and have no other friends aside. How many female friends does Bob, a male friend of Linda, have?",
+      "expected_answer": "2",
+      "best_model_answer": null,
+      "best_full_model_response": "Bob is one of Linda's 4 male friends. Since all 4 male friends and Linda (the 1 female friend) are friends with each other, Bob has only one female friend, Linda.\n\n</answer>1</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Bob is one of Linda's 4 male friends. Since all 4 male friends and Linda (the 1 female friend) are friends with each other, Bob has only one female friend, Linda.\n\n</answer>1</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Alice has 3 sisters and she also has 1 brothers. How many sisters does Joseph's brother have?",
+      "expected_answer": "4",
+      "best_model_answer": null,
+      "best_full_model_response": "Alice is one of Joseph's brother's sisters. Since Alice has 3 sisters, that means there are a total of 4 sisters (including Alice). Joseph's brother shares the same sisters as Alice. Therefore, Joseph's brother has 4 sisters.\n\n4\n",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Alice is one of Joseph's brother's sisters. Since Alice has 3 sisters, that means there are a total of 4 sisters (including Alice). Joseph's brother shares the same sisters as Alice. Therefore, Joseph's brother has 4 sisters.\n\n4\n",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Margaret has 4 sisters and she also has 5 brothers. How many sisters does Robert's brother have?",
+      "expected_answer": "5",
+      "best_model_answer": null,
+      "best_full_model_response": "Margaret is one of Robert's brothers' sisters. Since Margaret has 4 sisters, all the brothers share the same 4 sisters. Therefore, Robert's brother has 4 sisters.\n\n",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Margaret is one of Robert's brothers' sisters. Since Margaret has 4 sisters, all the brothers share the same 4 sisters. Therefore, Robert's brother has 4 sisters.\n\n",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Sarah has 5 sisters and she also has 6 brothers. How many sisters does Michael's brother have?",
+      "expected_answer": "6",
+      "best_model_answer": null,
+      "best_full_model_response": "Michael is one of Sarah's brothers. Therefore, all of Sarah's brothers share the same sisters. Since Sarah has 5 sisters, Michael's brother also has 5 sisters.\n\nTherefore, the answer is 5.\n</answer>5</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Michael is one of Sarah's brothers. Therefore, all of Sarah's brothers share the same sisters. Since Sarah has 5 sisters, Michael's brother also has 5 sisters.\n\nTherefore, the answer is 5.\n</answer>5</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Jennifer has 4 male colleagues and she also has 8 female colleagues. These are all colleagues that Jennifer has. All these mentioned persons around Jennifer are colleagues of each other. John has 5 male colleagues and 6 female colleagues in total. All these mentioned persons around John are colleagues of each other. The people in the circle around John do not have other colleagues aside - with the only exception of Matilda. She is colleague of John and she is also colleague of Jennifer, being part of Jennifer's circle. How many female colleagues does Matilda have?",
+      "expected_answer": "9",
+      "best_model_answer": null,
+      "best_full_model_response": "Let $M_J$ be the number of male colleagues Jennifer has, and $F_J$ be the number of female colleagues Jennifer has.\nWe are given that $M_J = 4$ and $F_J = 8$.\nLet $M_J'$ be the set of male colleagues Jennifer has, and $F_J'$ be the set of female colleagues Jennifer has.\nThe total number of colleagues Jennifer has is $M_J + F_J = 4 + 8 = 12$.\nLet $M_N$ be the number of male colleagues John has, and $F_N$ be the number of female colleagues John has.\nWe are given that $M_N = 5$ and $F_N = 6$.\nLet $M_N'$ be the set of male colleagues John has, and $F_N'$ be the set of female colleagues John has.\nThe total number of colleagues John has is $M_N + F_N = 5 + 6 = 11$.\nMatilda is a colleague of both Jennifer and John.\nSince Matilda is a colleague of Jennifer, she is one of the $4+8=12$ colleagues.\nSince Matilda is a colleague of John, she is one of the $5+6=11$ colleagues.\nWe know that all of John's colleagues are also colleagues of each other, and similarly for Jennifer's colleagues.\nLet's consider the group of colleagues around John. There are $5$ male colleagues and $6$ female colleagues, including Matilda.\nSince Matilda is a female colleague of John, the other female colleagues of John are $6-1=5$.\nJennifer has 8 female colleagues, one of whom is Matilda. Thus, Jennifer's other female colleagues are $8-1=7$.\nLet's determine if Jennifer is a colleague of John.\nIf Jennifer is a colleague of John, then she must be among the $5+6=11$ colleagues.\nHowever, we know that the only person who is a colleague of both Jennifer and John is Matilda.\nThus, Jennifer is not a colleague of John.\nSince Matilda is a colleague of Jennifer, she is part of the circle around Jennifer.\nSince Matilda is a colleague of John, she is part of the circle around John.\nWe need to find the number of female colleagues Matilda has.\nSince Matilda is part of Jennifer's circle, she has $M_J=4$ male colleagues and $F_J-1=8-1=7$ female colleagues from Jennifer's circle.\nSince Matilda is part of John's circle, she has $M_N=5$ male colleagues and $F_N-1=6-1=5$ female colleagues from John's circle.\nSince the only common colleague between the two circles is Matilda, the total number of people in both circles is $12+11-1=22$.\nWe want to find the number of female colleagues that Matilda has.\nFrom Jennifer's circle, Matilda has $8-1=7$ female colleagues.\nFrom John's circle, Matilda has $6-1=5$ female colleagues.\nThe total number of female colleagues Matilda has is $7+5=12$.\n\nFinal Answer: The final answer is $\\boxed{12}$\n</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Let $M_J$ be the number of male colleagues Jennifer has, and $F_J$ be the number of female colleagues Jennifer has.\nWe are given that $M_J = 4$ and $F_J = 8$.\nLet $M_J'$ be the set of male colleagues Jennifer has, and $F_J'$ be the set of female colleagues Jennifer has.\nThe total number of colleagues Jennifer has is $M_J + F_J = 4 + 8 = 12$.\nLet $M_N$ be the number of male colleagues John has, and $F_N$ be the number of female colleagues John has.\nWe are given that $M_N = 5$ and $F_N = 6$.\nLet $M_N'$ be the set of male colleagues John has, and $F_N'$ be the set of female colleagues John has.\nThe total number of colleagues John has is $M_N + F_N = 5 + 6 = 11$.\nMatilda is a colleague of both Jennifer and John.\nSince Matilda is a colleague of Jennifer, she is one of the $4+8=12$ colleagues.\nSince Matilda is a colleague of John, she is one of the $5+6=11$ colleagues.\nWe know that all of John's colleagues are also colleagues of each other, and similarly for Jennifer's colleagues.\nLet's consider the group of colleagues around John. There are $5$ male colleagues and $6$ female colleagues, including Matilda.\nSince Matilda is a female colleague of John, the other female colleagues of John are $6-1=5$.\nJennifer has 8 female colleagues, one of whom is Matilda. Thus, Jennifer's other female colleagues are $8-1=7$.\nLet's determine if Jennifer is a colleague of John.\nIf Jennifer is a colleague of John, then she must be among the $5+6=11$ colleagues.\nHowever, we know that the only person who is a colleague of both Jennifer and John is Matilda.\nThus, Jennifer is not a colleague of John.\nSince Matilda is a colleague of Jennifer, she is part of the circle around Jennifer.\nSince Matilda is a colleague of John, she is part of the circle around John.\nWe need to find the number of female colleagues Matilda has.\nSince Matilda is part of Jennifer's circle, she has $M_J=4$ male colleagues and $F_J-1=8-1=7$ female colleagues from Jennifer's circle.\nSince Matilda is part of John's circle, she has $M_N=5$ male colleagues and $F_N-1=6-1=5$ female colleagues from John's circle.\nSince the only common colleague between the two circles is Matilda, the total number of people in both circles is $12+11-1=22$.\nWe want to find the number of female colleagues that Matilda has.\nFrom Jennifer's circle, Matilda has $8-1=7$ female colleagues.\nFrom John's circle, Matilda has $6-1=5$ female colleagues.\nThe total number of female colleagues Matilda has is $7+5=12$.\n\nFinal Answer: The final answer is $\\boxed{12}$\n</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Elizabeth has 2 sisters and she also has 8 brothers. How many sisters does William's brother have?",
+      "expected_answer": "3",
+      "best_model_answer": null,
+      "best_full_model_response": "William's brother is also Elizabeth's brother. Since Elizabeth has 2 sisters, all of her brothers also have 2 sisters.\n\nTherefore, William's brother has 2 sisters.\n</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "William's brother is also Elizabeth's brother. Since Elizabeth has 2 sisters, all of her brothers also have 2 sisters.\n\nTherefore, William's brother has 2 sisters.\n</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Alice has 7 brothers and she also has 9 sisters. How many sisters does Alice's brother have?",
+      "expected_answer": "10",
+      "best_model_answer": "9",
+      "best_full_model_response": "Alice's brother has the same number of sisters as Alice, which is 9.\n<answer>9</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": "9",
+          "full_model_response": "Alice's brother has the same number of sisters as Alice, which is 9.\n<answer>9</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Elizabeth has 8 sisters and she also has 4 brothers. How many sisters does Thomas's brother have?",
+      "expected_answer": "9",
+      "best_model_answer": null,
+      "best_full_model_response": "Thomas's brother is also Elizabeth's brother. Elizabeth has 8 sisters, so all of her brothers also have 8 sisters.\n\nTherefore, Thomas's brother has 8 sisters.\n</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Thomas's brother is also Elizabeth's brother. Elizabeth has 8 sisters, so all of her brothers also have 8 sisters.\n\nTherefore, Thomas's brother has 8 sisters.\n</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Susan has 5 sisters and she also has 8 brothers. How many sisters does Michael's brother have?",
+      "expected_answer": "6",
+      "best_model_answer": "5",
+      "best_full_model_response": "Susan is one of Michael's brothers' sisters. Therefore, Michael and Susan are siblings. This means that Michael has 5 sisters. So, each of Michael's brothers also has 5 sisters.\n\nTherefore, Michael's brother has 5 sisters.\n\n<answer>5</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": "5",
+          "full_model_response": "Susan is one of Michael's brothers' sisters. Therefore, Michael and Susan are siblings. This means that Michael has 5 sisters. So, each of Michael's brothers also has 5 sisters.\n\nTherefore, Michael's brother has 5 sisters.\n\n<answer>5</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Susan has 5 sisters and she also has 7 brothers. How many sisters does Joseph's brother have?",
+      "expected_answer": "6",
+      "best_model_answer": "6",
+      "best_full_model_response": "Let's analyze the information given. Susan has 5 sisters. This means there are a total of 6 girls in the family (Susan and her 5 sisters). Susan has 7 brothers. Since all the sisters share the same brothers, there are 7 brothers in the family.\n\nNow, we are asked how many sisters does Joseph's brother have. Since all the brothers share the same sisters, Joseph's brother also has the same number of sisters as Susan. Therefore, Joseph's brother has 6 sisters.\n\n<answer>6</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "6",
+          "full_model_response": "Let's analyze the information given. Susan has 5 sisters. This means there are a total of 6 girls in the family (Susan and her 5 sisters). Susan has 7 brothers. Since all the sisters share the same brothers, there are 7 brothers in the family.\n\nNow, we are asked how many sisters does Joseph's brother have. Since all the brothers share the same sisters, Joseph's brother also has the same number of sisters as Susan. Therefore, Joseph's brother has 6 sisters.\n\n<answer>6</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Sarah has 10 male friends and she also has 10 female friends. They all are friends with each other and have no other friends aside. How many female friends does John, a male friend of Sarah, have?",
+      "expected_answer": "11",
+      "best_model_answer": null,
+      "best_full_model_response": "John is one of Sarah's 10 male friends. Since all of Sarah's friends are friends with each other, John is friends with all of Sarah's female friends. Sarah has 10 female friends. Therefore, John has 10 female friends.\n\n</answer>\n10\n</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "John is one of Sarah's 10 male friends. Since all of Sarah's friends are friends with each other, John is friends with all of Sarah's female friends. Sarah has 10 female friends. Therefore, John has 10 female friends.\n\n</answer>\n10\n</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Patricia has 2 male friends and she also has 10 female friends. They all are friends with each other and have no other friends aside. How many female friends does Robert, a male friend of Patricia, have?",
+      "expected_answer": "11",
+      "best_model_answer": null,
+      "best_full_model_response": "Robert is one of Patricia's 2 male friends. All of Patricia's friends are friends with each other. Thus, Robert is friends with all of Patricia's 10 female friends.\n\nTherefore, Robert has 10 female friends.\n</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Robert is one of Patricia's 2 male friends. All of Patricia's friends are friends with each other. Thus, Robert is friends with all of Patricia's 10 female friends.\n\nTherefore, Robert has 10 female friends.\n</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Elizabeth has 8 male colleagues and she also has 3 female colleagues. These are all colleagues that Elizabeth has. All these mentioned persons around Elizabeth are colleagues of each other. Joseph has 6 male colleagues and 2 female colleagues in total. All these mentioned persons around Joseph are colleagues of each other. The people in the circle around Joseph do not have other colleagues aside - with the only exception of Matilda. She is colleague of Joseph and she is also colleague of Elizabeth, being part of Elizabeth's circle. How many female colleagues does Matilda have?",
+      "expected_answer": "4",
+      "best_model_answer": null,
+      "best_full_model_response": "Let $M_E$ be the number of male colleagues Elizabeth has, and $F_E$ be the number of female colleagues Elizabeth has. We are given that $M_E = 8$ and $F_E = 3$.\nLet $M_J$ be the number of male colleagues Joseph has, and $F_J$ be the number of female colleagues Joseph has. We are given that $M_J = 6$ and $F_J = 2$.\n\nThe total number of colleagues Elizabeth has is $8 + 3 = 11$.\nThe total number of colleagues Joseph has is $6 + 2 = 8$.\n\nLet $C_E$ be the set of Elizabeth's colleagues and $C_J$ be the set of Joseph's colleagues. We are given that all persons in $C_E$ are colleagues of each other, and all persons in $C_J$ are colleagues of each other. We are also given that the only person who is a colleague of both Elizabeth and Joseph is Matilda. So, $C_E \\cap C_J = \\{ \\text{Matilda} \\}$.\n\nLet $m$ be the number of males in $C_E$ and $f$ be the number of females in $C_E$. We know $m = 8$ and $f = 3$, and Elizabeth is a female.\nLet $x$ be the number of males in $C_J$ and $y$ be the number of females in $C_J$. We know $x = 6$ and $y = 2$, and Joseph is a male.\n\nSince Matilda is a colleague of both Elizabeth and Joseph, Matilda is in both $C_E$ and $C_J$.\nSince Matilda is in $C_E$, the total number of females in $C_E$ is 3. Since Elizabeth is female, the other two females are Matilda and one other female.\nSince Matilda is in $C_J$, the total number of females in $C_J$ is 2. The other female is another female colleague of Joseph.\n\nLet's consider the colleagues of Elizabeth. There are 8 male colleagues and 3 female colleagues. One of the female colleagues is Matilda. The other two female colleagues are not colleagues of Joseph.\nLet's consider the colleagues of Joseph. There are 6 male colleagues and 2 female colleagues. One of the female colleagues is Matilda. The other female colleague is not a colleague of Elizabeth.\n\nWe want to find the number of female colleagues Matilda has.\nThe colleagues of Elizabeth are 8 males and 3 females (including Matilda). Since Elizabeth is female, the females in $C_E$ are Elizabeth, Matilda, and two other females.\nThe colleagues of Joseph are 6 males and 2 females (including Matilda). Since Joseph is male, the females in $C_J$ are Matilda and one other female.\n\nThe colleagues of Matilda are the union of $C_E$ and $C_J$, minus Matilda herself.\nThe number of females in $C_E$ is 3. The number of females in $C_J$ is 2.\nThe total number of females is $3 + 2 - 1 = 4$ (Elizabeth, Matilda, and two other females).\nThe female colleagues of Matilda are the females in $C_E \\cup C_J$ excluding Matilda. These are Elizabeth and the other two females in $C_E$ and the other female in $C_J$. So there are $3-1=2$ other females in $C_E$ and $2-1 = 1$ other females in $C_J$. The total number of female colleagues Matilda has is $2 + 1 + 1 = 3$ (Elizabeth and the other females).\n\nThe colleagues of Elizabeth are 8 males and 3 females.\nThe colleagues of Joseph are 6 males and 2 females.\nMatilda is a colleague of both.\nSo, Elizabeth and Matilda and two other females are colleagues of Elizabeth.\nJoseph and Matilda and one other female are colleagues of Joseph.\nMatilda's female colleagues are Elizabeth and the other two females in Elizabeth's circle, and the other female in Joseph's circle.\nSo Matilda has 3 female colleagues.\n\n</answer>3",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Let $M_E$ be the number of male colleagues Elizabeth has, and $F_E$ be the number of female colleagues Elizabeth has. We are given that $M_E = 8$ and $F_E = 3$.\nLet $M_J$ be the number of male colleagues Joseph has, and $F_J$ be the number of female colleagues Joseph has. We are given that $M_J = 6$ and $F_J = 2$.\n\nThe total number of colleagues Elizabeth has is $8 + 3 = 11$.\nThe total number of colleagues Joseph has is $6 + 2 = 8$.\n\nLet $C_E$ be the set of Elizabeth's colleagues and $C_J$ be the set of Joseph's colleagues. We are given that all persons in $C_E$ are colleagues of each other, and all persons in $C_J$ are colleagues of each other. We are also given that the only person who is a colleague of both Elizabeth and Joseph is Matilda. So, $C_E \\cap C_J = \\{ \\text{Matilda} \\}$.\n\nLet $m$ be the number of males in $C_E$ and $f$ be the number of females in $C_E$. We know $m = 8$ and $f = 3$, and Elizabeth is a female.\nLet $x$ be the number of males in $C_J$ and $y$ be the number of females in $C_J$. We know $x = 6$ and $y = 2$, and Joseph is a male.\n\nSince Matilda is a colleague of both Elizabeth and Joseph, Matilda is in both $C_E$ and $C_J$.\nSince Matilda is in $C_E$, the total number of females in $C_E$ is 3. Since Elizabeth is female, the other two females are Matilda and one other female.\nSince Matilda is in $C_J$, the total number of females in $C_J$ is 2. The other female is another female colleague of Joseph.\n\nLet's consider the colleagues of Elizabeth. There are 8 male colleagues and 3 female colleagues. One of the female colleagues is Matilda. The other two female colleagues are not colleagues of Joseph.\nLet's consider the colleagues of Joseph. There are 6 male colleagues and 2 female colleagues. One of the female colleagues is Matilda. The other female colleague is not a colleague of Elizabeth.\n\nWe want to find the number of female colleagues Matilda has.\nThe colleagues of Elizabeth are 8 males and 3 females (including Matilda). Since Elizabeth is female, the females in $C_E$ are Elizabeth, Matilda, and two other females.\nThe colleagues of Joseph are 6 males and 2 females (including Matilda). Since Joseph is male, the females in $C_J$ are Matilda and one other female.\n\nThe colleagues of Matilda are the union of $C_E$ and $C_J$, minus Matilda herself.\nThe number of females in $C_E$ is 3. The number of females in $C_J$ is 2.\nThe total number of females is $3 + 2 - 1 = 4$ (Elizabeth, Matilda, and two other females).\nThe female colleagues of Matilda are the females in $C_E \\cup C_J$ excluding Matilda. These are Elizabeth and the other two females in $C_E$ and the other female in $C_J$. So there are $3-1=2$ other females in $C_E$ and $2-1 = 1$ other females in $C_J$. The total number of female colleagues Matilda has is $2 + 1 + 1 = 3$ (Elizabeth and the other females).\n\nThe colleagues of Elizabeth are 8 males and 3 females.\nThe colleagues of Joseph are 6 males and 2 females.\nMatilda is a colleague of both.\nSo, Elizabeth and Matilda and two other females are colleagues of Elizabeth.\nJoseph and Matilda and one other female are colleagues of Joseph.\nMatilda's female colleagues are Elizabeth and the other two females in Elizabeth's circle, and the other female in Joseph's circle.\nSo Matilda has 3 female colleagues.\n\n</answer>3",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Margaret has 5 brothers and she also has 3 sisters. How many sisters does Margaret's brother have?",
+      "expected_answer": "4",
+      "best_model_answer": null,
+      "best_full_model_response": "Margaret is one of the sisters. So, including Margaret, there are a total of 3 sisters. Therefore, Margaret's brother has 3 sisters.\n\n3\n",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Margaret is one of the sisters. So, including Margaret, there are a total of 3 sisters. Therefore, Margaret's brother has 3 sisters.\n\n3\n",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Margaret has 9 sisters and she also has 6 brothers. How many sisters does Robert's brother have?",
+      "expected_answer": "10",
+      "best_model_answer": null,
+      "best_full_model_response": "Margaret is one of Robert's brothers' sisters. Therefore, Robert's brother and Margaret share the same siblings. Since Margaret has 9 sisters, Robert's brother also has 9 sisters.\n\nRobert's brother has 9 sisters.\n\n</answer>\n9\n",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Margaret is one of Robert's brothers' sisters. Therefore, Robert's brother and Margaret share the same siblings. Since Margaret has 9 sisters, Robert's brother also has 9 sisters.\n\nRobert's brother has 9 sisters.\n\n</answer>\n9\n",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Sarah has 3 sisters and she also has 10 brothers. How many sisters does Joseph's brother have?",
+      "expected_answer": "4",
+      "best_model_answer": "3",
+      "best_full_model_response": "Joseph's brother is Sarah. Sarah has 3 sisters. Therefore, Joseph's brother has 3 sisters.\n\n<answer>3</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": "3",
+          "full_model_response": "Joseph's brother is Sarah. Sarah has 3 sisters. Therefore, Joseph's brother has 3 sisters.\n\n<answer>3</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Sarah has 6 male colleagues and she also has 2 female colleagues. These are all colleagues that Sarah has. All these mentioned persons around Sarah are colleagues of each other. John has 5 male colleagues and 3 female colleagues in total. All these mentioned persons around John are colleagues of each other. The people in the circle around John do not have other colleagues aside - with the only exception of Matilda. She is colleague of John and she is also colleague of Sarah, being part of Sarah's circle. How many female colleagues does Matilda have?",
+      "expected_answer": "3",
+      "best_model_answer": "3",
+      "best_full_model_response": "Let's analyze the situation step by step:\n\n1.  **Sarah's colleagues:** Sarah has 6 male colleagues + 2 female colleagues = 8 colleagues in total.\n2.  **John's colleagues:** John has 5 male colleagues + 3 female colleagues = 8 colleagues in total.\n3.  **Matilda's role:** Matilda is a colleague of both Sarah and John. This means she is part of both groups.\n4.  **Sarah's group composition:** Sarah's group consists of Sarah, 6 male colleagues, and 2 female colleagues. Since Matilda is in this group and is female, the other female colleague is the only other female in Sarah's group besides Sarah and Matilda. So, including Sarah, there are 3 females in the group.\n5.  **John's group composition:** John's group consists of John, 5 male colleagues, and 3 female colleagues. Since Matilda is in this group and is female, there are two other female colleagues in John's group besides Matilda.\n6.  **Matilda's female colleagues:** Matilda's colleagues consist of Sarah's group and John's group. From Sarah's group, Matilda has one other female colleague (excluding Sarah). From John's group, Matilda has two other female colleagues. So, Matilda has 1 + 2 = 3 female colleagues.\n\nTherefore, Matilda has 3 female colleagues.\n\n<answer>3</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "3",
+          "full_model_response": "Let's analyze the situation step by step:\n\n1.  **Sarah's colleagues:** Sarah has 6 male colleagues + 2 female colleagues = 8 colleagues in total.\n2.  **John's colleagues:** John has 5 male colleagues + 3 female colleagues = 8 colleagues in total.\n3.  **Matilda's role:** Matilda is a colleague of both Sarah and John. This means she is part of both groups.\n4.  **Sarah's group composition:** Sarah's group consists of Sarah, 6 male colleagues, and 2 female colleagues. Since Matilda is in this group and is female, the other female colleague is the only other female in Sarah's group besides Sarah and Matilda. So, including Sarah, there are 3 females in the group.\n5.  **John's group composition:** John's group consists of John, 5 male colleagues, and 3 female colleagues. Since Matilda is in this group and is female, there are two other female colleagues in John's group besides Matilda.\n6.  **Matilda's female colleagues:** Matilda's colleagues consist of Sarah's group and John's group. From Sarah's group, Matilda has one other female colleague (excluding Sarah). From John's group, Matilda has two other female colleagues. So, Matilda has 1 + 2 = 3 female colleagues.\n\nTherefore, Matilda has 3 female colleagues.\n\n<answer>3</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Susan has 9 sisters and she also has 1 brothers. How many sisters does Joseph's brother have?",
+      "expected_answer": "10",
+      "best_model_answer": null,
+      "best_full_model_response": "Joseph's brother is Susan. Susan has 9 sisters. Therefore, Joseph's brother has 9 sisters.\n\n9\n",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Joseph's brother is Susan. Susan has 9 sisters. Therefore, Joseph's brother has 9 sisters.\n\n9\n",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Susan has 1 sisters and she also has 5 brothers. How many sisters does Michael's brother have?",
+      "expected_answer": "2",
+      "best_model_answer": null,
+      "best_full_model_response": "Michael's brother and Susan are siblings. Since Susan has 1 sister, all of Michael's brothers share the same sister. Therefore, Michael's brother has 1 sister.\n\n</answer>1</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Michael's brother and Susan are siblings. Since Susan has 1 sister, all of Michael's brothers share the same sister. Therefore, Michael's brother has 1 sister.\n\n</answer>1</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Barbara has 4 male colleagues and she also has 4 female colleagues. These are all colleagues that Barbara has. All these mentioned persons around Barbara are colleagues of each other. Michael has 2 male colleagues and 5 female colleagues in total. All these mentioned persons around Michael are colleagues of each other. The people in the circle around Michael do not have other colleagues aside - with the only exception of Matilda. She is colleague of Michael and she is also colleague of Barbara, being part of Barbara's circle. How many female colleagues does Matilda have?",
+      "expected_answer": "5",
+      "best_model_answer": null,
+      "best_full_model_response": "Let's analyze the information step by step:\n\n1.  **Barbara's colleagues:** Barbara has 4 male colleagues and 4 female colleagues. This means there are a total of 9 people in Barbara's circle (Barbara + 4 males + 4 females).\n\n2.  **Michael's colleagues:** Michael has 2 male colleagues and 5 female colleagues. This means there are a total of 8 people in Michael's circle (Michael + 2 males + 5 females).\n\n3.  **Matilda:** Matilda is a colleague of both Barbara and Michael. This means she is part of both circles.\n\n4.  **Michael's circle isolation:** Except for Matilda, everyone in Michael's circle only has colleagues within that circle.\n\nNow, let's figure out how many female colleagues Matilda has.\n\n*   **Barbara's circle:** In Barbara's circle, there are 4 female colleagues besides Barbara. Since Matilda is in this circle, and she is female, that means there are 4 females in Barbara's circle including Matilda. Therefore, Matilda has 3 female colleagues from Barbara's circle (the other 4 females minus Matilda herself).\n\n*   **Michael's circle:** In Michael's circle, there are 5 female colleagues. Matilda is one of them. Therefore, Matilda has 4 female colleagues from Michael's circle (the 5 females minus Matilda herself).\n\n*   **Total:** Matilda has 3 female colleagues from Barbara's circle and 4 female colleagues from Michael's circle. So, in total, she has 3 + 4 = 7 female colleagues.\n\n</answer>7</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Let's analyze the information step by step:\n\n1.  **Barbara's colleagues:** Barbara has 4 male colleagues and 4 female colleagues. This means there are a total of 9 people in Barbara's circle (Barbara + 4 males + 4 females).\n\n2.  **Michael's colleagues:** Michael has 2 male colleagues and 5 female colleagues. This means there are a total of 8 people in Michael's circle (Michael + 2 males + 5 females).\n\n3.  **Matilda:** Matilda is a colleague of both Barbara and Michael. This means she is part of both circles.\n\n4.  **Michael's circle isolation:** Except for Matilda, everyone in Michael's circle only has colleagues within that circle.\n\nNow, let's figure out how many female colleagues Matilda has.\n\n*   **Barbara's circle:** In Barbara's circle, there are 4 female colleagues besides Barbara. Since Matilda is in this circle, and she is female, that means there are 4 females in Barbara's circle including Matilda. Therefore, Matilda has 3 female colleagues from Barbara's circle (the other 4 females minus Matilda herself).\n\n*   **Michael's circle:** In Michael's circle, there are 5 female colleagues. Matilda is one of them. Therefore, Matilda has 4 female colleagues from Michael's circle (the 5 females minus Matilda herself).\n\n*   **Total:** Matilda has 3 female colleagues from Barbara's circle and 4 female colleagues from Michael's circle. So, in total, she has 3 + 4 = 7 female colleagues.\n\n</answer>7</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Patricia has 5 male colleagues and she also has 7 female colleagues. These are all colleagues that Patricia has. All these mentioned persons around Patricia are colleagues of each other. William has 1 male colleagues and 3 female colleagues in total. All these mentioned persons around William are colleagues of each other. The people in the circle around William do not have other colleagues aside - with the only exception of Matilda. She is colleague of William and she is also colleague of Patricia, being part of Patricia's circle. How many female colleagues does Matilda have?",
+      "expected_answer": "8",
+      "best_model_answer": null,
+      "best_full_model_response": "Let $M_P$ be the set of male colleagues of Patricia, and $F_P$ be the set of female colleagues of Patricia. We are given that $|M_P| = 5$ and $|F_P| = 7$.\nLet $M_W$ be the set of male colleagues of William, and $F_W$ be the set of female colleagues of William. We are given that $|M_W| = 1$ and $|F_W| = 3$.\nMatilda is a colleague of both Patricia and William.\nSince all colleagues around Patricia are colleagues of each other, the total number of colleagues Patricia has is $5 + 7 = 12$. These are all the people in Patricia's circle.\nSince all colleagues around William are colleagues of each other, the total number of colleagues William has is $1 + 3 = 4$. These are all the people in William's circle, except for Matilda.\nMatilda is a colleague of both Patricia and William. This means Matilda is in both circles.\nLet's denote the male colleague of William as $m_W$ and the three female colleagues of William as $f_{W1}, f_{W2}, f_{W3}$. The colleagues of William are $m_W, f_{W1}, f_{W2}, f_{W3}$ and Matilda.\nSince Matilda is a female colleague of Patricia, she is one of the 7 female colleagues.\nThe colleagues of Patricia are 5 males and 7 females. One of the females is Matilda.\nSince all colleagues in Patricia's circle are colleagues of each other, we can say that Matilda's colleagues are the other 6 females and 5 males in Patricia's circle. Also, William is not in Patricia's circle.\nThe female colleagues of Matilda are the other 6 females in Patricia's circle, and the 3 female colleagues of William: $f_{W1}, f_{W2}, f_{W3}$. However, since the people around William do not have other colleagues aside from Matilda, it must be the case that $f_{W1}, f_{W2}, f_{W3}$ are not in Patricia's circle.\nTherefore, Matilda has 6 female colleagues in Patricia's circle.\n\nThe colleagues of Matilda are $M_P \\cup F_P \\setminus \\{Matilda\\} \\cup M_W \\cup F_W$.\nSince $F_P$ includes Matilda, $|F_P \\setminus \\{Matilda\\}| = 6$.\nSince the people around William do not have other colleagues aside from Matilda, $M_W$ and $F_W$ are not in $M_P \\cup F_P$.\nThe number of female colleagues Matilda has is $|F_P \\setminus \\{Matilda\\}| + |F_W| = 6 + 3 = 9$.\n\nSince Matilda is in Patricia's circle, she has 7-1 = 6 other female colleagues from Patricia's circle.\nSince Matilda is in William's circle, she has 3 female colleagues from William's circle.\nSince the people around William do not have other colleagues aside from Matilda, the 3 female colleagues from William's circle are not in Patricia's circle.\nTherefore, Matilda has 6 + 3 = 9 female colleagues.\n\nFinal Answer: The final answer is $\\boxed{9}$\n</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Let $M_P$ be the set of male colleagues of Patricia, and $F_P$ be the set of female colleagues of Patricia. We are given that $|M_P| = 5$ and $|F_P| = 7$.\nLet $M_W$ be the set of male colleagues of William, and $F_W$ be the set of female colleagues of William. We are given that $|M_W| = 1$ and $|F_W| = 3$.\nMatilda is a colleague of both Patricia and William.\nSince all colleagues around Patricia are colleagues of each other, the total number of colleagues Patricia has is $5 + 7 = 12$. These are all the people in Patricia's circle.\nSince all colleagues around William are colleagues of each other, the total number of colleagues William has is $1 + 3 = 4$. These are all the people in William's circle, except for Matilda.\nMatilda is a colleague of both Patricia and William. This means Matilda is in both circles.\nLet's denote the male colleague of William as $m_W$ and the three female colleagues of William as $f_{W1}, f_{W2}, f_{W3}$. The colleagues of William are $m_W, f_{W1}, f_{W2}, f_{W3}$ and Matilda.\nSince Matilda is a female colleague of Patricia, she is one of the 7 female colleagues.\nThe colleagues of Patricia are 5 males and 7 females. One of the females is Matilda.\nSince all colleagues in Patricia's circle are colleagues of each other, we can say that Matilda's colleagues are the other 6 females and 5 males in Patricia's circle. Also, William is not in Patricia's circle.\nThe female colleagues of Matilda are the other 6 females in Patricia's circle, and the 3 female colleagues of William: $f_{W1}, f_{W2}, f_{W3}$. However, since the people around William do not have other colleagues aside from Matilda, it must be the case that $f_{W1}, f_{W2}, f_{W3}$ are not in Patricia's circle.\nTherefore, Matilda has 6 female colleagues in Patricia's circle.\n\nThe colleagues of Matilda are $M_P \\cup F_P \\setminus \\{Matilda\\} \\cup M_W \\cup F_W$.\nSince $F_P$ includes Matilda, $|F_P \\setminus \\{Matilda\\}| = 6$.\nSince the people around William do not have other colleagues aside from Matilda, $M_W$ and $F_W$ are not in $M_P \\cup F_P$.\nThe number of female colleagues Matilda has is $|F_P \\setminus \\{Matilda\\}| + |F_W| = 6 + 3 = 9$.\n\nSince Matilda is in Patricia's circle, she has 7-1 = 6 other female colleagues from Patricia's circle.\nSince Matilda is in William's circle, she has 3 female colleagues from William's circle.\nSince the people around William do not have other colleagues aside from Matilda, the 3 female colleagues from William's circle are not in Patricia's circle.\nTherefore, Matilda has 6 + 3 = 9 female colleagues.\n\nFinal Answer: The final answer is $\\boxed{9}$\n</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Barbara has 3 brothers and she also has 4 sisters. How many sisters does Barbara's brother have?",
+      "expected_answer": "5",
+      "best_model_answer": null,
+      "best_full_model_response": "Barbara's brothers share the same sisters as Barbara. Since Barbara has 4 sisters, her brother also has 4 sisters.\n\n</answer>\n4</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Barbara's brothers share the same sisters as Barbara. Since Barbara has 4 sisters, her brother also has 4 sisters.\n\n</answer>\n4</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Sarah has 6 sisters and she also has 6 brothers. How many sisters does Richard's brother have?",
+      "expected_answer": "7",
+      "best_model_answer": null,
+      "best_full_model_response": "Richard is one of Sarah's 6 brothers. Therefore, Richard's brother is also one of Sarah's brothers. Since Sarah has 6 sisters, Richard's brother has 6 sisters.\n\n6\n",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Richard is one of Sarah's 6 brothers. Therefore, Richard's brother is also one of Sarah's brothers. Since Sarah has 6 sisters, Richard's brother has 6 sisters.\n\n6\n",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Jessica has 9 male friends and she also has 9 female friends. They all are friends with each other and have no other friends aside. How many female friends does David, a male friend of Jessica, have?",
+      "expected_answer": "10",
+      "best_model_answer": null,
+      "best_full_model_response": "David is one of Jessica's 9 male friends. All of Jessica's friends are friends with each other. Thus, the number of female friends David has is the same as the number of female friends Jessica has, which is 9.\n\n</answer>9</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "David is one of Jessica's 9 male friends. All of Jessica's friends are friends with each other. Thus, the number of female friends David has is the same as the number of female friends Jessica has, which is 9.\n\n</answer>9</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Jessica has 5 brothers and she also has 3 sisters. How many sisters does Jessica's brother have?",
+      "expected_answer": "4",
+      "best_model_answer": "3",
+      "best_full_model_response": "Jessica's brothers share the same sisters as Jessica. Since Jessica has 3 sisters, her brothers also have 3 sisters.\n<answer>3</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": "3",
+          "full_model_response": "Jessica's brothers share the same sisters as Jessica. Since Jessica has 3 sisters, her brothers also have 3 sisters.\n<answer>3</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Jessica has 3 brothers and she also has 7 sisters. How many sisters does Jessica's brother have?",
+      "expected_answer": "8",
+      "best_model_answer": null,
+      "best_full_model_response": "Jessica's brothers share the same sisters as Jessica. Therefore, Jessica's brother has 7 sisters.\n\n</answer>7</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Jessica's brothers share the same sisters as Jessica. Therefore, Jessica's brother has 7 sisters.\n\n</answer>7</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Mary has 1 male friends and she also has 9 female friends. They all are friends with each other and have no other friends aside. How many female friends does Joseph, a male friend of Mary, have?",
+      "expected_answer": "10",
+      "best_model_answer": null,
+      "best_full_model_response": "Joseph is one of Mary's male friends. All of Mary's friends are friends with each other. Mary has 9 female friends. Therefore, Joseph has 9 female friends.\n\n9\n",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Joseph is one of Mary's male friends. All of Mary's friends are friends with each other. Mary has 9 female friends. Therefore, Joseph has 9 female friends.\n\n9\n",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Margaret has 6 brothers and she also has 4 sisters. How many sisters does Margaret's brother have?",
+      "expected_answer": "5",
+      "best_model_answer": null,
+      "best_full_model_response": "Margaret has 4 sisters, so including Margaret, there are 5 girls in the family.\nEach of Margaret's brothers shares the same sisters.\nTherefore, each brother has 5 sisters.\n\n5\n",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Margaret has 4 sisters, so including Margaret, there are 5 girls in the family.\nEach of Margaret's brothers shares the same sisters.\nTherefore, each brother has 5 sisters.\n\n5\n",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Mary has 6 male colleagues and she also has 1 female colleagues. These are all colleagues that Mary has. All these mentioned persons around Mary are colleagues of each other. Thomas has 2 male colleagues and 9 female colleagues in total. All these mentioned persons around Thomas are colleagues of each other. The people in the circle around Thomas do not have other colleagues aside - with the only exception of Matilda. She is colleague of Thomas and she is also colleague of Mary, being part of Mary's circle. How many female colleagues does Matilda have?",
+      "expected_answer": "2",
+      "best_model_answer": null,
+      "best_full_model_response": "Let's analyze the information provided:\n\n1.  **Mary's colleagues:** 6 male + 1 female = 7 colleagues. These colleagues include Matilda.\n2.  **Thomas' colleagues:** 2 male + 9 female = 11 colleagues. These colleagues include Matilda.\n3.  **Matilda:** She is a colleague of both Mary and Thomas. She is the only link between the two groups.\n4.  **Thomas' circle limitations:** People in Thomas' circle only have colleagues within that circle, except for Matilda, who is also in Mary's circle.\n\nNow, let's deduce the composition of each group:\n\n*   **Mary's group:** Mary + 6 males + 1 female (Matilda) = 8 people.\n*   **Thomas' group:** Thomas + 2 males + 9 females (including Matilda) = 12 people.\n\nSince Matilda is in both groups, we can determine her female colleagues.\n\n*   **Matilda's female colleagues (from Thomas' group):** Thomas has 9 female colleagues in total, including Matilda. Thus, Matilda has 9 - 1 = 8 other female colleagues from Thomas' group.\n*   **Matilda's female colleagues (from Mary's group):** Mary has 1 female colleague, and that is Matilda. So, Mary is Matilda's only female colleague from Mary's group.\n\nHowever, we need to consider that Mary and the 8 females from Thomas' group are all distinct individuals, and we are looking for the total number of female colleagues Matilda has.\n\nTherefore, the total number of female colleagues Matilda has is 8 (from Thomas' group) + 1 (Mary) = 9.\n\n</answer>\n9\n",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Let's analyze the information provided:\n\n1.  **Mary's colleagues:** 6 male + 1 female = 7 colleagues. These colleagues include Matilda.\n2.  **Thomas' colleagues:** 2 male + 9 female = 11 colleagues. These colleagues include Matilda.\n3.  **Matilda:** She is a colleague of both Mary and Thomas. She is the only link between the two groups.\n4.  **Thomas' circle limitations:** People in Thomas' circle only have colleagues within that circle, except for Matilda, who is also in Mary's circle.\n\nNow, let's deduce the composition of each group:\n\n*   **Mary's group:** Mary + 6 males + 1 female (Matilda) = 8 people.\n*   **Thomas' group:** Thomas + 2 males + 9 females (including Matilda) = 12 people.\n\nSince Matilda is in both groups, we can determine her female colleagues.\n\n*   **Matilda's female colleagues (from Thomas' group):** Thomas has 9 female colleagues in total, including Matilda. Thus, Matilda has 9 - 1 = 8 other female colleagues from Thomas' group.\n*   **Matilda's female colleagues (from Mary's group):** Mary has 1 female colleague, and that is Matilda. So, Mary is Matilda's only female colleague from Mary's group.\n\nHowever, we need to consider that Mary and the 8 females from Thomas' group are all distinct individuals, and we are looking for the total number of female colleagues Matilda has.\n\nTherefore, the total number of female colleagues Matilda has is 8 (from Thomas' group) + 1 (Mary) = 9.\n\n</answer>\n9\n",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Linda has 5 sisters and she also has 2 brothers. How many sisters does Thomas's brother have?",
+      "expected_answer": "6",
+      "best_model_answer": null,
+      "best_full_model_response": "Thomas's brother is Linda. Linda has 5 sisters. Therefore, Thomas's brother has 5 sisters.\n\n5\n",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Thomas's brother is Linda. Linda has 5 sisters. Therefore, Thomas's brother has 5 sisters.\n\n5\n",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Linda has 3 brothers and she also has 1 sisters. How many sisters does Linda's brother have?",
+      "expected_answer": "2",
+      "best_model_answer": null,
+      "best_full_model_response": "Linda's brothers share the same sisters. Since Linda is the only sister, Linda's brother also has 1 sister.\n\n</answer>1</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Linda's brothers share the same sisters. Since Linda is the only sister, Linda's brother also has 1 sister.\n\n</answer>1</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Margaret has 3 brothers and she also has 6 sisters. How many sisters does Margaret's brother have?",
+      "expected_answer": "7",
+      "best_model_answer": null,
+      "best_full_model_response": "Margaret is one of the 6 sisters. Thus, there are a total of 6 sisters. Each of Margaret's brothers has the same number of sisters. Therefore, each brother has 6 sisters.\n\n</answer>6</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Margaret is one of the 6 sisters. Thus, there are a total of 6 sisters. Each of Margaret's brothers has the same number of sisters. Therefore, each brother has 6 sisters.\n\n</answer>6</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Patricia has 10 sisters and she also has 10 brothers. How many sisters does Joseph's brother have?",
+      "expected_answer": "11",
+      "best_model_answer": null,
+      "best_full_model_response": "Joseph's brother has 10 sisters.\n</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Joseph's brother has 10 sisters.\n</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Jennifer has 7 sisters and she also has 3 brothers. How many sisters does Bob's brother have?",
+      "expected_answer": "8",
+      "best_model_answer": null,
+      "best_full_model_response": "Jennifer is one of Bob's brother's sisters. Therefore, Bob's brother has 7 sisters.\n\n7\n",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Jennifer is one of Bob's brother's sisters. Therefore, Bob's brother has 7 sisters.\n\n7\n",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Margaret has 10 sisters and she also has 9 brothers. How many sisters does Thomas's brother have?",
+      "expected_answer": "11",
+      "best_model_answer": null,
+      "best_full_model_response": "Margaret is one of Thomas's brothers' sisters. Therefore, Thomas's brother has 10 sisters.\n\n</answer>10</answer>",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Margaret is one of Thomas's brothers' sisters. Therefore, Thomas's brother has 10 sisters.\n\n</answer>10</answer>",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Jessica has 6 male colleagues and she also has 2 female colleagues. These are all colleagues that Jessica has. All these mentioned persons around Jessica are colleagues of each other. Charles has 2 male colleagues and 6 female colleagues in total. All these mentioned persons around Charles are colleagues of each other. The people in the circle around Charles do not have other colleagues aside - with the only exception of Matilda. She is colleague of Charles and she is also colleague of Jessica, being part of Jessica's circle. How many female colleagues does Matilda have?",
+      "expected_answer": "3",
+      "best_model_answer": null,
+      "best_full_model_response": "Let's analyze the information provided.\n\nJessica has 6 male colleagues and 2 female colleagues. This means there are a total of 1 (Jessica) + 6 male + 2 female = 9 people in Jessica's circle.\n\nCharles has 2 male colleagues and 6 female colleagues. This means there are a total of 1 (Charles) + 2 male + 6 female = 9 people in Charles' circle.\n\nMatilda is a colleague of both Jessica and Charles. She is the only person who is a colleague of both Jessica and Charles.\n\nWe want to find out how many female colleagues Matilda has.\n\nLet's analyze Jessica's circle: 6 male colleagues + 2 female colleagues + Jessica + Matilda = 10 people. However, we know Jessica has only 8 colleagues. Thus, Matilda is one of Jessica's colleagues. The female colleagues in Jessica's circle are Matilda and one other female.\n\nLet's analyze Charles' circle: 2 male colleagues + 6 female colleagues + Charles + Matilda = 10 people. However, we know Charles has only 8 colleagues. Thus, Matilda is one of Charles' colleagues.\n\nSince Matilda is a colleague of both Jessica and Charles, we need to figure out how many female colleagues she has in total.\n\nFrom Jessica's perspective: Matilda is a female colleague, and there is one other female colleague. From Charles' perspective: Matilda is a female colleague, and there are 5 other female colleagues.\n\nHowever, we have already counted Matilda. So, the total number of females that are colleagues with Matilda are: 1 (other female colleague from Jessica's circle) + 5 (female colleagues from Charles' circle) + Jessica = 7.\n\nTherefore, Matilda has 7 female colleagues.\n\nAlternatively, let's think of it this way:\nJessica's circle: 6 males, 2 females (one is Matilda), Jessica\nCharles' circle: 2 males, 6 females (one is Matilda), Charles\n\nMatilda's colleagues:\nFrom Jessica's circle: 6 males, 1 female (not Matilda), Jessica\nFrom Charles' circle: 2 males, 5 females (not Matilda), Charles\nTotal: 6 + 1 + 1 + 2 + 5 + 1 = 16 colleagues.\nNumber of female colleagues = 1 + 5 + Jessica = 7.\n\n</answer>\n7\n",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Let's analyze the information provided.\n\nJessica has 6 male colleagues and 2 female colleagues. This means there are a total of 1 (Jessica) + 6 male + 2 female = 9 people in Jessica's circle.\n\nCharles has 2 male colleagues and 6 female colleagues. This means there are a total of 1 (Charles) + 2 male + 6 female = 9 people in Charles' circle.\n\nMatilda is a colleague of both Jessica and Charles. She is the only person who is a colleague of both Jessica and Charles.\n\nWe want to find out how many female colleagues Matilda has.\n\nLet's analyze Jessica's circle: 6 male colleagues + 2 female colleagues + Jessica + Matilda = 10 people. However, we know Jessica has only 8 colleagues. Thus, Matilda is one of Jessica's colleagues. The female colleagues in Jessica's circle are Matilda and one other female.\n\nLet's analyze Charles' circle: 2 male colleagues + 6 female colleagues + Charles + Matilda = 10 people. However, we know Charles has only 8 colleagues. Thus, Matilda is one of Charles' colleagues.\n\nSince Matilda is a colleague of both Jessica and Charles, we need to figure out how many female colleagues she has in total.\n\nFrom Jessica's perspective: Matilda is a female colleague, and there is one other female colleague. From Charles' perspective: Matilda is a female colleague, and there are 5 other female colleagues.\n\nHowever, we have already counted Matilda. So, the total number of females that are colleagues with Matilda are: 1 (other female colleague from Jessica's circle) + 5 (female colleagues from Charles' circle) + Jessica = 7.\n\nTherefore, Matilda has 7 female colleagues.\n\nAlternatively, let's think of it this way:\nJessica's circle: 6 males, 2 females (one is Matilda), Jessica\nCharles' circle: 2 males, 6 females (one is Matilda), Charles\n\nMatilda's colleagues:\nFrom Jessica's circle: 6 males, 1 female (not Matilda), Jessica\nFrom Charles' circle: 2 males, 5 females (not Matilda), Charles\nTotal: 6 + 1 + 1 + 2 + 5 + 1 = 16 colleagues.\nNumber of female colleagues = 1 + 5 + Jessica = 7.\n\n</answer>\n7\n",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Patricia has 5 male friends and she also has 7 female friends. They all are friends with each other and have no other friends aside. How many female friends does William, a male friend of Patricia, have?",
+      "expected_answer": "8",
+      "best_model_answer": null,
+      "best_full_model_response": "William is one of Patricia's 5 male friends. Since all of Patricia's friends are friends with each other, William is friends with all of Patricia's 7 female friends.\n\nTherefore, William has 7 female friends.\n\n7\n",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "William is one of Patricia's 5 male friends. Since all of Patricia's friends are friends with each other, William is friends with all of Patricia's 7 female friends.\n\nTherefore, William has 7 female friends.\n\n7\n",
+          "score": 0.0
+        }
+      ]
+    }
+  ]
+}

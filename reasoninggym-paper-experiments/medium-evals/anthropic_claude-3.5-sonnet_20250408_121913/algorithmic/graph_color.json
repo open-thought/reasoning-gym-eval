@@ -1,0 +1,768 @@
+{
+  "name": "graph_color",
+  "category": "algorithmic",
+  "average_best_score": 0.6832,
+  "average_mean_score": 0.6832,
+  "total_examples": 50,
+  "config": {
+    "size": 50,
+    "seed": 45,
+    "min_num_vertices": 10,
+    "max_num_vertices": 20,
+    "num_colors": 4
+  },
+  "system_prompt": "Given a problem, your task is to answer the question by thinking step-by-step in a clear and specific manner.\nOnce you have thought about the reasoning process, provide the answer in the following format:\n<answer>answer here</answer>\nDo not explain your reasoning inside the answer tags, provide only the final answer. When an example is provided, you should strictly follow the format of the output/answer in that example.\n",
+  "completions_per_prompt": 1,
+  "results": [
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]\nEdges: [(0, 4), (0, 12), (1, 9), (1, 10), (2, 5), (4, 12), (5, 13), (6, 10), (8, 10), (9, 13), (10, 11)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 2, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 2, \"6\": 3, \"7\": 1, \"8\": 2, \"9\": 3, \"10\": 1, \"11\": 2, \"12\": 3, \"13\": 1}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let's identify vertices with most connections:\n   - Vertex 10 has most connections (4 edges)\n   - Vertices 0, 1, 5, 9, 12, 13 have 2 edges each\n   - Rest have 1 or 0 edges\n\n2) Start with vertex 10 and assign color 1\n   - Its neighbors (1, 6, 8, 11) must have different colors\n\n3) Work through connected components:\n   - For vertices connected to 10: assign 2 to 1, 3 to 6, 2 to 8, 2 to 11\n   - For 0-4-12 path: assign 1 to 0, 2 to 4, 3 to 12\n   - For 2-5-13-9 path: assign 1 to 2, 2 to 5, 1 to 13, 3 to 9\n   - For remaining vertices (3, 7): can assign any unused color\n\n4) Verify no adjacent vertices have same color\n\n<answer>{\"0\": 1, \"1\": 2, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 2, \"6\": 3, \"7\": 1, \"8\": 2, \"9\": 3, \"10\": 1, \"11\": 2, \"12\": 3, \"13\": 1}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 2, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 2, \"6\": 3, \"7\": 1, \"8\": 2, \"9\": 3, \"10\": 1, \"11\": 2, \"12\": 3, \"13\": 1}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let's identify vertices with most connections:\n   - Vertex 10 has most connections (4 edges)\n   - Vertices 0, 1, 5, 9, 12, 13 have 2 edges each\n   - Rest have 1 or 0 edges\n\n2) Start with vertex 10 and assign color 1\n   - Its neighbors (1, 6, 8, 11) must have different colors\n\n3) Work through connected components:\n   - For vertices connected to 10: assign 2 to 1, 3 to 6, 2 to 8, 2 to 11\n   - For 0-4-12 path: assign 1 to 0, 2 to 4, 3 to 12\n   - For 2-5-13-9 path: assign 1 to 2, 2 to 5, 1 to 13, 3 to 9\n   - For remaining vertices (3, 7): can assign any unused color\n\n4) Verify no adjacent vertices have same color\n\n<answer>{\"0\": 1, \"1\": 2, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 2, \"6\": 3, \"7\": 1, \"8\": 2, \"9\": 3, \"10\": 1, \"11\": 2, \"12\": 3, \"13\": 1}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nEdges: [(0, 8), (0, 9), (1, 9), (2, 6), (3, 9), (5, 10), (9, 10)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 2, \"1\": 3, \"2\": 1, \"3\": 4, \"4\": 1, \"5\": 1, \"6\": 2, \"7\": 1, \"8\": 1, \"9\": 1, \"10\": 2}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let's identify the vertices with most connections:\n   - Vertex 9 has 4 connections (0,1,3,10)\n   - Most other vertices have 1-2 connections\n\n2) Let's start with vertex 9 since it has most connections:\n   - Give vertex 9 color 1\n\n3) All vertices connected to 9 must have different colors:\n   - 0 can be color 2\n   - 1 can be color 3\n   - 3 can be color 4\n   - 10 can be color 2\n\n4) Now vertex 5 is connected to 10:\n   - 5 can be color 1\n\n5) Vertex 2 is connected to 6:\n   - 2 can be color 1\n   - 6 can be color 2\n\n6) Remaining vertices (4, 7, 8) have no connections:\n   - Can assign color 1 to all of them\n\n<answer>{\"0\": 2, \"1\": 3, \"2\": 1, \"3\": 4, \"4\": 1, \"5\": 1, \"6\": 2, \"7\": 1, \"8\": 1, \"9\": 1, \"10\": 2}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 2, \"1\": 3, \"2\": 1, \"3\": 4, \"4\": 1, \"5\": 1, \"6\": 2, \"7\": 1, \"8\": 1, \"9\": 1, \"10\": 2}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let's identify the vertices with most connections:\n   - Vertex 9 has 4 connections (0,1,3,10)\n   - Most other vertices have 1-2 connections\n\n2) Let's start with vertex 9 since it has most connections:\n   - Give vertex 9 color 1\n\n3) All vertices connected to 9 must have different colors:\n   - 0 can be color 2\n   - 1 can be color 3\n   - 3 can be color 4\n   - 10 can be color 2\n\n4) Now vertex 5 is connected to 10:\n   - 5 can be color 1\n\n5) Vertex 2 is connected to 6:\n   - 2 can be color 1\n   - 6 can be color 2\n\n6) Remaining vertices (4, 7, 8) have no connections:\n   - Can assign color 1 to all of them\n\n<answer>{\"0\": 2, \"1\": 3, \"2\": 1, \"3\": 4, \"4\": 1, \"5\": 1, \"6\": 2, \"7\": 1, \"8\": 1, \"9\": 1, \"10\": 2}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]\nEdges: [(0, 1), (0, 10), (0, 14), (2, 7), (2, 11), (5, 10), (5, 14), (9, 12)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 2, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 1, \"9\": 1, \"10\": 2, \"11\": 2, \"12\": 2, \"13\": 1, \"14\": 3}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, I notice that many vertices are isolated (not connected to any other vertex):\n   - Vertices 3, 4, 6, 8, 13 have no connections\n\n2) Looking at the edges:\n   - 0 connects to 1, 10, and 14\n   - 2 connects to 7 and 11\n   - 5 connects to 10 and 14\n   - 9 connects to 12\n\n3) For vertex 0:\n   - Give it color 1\n   - Its neighbors (1, 10, 14) must be different colors\n\n4) For vertex 2:\n   - Give it color 1\n   - Its neighbors (7, 11) can be color 2\n\n5) For vertex 5:\n   - Since it connects to 10 and 14 (which need to be different from 0's color)\n   - Give it color 2\n\n6) For vertex 9:\n   - Give it color 1\n   - Its neighbor 12 can be color 2\n\n7) All isolated vertices can be color 1\n\n<answer>{\"0\": 1, \"1\": 2, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 1, \"9\": 1, \"10\": 2, \"11\": 2, \"12\": 2, \"13\": 1, \"14\": 3}</answer>",
+      "best_score": 0.01,
+      "mean_score": 0.01,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 2, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 1, \"9\": 1, \"10\": 2, \"11\": 2, \"12\": 2, \"13\": 1, \"14\": 3}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, I notice that many vertices are isolated (not connected to any other vertex):\n   - Vertices 3, 4, 6, 8, 13 have no connections\n\n2) Looking at the edges:\n   - 0 connects to 1, 10, and 14\n   - 2 connects to 7 and 11\n   - 5 connects to 10 and 14\n   - 9 connects to 12\n\n3) For vertex 0:\n   - Give it color 1\n   - Its neighbors (1, 10, 14) must be different colors\n\n4) For vertex 2:\n   - Give it color 1\n   - Its neighbors (7, 11) can be color 2\n\n5) For vertex 5:\n   - Since it connects to 10 and 14 (which need to be different from 0's color)\n   - Give it color 2\n\n6) For vertex 9:\n   - Give it color 1\n   - Its neighbor 12 can be color 2\n\n7) All isolated vertices can be color 1\n\n<answer>{\"0\": 1, \"1\": 2, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 1, \"9\": 1, \"10\": 2, \"11\": 2, \"12\": 2, \"13\": 1, \"14\": 3}</answer>",
+          "score": 0.01
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]\nEdges: [(0, 17), (1, 6), (1, 10), (1, 13), (2, 8), (2, 9), (3, 6), (5, 9), (5, 13), (6, 14), (6, 17), (7, 15), (8, 17), (10, 13), (11, 17), (16, 17)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 2, \"1\": 2, \"2\": 2, \"3\": 2, \"4\": 1, \"5\": 1, \"6\": 2, \"7\": 1, \"8\": 2, \"9\": 1, \"10\": 1, \"11\": 2, \"12\": 1, \"13\": 3, \"14\": 1, \"15\": 1, \"16\": 2, \"17\": 1}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Vertex 17 has the most connections (5 edges), so let's start with that\n2) 17 connects to: 0, 6, 8, 11, 16\n3) Give 17 color 1, and all its neighbors different colors\n4) Looking at vertex 6, it connects to: 1, 3, 14, 17\n5) Looking at vertex 13, it connects to: 1, 5, 10\n6) Looking at vertex 9, it connects to: 2, 5\n7) Continue assigning colors ensuring no adjacent vertices have same color\n\n<answer>{\"0\": 2, \"1\": 2, \"2\": 2, \"3\": 2, \"4\": 1, \"5\": 1, \"6\": 2, \"7\": 1, \"8\": 2, \"9\": 1, \"10\": 1, \"11\": 2, \"12\": 1, \"13\": 3, \"14\": 1, \"15\": 1, \"16\": 2, \"17\": 1}</answer>",
+      "best_score": 0.01,
+      "mean_score": 0.01,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 2, \"1\": 2, \"2\": 2, \"3\": 2, \"4\": 1, \"5\": 1, \"6\": 2, \"7\": 1, \"8\": 2, \"9\": 1, \"10\": 1, \"11\": 2, \"12\": 1, \"13\": 3, \"14\": 1, \"15\": 1, \"16\": 2, \"17\": 1}",
+          "full_model_response": "Let me solve this step by step:\n\n1) Vertex 17 has the most connections (5 edges), so let's start with that\n2) 17 connects to: 0, 6, 8, 11, 16\n3) Give 17 color 1, and all its neighbors different colors\n4) Looking at vertex 6, it connects to: 1, 3, 14, 17\n5) Looking at vertex 13, it connects to: 1, 5, 10\n6) Looking at vertex 9, it connects to: 2, 5\n7) Continue assigning colors ensuring no adjacent vertices have same color\n\n<answer>{\"0\": 2, \"1\": 2, \"2\": 2, \"3\": 2, \"4\": 1, \"5\": 1, \"6\": 2, \"7\": 1, \"8\": 2, \"9\": 1, \"10\": 1, \"11\": 2, \"12\": 1, \"13\": 3, \"14\": 1, \"15\": 1, \"16\": 2, \"17\": 1}</answer>",
+          "score": 0.01
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nEdges: [(0, 10), (1, 7), (1, 9), (2, 8), (5, 10), (6, 8), (7, 10), (9, 10)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 2, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 2, \"9\": 2, \"10\": 1}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let's identify vertices with most connections:\n   - Vertex 10 has 4 connections (0,5,7,9)\n   - Others have 1-2 connections\n\n2) Let's start with vertex 10:\n   - Give it color 1\n\n3) All vertices connected to 10 must have different colors:\n   - 0 can be color 2\n   - 5 can be color 2\n   - 7 can be color 2\n   - 9 can be color 2\n\n4) For vertex 1:\n   - Connected to 7 (color 2) and 9 (color 2)\n   - Can be color 1\n\n5) For vertex 2:\n   - Connected to 8\n   - Can be color 1\n\n6) For vertex 6:\n   - Connected to 8\n   - Can be color 1\n\n7) For vertex 8:\n   - Connected to 2 (color 1) and 6 (color 1)\n   - Can be color 2\n\n8) Remaining vertices (3,4) can be color 1\n\n<answer>{\"0\": 2, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 2, \"9\": 2, \"10\": 1}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 2, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 2, \"9\": 2, \"10\": 1}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let's identify vertices with most connections:\n   - Vertex 10 has 4 connections (0,5,7,9)\n   - Others have 1-2 connections\n\n2) Let's start with vertex 10:\n   - Give it color 1\n\n3) All vertices connected to 10 must have different colors:\n   - 0 can be color 2\n   - 5 can be color 2\n   - 7 can be color 2\n   - 9 can be color 2\n\n4) For vertex 1:\n   - Connected to 7 (color 2) and 9 (color 2)\n   - Can be color 1\n\n5) For vertex 2:\n   - Connected to 8\n   - Can be color 1\n\n6) For vertex 6:\n   - Connected to 8\n   - Can be color 1\n\n7) For vertex 8:\n   - Connected to 2 (color 1) and 6 (color 1)\n   - Can be color 2\n\n8) Remaining vertices (3,4) can be color 1\n\n<answer>{\"0\": 2, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 2, \"9\": 2, \"10\": 1}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]\nEdges: [(0, 12), (0, 15), (1, 5), (1, 7), (1, 12), (5, 7), (5, 16), (6, 8), (6, 10), (7, 9), (7, 14), (8, 9), (8, 14), (13, 14), (13, 15)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 2, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 3, \"6\": 1, \"7\": 1, \"8\": 3, \"9\": 2, \"10\": 2, \"11\": 1, \"12\": 3, \"13\": 1, \"14\": 2, \"15\": 2, \"16\": 1}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with the most connections, as they are most constrained\n2) Vertex 7 has 4 connections (1, 5, 9, 14)\n3) Vertex 8 has 3 connections (6, 9, 14)\n4) Vertex 14 has 4 connections (7, 8, 13)\n5) I'll start coloring from these vertices and work outwards\n6) Vertex 7 \u2192 color 1\n7) Its neighbors must be different colors:\n   - Vertex 1 \u2192 color 2\n   - Vertex 5 \u2192 color 3\n   - Vertex 9 \u2192 color 2\n   - Vertex 14 \u2192 color 2\n8) Continue with remaining vertices ensuring no adjacent vertices share colors\n9) Fill in remaining vertices with any valid color\n\n<answer>{\"0\": 1, \"1\": 2, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 3, \"6\": 1, \"7\": 1, \"8\": 3, \"9\": 2, \"10\": 2, \"11\": 1, \"12\": 3, \"13\": 1, \"14\": 2, \"15\": 2, \"16\": 1}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 2, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 3, \"6\": 1, \"7\": 1, \"8\": 3, \"9\": 2, \"10\": 2, \"11\": 1, \"12\": 3, \"13\": 1, \"14\": 2, \"15\": 2, \"16\": 1}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with the most connections, as they are most constrained\n2) Vertex 7 has 4 connections (1, 5, 9, 14)\n3) Vertex 8 has 3 connections (6, 9, 14)\n4) Vertex 14 has 4 connections (7, 8, 13)\n5) I'll start coloring from these vertices and work outwards\n6) Vertex 7 \u2192 color 1\n7) Its neighbors must be different colors:\n   - Vertex 1 \u2192 color 2\n   - Vertex 5 \u2192 color 3\n   - Vertex 9 \u2192 color 2\n   - Vertex 14 \u2192 color 2\n8) Continue with remaining vertices ensuring no adjacent vertices share colors\n9) Fill in remaining vertices with any valid color\n\n<answer>{\"0\": 1, \"1\": 2, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 3, \"6\": 1, \"7\": 1, \"8\": 3, \"9\": 2, \"10\": 2, \"11\": 1, \"12\": 3, \"13\": 1, \"14\": 2, \"15\": 2, \"16\": 1}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]\nEdges: [(1, 6), (1, 9), (2, 9), (2, 12), (3, 4), (5, 11), (6, 8), (6, 12)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 1, \"6\": 2, \"7\": 1, \"8\": 1, \"9\": 3, \"10\": 1, \"11\": 2, \"12\": 3}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices that are connected:\n   - 1 is connected to 6 and 9\n   - 2 is connected to 9 and 12\n   - 3 is connected to 4\n   - 5 is connected to 11\n   - 6 is connected to 1, 8, and 12\n   - 8 is connected to 6\n   - 9 is connected to 1 and 2\n   - 11 is connected to 5\n   - 12 is connected to 2 and 6\n\n2) Vertices 0, 7, and 10 are not connected to any other vertices.\n\n3) Let's assign colors:\n   - Isolated vertices (0, 7, 10) can all be color 1\n   - For connected components:\n     - 1: color 1\n     - 6: color 2\n     - 8: color 1\n     - 9: color 3\n     - 2: color 1\n     - 12: color 3\n     - 3: color 1\n     - 4: color 2\n     - 5: color 1\n     - 11: color 2\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 1, \"6\": 2, \"7\": 1, \"8\": 1, \"9\": 3, \"10\": 1, \"11\": 2, \"12\": 3}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 1, \"6\": 2, \"7\": 1, \"8\": 1, \"9\": 3, \"10\": 1, \"11\": 2, \"12\": 3}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices that are connected:\n   - 1 is connected to 6 and 9\n   - 2 is connected to 9 and 12\n   - 3 is connected to 4\n   - 5 is connected to 11\n   - 6 is connected to 1, 8, and 12\n   - 8 is connected to 6\n   - 9 is connected to 1 and 2\n   - 11 is connected to 5\n   - 12 is connected to 2 and 6\n\n2) Vertices 0, 7, and 10 are not connected to any other vertices.\n\n3) Let's assign colors:\n   - Isolated vertices (0, 7, 10) can all be color 1\n   - For connected components:\n     - 1: color 1\n     - 6: color 2\n     - 8: color 1\n     - 9: color 3\n     - 2: color 1\n     - 12: color 3\n     - 3: color 1\n     - 4: color 2\n     - 5: color 1\n     - 11: color 2\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 1, \"6\": 2, \"7\": 1, \"8\": 1, \"9\": 3, \"10\": 1, \"11\": 2, \"12\": 3}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]\nEdges: [(0, 1), (0, 13), (1, 3), (1, 4), (2, 11), (3, 7), (3, 8), (6, 13), (7, 13), (8, 9), (10, 11)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 3, \"1\": 1, \"2\": 1, \"3\": 2, \"4\": 2, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 1, \"9\": 2, \"10\": 1, \"11\": 2, \"12\": 1, \"13\": 2}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let me identify vertices with most connections:\n   - Vertex 1 has 3 connections (0, 3, 4)\n   - Vertex 3 has 3 connections (1, 7, 8)\n   - Vertex 13 has 3 connections (0, 6, 7)\n   Others have 1-2 connections\n\n2) Starting with high-degree vertices:\n   - Give vertex 1 color 1\n   - Its neighbors (0, 3, 4) must be different colors\n   - Give vertex 13 color 2\n   - Its neighbors (0, 6, 7) must avoid color 2\n\n3) Continue assigning colors ensuring no adjacent vertices share colors:\n   - Can use minimum colors while maintaining constraints\n   - Many vertices have only 1 connection, so they're easy to color\n\n4) After working through all constraints, a valid coloring is found.\n\n<answer>{\"0\": 3, \"1\": 1, \"2\": 1, \"3\": 2, \"4\": 2, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 1, \"9\": 2, \"10\": 1, \"11\": 2, \"12\": 1, \"13\": 2}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 3, \"1\": 1, \"2\": 1, \"3\": 2, \"4\": 2, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 1, \"9\": 2, \"10\": 1, \"11\": 2, \"12\": 1, \"13\": 2}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let me identify vertices with most connections:\n   - Vertex 1 has 3 connections (0, 3, 4)\n   - Vertex 3 has 3 connections (1, 7, 8)\n   - Vertex 13 has 3 connections (0, 6, 7)\n   Others have 1-2 connections\n\n2) Starting with high-degree vertices:\n   - Give vertex 1 color 1\n   - Its neighbors (0, 3, 4) must be different colors\n   - Give vertex 13 color 2\n   - Its neighbors (0, 6, 7) must avoid color 2\n\n3) Continue assigning colors ensuring no adjacent vertices share colors:\n   - Can use minimum colors while maintaining constraints\n   - Many vertices have only 1 connection, so they're easy to color\n\n4) After working through all constraints, a valid coloring is found.\n\n<answer>{\"0\": 3, \"1\": 1, \"2\": 1, \"3\": 2, \"4\": 2, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 1, \"9\": 2, \"10\": 1, \"11\": 2, \"12\": 1, \"13\": 2}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]\nEdges: [(0, 8), (0, 15), (0, 16), (1, 17), (2, 8), (2, 10), (2, 16), (3, 14), (3, 16), (5, 11), (5, 13), (6, 16), (7, 9), (8, 14), (9, 11), (9, 12), (9, 16), (10, 18), (11, 16)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 2, \"1\": 1, \"2\": 3, \"3\": 2, \"4\": 1, \"5\": 2, \"6\": 2, \"7\": 2, \"8\": 1, \"9\": 3, \"10\": 1, \"11\": 4, \"12\": 1, \"13\": 1, \"14\": 3, \"15\": 1, \"16\": 1, \"17\": 2, \"18\": 2}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let me identify vertices with most connections:\n   - Vertex 16 has most connections (6 edges)\n   - Vertex 9 has 4 edges\n   - Vertex 8 has 3 edges\n\n2) Let's start with vertex 16 since it's most constrained:\n   - Give it color 1\n\n3) All vertices connected to 16 must be different colors:\n   - 0, 2, 3, 6, 9, 11 need different colors from 1\n\n4) Moving to other vertices:\n   - Color vertices connected to 16 with colors 2, 3, and 4\n   - Then color remaining vertices ensuring no adjacent vertices share colors\n\n5) Working through all vertices, ensuring no conflicts\n\n<answer>{\"0\": 2, \"1\": 1, \"2\": 3, \"3\": 2, \"4\": 1, \"5\": 2, \"6\": 2, \"7\": 2, \"8\": 1, \"9\": 3, \"10\": 1, \"11\": 4, \"12\": 1, \"13\": 1, \"14\": 3, \"15\": 1, \"16\": 1, \"17\": 2, \"18\": 2}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 2, \"1\": 1, \"2\": 3, \"3\": 2, \"4\": 1, \"5\": 2, \"6\": 2, \"7\": 2, \"8\": 1, \"9\": 3, \"10\": 1, \"11\": 4, \"12\": 1, \"13\": 1, \"14\": 3, \"15\": 1, \"16\": 1, \"17\": 2, \"18\": 2}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let me identify vertices with most connections:\n   - Vertex 16 has most connections (6 edges)\n   - Vertex 9 has 4 edges\n   - Vertex 8 has 3 edges\n\n2) Let's start with vertex 16 since it's most constrained:\n   - Give it color 1\n\n3) All vertices connected to 16 must be different colors:\n   - 0, 2, 3, 6, 9, 11 need different colors from 1\n\n4) Moving to other vertices:\n   - Color vertices connected to 16 with colors 2, 3, and 4\n   - Then color remaining vertices ensuring no adjacent vertices share colors\n\n5) Working through all vertices, ensuring no conflicts\n\n<answer>{\"0\": 2, \"1\": 1, \"2\": 3, \"3\": 2, \"4\": 1, \"5\": 2, \"6\": 2, \"7\": 2, \"8\": 1, \"9\": 3, \"10\": 1, \"11\": 4, \"12\": 1, \"13\": 1, \"14\": 3, \"15\": 1, \"16\": 1, \"17\": 2, \"18\": 2}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]\nEdges: [(1, 5), (1, 10), (2, 6), (2, 9), (3, 8)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 2, \"6\": 2, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 2, \"11\": 1}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify the connected components:\n   - Component 1: 1-5-10\n   - Component 2: 2-6-9\n   - Component 3: 3-8\n   - Isolated vertices: 0, 4, 7, 11\n\n2) For each component:\n   - Component 1: Can use color 1 for vertex 1, color 2 for vertices 5 and 10\n   - Component 2: Can use color 1 for vertex 2, color 2 for vertices 6 and 9\n   - Component 3: Can use color 1 for vertex 3, color 2 for vertex 8\n\n3) For isolated vertices:\n   - Can use color 1 for all of them as they don't connect to anything\n\n4) Combining all assignments into a map\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 2, \"6\": 2, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 2, \"11\": 1}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 2, \"6\": 2, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 2, \"11\": 1}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify the connected components:\n   - Component 1: 1-5-10\n   - Component 2: 2-6-9\n   - Component 3: 3-8\n   - Isolated vertices: 0, 4, 7, 11\n\n2) For each component:\n   - Component 1: Can use color 1 for vertex 1, color 2 for vertices 5 and 10\n   - Component 2: Can use color 1 for vertex 2, color 2 for vertices 6 and 9\n   - Component 3: Can use color 1 for vertex 3, color 2 for vertex 8\n\n3) For isolated vertices:\n   - Can use color 1 for all of them as they don't connect to anything\n\n4) Combining all assignments into a map\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 2, \"6\": 2, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 2, \"11\": 1}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nEdges: [(0, 5), (0, 7), (1, 9), (2, 5), (2, 9), (3, 9), (7, 10), (8, 9)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 2, \"2\": 3, \"3\": 2, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 2, \"9\": 1, \"10\": 1}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let's identify the vertices with most connections:\n   - Vertex 9 has 4 connections (1, 2, 3, 8)\n   - Vertex 0 has 2 connections (5, 7)\n   - Vertex 2 has 2 connections (5, 9)\n   - Others have 1 or fewer connections\n\n2) Start with vertex 9 since it has most connections:\n   - Assign color 1 to vertex 9\n   - Its neighbors (1, 2, 3, 8) must have different colors\n   - Can assign color 2 to vertices 1, 3, 8\n   - Assign color 3 to vertex 2\n\n3) For vertex 0 and its connections:\n   - Can assign color 1 to vertex 0\n   - Assign color 2 to vertices 5, 7\n\n4) For remaining vertex 10:\n   - Connected to 7 (color 2)\n   - Can assign color 1\n\n5) For vertex 4 and 6:\n   - No connections\n   - Can assign color 1\n\n<answer>{\"0\": 1, \"1\": 2, \"2\": 3, \"3\": 2, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 2, \"9\": 1, \"10\": 1}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 2, \"2\": 3, \"3\": 2, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 2, \"9\": 1, \"10\": 1}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let's identify the vertices with most connections:\n   - Vertex 9 has 4 connections (1, 2, 3, 8)\n   - Vertex 0 has 2 connections (5, 7)\n   - Vertex 2 has 2 connections (5, 9)\n   - Others have 1 or fewer connections\n\n2) Start with vertex 9 since it has most connections:\n   - Assign color 1 to vertex 9\n   - Its neighbors (1, 2, 3, 8) must have different colors\n   - Can assign color 2 to vertices 1, 3, 8\n   - Assign color 3 to vertex 2\n\n3) For vertex 0 and its connections:\n   - Can assign color 1 to vertex 0\n   - Assign color 2 to vertices 5, 7\n\n4) For remaining vertex 10:\n   - Connected to 7 (color 2)\n   - Can assign color 1\n\n5) For vertex 4 and 6:\n   - No connections\n   - Can assign color 1\n\n<answer>{\"0\": 1, \"1\": 2, \"2\": 3, \"3\": 2, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 2, \"9\": 1, \"10\": 1}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]\nEdges: [(0, 1), (0, 7), (0, 12), (0, 14), (1, 5), (2, 5), (2, 10), (3, 12), (4, 5), (4, 16), (5, 13), (5, 14), (6, 7), (8, 16), (15, 17)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 2, \"1\": 3, \"2\": 2, \"3\": 1, \"4\": 2, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 1, \"9\": 1, \"10\": 1, \"11\": 1, \"12\": 3, \"13\": 2, \"14\": 3, \"15\": 1, \"16\": 3, \"17\": 2}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let's identify vertices with highest degree (most connections):\n   - Vertex 5 has 5 connections\n   - Vertex 0 has 4 connections\n   These will be critical to color first\n\n2) Let's start with vertex 5:\n   - Color 5 with color 1\n   - Its neighbors (1, 2, 4, 13, 14) must be different colors\n\n3) For vertex 0:\n   - Can use color 2\n   - Its neighbors (1, 7, 12, 14) must be different colors\n\n4) For remaining vertices:\n   - Can assign colors ensuring no adjacent vertices have same color\n   - Many vertices have only one connection, making them easy to color\n\n5) Working through all vertices, ensuring no conflicts:\n   - Isolated vertices can take any color\n\n<answer>{\"0\": 2, \"1\": 3, \"2\": 2, \"3\": 1, \"4\": 2, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 1, \"9\": 1, \"10\": 1, \"11\": 1, \"12\": 3, \"13\": 2, \"14\": 3, \"15\": 1, \"16\": 3, \"17\": 2}</answer>",
+      "best_score": 0.01,
+      "mean_score": 0.01,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 2, \"1\": 3, \"2\": 2, \"3\": 1, \"4\": 2, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 1, \"9\": 1, \"10\": 1, \"11\": 1, \"12\": 3, \"13\": 2, \"14\": 3, \"15\": 1, \"16\": 3, \"17\": 2}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let's identify vertices with highest degree (most connections):\n   - Vertex 5 has 5 connections\n   - Vertex 0 has 4 connections\n   These will be critical to color first\n\n2) Let's start with vertex 5:\n   - Color 5 with color 1\n   - Its neighbors (1, 2, 4, 13, 14) must be different colors\n\n3) For vertex 0:\n   - Can use color 2\n   - Its neighbors (1, 7, 12, 14) must be different colors\n\n4) For remaining vertices:\n   - Can assign colors ensuring no adjacent vertices have same color\n   - Many vertices have only one connection, making them easy to color\n\n5) Working through all vertices, ensuring no conflicts:\n   - Isolated vertices can take any color\n\n<answer>{\"0\": 2, \"1\": 3, \"2\": 2, \"3\": 1, \"4\": 2, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 1, \"9\": 1, \"10\": 1, \"11\": 1, \"12\": 3, \"13\": 2, \"14\": 3, \"15\": 1, \"16\": 3, \"17\": 2}</answer>",
+          "score": 0.01
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\nEdges: [(5, 7), (5, 9)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 1, \"7\": 2, \"8\": 1, \"9\": 2}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify which vertices are connected:\n   * Vertex 5 is connected to 7 and 9\n   * All other vertices are isolated\n\n2) For vertex 5 and its neighbors:\n   * Assign color 1 to vertex 5\n   * Assign color 2 to vertex 7\n   * Assign color 2 to vertex 9\n\n3) For all isolated vertices (0,1,2,3,4,6,8):\n   * Can assign any color, let's use color 1 for simplicity\n\n4) Create the JSON map with all assignments\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 1, \"7\": 2, \"8\": 1, \"9\": 2}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 1, \"7\": 2, \"8\": 1, \"9\": 2}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify which vertices are connected:\n   * Vertex 5 is connected to 7 and 9\n   * All other vertices are isolated\n\n2) For vertex 5 and its neighbors:\n   * Assign color 1 to vertex 5\n   * Assign color 2 to vertex 7\n   * Assign color 2 to vertex 9\n\n3) For all isolated vertices (0,1,2,3,4,6,8):\n   * Can assign any color, let's use color 1 for simplicity\n\n4) Create the JSON map with all assignments\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 1, \"7\": 2, \"8\": 1, \"9\": 2}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]\nEdges: [(0, 14), (1, 3), (1, 13), (1, 18), (2, 5), (2, 18), (3, 5), (3, 13), (3, 14), (3, 17), (4, 6), (4, 7), (4, 17), (5, 17), (6, 8), (6, 12), (9, 13), (10, 11), (13, 14), (13, 17), (16, 18)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 3, \"2\": 2, \"3\": 2, \"4\": 1, \"5\": 1, \"6\": 1, \"7\": 2, \"8\": 2, \"9\": 2, \"10\": 1, \"11\": 2, \"12\": 2, \"13\": 1, \"14\": 3, \"15\": 1, \"16\": 2, \"17\": 3, \"18\": 1}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with highest degrees:\n   - Vertex 13 has 5 connections\n   - Vertex 3 has 5 connections\n   - Vertex 17 has 4 connections\n\n2) Start with these high-degree vertices:\n   - Assign color 1 to vertex 13\n   - Assign color 2 to vertex 3\n   - Assign color 3 to vertex 17\n\n3) Continue with connected vertices:\n   - Vertex 14 connected to 13, 3, 0 \u2192 color 3\n   - Vertex 1 connected to 13, 3, 18 \u2192 color 3\n   - Vertex 18 connected to 1, 2, 16 \u2192 color 1\n   - Vertex 5 connected to 2, 3, 17 \u2192 color 1\n\n4) Fill in remaining vertices with any valid color:\n   - Remaining vertices can mostly use color 1 if not adjacent to color 1 vertices\n\n<answer>{\"0\": 1, \"1\": 3, \"2\": 2, \"3\": 2, \"4\": 1, \"5\": 1, \"6\": 1, \"7\": 2, \"8\": 2, \"9\": 2, \"10\": 1, \"11\": 2, \"12\": 2, \"13\": 1, \"14\": 3, \"15\": 1, \"16\": 2, \"17\": 3, \"18\": 1}</answer>",
+      "best_score": 0.01,
+      "mean_score": 0.01,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 3, \"2\": 2, \"3\": 2, \"4\": 1, \"5\": 1, \"6\": 1, \"7\": 2, \"8\": 2, \"9\": 2, \"10\": 1, \"11\": 2, \"12\": 2, \"13\": 1, \"14\": 3, \"15\": 1, \"16\": 2, \"17\": 3, \"18\": 1}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with highest degrees:\n   - Vertex 13 has 5 connections\n   - Vertex 3 has 5 connections\n   - Vertex 17 has 4 connections\n\n2) Start with these high-degree vertices:\n   - Assign color 1 to vertex 13\n   - Assign color 2 to vertex 3\n   - Assign color 3 to vertex 17\n\n3) Continue with connected vertices:\n   - Vertex 14 connected to 13, 3, 0 \u2192 color 3\n   - Vertex 1 connected to 13, 3, 18 \u2192 color 3\n   - Vertex 18 connected to 1, 2, 16 \u2192 color 1\n   - Vertex 5 connected to 2, 3, 17 \u2192 color 1\n\n4) Fill in remaining vertices with any valid color:\n   - Remaining vertices can mostly use color 1 if not adjacent to color 1 vertices\n\n<answer>{\"0\": 1, \"1\": 3, \"2\": 2, \"3\": 2, \"4\": 1, \"5\": 1, \"6\": 1, \"7\": 2, \"8\": 2, \"9\": 2, \"10\": 1, \"11\": 2, \"12\": 2, \"13\": 1, \"14\": 3, \"15\": 1, \"16\": 2, \"17\": 3, \"18\": 1}</answer>",
+          "score": 0.01
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]\nEdges: [(0, 1), (0, 6), (1, 10), (1, 12), (2, 4), (2, 6), (3, 6), (3, 7), (7, 9), (8, 11)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 2, \"1\": 3, \"2\": 3, \"3\": 4, \"4\": 1, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 1, \"9\": 2, \"10\": 3, \"11\": 2, \"12\": 4}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let's identify vertices with the most connections:\n   - Vertex 6 has 3 connections (0, 2, 3)\n   - Vertex 1 has 3 connections (0, 10, 12)\n   - Others have 1-2 connections\n\n2) Let's start with vertex 6 and color it 1\n   Then its neighbors must be different colors:\n   - 0 can be 2\n   - 2 can be 3\n   - 3 can be 4\n\n3) For vertex 1's connections:\n   - 0 is already 2\n   - 10 can be 3\n   - 12 can be 4\n\n4) For remaining vertices:\n   - 4 (connected to 2) can be 1\n   - 7 (connected to 3) can be 1\n   - 9 (connected to 7) can be 2\n   - 8 (connected to 11) can be 1\n   - 11 can be 2\n\n<answer>{\"0\": 2, \"1\": 3, \"2\": 3, \"3\": 4, \"4\": 1, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 1, \"9\": 2, \"10\": 3, \"11\": 2, \"12\": 4}</answer>",
+      "best_score": 0.01,
+      "mean_score": 0.01,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 2, \"1\": 3, \"2\": 3, \"3\": 4, \"4\": 1, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 1, \"9\": 2, \"10\": 3, \"11\": 2, \"12\": 4}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let's identify vertices with the most connections:\n   - Vertex 6 has 3 connections (0, 2, 3)\n   - Vertex 1 has 3 connections (0, 10, 12)\n   - Others have 1-2 connections\n\n2) Let's start with vertex 6 and color it 1\n   Then its neighbors must be different colors:\n   - 0 can be 2\n   - 2 can be 3\n   - 3 can be 4\n\n3) For vertex 1's connections:\n   - 0 is already 2\n   - 10 can be 3\n   - 12 can be 4\n\n4) For remaining vertices:\n   - 4 (connected to 2) can be 1\n   - 7 (connected to 3) can be 1\n   - 9 (connected to 7) can be 2\n   - 8 (connected to 11) can be 1\n   - 11 can be 2\n\n<answer>{\"0\": 2, \"1\": 3, \"2\": 3, \"3\": 4, \"4\": 1, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 1, \"9\": 2, \"10\": 3, \"11\": 2, \"12\": 4}</answer>",
+          "score": 0.01
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]\nEdges: [(0, 7), (0, 9), (0, 12), (1, 11), (2, 8), (3, 10), (3, 12), (3, 13), (4, 6), (5, 10), (5, 13), (6, 12), (7, 12)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 2, \"1\": 3, \"2\": 2, \"3\": 3, \"4\": 1, \"5\": 3, \"6\": 4, \"7\": 3, \"8\": 1, \"9\": 1, \"10\": 1, \"11\": 1, \"12\": 1, \"13\": 2}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let's identify vertices with most connections:\n   - Vertex 12 has 4 connections (0, 3, 6, 7)\n   - Vertex 13 has 2 connections (3, 5)\n   - Most other vertices have 1-2 connections\n\n2) Let's start with vertex 12 since it has most connections:\n   - Give vertex 12 color 1\n   - Its neighbors (0, 3, 6, 7) must have different colors\n\n3) Color vertex 12's neighbors:\n   - 0 \u2192 color 2\n   - 3 \u2192 color 3\n   - 6 \u2192 color 4\n   - 7 \u2192 color 3\n\n4) Continue with remaining vertices:\n   - 9 (connected to 0) \u2192 color 1\n   - 11 (connected to 1) \u2192 color 1\n   - 8 (connected to 2) \u2192 color 1\n   - 10 (connected to 3,5) \u2192 color 1\n   - 13 (connected to 3,5) \u2192 color 2\n   - 4 (connected to 6) \u2192 color 1\n   - 5 (connected to 10,13) \u2192 color 3\n   - 1 \u2192 color 3\n   - 2 \u2192 color 2\n\n<answer>{\"0\": 2, \"1\": 3, \"2\": 2, \"3\": 3, \"4\": 1, \"5\": 3, \"6\": 4, \"7\": 3, \"8\": 1, \"9\": 1, \"10\": 1, \"11\": 1, \"12\": 1, \"13\": 2}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 2, \"1\": 3, \"2\": 2, \"3\": 3, \"4\": 1, \"5\": 3, \"6\": 4, \"7\": 3, \"8\": 1, \"9\": 1, \"10\": 1, \"11\": 1, \"12\": 1, \"13\": 2}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let's identify vertices with most connections:\n   - Vertex 12 has 4 connections (0, 3, 6, 7)\n   - Vertex 13 has 2 connections (3, 5)\n   - Most other vertices have 1-2 connections\n\n2) Let's start with vertex 12 since it has most connections:\n   - Give vertex 12 color 1\n   - Its neighbors (0, 3, 6, 7) must have different colors\n\n3) Color vertex 12's neighbors:\n   - 0 \u2192 color 2\n   - 3 \u2192 color 3\n   - 6 \u2192 color 4\n   - 7 \u2192 color 3\n\n4) Continue with remaining vertices:\n   - 9 (connected to 0) \u2192 color 1\n   - 11 (connected to 1) \u2192 color 1\n   - 8 (connected to 2) \u2192 color 1\n   - 10 (connected to 3,5) \u2192 color 1\n   - 13 (connected to 3,5) \u2192 color 2\n   - 4 (connected to 6) \u2192 color 1\n   - 5 (connected to 10,13) \u2192 color 3\n   - 1 \u2192 color 3\n   - 2 \u2192 color 2\n\n<answer>{\"0\": 2, \"1\": 3, \"2\": 2, \"3\": 3, \"4\": 1, \"5\": 3, \"6\": 4, \"7\": 3, \"8\": 1, \"9\": 1, \"10\": 1, \"11\": 1, \"12\": 1, \"13\": 2}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]\nEdges: [(0, 6), (0, 8), (0, 12), (0, 14), (0, 16), (2, 7), (2, 9), (3, 8), (3, 14), (4, 13), (5, 7), (5, 14), (9, 13)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 2, \"7\": 2, \"8\": 2, \"9\": 1, \"10\": 1, \"11\": 1, \"12\": 2, \"13\": 2, \"14\": 2, \"15\": 1, \"16\": 2}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let's identify vertices with most connections:\n   - Vertex 0 has 5 connections\n   - Vertex 14 has 3 connections\n   - Others have 1-2 connections\n\n2) Start with vertex 0:\n   - Give it color 1\n   - All connected vertices (6,8,12,14,16) must be different\n\n3) For vertex 14's connections:\n   - 14 can be color 2\n   - 3, 5, 0 must be different colors\n\n4) For remaining vertices:\n   - Can assign colors freely as long as connected vertices differ\n   - Many vertices have no connections, can be any color\n\n5) Working through remaining connected vertices:\n   - Ensure 9-13, 2-7, 5-7 have different colors\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 2, \"7\": 2, \"8\": 2, \"9\": 1, \"10\": 1, \"11\": 1, \"12\": 2, \"13\": 2, \"14\": 2, \"15\": 1, \"16\": 2}</answer>",
+      "best_score": 0.01,
+      "mean_score": 0.01,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 2, \"7\": 2, \"8\": 2, \"9\": 1, \"10\": 1, \"11\": 1, \"12\": 2, \"13\": 2, \"14\": 2, \"15\": 1, \"16\": 2}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let's identify vertices with most connections:\n   - Vertex 0 has 5 connections\n   - Vertex 14 has 3 connections\n   - Others have 1-2 connections\n\n2) Start with vertex 0:\n   - Give it color 1\n   - All connected vertices (6,8,12,14,16) must be different\n\n3) For vertex 14's connections:\n   - 14 can be color 2\n   - 3, 5, 0 must be different colors\n\n4) For remaining vertices:\n   - Can assign colors freely as long as connected vertices differ\n   - Many vertices have no connections, can be any color\n\n5) Working through remaining connected vertices:\n   - Ensure 9-13, 2-7, 5-7 have different colors\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 2, \"7\": 2, \"8\": 2, \"9\": 1, \"10\": 1, \"11\": 1, \"12\": 2, \"13\": 2, \"14\": 2, \"15\": 1, \"16\": 2}</answer>",
+          "score": 0.01
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]\nEdges: [(1, 3), (2, 5), (3, 8), (3, 9), (4, 15), (5, 11), (5, 16), (5, 18), (6, 10), (8, 9), (8, 12), (10, 16), (16, 17)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 1, \"2\": 2, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 3, \"10\": 2, \"11\": 2, \"12\": 1, \"13\": 1, \"14\": 1, \"15\": 2, \"16\": 3, \"17\": 1, \"18\": 2}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with no connections (isolated):\n   0, 7, 13, 14 can be any color (let's use 1)\n\n2) Looking at the most connected vertices:\n   - Vertex 5 connects to 2, 11, 16, 18\n   - Vertex 3 connects to 1, 8, 9\n   - Vertex 8 connects to 3, 9, 12\n   - Vertex 16 connects to 5, 10, 17\n\n3) Let's color starting with most connected:\n   - Color 5 with 1\n   - Its neighbors (2,11,16,18) can't be 1, give them different colors\n   - Continue with remaining vertices ensuring no adjacent same colors\n\n4) After working through all connections, ensuring no adjacent vertices share colors:\n   - Can use minimum colors while satisfying constraints\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 2, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 3, \"10\": 2, \"11\": 2, \"12\": 1, \"13\": 1, \"14\": 1, \"15\": 2, \"16\": 3, \"17\": 1, \"18\": 2}</answer>",
+      "best_score": 0.01,
+      "mean_score": 0.01,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 1, \"2\": 2, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 3, \"10\": 2, \"11\": 2, \"12\": 1, \"13\": 1, \"14\": 1, \"15\": 2, \"16\": 3, \"17\": 1, \"18\": 2}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with no connections (isolated):\n   0, 7, 13, 14 can be any color (let's use 1)\n\n2) Looking at the most connected vertices:\n   - Vertex 5 connects to 2, 11, 16, 18\n   - Vertex 3 connects to 1, 8, 9\n   - Vertex 8 connects to 3, 9, 12\n   - Vertex 16 connects to 5, 10, 17\n\n3) Let's color starting with most connected:\n   - Color 5 with 1\n   - Its neighbors (2,11,16,18) can't be 1, give them different colors\n   - Continue with remaining vertices ensuring no adjacent same colors\n\n4) After working through all connections, ensuring no adjacent vertices share colors:\n   - Can use minimum colors while satisfying constraints\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 2, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 3, \"10\": 2, \"11\": 2, \"12\": 1, \"13\": 1, \"14\": 1, \"15\": 2, \"16\": 3, \"17\": 1, \"18\": 2}</answer>",
+          "score": 0.01
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]\nEdges: [(0, 6), (0, 12), (1, 3), (1, 4), (1, 14), (2, 5), (2, 8), (2, 11), (2, 12), (2, 13), (3, 6), (4, 13), (5, 13), (6, 10), (8, 12), (9, 13), (11, 14), (12, 16)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 2, \"4\": 2, \"5\": 2, \"6\": 2, \"7\": 1, \"8\": 2, \"9\": 1, \"10\": 1, \"11\": 2, \"12\": 2, \"13\": 2, \"14\": 3, \"15\": 1, \"16\": 1}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with most connections to prioritize their coloring\n2) Vertex 2 has 5 connections (5, 8, 11, 12, 13)\n3) Vertex 13 has 4 connections (2, 4, 5, 9)\n4) Vertex 12 has 4 connections (0, 2, 8, 16)\n5) Start with vertex 2, assign color 1\n6) Its neighbors must have different colors:\n   - 5: color 2\n   - 8: color 2\n   - 11: color 2\n   - 12: color 2\n   - 13: color 2\n7) Continue with remaining vertices ensuring no adjacent vertices share colors\n8) Fill in remaining vertices with any valid color\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 2, \"4\": 2, \"5\": 2, \"6\": 2, \"7\": 1, \"8\": 2, \"9\": 1, \"10\": 1, \"11\": 2, \"12\": 2, \"13\": 2, \"14\": 3, \"15\": 1, \"16\": 1}</answer>",
+      "best_score": 0.01,
+      "mean_score": 0.01,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 2, \"4\": 2, \"5\": 2, \"6\": 2, \"7\": 1, \"8\": 2, \"9\": 1, \"10\": 1, \"11\": 2, \"12\": 2, \"13\": 2, \"14\": 3, \"15\": 1, \"16\": 1}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with most connections to prioritize their coloring\n2) Vertex 2 has 5 connections (5, 8, 11, 12, 13)\n3) Vertex 13 has 4 connections (2, 4, 5, 9)\n4) Vertex 12 has 4 connections (0, 2, 8, 16)\n5) Start with vertex 2, assign color 1\n6) Its neighbors must have different colors:\n   - 5: color 2\n   - 8: color 2\n   - 11: color 2\n   - 12: color 2\n   - 13: color 2\n7) Continue with remaining vertices ensuring no adjacent vertices share colors\n8) Fill in remaining vertices with any valid color\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 2, \"4\": 2, \"5\": 2, \"6\": 2, \"7\": 1, \"8\": 2, \"9\": 1, \"10\": 1, \"11\": 2, \"12\": 2, \"13\": 2, \"14\": 3, \"15\": 1, \"16\": 1}</answer>",
+          "score": 0.01
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]\nEdges: [(0, 13), (0, 16), (1, 10), (1, 11), (2, 7), (4, 9), (4, 10), (5, 8), (5, 12), (7, 8), (7, 9), (9, 14), (10, 11)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 1, \"2\": 2, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 3, \"9\": 2, \"10\": 3, \"11\": 2, \"12\": 2, \"13\": 2, \"14\": 1, \"15\": 1, \"16\": 2}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let me identify vertices with multiple connections:\n   - Vertex 0: connects to 13, 16\n   - Vertex 1: connects to 10, 11\n   - Vertex 4: connects to 9, 10\n   - Vertex 5: connects to 8, 12\n   - Vertex 7: connects to 2, 8, 9\n   - Vertex 9: connects to 4, 7, 14\n   - Vertex 10: connects to 1, 4, 11\n\n2) Let me start coloring vertices with most connections first:\n   - Vertex 7 (3 connections): color 1\n   - Vertex 9 (3 connections): color 2\n   - Vertex 10 (3 connections): color 3\n\n3) Then work through the rest ensuring no adjacent vertices share colors:\n   - Vertex 0: color 1\n   - Vertex 1: color 1\n   - Vertex 2: color 2\n   - Vertex 4: color 1\n   - Vertex 5: color 1\n   - Vertex 8: color 3\n   - Vertex 11: color 2\n   - Vertex 12: color 2\n   - Vertex 13: color 2\n   - Vertex 14: color 1\n   - Vertex 16: color 2\n   - Vertex 3: color 1 (no connections)\n   - Vertex 6: color 1 (no connections)\n   - Vertex 15: color 1 (no connections)\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 2, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 3, \"9\": 2, \"10\": 3, \"11\": 2, \"12\": 2, \"13\": 2, \"14\": 1, \"15\": 1, \"16\": 2}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 1, \"2\": 2, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 3, \"9\": 2, \"10\": 3, \"11\": 2, \"12\": 2, \"13\": 2, \"14\": 1, \"15\": 1, \"16\": 2}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let me identify vertices with multiple connections:\n   - Vertex 0: connects to 13, 16\n   - Vertex 1: connects to 10, 11\n   - Vertex 4: connects to 9, 10\n   - Vertex 5: connects to 8, 12\n   - Vertex 7: connects to 2, 8, 9\n   - Vertex 9: connects to 4, 7, 14\n   - Vertex 10: connects to 1, 4, 11\n\n2) Let me start coloring vertices with most connections first:\n   - Vertex 7 (3 connections): color 1\n   - Vertex 9 (3 connections): color 2\n   - Vertex 10 (3 connections): color 3\n\n3) Then work through the rest ensuring no adjacent vertices share colors:\n   - Vertex 0: color 1\n   - Vertex 1: color 1\n   - Vertex 2: color 2\n   - Vertex 4: color 1\n   - Vertex 5: color 1\n   - Vertex 8: color 3\n   - Vertex 11: color 2\n   - Vertex 12: color 2\n   - Vertex 13: color 2\n   - Vertex 14: color 1\n   - Vertex 16: color 2\n   - Vertex 3: color 1 (no connections)\n   - Vertex 6: color 1 (no connections)\n   - Vertex 15: color 1 (no connections)\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 2, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 3, \"9\": 2, \"10\": 3, \"11\": 2, \"12\": 2, \"13\": 2, \"14\": 1, \"15\": 1, \"16\": 2}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]\nEdges: [(1, 15), (2, 4), (2, 9), (2, 11), (4, 8), (5, 10), (7, 10), (7, 11), (10, 12)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 1, \"9\": 2, \"10\": 1, \"11\": 2, \"12\": 2, \"13\": 1, \"14\": 1, \"15\": 2}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let's identify vertices with the most connections:\n   - Vertex 2 has 3 connections (4, 9, 11)\n   - Vertex 10 has 3 connections (5, 7, 12)\n   - Others have 1-2 connections\n\n2) Let's start coloring from vertex 2:\n   - Color 2 with color 1\n   - Its neighbors (4, 9, 11) must be different colors\n\n3) For vertex 10:\n   - Can use color 1 as it's not connected to vertex 2\n   - Its neighbors (5, 7, 12) must be different colors\n\n4) For remaining vertices:\n   - Can assign any color that doesn't conflict with neighbors\n   - Many vertices (0, 3, 6, 13, 14) are isolated and can be color 1\n\n5) Complete the coloring ensuring no conflicts\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 1, \"9\": 2, \"10\": 1, \"11\": 2, \"12\": 2, \"13\": 1, \"14\": 1, \"15\": 2}</answer>",
+      "best_score": 0.01,
+      "mean_score": 0.01,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 1, \"9\": 2, \"10\": 1, \"11\": 2, \"12\": 2, \"13\": 1, \"14\": 1, \"15\": 2}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let's identify vertices with the most connections:\n   - Vertex 2 has 3 connections (4, 9, 11)\n   - Vertex 10 has 3 connections (5, 7, 12)\n   - Others have 1-2 connections\n\n2) Let's start coloring from vertex 2:\n   - Color 2 with color 1\n   - Its neighbors (4, 9, 11) must be different colors\n\n3) For vertex 10:\n   - Can use color 1 as it's not connected to vertex 2\n   - Its neighbors (5, 7, 12) must be different colors\n\n4) For remaining vertices:\n   - Can assign any color that doesn't conflict with neighbors\n   - Many vertices (0, 3, 6, 13, 14) are isolated and can be color 1\n\n5) Complete the coloring ensuring no conflicts\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 1, \"9\": 2, \"10\": 1, \"11\": 2, \"12\": 2, \"13\": 1, \"14\": 1, \"15\": 2}</answer>",
+          "score": 0.01
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nEdges: [(0, 7), (1, 10), (2, 6), (2, 7), (3, 8), (4, 8), (4, 9), (5, 9), (9, 10)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 2, \"1\": 1, \"2\": 3, \"3\": 3, \"4\": 2, \"5\": 3, \"6\": 1, \"7\": 1, \"8\": 1, \"9\": 1, \"10\": 4}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let me identify vertices with most connections:\n   - Vertex 9 has 3 connections (4, 5, 10)\n   - Vertex 7 has 2 connections (0, 2)\n   - Vertex 8 has 2 connections (3, 4)\n   - Others have 1 or 2 connections\n\n2) Let's start coloring from vertex 9:\n   - Give vertex 9 color 1\n   - Its neighbors (4, 5, 10) must be different colors\n\n3) Continue with other vertices:\n   - Vertex 4 can be color 2\n   - Vertex 5 can be color 3\n   - Vertex 10 can be color 4\n   - Vertex 1 (connected to 10) can be color 1\n   - Vertex 8 (connected to 4, 3) can be color 1\n   - Vertex 3 can be color 3\n   - Vertex 7 can be color 1\n   - Vertex 0 can be color 2\n   - Vertex 2 can be color 3\n   - Vertex 6 can be color 1\n\n<answer>{\"0\": 2, \"1\": 1, \"2\": 3, \"3\": 3, \"4\": 2, \"5\": 3, \"6\": 1, \"7\": 1, \"8\": 1, \"9\": 1, \"10\": 4}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 2, \"1\": 1, \"2\": 3, \"3\": 3, \"4\": 2, \"5\": 3, \"6\": 1, \"7\": 1, \"8\": 1, \"9\": 1, \"10\": 4}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let me identify vertices with most connections:\n   - Vertex 9 has 3 connections (4, 5, 10)\n   - Vertex 7 has 2 connections (0, 2)\n   - Vertex 8 has 2 connections (3, 4)\n   - Others have 1 or 2 connections\n\n2) Let's start coloring from vertex 9:\n   - Give vertex 9 color 1\n   - Its neighbors (4, 5, 10) must be different colors\n\n3) Continue with other vertices:\n   - Vertex 4 can be color 2\n   - Vertex 5 can be color 3\n   - Vertex 10 can be color 4\n   - Vertex 1 (connected to 10) can be color 1\n   - Vertex 8 (connected to 4, 3) can be color 1\n   - Vertex 3 can be color 3\n   - Vertex 7 can be color 1\n   - Vertex 0 can be color 2\n   - Vertex 2 can be color 3\n   - Vertex 6 can be color 1\n\n<answer>{\"0\": 2, \"1\": 1, \"2\": 3, \"3\": 3, \"4\": 2, \"5\": 3, \"6\": 1, \"7\": 1, \"8\": 1, \"9\": 1, \"10\": 4}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nEdges: [(5, 6), (5, 10), (7, 10)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 2, \"7\": 1, \"8\": 1, \"9\": 1, \"10\": 2}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, I notice that most vertices are isolated (not connected to any other vertex)\n   - Vertices 0,1,2,3,4,8,9 have no connections\n\n2) The only connected vertices are:\n   - 5 is connected to 6 and 10\n   - 7 is connected to 10\n   - 10 is connected to 5 and 7\n\n3) For the isolated vertices:\n   - I can assign color 1 to all of them as they don't affect each other\n\n4) For the connected component:\n   - Vertex 5 can be color 1\n   - Vertex 6 needs to be different from 5, so color 2\n   - Vertex 10 needs to be different from 5 and 7, so color 2\n   - Vertex 7 needs to be different from 10, so color 1\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 2, \"7\": 1, \"8\": 1, \"9\": 1, \"10\": 2}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 2, \"7\": 1, \"8\": 1, \"9\": 1, \"10\": 2}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, I notice that most vertices are isolated (not connected to any other vertex)\n   - Vertices 0,1,2,3,4,8,9 have no connections\n\n2) The only connected vertices are:\n   - 5 is connected to 6 and 10\n   - 7 is connected to 10\n   - 10 is connected to 5 and 7\n\n3) For the isolated vertices:\n   - I can assign color 1 to all of them as they don't affect each other\n\n4) For the connected component:\n   - Vertex 5 can be color 1\n   - Vertex 6 needs to be different from 5, so color 2\n   - Vertex 10 needs to be different from 5 and 7, so color 2\n   - Vertex 7 needs to be different from 10, so color 1\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 2, \"7\": 1, \"8\": 1, \"9\": 1, \"10\": 2}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]\nEdges: [(0, 15), (1, 4), (2, 11), (3, 5), (3, 10), (4, 14), (5, 15), (7, 10), (9, 11), (10, 11), (12, 14)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 1, \"2\": 3, \"3\": 1, \"4\": 2, \"5\": 3, \"6\": 1, \"7\": 3, \"8\": 1, \"9\": 4, \"10\": 2, \"11\": 1, \"12\": 2, \"13\": 1, \"14\": 1, \"15\": 2, \"16\": 1}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with the most connections to prioritize them:\n   - Vertex 11 has 3 connections (2, 9, 10)\n   - Vertex 10 has 3 connections (3, 7, 11)\n   - Others have 1-2 connections\n\n2) I'll start coloring from vertex 11:\n   - Color 11 with 1\n   - Its neighbors (2, 9, 10) must be different colors\n   - Color 10 with 2\n   - Color 2 with 3\n   - Color 9 with 4\n\n3) For vertex 10's other neighbors:\n   - Color 3 with 1\n   - Color 7 with 3\n\n4) Continue with remaining vertices:\n   - Color 0 with 1\n   - Color 15 with 2\n   - Color 5 with 3\n   - Color 1 with 1\n   - Color 4 with 2\n   - Color 14 with 1\n   - Color 12 with 2\n\n5) Remaining vertices can take any unused color:\n   - Color 6 with 1\n   - Color 8 with 1\n   - Color 13 with 1\n   - Color 16 with 1\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 3, \"3\": 1, \"4\": 2, \"5\": 3, \"6\": 1, \"7\": 3, \"8\": 1, \"9\": 4, \"10\": 2, \"11\": 1, \"12\": 2, \"13\": 1, \"14\": 1, \"15\": 2, \"16\": 1}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 1, \"2\": 3, \"3\": 1, \"4\": 2, \"5\": 3, \"6\": 1, \"7\": 3, \"8\": 1, \"9\": 4, \"10\": 2, \"11\": 1, \"12\": 2, \"13\": 1, \"14\": 1, \"15\": 2, \"16\": 1}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with the most connections to prioritize them:\n   - Vertex 11 has 3 connections (2, 9, 10)\n   - Vertex 10 has 3 connections (3, 7, 11)\n   - Others have 1-2 connections\n\n2) I'll start coloring from vertex 11:\n   - Color 11 with 1\n   - Its neighbors (2, 9, 10) must be different colors\n   - Color 10 with 2\n   - Color 2 with 3\n   - Color 9 with 4\n\n3) For vertex 10's other neighbors:\n   - Color 3 with 1\n   - Color 7 with 3\n\n4) Continue with remaining vertices:\n   - Color 0 with 1\n   - Color 15 with 2\n   - Color 5 with 3\n   - Color 1 with 1\n   - Color 4 with 2\n   - Color 14 with 1\n   - Color 12 with 2\n\n5) Remaining vertices can take any unused color:\n   - Color 6 with 1\n   - Color 8 with 1\n   - Color 13 with 1\n   - Color 16 with 1\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 3, \"3\": 1, \"4\": 2, \"5\": 3, \"6\": 1, \"7\": 3, \"8\": 1, \"9\": 4, \"10\": 2, \"11\": 1, \"12\": 2, \"13\": 1, \"14\": 1, \"15\": 2, \"16\": 1}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]\nEdges: [(0, 1), (0, 3), (0, 17), (1, 9), (1, 16), (2, 6), (3, 18), (4, 9), (5, 12), (5, 19), (7, 9), (7, 12), (8, 10), (9, 11), (9, 14), (10, 14), (10, 15), (11, 18), (12, 17), (13, 15), (17, 18)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 2, \"1\": 2, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 1, \"6\": 2, \"7\": 2, \"8\": 1, \"9\": 1, \"10\": 2, \"11\": 2, \"12\": 2, \"13\": 1, \"14\": 2, \"15\": 1, \"16\": 1, \"17\": 1, \"18\": 2, \"19\": 2}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with most connections to prioritize their coloring:\n   - Vertex 9 has most connections (6 edges)\n   - Vertex 17 has 3 connections\n   - Several vertices have 2 connections\n   - Some vertices have 1 or no connections\n\n2) Let's start with vertex 9:\n   - Color it with 1\n   - Its neighbors (1, 4, 7, 11, 14) must be different colors\n\n3) Continue with vertex 17:\n   - Its neighbors are 0, 12, 18\n   - Can use color 1 since none of its neighbors have that color yet\n\n4) For remaining vertices:\n   - Ensure no adjacent vertices share colors\n   - Can reuse colors when possible\n   - Some vertices have no connections, can use any color\n\n5) Complete the coloring ensuring no conflicts\n\n<answer>{\"0\": 2, \"1\": 2, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 1, \"6\": 2, \"7\": 2, \"8\": 1, \"9\": 1, \"10\": 2, \"11\": 2, \"12\": 2, \"13\": 1, \"14\": 2, \"15\": 1, \"16\": 1, \"17\": 1, \"18\": 2, \"19\": 2}</answer>",
+      "best_score": 0.01,
+      "mean_score": 0.01,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 2, \"1\": 2, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 1, \"6\": 2, \"7\": 2, \"8\": 1, \"9\": 1, \"10\": 2, \"11\": 2, \"12\": 2, \"13\": 1, \"14\": 2, \"15\": 1, \"16\": 1, \"17\": 1, \"18\": 2, \"19\": 2}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with most connections to prioritize their coloring:\n   - Vertex 9 has most connections (6 edges)\n   - Vertex 17 has 3 connections\n   - Several vertices have 2 connections\n   - Some vertices have 1 or no connections\n\n2) Let's start with vertex 9:\n   - Color it with 1\n   - Its neighbors (1, 4, 7, 11, 14) must be different colors\n\n3) Continue with vertex 17:\n   - Its neighbors are 0, 12, 18\n   - Can use color 1 since none of its neighbors have that color yet\n\n4) For remaining vertices:\n   - Ensure no adjacent vertices share colors\n   - Can reuse colors when possible\n   - Some vertices have no connections, can use any color\n\n5) Complete the coloring ensuring no conflicts\n\n<answer>{\"0\": 2, \"1\": 2, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 1, \"6\": 2, \"7\": 2, \"8\": 1, \"9\": 1, \"10\": 2, \"11\": 2, \"12\": 2, \"13\": 1, \"14\": 2, \"15\": 1, \"16\": 1, \"17\": 1, \"18\": 2, \"19\": 2}</answer>",
+          "score": 0.01
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nEdges: [(1, 3), (1, 8), (1, 9), (2, 4)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 2, \"4\": 2, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 1}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices that are connected:\n   - Vertex 1 connects to 3, 8, and 9\n   - Vertex 2 connects to 4\n   - Vertices 0, 5, 6, 7, 10 are not connected to any others\n\n2) For vertices that are connected:\n   - I can give vertex 1 color 1\n   - Its neighbors (3, 8, 9) must be different, so I can give them color 2\n   - I can give vertex 2 color 1\n   - Its neighbor (4) can be color 2\n\n3) For isolated vertices:\n   - I can give them all color 1 since they don't connect to anything\n\n4) Putting it all together in JSON format:\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 2, \"4\": 2, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 1}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 2, \"4\": 2, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 1}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices that are connected:\n   - Vertex 1 connects to 3, 8, and 9\n   - Vertex 2 connects to 4\n   - Vertices 0, 5, 6, 7, 10 are not connected to any others\n\n2) For vertices that are connected:\n   - I can give vertex 1 color 1\n   - Its neighbors (3, 8, 9) must be different, so I can give them color 2\n   - I can give vertex 2 color 1\n   - Its neighbor (4) can be color 2\n\n3) For isolated vertices:\n   - I can give them all color 1 since they don't connect to anything\n\n4) Putting it all together in JSON format:\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 2, \"4\": 2, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 1}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]\nEdges: [(0, 7), (1, 4), (1, 12), (1, 14), (2, 11), (2, 12), (2, 13), (4, 10), (5, 11), (6, 7), (7, 11), (8, 13), (10, 14)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 3, \"4\": 2, \"5\": 4, \"6\": 2, \"7\": 3, \"8\": 4, \"9\": 4, \"10\": 1, \"11\": 2, \"12\": 3, \"13\": 2, \"14\": 3}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with most connections to prioritize their coloring\n- Vertex 2 connects to: 11, 12, 13 (3 connections)\n- Vertex 1 connects to: 4, 12, 14 (3 connections)\n- Vertex 11 connects to: 2, 5, 7 (3 connections)\n\n2) Starting with vertex 2, I'll assign color 1\n- Its neighbors (11, 12, 13) can't be color 1\n\n3) For vertex 1:\n- Can use color 1 as it's not connected to vertex 2\n- Its neighbors (4, 12, 14) can't be color 1\n\n4) Continue with remaining vertices, ensuring no adjacent vertices share colors\n\n5) One valid solution would be:\n- Assign color 1 to: 0, 1, 2, 10\n- Assign color 2 to: 4, 6, 11, 13\n- Assign color 3 to: 3, 7, 12, 14\n- Assign color 4 to: 5, 8, 9\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 3, \"4\": 2, \"5\": 4, \"6\": 2, \"7\": 3, \"8\": 4, \"9\": 4, \"10\": 1, \"11\": 2, \"12\": 3, \"13\": 2, \"14\": 3}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 3, \"4\": 2, \"5\": 4, \"6\": 2, \"7\": 3, \"8\": 4, \"9\": 4, \"10\": 1, \"11\": 2, \"12\": 3, \"13\": 2, \"14\": 3}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with most connections to prioritize their coloring\n- Vertex 2 connects to: 11, 12, 13 (3 connections)\n- Vertex 1 connects to: 4, 12, 14 (3 connections)\n- Vertex 11 connects to: 2, 5, 7 (3 connections)\n\n2) Starting with vertex 2, I'll assign color 1\n- Its neighbors (11, 12, 13) can't be color 1\n\n3) For vertex 1:\n- Can use color 1 as it's not connected to vertex 2\n- Its neighbors (4, 12, 14) can't be color 1\n\n4) Continue with remaining vertices, ensuring no adjacent vertices share colors\n\n5) One valid solution would be:\n- Assign color 1 to: 0, 1, 2, 10\n- Assign color 2 to: 4, 6, 11, 13\n- Assign color 3 to: 3, 7, 12, 14\n- Assign color 4 to: 5, 8, 9\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 3, \"4\": 2, \"5\": 4, \"6\": 2, \"7\": 3, \"8\": 4, \"9\": 4, \"10\": 1, \"11\": 2, \"12\": 3, \"13\": 2, \"14\": 3}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nEdges: [(1, 5), (1, 8), (1, 9), (4, 7), (4, 9), (4, 10)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 3, \"5\": 2, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 1}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, I'll note that many vertices are not connected to any others:\n   - Vertices 0, 2, 3, 6 are isolated\n   - These can be colored with any color, let's use 1\n\n2) Looking at the connected components:\n   - One component is: 1-5, 1-8, 1-9\n   - Another component is: 4-7, 4-9, 4-10\n\n3) For vertex 1:\n   - Connected to 5, 8, 9\n   - Can be color 1\n   - Then 5, 8, 9 can be color 2\n\n4) For vertex 4:\n   - Connected to 7, 9, 10\n   - Can be color 3\n   - Then 7, 10 can be color 1\n   - Note 9 already has color 2\n\n5) Assigning colors:\n   - Isolated vertices: color 1\n   - Vertex 1: color 1\n   - Vertices 5, 8, 9: color 2\n   - Vertex 4: color 3\n   - Vertices 7, 10: color 1\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 3, \"5\": 2, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 1}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 3, \"5\": 2, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 1}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, I'll note that many vertices are not connected to any others:\n   - Vertices 0, 2, 3, 6 are isolated\n   - These can be colored with any color, let's use 1\n\n2) Looking at the connected components:\n   - One component is: 1-5, 1-8, 1-9\n   - Another component is: 4-7, 4-9, 4-10\n\n3) For vertex 1:\n   - Connected to 5, 8, 9\n   - Can be color 1\n   - Then 5, 8, 9 can be color 2\n\n4) For vertex 4:\n   - Connected to 7, 9, 10\n   - Can be color 3\n   - Then 7, 10 can be color 1\n   - Note 9 already has color 2\n\n5) Assigning colors:\n   - Isolated vertices: color 1\n   - Vertex 1: color 1\n   - Vertices 5, 8, 9: color 2\n   - Vertex 4: color 3\n   - Vertices 7, 10: color 1\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 3, \"5\": 2, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 1}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]\nEdges: [(0, 5), (0, 9), (1, 5), (1, 10), (2, 4), (3, 4), (4, 7), (5, 8), (6, 9), (6, 10), (8, 9), (9, 10), (10, 13)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 2, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 3, \"6\": 3, \"7\": 1, \"8\": 2, \"9\": 1, \"10\": 2, \"11\": 1, \"12\": 1, \"13\": 1}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, I'll note that vertices with more connections need more careful color assignment\n2) Vertex 9 has 4 connections (0, 6, 8, 10)\n3) Vertex 10 also has 4 connections (1, 6, 9, 13)\n4) I'll start with these high-degree vertices\n5) Assign color 1 to vertex 9\n6) Then vertex 10 must be different, assign color 2\n7) Vertices connected to 9 (0, 6, 8) can't be color 1\n8) Vertices connected to 10 (1, 6, 13) can't be color 2\n9) Continue assigning colors ensuring no adjacent vertices share colors\n10) For vertices with fewer connections, we have more color choices\n\n<answer>{\"0\": 2, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 3, \"6\": 3, \"7\": 1, \"8\": 2, \"9\": 1, \"10\": 2, \"11\": 1, \"12\": 1, \"13\": 1}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 2, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 3, \"6\": 3, \"7\": 1, \"8\": 2, \"9\": 1, \"10\": 2, \"11\": 1, \"12\": 1, \"13\": 1}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, I'll note that vertices with more connections need more careful color assignment\n2) Vertex 9 has 4 connections (0, 6, 8, 10)\n3) Vertex 10 also has 4 connections (1, 6, 9, 13)\n4) I'll start with these high-degree vertices\n5) Assign color 1 to vertex 9\n6) Then vertex 10 must be different, assign color 2\n7) Vertices connected to 9 (0, 6, 8) can't be color 1\n8) Vertices connected to 10 (1, 6, 13) can't be color 2\n9) Continue assigning colors ensuring no adjacent vertices share colors\n10) For vertices with fewer connections, we have more color choices\n\n<answer>{\"0\": 2, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 3, \"6\": 3, \"7\": 1, \"8\": 2, \"9\": 1, \"10\": 2, \"11\": 1, \"12\": 1, \"13\": 1}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]\nEdges: [(0, 14), (1, 7), (1, 15), (2, 14), (4, 5), (5, 7), (8, 10), (8, 13), (8, 17), (12, 13), (14, 18)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 2, \"1\": 1, \"2\": 2, \"3\": 1, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 1, \"9\": 1, \"10\": 2, \"11\": 1, \"12\": 1, \"13\": 2, \"14\": 1, \"15\": 2, \"16\": 1, \"17\": 2, \"18\": 2}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with the most connections to ensure they get colored first\n2) Vertex 8 has 3 connections (to 10, 13, 17)\n3) Vertex 14 has 3 connections (to 0, 2, 18)\n4) Most other vertices have 1-2 connections\n5) I can start coloring:\n   - Color vertex 8 with color 1\n   - Its neighbors (10, 13, 17) can be color 2\n   - Color vertex 14 with color 1\n   - Its neighbors (0, 2, 18) can be color 2\n   - Vertex 1 connects to 7 and 15, can use color 1\n   - Vertex 4 and 5 can be colors 1 and 2\n   - Vertex 12 connects to 13, can be color 1\n   - Remaining unconnected vertices can be color 1\n\n<answer>{\"0\": 2, \"1\": 1, \"2\": 2, \"3\": 1, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 1, \"9\": 1, \"10\": 2, \"11\": 1, \"12\": 1, \"13\": 2, \"14\": 1, \"15\": 2, \"16\": 1, \"17\": 2, \"18\": 2}</answer>",
+      "best_score": 0.01,
+      "mean_score": 0.01,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 2, \"1\": 1, \"2\": 2, \"3\": 1, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 1, \"9\": 1, \"10\": 2, \"11\": 1, \"12\": 1, \"13\": 2, \"14\": 1, \"15\": 2, \"16\": 1, \"17\": 2, \"18\": 2}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with the most connections to ensure they get colored first\n2) Vertex 8 has 3 connections (to 10, 13, 17)\n3) Vertex 14 has 3 connections (to 0, 2, 18)\n4) Most other vertices have 1-2 connections\n5) I can start coloring:\n   - Color vertex 8 with color 1\n   - Its neighbors (10, 13, 17) can be color 2\n   - Color vertex 14 with color 1\n   - Its neighbors (0, 2, 18) can be color 2\n   - Vertex 1 connects to 7 and 15, can use color 1\n   - Vertex 4 and 5 can be colors 1 and 2\n   - Vertex 12 connects to 13, can be color 1\n   - Remaining unconnected vertices can be color 1\n\n<answer>{\"0\": 2, \"1\": 1, \"2\": 2, \"3\": 1, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 1, \"9\": 1, \"10\": 2, \"11\": 1, \"12\": 1, \"13\": 2, \"14\": 1, \"15\": 2, \"16\": 1, \"17\": 2, \"18\": 2}</answer>",
+          "score": 0.01
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]\nEdges: [(1, 16), (2, 5), (2, 8), (3, 7), (3, 8), (5, 9), (5, 15), (7, 10), (7, 15), (8, 10), (12, 13), (13, 14), (13, 15)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 2, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 3, \"9\": 1, \"10\": 1, \"11\": 1, \"12\": 1, \"13\": 2, \"14\": 1, \"15\": 3, \"16\": 1}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with no connections (isolated):\n   0, 4, 6, 11, 16 can all be color 1\n\n2) Looking at connected components:\n   - Component 1: 1-16 (already colored 16)\n   - Component 2: 2-5-8-3-7-10-15-9\n   - Component 3: 12-13-14\n\n3) For component 1:\n   - 1 can be color 2 (since 16 is 1)\n\n4) For component 2:\n   - 2 can be color 1\n   - 5 can be color 2\n   - 8 can be color 3\n   - 3 can be color 1\n   - 7 can be color 2\n   - 10 can be color 1\n   - 15 can be color 3\n   - 9 can be color 1\n\n5) For component 3:\n   - 12 can be color 1\n   - 13 can be color 2\n   - 14 can be color 1\n\n<answer>{\"0\": 1, \"1\": 2, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 3, \"9\": 1, \"10\": 1, \"11\": 1, \"12\": 1, \"13\": 2, \"14\": 1, \"15\": 3, \"16\": 1}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 2, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 3, \"9\": 1, \"10\": 1, \"11\": 1, \"12\": 1, \"13\": 2, \"14\": 1, \"15\": 3, \"16\": 1}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with no connections (isolated):\n   0, 4, 6, 11, 16 can all be color 1\n\n2) Looking at connected components:\n   - Component 1: 1-16 (already colored 16)\n   - Component 2: 2-5-8-3-7-10-15-9\n   - Component 3: 12-13-14\n\n3) For component 1:\n   - 1 can be color 2 (since 16 is 1)\n\n4) For component 2:\n   - 2 can be color 1\n   - 5 can be color 2\n   - 8 can be color 3\n   - 3 can be color 1\n   - 7 can be color 2\n   - 10 can be color 1\n   - 15 can be color 3\n   - 9 can be color 1\n\n5) For component 3:\n   - 12 can be color 1\n   - 13 can be color 2\n   - 14 can be color 1\n\n<answer>{\"0\": 1, \"1\": 2, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 3, \"9\": 1, \"10\": 1, \"11\": 1, \"12\": 1, \"13\": 2, \"14\": 1, \"15\": 3, \"16\": 1}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]\nEdges: [(0, 4), (0, 14), (1, 8), (2, 8), (3, 7), (4, 8), (4, 11), (5, 13), (9, 10), (9, 13)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 2, \"2\": 2, \"3\": 1, \"4\": 2, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 1, \"9\": 2, \"10\": 1, \"11\": 1, \"12\": 1, \"13\": 1, \"14\": 2}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let's identify vertices with edges and those without:\n   - Connected: 0, 4, 14, 1, 8, 2, 3, 7, 11, 5, 13, 9, 10\n   - Isolated: 6, 12\n\n2) Let's look at the connections:\n   - 0 connects to 4 and 14\n   - 1, 2, 4 connect to 8\n   - 3 connects to 7\n   - 4 also connects to 11\n   - 5, 9 connect to 13\n   - 9 also connects to 10\n\n3) Starting with the most connected vertices:\n   - 8 has three connections, give it color 1\n   - Its neighbors (1, 2, 4) can get color 2\n   - 0 (connected to 4) can get color 1\n   - 14 (connected to 0) can get color 2\n   - 11 (connected to 4) can get color 1\n   - 13 can get color 1\n   - 5, 9 (connected to 13) can get color 2\n   - 10 (connected to 9) can get color 1\n   - 3 can get color 1\n   - 7 (connected to 3) can get color 2\n   - Isolated vertices 6, 12 can get color 1\n\n<answer>{\"0\": 1, \"1\": 2, \"2\": 2, \"3\": 1, \"4\": 2, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 1, \"9\": 2, \"10\": 1, \"11\": 1, \"12\": 1, \"13\": 1, \"14\": 2}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 2, \"2\": 2, \"3\": 1, \"4\": 2, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 1, \"9\": 2, \"10\": 1, \"11\": 1, \"12\": 1, \"13\": 1, \"14\": 2}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let's identify vertices with edges and those without:\n   - Connected: 0, 4, 14, 1, 8, 2, 3, 7, 11, 5, 13, 9, 10\n   - Isolated: 6, 12\n\n2) Let's look at the connections:\n   - 0 connects to 4 and 14\n   - 1, 2, 4 connect to 8\n   - 3 connects to 7\n   - 4 also connects to 11\n   - 5, 9 connect to 13\n   - 9 also connects to 10\n\n3) Starting with the most connected vertices:\n   - 8 has three connections, give it color 1\n   - Its neighbors (1, 2, 4) can get color 2\n   - 0 (connected to 4) can get color 1\n   - 14 (connected to 0) can get color 2\n   - 11 (connected to 4) can get color 1\n   - 13 can get color 1\n   - 5, 9 (connected to 13) can get color 2\n   - 10 (connected to 9) can get color 1\n   - 3 can get color 1\n   - 7 (connected to 3) can get color 2\n   - Isolated vertices 6, 12 can get color 1\n\n<answer>{\"0\": 1, \"1\": 2, \"2\": 2, \"3\": 1, \"4\": 2, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 1, \"9\": 2, \"10\": 1, \"11\": 1, \"12\": 1, \"13\": 1, \"14\": 2}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]\nEdges: [(0, 12), (1, 8), (1, 13), (2, 7), (2, 13), (3, 5), (4, 5), (5, 9), (5, 11), (6, 11), (7, 8), (7, 10), (8, 11), (9, 11), (9, 12), (9, 13)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 3, \"6\": 1, \"7\": 2, \"8\": 3, \"9\": 1, \"10\": 1, \"11\": 2, \"12\": 2, \"13\": 3}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with most connections (degree):\n   - Vertex 9 has 4 connections\n   - Vertex 5 has 4 connections\n   - Vertex 11 has 4 connections\n\n2) I'll start coloring from these high-degree vertices:\n   - Color 9 with color 1\n   - Color 11 with color 2\n   - Color 5 with color 3\n\n3) Then color vertices connected to these:\n   - 12 (connected to 9) \u2192 color 2\n   - 13 (connected to 9) \u2192 color 3\n   - 6 (connected to 11) \u2192 color 1\n   - 8 (connected to 11) \u2192 color 3\n   - 3 (connected to 5) \u2192 color 1\n   - 4 (connected to 5) \u2192 color 1\n\n4) Continue with remaining vertices:\n   - 0 (connected to 12) \u2192 color 1\n   - 1 (connected to 8, 13) \u2192 color 1\n   - 2 (connected to 7, 13) \u2192 color 1\n   - 7 (connected to 2, 8, 10) \u2192 color 2\n   - 10 (connected to 7) \u2192 color 1\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 3, \"6\": 1, \"7\": 2, \"8\": 3, \"9\": 1, \"10\": 1, \"11\": 2, \"12\": 2, \"13\": 3}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 3, \"6\": 1, \"7\": 2, \"8\": 3, \"9\": 1, \"10\": 1, \"11\": 2, \"12\": 2, \"13\": 3}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with most connections (degree):\n   - Vertex 9 has 4 connections\n   - Vertex 5 has 4 connections\n   - Vertex 11 has 4 connections\n\n2) I'll start coloring from these high-degree vertices:\n   - Color 9 with color 1\n   - Color 11 with color 2\n   - Color 5 with color 3\n\n3) Then color vertices connected to these:\n   - 12 (connected to 9) \u2192 color 2\n   - 13 (connected to 9) \u2192 color 3\n   - 6 (connected to 11) \u2192 color 1\n   - 8 (connected to 11) \u2192 color 3\n   - 3 (connected to 5) \u2192 color 1\n   - 4 (connected to 5) \u2192 color 1\n\n4) Continue with remaining vertices:\n   - 0 (connected to 12) \u2192 color 1\n   - 1 (connected to 8, 13) \u2192 color 1\n   - 2 (connected to 7, 13) \u2192 color 1\n   - 7 (connected to 2, 8, 10) \u2192 color 2\n   - 10 (connected to 7) \u2192 color 1\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 3, \"6\": 1, \"7\": 2, \"8\": 3, \"9\": 1, \"10\": 1, \"11\": 2, \"12\": 2, \"13\": 3}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]\nEdges: [(0, 1), (0, 6), (3, 9), (3, 11), (4, 7), (4, 11), (5, 12), (6, 9), (7, 8), (9, 12)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 2, \"1\": 1, \"2\": 1, \"3\": 2, \"4\": 1, \"5\": 2, \"6\": 3, \"7\": 2, \"8\": 1, \"9\": 1, \"10\": 1, \"11\": 3, \"12\": 3}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with most connections to prioritize coloring:\n   - Vertex 9 has 3 connections (3, 6, 12)\n   - Several vertices have 2 connections\n   - Some vertices have 1 or no connections\n\n2) Starting with vertex 9:\n   - Color 9 with color 1\n   - Its neighbors (3, 6, 12) can't be color 1\n\n3) Working through connected components:\n   - Color 3's neighbors (11) different from 3\n   - Color 4's neighbors (7, 11)\n   - Color 6's neighbor (0)\n   - Color 7's neighbor (8)\n   - Color 12's neighbor (5)\n\n4) For isolated vertices (like 2, 10), any color works\n\n5) Verifying no adjacent vertices have same color\n\n<answer>{\"0\": 2, \"1\": 1, \"2\": 1, \"3\": 2, \"4\": 1, \"5\": 2, \"6\": 3, \"7\": 2, \"8\": 1, \"9\": 1, \"10\": 1, \"11\": 3, \"12\": 3}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 2, \"1\": 1, \"2\": 1, \"3\": 2, \"4\": 1, \"5\": 2, \"6\": 3, \"7\": 2, \"8\": 1, \"9\": 1, \"10\": 1, \"11\": 3, \"12\": 3}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with most connections to prioritize coloring:\n   - Vertex 9 has 3 connections (3, 6, 12)\n   - Several vertices have 2 connections\n   - Some vertices have 1 or no connections\n\n2) Starting with vertex 9:\n   - Color 9 with color 1\n   - Its neighbors (3, 6, 12) can't be color 1\n\n3) Working through connected components:\n   - Color 3's neighbors (11) different from 3\n   - Color 4's neighbors (7, 11)\n   - Color 6's neighbor (0)\n   - Color 7's neighbor (8)\n   - Color 12's neighbor (5)\n\n4) For isolated vertices (like 2, 10), any color works\n\n5) Verifying no adjacent vertices have same color\n\n<answer>{\"0\": 2, \"1\": 1, \"2\": 1, \"3\": 2, \"4\": 1, \"5\": 2, \"6\": 3, \"7\": 2, \"8\": 1, \"9\": 1, \"10\": 1, \"11\": 3, \"12\": 3}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]\nEdges: [(0, 6), (0, 7), (1, 5), (3, 6), (3, 10), (4, 9), (6, 8), (7, 10)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 2, \"6\": 2, \"7\": 2, \"8\": 1, \"9\": 2, \"10\": 3, \"11\": 1}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let me identify vertices that are connected:\n   * 0 is connected to 6, 7\n   * 1 is connected to 5\n   * 3 is connected to 6, 10\n   * 4 is connected to 9\n   * 6 is connected to 0, 3, 8\n   * 7 is connected to 0, 10\n   * 8 is connected to 6\n   * 9 is connected to 4\n   * 10 is connected to 3, 7\n\n2) Many vertices are not connected to anything:\n   * 2 is isolated\n   * 11 is isolated\n\n3) Let me color vertex by vertex:\n   * Start with 0: color 1\n   * Its neighbors (6,7) must be different: 6\u21922, 7\u21922\n   * 1 can be color 1\n   * 2 can be color 1\n   * 3 needs different from 6,10: color 1\n   * 4 can be color 1\n   * 5 can be color 2\n   * 8 needs different from 6: color 1\n   * 9 needs different from 4: color 2\n   * 10 needs different from 3,7: color 3\n   * 11 can be color 1\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 2, \"6\": 2, \"7\": 2, \"8\": 1, \"9\": 2, \"10\": 3, \"11\": 1}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 2, \"6\": 2, \"7\": 2, \"8\": 1, \"9\": 2, \"10\": 3, \"11\": 1}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let me identify vertices that are connected:\n   * 0 is connected to 6, 7\n   * 1 is connected to 5\n   * 3 is connected to 6, 10\n   * 4 is connected to 9\n   * 6 is connected to 0, 3, 8\n   * 7 is connected to 0, 10\n   * 8 is connected to 6\n   * 9 is connected to 4\n   * 10 is connected to 3, 7\n\n2) Many vertices are not connected to anything:\n   * 2 is isolated\n   * 11 is isolated\n\n3) Let me color vertex by vertex:\n   * Start with 0: color 1\n   * Its neighbors (6,7) must be different: 6\u21922, 7\u21922\n   * 1 can be color 1\n   * 2 can be color 1\n   * 3 needs different from 6,10: color 1\n   * 4 can be color 1\n   * 5 can be color 2\n   * 8 needs different from 6: color 1\n   * 9 needs different from 4: color 2\n   * 10 needs different from 3,7: color 3\n   * 11 can be color 1\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 2, \"6\": 2, \"7\": 2, \"8\": 1, \"9\": 2, \"10\": 3, \"11\": 1}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]\nEdges: [(0, 7), (1, 4), (2, 10), (3, 6), (3, 12), (4, 13), (6, 9), (9, 12)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 1, \"6\": 2, \"7\": 2, \"8\": 1, \"9\": 1, \"10\": 2, \"11\": 1, \"12\": 2, \"13\": 1}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let's identify vertices that are connected:\n   - 0 connects to 7\n   - 1 connects to 4\n   - 2 connects to 10\n   - 3 connects to 6 and 12\n   - 4 connects to 13\n   - 6 connects to 9\n   - 9 connects to 12\n\n2) Many vertices are isolated (5, 8, 11)\n\n3) Let's start coloring:\n   - Can assign color 1 to isolated vertices: 5, 8, 11\n   - For connected components:\n     * Color 0 with 1, then 7 with 2\n     * Color 1 with 1, then 4 with 2, then 13 with 1\n     * Color 2 with 1, then 10 with 2\n     * Color 3 with 1, then 6 with 2, then 9 with 1, then 12 with 2\n\n4) Compiling all assignments into a map\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 1, \"6\": 2, \"7\": 2, \"8\": 1, \"9\": 1, \"10\": 2, \"11\": 1, \"12\": 2, \"13\": 1}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 1, \"6\": 2, \"7\": 2, \"8\": 1, \"9\": 1, \"10\": 2, \"11\": 1, \"12\": 2, \"13\": 1}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let's identify vertices that are connected:\n   - 0 connects to 7\n   - 1 connects to 4\n   - 2 connects to 10\n   - 3 connects to 6 and 12\n   - 4 connects to 13\n   - 6 connects to 9\n   - 9 connects to 12\n\n2) Many vertices are isolated (5, 8, 11)\n\n3) Let's start coloring:\n   - Can assign color 1 to isolated vertices: 5, 8, 11\n   - For connected components:\n     * Color 0 with 1, then 7 with 2\n     * Color 1 with 1, then 4 with 2, then 13 with 1\n     * Color 2 with 1, then 10 with 2\n     * Color 3 with 1, then 6 with 2, then 9 with 1, then 12 with 2\n\n4) Compiling all assignments into a map\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 1, \"6\": 2, \"7\": 2, \"8\": 1, \"9\": 1, \"10\": 2, \"11\": 1, \"12\": 2, \"13\": 1}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]\nEdges: [(0, 5), (0, 9), (1, 12), (3, 6), (3, 12), (4, 8), (4, 10), (5, 7), (6, 12), (6, 13), (6, 17), (8, 17), (10, 12), (11, 14)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 2, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 2, \"11\": 1, \"12\": 2, \"13\": 2, \"14\": 2, \"15\": 1, \"16\": 1, \"17\": 3}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with the most connections:\n   - Vertex 6 has 4 connections\n   - Vertex 12 has 4 connections\n   - Others have 1-2 connections\n\n2) Let's start with vertex 6 and assign color 1\n   - Its neighbors (3, 12, 13, 17) must be different colors\n\n3) For vertex 12:\n   - Connected to 1, 3, 6, 10\n   - Can't be color 1 (due to 6)\n   - Assign color 2\n\n4) For remaining vertices:\n   - Can assign any color that doesn't conflict with neighbors\n   - Most vertices have few connections, so colors 1 and 2 will work for most\n\n5) Going through each vertex and assigning valid colors:\n   - Ensuring no adjacent vertices have same color\n   - Many vertices have no connections and can take any color\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 2, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 2, \"11\": 1, \"12\": 2, \"13\": 2, \"14\": 2, \"15\": 1, \"16\": 1, \"17\": 3}</answer>",
+      "best_score": 0.01,
+      "mean_score": 0.01,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 2, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 2, \"11\": 1, \"12\": 2, \"13\": 2, \"14\": 2, \"15\": 1, \"16\": 1, \"17\": 3}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with the most connections:\n   - Vertex 6 has 4 connections\n   - Vertex 12 has 4 connections\n   - Others have 1-2 connections\n\n2) Let's start with vertex 6 and assign color 1\n   - Its neighbors (3, 12, 13, 17) must be different colors\n\n3) For vertex 12:\n   - Connected to 1, 3, 6, 10\n   - Can't be color 1 (due to 6)\n   - Assign color 2\n\n4) For remaining vertices:\n   - Can assign any color that doesn't conflict with neighbors\n   - Most vertices have few connections, so colors 1 and 2 will work for most\n\n5) Going through each vertex and assigning valid colors:\n   - Ensuring no adjacent vertices have same color\n   - Many vertices have no connections and can take any color\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 2, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 2, \"11\": 1, \"12\": 2, \"13\": 2, \"14\": 2, \"15\": 1, \"16\": 1, \"17\": 3}</answer>",
+          "score": 0.01
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]\nEdges: [(0, 9), (1, 9), (2, 5), (3, 10), (5, 8), (6, 8), (6, 11), (7, 11), (10, 11)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 2, \"1\": 3, \"2\": 2, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 2, \"7\": 2, \"8\": 3, \"9\": 1, \"10\": 2, \"11\": 1}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let me identify vertices with most connections:\n   - Vertex 11 has 3 connections (6, 7, 10)\n   - Vertex 9 has 2 connections (0, 1)\n   - Vertex 8 has 2 connections (5, 6)\n   - Others have 1 or 2 connections\n\n2) Start with vertex 11 and assign color 1\n   Then its neighbors must have different colors:\n   - 6 \u2192 color 2\n   - 7 \u2192 color 2\n   - 10 \u2192 color 2\n\n3) From vertex 10:\n   - 3 can be color 1\n\n4) From vertex 8:\n   - 5 can be color 1\n   - 6 already color 2\n\n5) From vertex 9:\n   - 0 can be color 2\n   - 1 can be color 3\n\n6) From vertex 5:\n   - 2 can be color 2\n\n7) Remaining vertices can take any unused color:\n   - 4 can be color 1\n\n<answer>{\"0\": 2, \"1\": 3, \"2\": 2, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 2, \"7\": 2, \"8\": 3, \"9\": 1, \"10\": 2, \"11\": 1}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 2, \"1\": 3, \"2\": 2, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 2, \"7\": 2, \"8\": 3, \"9\": 1, \"10\": 2, \"11\": 1}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let me identify vertices with most connections:\n   - Vertex 11 has 3 connections (6, 7, 10)\n   - Vertex 9 has 2 connections (0, 1)\n   - Vertex 8 has 2 connections (5, 6)\n   - Others have 1 or 2 connections\n\n2) Start with vertex 11 and assign color 1\n   Then its neighbors must have different colors:\n   - 6 \u2192 color 2\n   - 7 \u2192 color 2\n   - 10 \u2192 color 2\n\n3) From vertex 10:\n   - 3 can be color 1\n\n4) From vertex 8:\n   - 5 can be color 1\n   - 6 already color 2\n\n5) From vertex 9:\n   - 0 can be color 2\n   - 1 can be color 3\n\n6) From vertex 5:\n   - 2 can be color 2\n\n7) Remaining vertices can take any unused color:\n   - 4 can be color 1\n\n<answer>{\"0\": 2, \"1\": 3, \"2\": 2, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 2, \"7\": 2, \"8\": 3, \"9\": 1, \"10\": 2, \"11\": 1}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]\nEdges: [(0, 4), (0, 8), (1, 4), (1, 5), (2, 9), (2, 13), (3, 7), (3, 8), (5, 13), (7, 14), (8, 9), (8, 15), (8, 16), (11, 16)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 2, \"1\": 4, \"2\": 4, \"3\": 2, \"4\": 3, \"5\": 4, \"6\": 1, \"7\": 3, \"8\": 1, \"9\": 2, \"10\": 1, \"11\": 4, \"12\": 1, \"13\": 3, \"14\": 4, \"15\": 2, \"16\": 2}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let's identify vertices with most connections:\n   - Vertex 8 has most connections (5 edges)\n\n2) Start with vertex 8 and assign color 1\n   - Its neighbors (0, 3, 9, 15, 16) must be different colors\n\n3) Move through connected components:\n   - 0 connects to 4, 8\n   - 1 connects to 4, 5\n   - 2 connects to 9, 13\n   - 3 connects to 7, 8\n   - 5 connects to 13\n   - 7 connects to 14\n   - 11 connects to 16\n\n4) We can assign colors ensuring no adjacent vertices share colors:\n   - 8 \u2192 1\n   - 0, 3, 9, 15, 16 \u2192 2\n   - 4, 7, 13 \u2192 3\n   - 1, 2, 5, 14, 11 \u2192 4\n\n<answer>{\"0\": 2, \"1\": 4, \"2\": 4, \"3\": 2, \"4\": 3, \"5\": 4, \"6\": 1, \"7\": 3, \"8\": 1, \"9\": 2, \"10\": 1, \"11\": 4, \"12\": 1, \"13\": 3, \"14\": 4, \"15\": 2, \"16\": 2}</answer>",
+      "best_score": 0.01,
+      "mean_score": 0.01,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 2, \"1\": 4, \"2\": 4, \"3\": 2, \"4\": 3, \"5\": 4, \"6\": 1, \"7\": 3, \"8\": 1, \"9\": 2, \"10\": 1, \"11\": 4, \"12\": 1, \"13\": 3, \"14\": 4, \"15\": 2, \"16\": 2}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let's identify vertices with most connections:\n   - Vertex 8 has most connections (5 edges)\n\n2) Start with vertex 8 and assign color 1\n   - Its neighbors (0, 3, 9, 15, 16) must be different colors\n\n3) Move through connected components:\n   - 0 connects to 4, 8\n   - 1 connects to 4, 5\n   - 2 connects to 9, 13\n   - 3 connects to 7, 8\n   - 5 connects to 13\n   - 7 connects to 14\n   - 11 connects to 16\n\n4) We can assign colors ensuring no adjacent vertices share colors:\n   - 8 \u2192 1\n   - 0, 3, 9, 15, 16 \u2192 2\n   - 4, 7, 13 \u2192 3\n   - 1, 2, 5, 14, 11 \u2192 4\n\n<answer>{\"0\": 2, \"1\": 4, \"2\": 4, \"3\": 2, \"4\": 3, \"5\": 4, \"6\": 1, \"7\": 3, \"8\": 1, \"9\": 2, \"10\": 1, \"11\": 4, \"12\": 1, \"13\": 3, \"14\": 4, \"15\": 2, \"16\": 2}</answer>",
+          "score": 0.01
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]\nEdges: [(0, 2), (0, 3), (1, 8), (2, 3), (2, 12), (5, 6), (5, 8), (7, 9), (8, 10)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 2, \"1\": 2, \"2\": 1, \"3\": 2, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 1, \"9\": 1, \"10\": 2, \"11\": 1, \"12\": 2, \"13\": 1}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let's identify vertices with edges and those without:\n   - Connected: 0,2,3,1,8,12,5,6,7,9,10\n   - Isolated: 4,11,13\n\n2) Let's start with the most connected vertices:\n   - Vertex 2 connects to 0,3,12\n   - Vertex 8 connects to 1,5,10\n   - Others have 1-2 connections\n\n3) We can assign colors:\n   - Give vertex 2 color 1\n   - Its neighbors (0,3,12) can get color 2\n   - Vertex 8 can get color 1\n   - Its neighbors (1,5,10) can get color 2\n   - Vertex 6 (connected to 5) can get color 1\n   - Vertex 9 (connected to 7) can get color 1\n   - Vertex 7 can get color 2\n   - Isolated vertices (4,11,13) can get color 1\n\n<answer>{\"0\": 2, \"1\": 2, \"2\": 1, \"3\": 2, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 1, \"9\": 1, \"10\": 2, \"11\": 1, \"12\": 2, \"13\": 1}</answer>",
+      "best_score": 0.01,
+      "mean_score": 0.01,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 2, \"1\": 2, \"2\": 1, \"3\": 2, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 1, \"9\": 1, \"10\": 2, \"11\": 1, \"12\": 2, \"13\": 1}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let's identify vertices with edges and those without:\n   - Connected: 0,2,3,1,8,12,5,6,7,9,10\n   - Isolated: 4,11,13\n\n2) Let's start with the most connected vertices:\n   - Vertex 2 connects to 0,3,12\n   - Vertex 8 connects to 1,5,10\n   - Others have 1-2 connections\n\n3) We can assign colors:\n   - Give vertex 2 color 1\n   - Its neighbors (0,3,12) can get color 2\n   - Vertex 8 can get color 1\n   - Its neighbors (1,5,10) can get color 2\n   - Vertex 6 (connected to 5) can get color 1\n   - Vertex 9 (connected to 7) can get color 1\n   - Vertex 7 can get color 2\n   - Isolated vertices (4,11,13) can get color 1\n\n<answer>{\"0\": 2, \"1\": 2, \"2\": 1, \"3\": 2, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 1, \"9\": 1, \"10\": 2, \"11\": 1, \"12\": 2, \"13\": 1}</answer>",
+          "score": 0.01
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]\nEdges: [(1, 8), (2, 9), (3, 5), (3, 10), (5, 9), (6, 8)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 3, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 2, \"11\": 1, \"12\": 1}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices that are connected to each other:\n   - 1 is connected to 8\n   - 2 is connected to 9\n   - 3 is connected to 5 and 10\n   - 5 is connected to 9\n   - 6 is connected to 8\n\n2) Many vertices are isolated (0, 4, 7, 11, 12)\n   They can all have the same color since they're not connected to anything\n\n3) Let's color connected components:\n   - For 1-8-6: Can use color 1 for 1, color 2 for 8, color 1 for 6\n   - For 2-9-5-3-10: Can use color 1 for 2, color 2 for 9, color 3 for 5, color 1 for 3, color 2 for 10\n\n4) For isolated vertices (0,4,7,11,12), we can use color 1\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 3, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 2, \"11\": 1, \"12\": 1}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 3, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 2, \"11\": 1, \"12\": 1}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices that are connected to each other:\n   - 1 is connected to 8\n   - 2 is connected to 9\n   - 3 is connected to 5 and 10\n   - 5 is connected to 9\n   - 6 is connected to 8\n\n2) Many vertices are isolated (0, 4, 7, 11, 12)\n   They can all have the same color since they're not connected to anything\n\n3) Let's color connected components:\n   - For 1-8-6: Can use color 1 for 1, color 2 for 8, color 1 for 6\n   - For 2-9-5-3-10: Can use color 1 for 2, color 2 for 9, color 3 for 5, color 1 for 3, color 2 for 10\n\n4) For isolated vertices (0,4,7,11,12), we can use color 1\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 3, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 2, \"11\": 1, \"12\": 1}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\nEdges: [(1, 6), (2, 8), (4, 6)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 2, \"7\": 1, \"8\": 2, \"9\": 1}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices that are connected:\n   - 1 is connected to 6\n   - 2 is connected to 8\n   - 4 is connected to 6\n\n2) Since there are only three pairs of connected vertices, this is a very sparse graph.\n\n3) For vertices that are connected:\n   - 1 and 6 need different colors\n   - 2 and 8 need different colors\n   - 4 and 6 need different colors\n\n4) I can start with vertex 1 = color 1\n   Then vertex 6 = color 2\n   Then vertex 4 = color 1 (since it only needs to be different from 6)\n   Then vertex 2 = color 1\n   Then vertex 8 = color 2\n\n5) All remaining unconnected vertices (0, 3, 5, 7, 9) can have any color, I'll use color 1.\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 2, \"7\": 1, \"8\": 2, \"9\": 1}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 2, \"7\": 1, \"8\": 2, \"9\": 1}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices that are connected:\n   - 1 is connected to 6\n   - 2 is connected to 8\n   - 4 is connected to 6\n\n2) Since there are only three pairs of connected vertices, this is a very sparse graph.\n\n3) For vertices that are connected:\n   - 1 and 6 need different colors\n   - 2 and 8 need different colors\n   - 4 and 6 need different colors\n\n4) I can start with vertex 1 = color 1\n   Then vertex 6 = color 2\n   Then vertex 4 = color 1 (since it only needs to be different from 6)\n   Then vertex 2 = color 1\n   Then vertex 8 = color 2\n\n5) All remaining unconnected vertices (0, 3, 5, 7, 9) can have any color, I'll use color 1.\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 2, \"7\": 1, \"8\": 2, \"9\": 1}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]\nEdges: [(0, 11), (1, 3), (3, 11), (4, 9), (5, 8)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 3, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 1, \"11\": 2}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify the connected components:\n   - Component 1: 0-11-3-1\n   - Component 2: 4-9\n   - Component 3: 5-8\n   - Isolated vertices: 2, 6, 7, 10\n\n2) For the first component:\n   - Let's color 0 with color 1\n   - Then 11 must be different, so color 2\n   - 3 can be color 1\n   - 1 can be color 3\n\n3) For the second component:\n   - Color 4 with color 1\n   - Color 9 with color 2\n\n4) For the third component:\n   - Color 5 with color 1\n   - Color 8 with color 2\n\n5) For isolated vertices:\n   - Can all use color 1 since they're not connected to anything\n\n<answer>{\"0\": 1, \"1\": 3, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 1, \"11\": 2}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 3, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 1, \"11\": 2}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify the connected components:\n   - Component 1: 0-11-3-1\n   - Component 2: 4-9\n   - Component 3: 5-8\n   - Isolated vertices: 2, 6, 7, 10\n\n2) For the first component:\n   - Let's color 0 with color 1\n   - Then 11 must be different, so color 2\n   - 3 can be color 1\n   - 1 can be color 3\n\n3) For the second component:\n   - Color 4 with color 1\n   - Color 9 with color 2\n\n4) For the third component:\n   - Color 5 with color 1\n   - Color 8 with color 2\n\n5) For isolated vertices:\n   - Can all use color 1 since they're not connected to anything\n\n<answer>{\"0\": 1, \"1\": 3, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 1, \"11\": 2}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]\nEdges: [(0, 4), (0, 6), (1, 11), (2, 8), (2, 10), (4, 11), (5, 7), (6, 12), (7, 8), (8, 11), (9, 11)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 2, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 1, \"6\": 2, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 2, \"11\": 1, \"12\": 1, \"13\": 1, \"14\": 1, \"15\": 1}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with the most connections to ensure they get colored first\n   - Vertex 11 has most connections (4 edges)\n   - Followed by vertex 8 (3 edges)\n\n2) Let's start coloring:\n   - Give vertex 11 color 1\n   - Its neighbors (1, 4, 8, 9) must have different colors\n   - Give vertex 8 color 2\n   - Its neighbors (2, 7) must avoid color 2\n\n3) Continue with remaining vertices:\n   - Color vertices ensuring no adjacent vertices share colors\n   - Many vertices have only one connection, making them easy to color\n\n4) After working through all vertices and ensuring no conflicts:\n   - Most vertices can be colored with just colors 1 and 2\n   - Some might need color 3 to avoid conflicts\n   - Color 4 isn't necessary for this graph\n\n<answer>{\"0\": 1, \"1\": 2, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 1, \"6\": 2, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 2, \"11\": 1, \"12\": 1, \"13\": 1, \"14\": 1, \"15\": 1}</answer>",
+      "best_score": 0.01,
+      "mean_score": 0.01,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 2, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 1, \"6\": 2, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 2, \"11\": 1, \"12\": 1, \"13\": 1, \"14\": 1, \"15\": 1}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with the most connections to ensure they get colored first\n   - Vertex 11 has most connections (4 edges)\n   - Followed by vertex 8 (3 edges)\n\n2) Let's start coloring:\n   - Give vertex 11 color 1\n   - Its neighbors (1, 4, 8, 9) must have different colors\n   - Give vertex 8 color 2\n   - Its neighbors (2, 7) must avoid color 2\n\n3) Continue with remaining vertices:\n   - Color vertices ensuring no adjacent vertices share colors\n   - Many vertices have only one connection, making them easy to color\n\n4) After working through all vertices and ensuring no conflicts:\n   - Most vertices can be colored with just colors 1 and 2\n   - Some might need color 3 to avoid conflicts\n   - Color 4 isn't necessary for this graph\n\n<answer>{\"0\": 1, \"1\": 2, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 1, \"6\": 2, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 2, \"11\": 1, \"12\": 1, \"13\": 1, \"14\": 1, \"15\": 1}</answer>",
+          "score": 0.01
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nEdges: [(0, 5), (1, 8), (2, 3), (2, 9), (3, 7)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 2, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 1}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify which vertices are connected:\n   * 0 is connected to 5\n   * 1 is connected to 8\n   * 2 is connected to 3 and 9\n   * 3 is connected to 2 and 7\n\n2) Many vertices are not connected to any others:\n   * 4, 6, and 10 are isolated\n\n3) I can start assigning colors:\n   * Can give color 1 to vertex 0\n   * Then vertex 5 needs a different color, say 2\n   * Vertex 1 can be color 1\n   * Vertex 8 can be color 2\n   * Vertex 2 can be color 1\n   * Vertex 3 needs a different color from 2, can be color 2\n   * Vertex 7 can be color 1\n   * Vertex 9 needs a different color from 2, can be color 2\n   * Isolated vertices 4, 6, and 10 can all be color 1\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 2, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 1}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 2, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 1}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify which vertices are connected:\n   * 0 is connected to 5\n   * 1 is connected to 8\n   * 2 is connected to 3 and 9\n   * 3 is connected to 2 and 7\n\n2) Many vertices are not connected to any others:\n   * 4, 6, and 10 are isolated\n\n3) I can start assigning colors:\n   * Can give color 1 to vertex 0\n   * Then vertex 5 needs a different color, say 2\n   * Vertex 1 can be color 1\n   * Vertex 8 can be color 2\n   * Vertex 2 can be color 1\n   * Vertex 3 needs a different color from 2, can be color 2\n   * Vertex 7 can be color 1\n   * Vertex 9 needs a different color from 2, can be color 2\n   * Isolated vertices 4, 6, and 10 can all be color 1\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 2, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 1}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]\nEdges: [(1, 11), (1, 12), (2, 8), (2, 9), (3, 4), (3, 9), (11, 12)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 3, \"10\": 1, \"11\": 2, \"12\": 3}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let's identify vertices that are connected:\n   - 1 is connected to 11 and 12\n   - 2 is connected to 8 and 9\n   - 3 is connected to 4 and 9\n   - 11 and 12 are connected\n\n2) Many vertices are isolated (0, 5, 6, 7, 10)\n\n3) Let's color:\n   - Isolated vertices can all be color 1\n   - For connected components:\n     * 1 can be color 1\n     * 11 can be color 2\n     * 12 can be color 3\n     * 2 can be color 1\n     * 8 can be color 2\n     * 9 can be color 3\n     * 3 can be color 1\n     * 4 can be color 2\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 3, \"10\": 1, \"11\": 2, \"12\": 3}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 3, \"10\": 1, \"11\": 2, \"12\": 3}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let's identify vertices that are connected:\n   - 1 is connected to 11 and 12\n   - 2 is connected to 8 and 9\n   - 3 is connected to 4 and 9\n   - 11 and 12 are connected\n\n2) Many vertices are isolated (0, 5, 6, 7, 10)\n\n3) Let's color:\n   - Isolated vertices can all be color 1\n   - For connected components:\n     * 1 can be color 1\n     * 11 can be color 2\n     * 12 can be color 3\n     * 2 can be color 1\n     * 8 can be color 2\n     * 9 can be color 3\n     * 3 can be color 1\n     * 4 can be color 2\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 1, \"6\": 1, \"7\": 1, \"8\": 2, \"9\": 3, \"10\": 1, \"11\": 2, \"12\": 3}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nEdges: [(1, 7), (5, 8)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 1, \"7\": 2, \"8\": 2, \"9\": 1, \"10\": 1}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, I notice that this graph has very few edges - only two pairs of vertices are connected:\n   - Vertex 1 is connected to Vertex 7\n   - Vertex 5 is connected to Vertex 8\n\n2) Since there are so few connections, most vertices can have any color.\n\n3) For the connected pairs:\n   - Vertices 1 and 7 must have different colors\n   - Vertices 5 and 8 must have different colors\n\n4) I can assign:\n   - Color 1 to vertex 1\n   - Color 2 to vertex 7\n   - Color 1 to vertex 5\n   - Color 2 to vertex 8\n\n5) All other vertices can be assigned color 1 since they have no connections.\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 1, \"7\": 2, \"8\": 2, \"9\": 1, \"10\": 1}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 1, \"7\": 2, \"8\": 2, \"9\": 1, \"10\": 1}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, I notice that this graph has very few edges - only two pairs of vertices are connected:\n   - Vertex 1 is connected to Vertex 7\n   - Vertex 5 is connected to Vertex 8\n\n2) Since there are so few connections, most vertices can have any color.\n\n3) For the connected pairs:\n   - Vertices 1 and 7 must have different colors\n   - Vertices 5 and 8 must have different colors\n\n4) I can assign:\n   - Color 1 to vertex 1\n   - Color 2 to vertex 7\n   - Color 1 to vertex 5\n   - Color 2 to vertex 8\n\n5) All other vertices can be assigned color 1 since they have no connections.\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 1, \"7\": 2, \"8\": 2, \"9\": 1, \"10\": 1}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]\nEdges: [(0, 8), (0, 12), (0, 15), (1, 2), (3, 6), (3, 15), (5, 9), (5, 14), (5, 15), (9, 10)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 1, \"2\": 2, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 2, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 3, \"11\": 1, \"12\": 2, \"13\": 1, \"14\": 2, \"15\": 2}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices that are connected to each other:\n   - 0 is connected to: 8, 12, 15\n   - 1 is connected to: 2\n   - 3 is connected to: 6, 15\n   - 5 is connected to: 9, 14, 15\n   - 9 is connected to: 5, 10\n\n2) Many vertices are isolated (not connected to any other):\n   - 4, 7, 11, 13 are not connected to any other vertex\n\n3) I'll start coloring:\n   - Can give color 1 to isolated vertices: 4, 7, 11, 13\n   - Can give color 1 to 0\n   - Then color 2 to its neighbors: 8, 12, 15\n   - Can give color 1 to 1, then color 2 to 2\n   - Can give color 1 to 3, then color 2 to 6\n   - Can give color 1 to 5, then color 2 to 9, 14\n   - Can give color 3 to 10\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 2, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 2, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 3, \"11\": 1, \"12\": 2, \"13\": 1, \"14\": 2, \"15\": 2}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 1, \"2\": 2, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 2, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 3, \"11\": 1, \"12\": 2, \"13\": 1, \"14\": 2, \"15\": 2}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices that are connected to each other:\n   - 0 is connected to: 8, 12, 15\n   - 1 is connected to: 2\n   - 3 is connected to: 6, 15\n   - 5 is connected to: 9, 14, 15\n   - 9 is connected to: 5, 10\n\n2) Many vertices are isolated (not connected to any other):\n   - 4, 7, 11, 13 are not connected to any other vertex\n\n3) I'll start coloring:\n   - Can give color 1 to isolated vertices: 4, 7, 11, 13\n   - Can give color 1 to 0\n   - Then color 2 to its neighbors: 8, 12, 15\n   - Can give color 1 to 1, then color 2 to 2\n   - Can give color 1 to 3, then color 2 to 6\n   - Can give color 1 to 5, then color 2 to 9, 14\n   - Can give color 3 to 10\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 2, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 2, \"7\": 1, \"8\": 2, \"9\": 2, \"10\": 3, \"11\": 1, \"12\": 2, \"13\": 1, \"14\": 2, \"15\": 2}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]\nEdges: [(0, 4), (0, 15), (1, 11), (1, 12), (1, 16), (2, 12), (3, 5), (3, 10), (3, 11), (3, 13), (3, 15), (4, 6), (7, 9), (7, 12), (7, 16), (8, 15), (10, 13), (11, 16), (12, 14)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 1, \"9\": 1, \"10\": 2, \"11\": 2, \"12\": 3, \"13\": 3, \"14\": 1, \"15\": 3, \"16\": 3}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with most connections to prioritize their coloring:\n   - Vertex 3 has 5 connections\n   - Vertices 1, 7, 12 have 3 connections\n   - Several vertices have 2 or 1 connections\n\n2) Start with vertex 3 and its neighbors:\n   - Color 3 as 1\n   - Color 5, 10, 11, 13, 15 with different colors\n\n3) Move to vertex 12 and its connections:\n   - Must consider colors of vertices 1, 2, 7, 14\n\n4) Continue with remaining vertices, ensuring no adjacent vertices share colors\n\n5) Check all edges to verify no conflicts\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 1, \"9\": 1, \"10\": 2, \"11\": 2, \"12\": 3, \"13\": 3, \"14\": 1, \"15\": 3, \"16\": 3}</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 1, \"9\": 1, \"10\": 2, \"11\": 2, \"12\": 3, \"13\": 3, \"14\": 1, \"15\": 3, \"16\": 3}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with most connections to prioritize their coloring:\n   - Vertex 3 has 5 connections\n   - Vertices 1, 7, 12 have 3 connections\n   - Several vertices have 2 or 1 connections\n\n2) Start with vertex 3 and its neighbors:\n   - Color 3 as 1\n   - Color 5, 10, 11, 13, 15 with different colors\n\n3) Move to vertex 12 and its connections:\n   - Must consider colors of vertices 1, 2, 7, 14\n\n4) Continue with remaining vertices, ensuring no adjacent vertices share colors\n\n5) Check all edges to verify no conflicts\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 2, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 1, \"9\": 1, \"10\": 2, \"11\": 2, \"12\": 3, \"13\": 3, \"14\": 1, \"15\": 3, \"16\": 3}</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]\nEdges: [(1, 6), (1, 14), (1, 16), (2, 7), (6, 8), (7, 9), (7, 15), (7, 17), (8, 9), (8, 11), (10, 12), (10, 14), (11, 17), (12, 15), (13, 15)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": "{\"0\": 1, \"1\": 1, \"2\": 2, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 3, \"7\": 1, \"8\": 2, \"9\": 3, \"10\": 1, \"11\": 1, \"12\": 2, \"13\": 1, \"14\": 2, \"15\": 2, \"16\": 2, \"17\": 2}",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with most connections to ensure they get colored first\n   - Vertex 7 has 4 connections\n   - Vertex 8 has 3 connections\n   - Others have 2 or fewer connections\n\n2) Start with vertex 7:\n   - Assign color 1 to vertex 7\n   - Its neighbors (2, 9, 15, 17) must be different colors\n\n3) Moving to vertex 8:\n   - Connected to 6, 9, 11\n   - Can assign color 2 to vertex 8\n\n4) For remaining vertices, assign colors ensuring no adjacent vertices have same color:\n   - Can assign remaining vertices greedily\n   - Most vertices have 1-2 connections, so 4 colors are more than enough\n\n5) One valid coloring would be:\n   - Vertices with no connections can all be color 1\n   - Ensure connected vertices have different colors\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 2, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 3, \"7\": 1, \"8\": 2, \"9\": 3, \"10\": 1, \"11\": 1, \"12\": 2, \"13\": 1, \"14\": 2, \"15\": 2, \"16\": 2, \"17\": 2}</answer>",
+      "best_score": 0.01,
+      "mean_score": 0.01,
+      "completions": [
+        {
+          "model_answer": "{\"0\": 1, \"1\": 1, \"2\": 2, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 3, \"7\": 1, \"8\": 2, \"9\": 3, \"10\": 1, \"11\": 1, \"12\": 2, \"13\": 1, \"14\": 2, \"15\": 2, \"16\": 2, \"17\": 2}",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, I'll identify vertices with most connections to ensure they get colored first\n   - Vertex 7 has 4 connections\n   - Vertex 8 has 3 connections\n   - Others have 2 or fewer connections\n\n2) Start with vertex 7:\n   - Assign color 1 to vertex 7\n   - Its neighbors (2, 9, 15, 17) must be different colors\n\n3) Moving to vertex 8:\n   - Connected to 6, 9, 11\n   - Can assign color 2 to vertex 8\n\n4) For remaining vertices, assign colors ensuring no adjacent vertices have same color:\n   - Can assign remaining vertices greedily\n   - Most vertices have 1-2 connections, so 4 colors are more than enough\n\n5) One valid coloring would be:\n   - Vertices with no connections can all be color 1\n   - Ensure connected vertices have different colors\n\n<answer>{\"0\": 1, \"1\": 1, \"2\": 2, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 3, \"7\": 1, \"8\": 2, \"9\": 3, \"10\": 1, \"11\": 1, \"12\": 2, \"13\": 1, \"14\": 2, \"15\": 2, \"16\": 2, \"17\": 2}</answer>",
+          "score": 0.01
+        }
+      ]
+    }
+  ]
+}
