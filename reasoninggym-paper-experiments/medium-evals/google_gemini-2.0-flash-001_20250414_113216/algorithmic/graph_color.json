@@ -1,0 +1,768 @@
+{
+  "name": "graph_color",
+  "category": "algorithmic",
+  "average_best_score": 0.0,
+  "average_mean_score": 0.0,
+  "total_examples": 50,
+  "config": {
+    "size": 50,
+    "seed": 45,
+    "min_num_vertices": 10,
+    "max_num_vertices": 20,
+    "num_colors": 4
+  },
+  "system_prompt": "Given a problem, your task is to answer the question by thinking step-by-step in a clear and specific manner.\nOnce you have thought about the reasoning process, provide the answer in the following format:\n<answer>answer here</answer>\nDo not explain your reasoning inside the answer tags, provide only the final answer. When an example is provided, you should strictly follow the format of the output/answer in that example.\n",
+  "completions_per_prompt": 1,
+  "results": [
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]\nEdges: [(0, 4), (0, 12), (1, 9), (1, 10), (2, 5), (4, 12), (5, 13), (6, 10), (8, 10), (9, 13), (10, 11)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 2,\n\"5\": 2,\n\"6\": 1,\n\"7\": 1,\n\"8\": 1,\n\"9\": 2,\n\"10\": 3,\n\"11\": 2,\n\"12\": 3,\n\"13\": 1\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 2,\n\"5\": 2,\n\"6\": 1,\n\"7\": 1,\n\"8\": 1,\n\"9\": 2,\n\"10\": 3,\n\"11\": 2,\n\"12\": 3,\n\"13\": 1\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nEdges: [(0, 8), (0, 9), (1, 9), (2, 6), (3, 9), (5, 10), (9, 10)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 2,\n\"7\": 1,\n\"8\": 2,\n\"9\": 2,\n\"10\": 3\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 2,\n\"7\": 1,\n\"8\": 2,\n\"9\": 2,\n\"10\": 3\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]\nEdges: [(0, 1), (0, 10), (0, 14), (2, 7), (2, 11), (5, 10), (5, 14), (9, 12)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "Let's analyze the graph and try to find a valid coloring using the given colors [1, 2, 3, 4]. We need to ensure that no two adjacent vertices have the same color.\n\nHere's one possible coloring:\n\n*   0: 1\n*   1: 2\n*   2: 1\n*   3: 1\n*   4: 1\n*   5: 2\n*   6: 1\n*   7: 2\n*   8: 1\n*   9: 1\n*   10: 3\n*   11: 2\n*   12: 2\n*   13: 1\n*   14: 4\n\nLet's verify this coloring:\n\n*   0 (1) is connected to 1 (2), 10 (3), and 14 (4).\n*   1 (2) is connected to 0 (1).\n*   2 (1) is connected to 7 (2), and 11 (2).\n*   5 (2) is connected to 10 (3), and 14 (4).\n*   9 (1) is connected to 12 (2).\n\nThis coloring seems valid.\n\n```json\n{\n\"0\": 1,\n\"1\": 2,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 2,\n\"6\": 1,\n\"7\": 2,\n\"8\": 1,\n\"9\": 1,\n\"10\": 3,\n\"11\": 2,\n\"12\": 2,\n\"13\": 1,\n\"14\": 4\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Let's analyze the graph and try to find a valid coloring using the given colors [1, 2, 3, 4]. We need to ensure that no two adjacent vertices have the same color.\n\nHere's one possible coloring:\n\n*   0: 1\n*   1: 2\n*   2: 1\n*   3: 1\n*   4: 1\n*   5: 2\n*   6: 1\n*   7: 2\n*   8: 1\n*   9: 1\n*   10: 3\n*   11: 2\n*   12: 2\n*   13: 1\n*   14: 4\n\nLet's verify this coloring:\n\n*   0 (1) is connected to 1 (2), 10 (3), and 14 (4).\n*   1 (2) is connected to 0 (1).\n*   2 (1) is connected to 7 (2), and 11 (2).\n*   5 (2) is connected to 10 (3), and 14 (4).\n*   9 (1) is connected to 12 (2).\n\nThis coloring seems valid.\n\n```json\n{\n\"0\": 1,\n\"1\": 2,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 2,\n\"6\": 1,\n\"7\": 2,\n\"8\": 1,\n\"9\": 1,\n\"10\": 3,\n\"11\": 2,\n\"12\": 2,\n\"13\": 1,\n\"14\": 4\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]\nEdges: [(0, 17), (1, 6), (1, 10), (1, 13), (2, 8), (2, 9), (3, 6), (5, 9), (5, 13), (6, 14), (6, 17), (7, 15), (8, 17), (10, 13), (11, 17), (16, 17)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 2,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 3,\n\"7\": 1,\n\"8\": 2,\n\"9\": 2,\n\"10\": 1,\n\"11\": 1,\n\"12\": 1,\n\"13\": 3,\n\"14\": 2,\n\"15\": 2,\n\"16\": 2,\n\"17\": 4\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 2,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 3,\n\"7\": 1,\n\"8\": 2,\n\"9\": 2,\n\"10\": 1,\n\"11\": 1,\n\"12\": 1,\n\"13\": 3,\n\"14\": 2,\n\"15\": 2,\n\"16\": 2,\n\"17\": 4\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nEdges: [(0, 10), (1, 7), (1, 9), (2, 8), (5, 10), (6, 8), (7, 10), (9, 10)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 1,\n\"7\": 2,\n\"8\": 2,\n\"9\": 2,\n\"10\": 3\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 1,\n\"7\": 2,\n\"8\": 2,\n\"9\": 2,\n\"10\": 3\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]\nEdges: [(0, 12), (0, 15), (1, 5), (1, 7), (1, 12), (5, 7), (5, 16), (6, 8), (6, 10), (7, 9), (7, 14), (8, 9), (8, 14), (13, 14), (13, 15)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 3,\n\"5\": 1,\n\"6\": 1,\n\"7\": 2,\n\"8\": 2,\n\"9\": 1,\n\"10\": 2,\n\"12\": 2,\n\"13\": 1,\n\"14\": 3,\n\"15\": 2,\n\"16\": 2\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 3,\n\"5\": 1,\n\"6\": 1,\n\"7\": 2,\n\"8\": 2,\n\"9\": 1,\n\"10\": 2,\n\"12\": 2,\n\"13\": 1,\n\"14\": 3,\n\"15\": 2,\n\"16\": 2\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]\nEdges: [(1, 6), (1, 9), (2, 9), (2, 12), (3, 4), (5, 11), (6, 8), (6, 12)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 2,\n\"2\": 1,\n\"3\": 1,\n\"4\": 2,\n\"5\": 1,\n\"6\": 3,\n\"7\": 1,\n\"8\": 1,\n\"9\": 3,\n\"10\": 1,\n\"11\": 2,\n\"12\": 2\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 2,\n\"2\": 1,\n\"3\": 1,\n\"4\": 2,\n\"5\": 1,\n\"6\": 3,\n\"7\": 1,\n\"8\": 1,\n\"9\": 3,\n\"10\": 1,\n\"11\": 2,\n\"12\": 2\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]\nEdges: [(0, 1), (0, 13), (1, 3), (1, 4), (2, 11), (3, 7), (3, 8), (6, 13), (7, 13), (8, 9), (10, 11)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "Here's how we can approach this graph coloring problem:\n\n1. **Understanding the Constraints:** We need to assign one of the four colors (1, 2, 3, or 4) to each vertex such that no two adjacent vertices have the same color.\n\n2. **Greedy Approach:** We can use a greedy algorithm. Iterate through the vertices and assign the first available color that doesn't conflict with its neighbors.\n\n3. **Implementation:**\n\n   - Start with an empty color assignment.\n   - For each vertex:\n     - Check the colors of its neighbors.\n     - Try colors 1, 2, 3, and 4 in order.\n     - Assign the first color that is not used by any neighbor.\n\n4. **Applying to the graph:**\n    - 0: Neighbors are 1, 13.\n    - 1: Neighbors are 0, 3, 4.\n    - 2: Neighbor is 11.\n    - 3: Neighbors are 1, 7, 8.\n    - 4: Neighbor is 1.\n    - 5: No neighbors.\n    - 6: Neighbor is 13.\n    - 7: Neighbors are 3, 13.\n    - 8: Neighbors are 3, 9.\n    - 9: Neighbor is 8.\n    - 10: Neighbor is 11.\n    - 11: Neighbors are 2, 10.\n    - 12: No neighbors.\n    - 13: Neighbors are 0, 6, 7.\n\nLet's try to build a coloring:\n\n- 0: 1\n- 1: 2 (different from 0)\n- 2: 1\n- 3: 3 (different from 1)\n- 4: 3 (different from 1)\n- 5: 1\n- 6: 1\n- 7: 1\n- 8: 1\n- 9: 2\n- 10: 1\n- 11: 2\n- 12: 1\n- 13: 2\n\nCheck:\n\n- 0:1, 1:2, 13:2 (OK)\n- 1:2, 0:1, 3:3, 4:3 (OK)\n- 2:1, 11:2 (OK)\n- 3:3, 1:2, 7:1, 8:1 (OK)\n- 4:3, 1:2 (OK)\n- 6:1, 13:2 (OK)\n- 7:1, 3:3, 13:2 (OK)\n- 8:1, 3:3, 9:2 (OK)\n- 9:2, 8:1 (OK)\n- 10:1, 11:2 (OK)\n- 11:2, 2:1, 10:1 (OK)\n- 13:2, 0:1, 6:1, 7:1 (OK)\n\n```json\n{\n\"0\": 1,\n\"1\": 2,\n\"2\": 1,\n\"3\": 3,\n\"4\": 3,\n\"5\": 1,\n\"6\": 1,\n\"7\": 1,\n\"8\": 1,\n\"9\": 2,\n\"10\": 1,\n\"11\": 2,\n\"12\": 1,\n\"13\": 2\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Here's how we can approach this graph coloring problem:\n\n1. **Understanding the Constraints:** We need to assign one of the four colors (1, 2, 3, or 4) to each vertex such that no two adjacent vertices have the same color.\n\n2. **Greedy Approach:** We can use a greedy algorithm. Iterate through the vertices and assign the first available color that doesn't conflict with its neighbors.\n\n3. **Implementation:**\n\n   - Start with an empty color assignment.\n   - For each vertex:\n     - Check the colors of its neighbors.\n     - Try colors 1, 2, 3, and 4 in order.\n     - Assign the first color that is not used by any neighbor.\n\n4. **Applying to the graph:**\n    - 0: Neighbors are 1, 13.\n    - 1: Neighbors are 0, 3, 4.\n    - 2: Neighbor is 11.\n    - 3: Neighbors are 1, 7, 8.\n    - 4: Neighbor is 1.\n    - 5: No neighbors.\n    - 6: Neighbor is 13.\n    - 7: Neighbors are 3, 13.\n    - 8: Neighbors are 3, 9.\n    - 9: Neighbor is 8.\n    - 10: Neighbor is 11.\n    - 11: Neighbors are 2, 10.\n    - 12: No neighbors.\n    - 13: Neighbors are 0, 6, 7.\n\nLet's try to build a coloring:\n\n- 0: 1\n- 1: 2 (different from 0)\n- 2: 1\n- 3: 3 (different from 1)\n- 4: 3 (different from 1)\n- 5: 1\n- 6: 1\n- 7: 1\n- 8: 1\n- 9: 2\n- 10: 1\n- 11: 2\n- 12: 1\n- 13: 2\n\nCheck:\n\n- 0:1, 1:2, 13:2 (OK)\n- 1:2, 0:1, 3:3, 4:3 (OK)\n- 2:1, 11:2 (OK)\n- 3:3, 1:2, 7:1, 8:1 (OK)\n- 4:3, 1:2 (OK)\n- 6:1, 13:2 (OK)\n- 7:1, 3:3, 13:2 (OK)\n- 8:1, 3:3, 9:2 (OK)\n- 9:2, 8:1 (OK)\n- 10:1, 11:2 (OK)\n- 11:2, 2:1, 10:1 (OK)\n- 13:2, 0:1, 6:1, 7:1 (OK)\n\n```json\n{\n\"0\": 1,\n\"1\": 2,\n\"2\": 1,\n\"3\": 3,\n\"4\": 3,\n\"5\": 1,\n\"6\": 1,\n\"7\": 1,\n\"8\": 1,\n\"9\": 2,\n\"10\": 1,\n\"11\": 2,\n\"12\": 1,\n\"13\": 2\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]\nEdges: [(0, 8), (0, 15), (0, 16), (1, 17), (2, 8), (2, 10), (2, 16), (3, 14), (3, 16), (5, 11), (5, 13), (6, 16), (7, 9), (8, 14), (9, 11), (9, 12), (9, 16), (10, 18), (11, 16)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 1,\n\"7\": 1,\n\"8\": 2,\n\"9\": 2,\n\"10\": 3,\n\"11\": 3,\n\"12\": 1,\n\"13\": 2,\n\"14\": 3,\n\"15\": 2,\n\"16\": 4,\n\"17\": 2,\n\"18\": 1\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 1,\n\"7\": 1,\n\"8\": 2,\n\"9\": 2,\n\"10\": 3,\n\"11\": 3,\n\"12\": 1,\n\"13\": 2,\n\"14\": 3,\n\"15\": 2,\n\"16\": 4,\n\"17\": 2,\n\"18\": 1\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]\nEdges: [(1, 5), (1, 10), (2, 6), (2, 9), (3, 8)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 2,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 2,\n\"7\": 1,\n\"8\": 2,\n\"9\": 3,\n\"10\": 3,\n\"11\": 1\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 2,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 2,\n\"7\": 1,\n\"8\": 2,\n\"9\": 3,\n\"10\": 3,\n\"11\": 1\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nEdges: [(0, 5), (0, 7), (1, 9), (2, 5), (2, 9), (3, 9), (7, 10), (8, 9)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\"0\": 1, \"1\": 1, \"2\": 4, \"3\": 2, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 3, \"9\": 4, \"10\": 1}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\"0\": 1, \"1\": 1, \"2\": 4, \"3\": 2, \"4\": 1, \"5\": 2, \"6\": 1, \"7\": 2, \"8\": 3, \"9\": 4, \"10\": 1}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]\nEdges: [(0, 1), (0, 7), (0, 12), (0, 14), (1, 5), (2, 5), (2, 10), (3, 12), (4, 5), (4, 16), (5, 13), (5, 14), (6, 7), (8, 16), (15, 17)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 2,\n\"1\": 3,\n\"2\": 1,\n\"3\": 1,\n\"4\": 2,\n\"5\": 4,\n\"6\": 1,\n\"7\": 3,\n\"8\": 1,\n\"9\": 1,\n\"10\": 3,\n\"11\": 1,\n\"12\": 4,\n\"13\": 1,\n\"14\": 1,\n\"15\": 1,\n\"16\": 3,\n\"17\": 2\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 2,\n\"1\": 3,\n\"2\": 1,\n\"3\": 1,\n\"4\": 2,\n\"5\": 4,\n\"6\": 1,\n\"7\": 3,\n\"8\": 1,\n\"9\": 1,\n\"10\": 3,\n\"11\": 1,\n\"12\": 4,\n\"13\": 1,\n\"14\": 1,\n\"15\": 1,\n\"16\": 3,\n\"17\": 2\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\nEdges: [(5, 7), (5, 9)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 2,\n\"7\": 3,\n\"8\": 2,\n\"9\": 4\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 2,\n\"7\": 3,\n\"8\": 2,\n\"9\": 4\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]\nEdges: [(0, 14), (1, 3), (1, 13), (1, 18), (2, 5), (2, 18), (3, 5), (3, 13), (3, 14), (3, 17), (4, 6), (4, 7), (4, 17), (5, 17), (6, 8), (6, 12), (9, 13), (10, 11), (13, 14), (13, 17), (16, 18)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 2,\n\"4\": 1,\n\"5\": 3,\n\"6\": 2,\n\"7\": 2,\n\"8\": 1,\n\"9\": 1,\n\"10\": 1,\n\"11\": 2,\n\"12\": 1,\n\"13\": 3,\n\"14\": 4,\n\"15\": 1,\n\"16\": 1,\n\"17\": 1,\n\"18\": 3\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 2,\n\"4\": 1,\n\"5\": 3,\n\"6\": 2,\n\"7\": 2,\n\"8\": 1,\n\"9\": 1,\n\"10\": 1,\n\"11\": 2,\n\"12\": 1,\n\"13\": 3,\n\"14\": 4,\n\"15\": 1,\n\"16\": 1,\n\"17\": 1,\n\"18\": 3\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]\nEdges: [(0, 1), (0, 6), (1, 10), (1, 12), (2, 4), (2, 6), (3, 6), (3, 7), (7, 9), (8, 11)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 2,\n\"1\": 3,\n\"2\": 1,\n\"3\": 1,\n\"4\": 2,\n\"5\": 1,\n\"6\": 4,\n\"7\": 2,\n\"8\": 1,\n\"9\": 1,\n\"10\": 1,\n\"11\": 2,\n\"12\": 2\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 2,\n\"1\": 3,\n\"2\": 1,\n\"3\": 1,\n\"4\": 2,\n\"5\": 1,\n\"6\": 4,\n\"7\": 2,\n\"8\": 1,\n\"9\": 1,\n\"10\": 1,\n\"11\": 2,\n\"12\": 2\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]\nEdges: [(0, 7), (0, 9), (0, 12), (1, 11), (2, 8), (3, 10), (3, 12), (3, 13), (4, 6), (5, 10), (5, 13), (6, 12), (7, 12)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 2,\n\"7\": 2,\n\"8\": 2,\n\"9\": 2,\n\"10\": 2,\n\"11\": 2,\n\"12\": 3,\n\"13\": 3\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 2,\n\"7\": 2,\n\"8\": 2,\n\"9\": 2,\n\"10\": 2,\n\"11\": 2,\n\"12\": 3,\n\"13\": 3\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]\nEdges: [(0, 6), (0, 8), (0, 12), (0, 14), (0, 16), (2, 7), (2, 9), (3, 8), (3, 14), (4, 13), (5, 7), (5, 14), (9, 13)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 2,\n\"7\": 2,\n\"8\": 2,\n\"9\": 2,\n\"10\": 1,\n\"11\": 1,\n\"12\": 2,\n\"13\": 2,\n\"14\": 2,\n\"15\": 1,\n\"16\": 2\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 2,\n\"7\": 2,\n\"8\": 2,\n\"9\": 2,\n\"10\": 1,\n\"11\": 1,\n\"12\": 2,\n\"13\": 2,\n\"14\": 2,\n\"15\": 1,\n\"16\": 2\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]\nEdges: [(1, 3), (2, 5), (3, 8), (3, 9), (4, 15), (5, 11), (5, 16), (5, 18), (6, 10), (8, 9), (8, 12), (10, 16), (16, 17)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 2,\n\"4\": 1,\n\"5\": 2,\n\"6\": 1,\n\"7\": 1,\n\"8\": 3,\n\"9\": 4,\n\"10\": 2,\n\"11\": 3,\n\"12\": 1,\n\"13\": 1,\n\"14\": 1,\n\"15\": 2,\n\"16\": 3,\n\"17\": 4,\n\"18\": 4\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 2,\n\"4\": 1,\n\"5\": 2,\n\"6\": 1,\n\"7\": 1,\n\"8\": 3,\n\"9\": 4,\n\"10\": 2,\n\"11\": 3,\n\"12\": 1,\n\"13\": 1,\n\"14\": 1,\n\"15\": 2,\n\"16\": 3,\n\"17\": 4,\n\"18\": 4\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]\nEdges: [(0, 6), (0, 12), (1, 3), (1, 4), (1, 14), (2, 5), (2, 8), (2, 11), (2, 12), (2, 13), (3, 6), (4, 13), (5, 13), (6, 10), (8, 12), (9, 13), (11, 14), (12, 16)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 2,\n\"4\": 2,\n\"5\": 2,\n\"6\": 2,\n\"7\": 1,\n\"8\": 3,\n\"9\": 1,\n\"10\": 1,\n\"11\": 3,\n\"12\": 3,\n\"13\": 4,\n\"14\": 2,\n\"15\": 1,\n\"16\": 1\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 2,\n\"4\": 2,\n\"5\": 2,\n\"6\": 2,\n\"7\": 1,\n\"8\": 3,\n\"9\": 1,\n\"10\": 1,\n\"11\": 3,\n\"12\": 3,\n\"13\": 4,\n\"14\": 2,\n\"15\": 1,\n\"16\": 1\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]\nEdges: [(0, 13), (0, 16), (1, 10), (1, 11), (2, 7), (4, 9), (4, 10), (5, 8), (5, 12), (7, 8), (7, 9), (9, 14), (10, 11)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 3,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 1,\n\"7\": 2,\n\"8\": 3,\n\"9\": 2,\n\"10\": 2,\n\"11\": 1,\n\"12\": 2,\n\"13\": 2,\n\"14\": 1,\n\"15\": 1,\n\"16\": 2\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 3,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 1,\n\"7\": 2,\n\"8\": 3,\n\"9\": 2,\n\"10\": 2,\n\"11\": 1,\n\"12\": 2,\n\"13\": 2,\n\"14\": 1,\n\"15\": 1,\n\"16\": 2\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]\nEdges: [(1, 15), (2, 4), (2, 9), (2, 11), (4, 8), (5, 10), (7, 10), (7, 11), (10, 12)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 3,\n\"5\": 1,\n\"6\": 1,\n\"7\": 1,\n\"8\": 1,\n\"9\": 2,\n\"10\": 2,\n\"11\": 3,\n\"12\": 1,\n\"13\": 1,\n\"14\": 1,\n\"15\": 2\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 3,\n\"5\": 1,\n\"6\": 1,\n\"7\": 1,\n\"8\": 1,\n\"9\": 2,\n\"10\": 2,\n\"11\": 3,\n\"12\": 1,\n\"13\": 1,\n\"14\": 1,\n\"15\": 2\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nEdges: [(0, 7), (1, 10), (2, 6), (2, 7), (3, 8), (4, 8), (4, 9), (5, 9), (9, 10)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 2,\n\"7\": 2,\n\"8\": 2,\n\"9\": 2,\n\"10\": 2\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 2,\n\"7\": 2,\n\"8\": 2,\n\"9\": 2,\n\"10\": 2\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nEdges: [(5, 6), (5, 10), (7, 10)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 2,\n\"7\": 2,\n\"8\": 1,\n\"9\": 1,\n\"10\": 3\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 2,\n\"7\": 2,\n\"8\": 1,\n\"9\": 1,\n\"10\": 3\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]\nEdges: [(0, 15), (1, 4), (2, 11), (3, 5), (3, 10), (4, 14), (5, 15), (7, 10), (9, 11), (10, 11), (12, 14)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n    \"0\": 1,\n    \"1\": 1,\n    \"2\": 1,\n    \"3\": 1,\n    \"4\": 3,\n    \"5\": 2,\n    \"6\": 1,\n    \"7\": 1,\n    \"8\": 1,\n    \"9\": 2,\n    \"10\": 2,\n    \"11\": 3,\n    \"12\": 1,\n    \"13\": 1,\n    \"14\": 2,\n    \"15\": 3,\n    \"16\": 1\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n    \"0\": 1,\n    \"1\": 1,\n    \"2\": 1,\n    \"3\": 1,\n    \"4\": 3,\n    \"5\": 2,\n    \"6\": 1,\n    \"7\": 1,\n    \"8\": 1,\n    \"9\": 2,\n    \"10\": 2,\n    \"11\": 3,\n    \"12\": 1,\n    \"13\": 1,\n    \"14\": 2,\n    \"15\": 3,\n    \"16\": 1\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]\nEdges: [(0, 1), (0, 3), (0, 17), (1, 9), (1, 16), (2, 6), (3, 18), (4, 9), (5, 12), (5, 19), (7, 9), (7, 12), (8, 10), (9, 11), (9, 14), (10, 14), (10, 15), (11, 18), (12, 17), (13, 15), (17, 18)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n    \"0\": 2,\n    \"1\": 3,\n    \"2\": 1,\n    \"3\": 1,\n    \"4\": 1,\n    \"5\": 1,\n    \"6\": 2,\n    \"7\": 2,\n    \"8\": 1,\n    \"9\": 4,\n    \"10\": 2,\n    \"11\": 1,\n    \"12\": 3,\n    \"13\": 1,\n    \"14\": 3,\n    \"15\": 1,\n    \"16\": 1,\n    \"17\": 4,\n    \"18\": 2,\n    \"19\": 2\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n    \"0\": 2,\n    \"1\": 3,\n    \"2\": 1,\n    \"3\": 1,\n    \"4\": 1,\n    \"5\": 1,\n    \"6\": 2,\n    \"7\": 2,\n    \"8\": 1,\n    \"9\": 4,\n    \"10\": 2,\n    \"11\": 1,\n    \"12\": 3,\n    \"13\": 1,\n    \"14\": 3,\n    \"15\": 1,\n    \"16\": 1,\n    \"17\": 4,\n    \"18\": 2,\n    \"19\": 2\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nEdges: [(1, 3), (1, 8), (1, 9), (2, 4)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 2,\n\"2\": 1,\n\"3\": 1,\n\"4\": 2,\n\"5\": 1,\n\"6\": 1,\n\"7\": 1,\n\"8\": 1,\n\"9\": 1,\n\"10\": 1\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 2,\n\"2\": 1,\n\"3\": 1,\n\"4\": 2,\n\"5\": 1,\n\"6\": 1,\n\"7\": 1,\n\"8\": 1,\n\"9\": 1,\n\"10\": 1\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]\nEdges: [(0, 7), (1, 4), (1, 12), (1, 14), (2, 11), (2, 12), (2, 13), (4, 10), (5, 11), (6, 7), (7, 11), (8, 13), (10, 14)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n    \"0\": 1,\n    \"1\": 1,\n    \"2\": 1,\n    \"3\": 2,\n    \"4\": 2,\n    \"5\": 2,\n    \"6\": 2,\n    \"7\": 3,\n    \"8\": 1,\n    \"9\": 1,\n    \"10\": 3,\n    \"11\": 4,\n    \"12\": 3,\n    \"13\": 2,\n    \"14\": 4\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n    \"0\": 1,\n    \"1\": 1,\n    \"2\": 1,\n    \"3\": 2,\n    \"4\": 2,\n    \"5\": 2,\n    \"6\": 2,\n    \"7\": 3,\n    \"8\": 1,\n    \"9\": 1,\n    \"10\": 3,\n    \"11\": 4,\n    \"12\": 3,\n    \"13\": 2,\n    \"14\": 4\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nEdges: [(1, 5), (1, 8), (1, 9), (4, 7), (4, 9), (4, 10)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 2,\n\"2\": 1,\n\"3\": 1,\n\"4\": 3,\n\"5\": 1,\n\"6\": 1,\n\"7\": 1,\n\"8\": 1,\n\"9\": 1,\n\"10\": 2\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 2,\n\"2\": 1,\n\"3\": 1,\n\"4\": 3,\n\"5\": 1,\n\"6\": 1,\n\"7\": 1,\n\"8\": 1,\n\"9\": 1,\n\"10\": 2\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]\nEdges: [(0, 5), (0, 9), (1, 5), (1, 10), (2, 4), (3, 4), (4, 7), (5, 8), (6, 9), (6, 10), (8, 9), (9, 10), (10, 13)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 3,\n\"2\": 1,\n\"3\": 2,\n\"4\": 3,\n\"5\": 2,\n\"6\": 2,\n\"7\": 1,\n\"8\": 3,\n\"9\": 4,\n\"10\": 1,\n\"11\": 1,\n\"12\": 1,\n\"13\": 2\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 3,\n\"2\": 1,\n\"3\": 2,\n\"4\": 3,\n\"5\": 2,\n\"6\": 2,\n\"7\": 1,\n\"8\": 3,\n\"9\": 4,\n\"10\": 1,\n\"11\": 1,\n\"12\": 1,\n\"13\": 2\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]\nEdges: [(0, 14), (1, 7), (1, 15), (2, 14), (4, 5), (5, 7), (8, 10), (8, 13), (8, 17), (12, 13), (14, 18)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 2,\n\"6\": 1,\n\"7\": 3,\n\"8\": 1,\n\"9\": 1,\n\"10\": 2,\n\"11\": 1,\n\"12\": 1,\n\"13\": 2,\n\"14\": 3,\n\"15\": 2,\n\"16\": 1,\n\"17\": 3,\n\"18\": 1\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 2,\n\"6\": 1,\n\"7\": 3,\n\"8\": 1,\n\"9\": 1,\n\"10\": 2,\n\"11\": 1,\n\"12\": 1,\n\"13\": 2,\n\"14\": 3,\n\"15\": 2,\n\"16\": 1,\n\"17\": 3,\n\"18\": 1\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]\nEdges: [(1, 16), (2, 5), (2, 8), (3, 7), (3, 8), (5, 9), (5, 15), (7, 10), (7, 15), (8, 10), (12, 13), (13, 14), (13, 15)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 2,\n\"6\": 1,\n\"7\": 2,\n\"8\": 3,\n\"9\": 3,\n\"10\": 1,\n\"11\": 1,\n\"12\": 1,\n\"13\": 2,\n\"14\": 1,\n\"15\": 1,\n\"16\": 2\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 2,\n\"6\": 1,\n\"7\": 2,\n\"8\": 3,\n\"9\": 3,\n\"10\": 1,\n\"11\": 1,\n\"12\": 1,\n\"13\": 2,\n\"14\": 1,\n\"15\": 1,\n\"16\": 2\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]\nEdges: [(0, 4), (0, 14), (1, 8), (2, 8), (3, 7), (4, 8), (4, 11), (5, 13), (9, 10), (9, 13)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 2,\n\"5\": 1,\n\"6\": 1,\n\"7\": 2,\n\"8\": 3,\n\"9\": 1,\n\"10\": 2,\n\"11\": 3,\n\"12\": 1,\n\"13\": 2,\n\"14\": 3\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 2,\n\"5\": 1,\n\"6\": 1,\n\"7\": 2,\n\"8\": 3,\n\"9\": 1,\n\"10\": 2,\n\"11\": 3,\n\"12\": 1,\n\"13\": 2,\n\"14\": 3\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]\nEdges: [(0, 12), (1, 8), (1, 13), (2, 7), (2, 13), (3, 5), (4, 5), (5, 9), (5, 11), (6, 11), (7, 8), (7, 10), (8, 11), (9, 11), (9, 12), (9, 13)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 2,\n\"5\": 3,\n\"6\": 2,\n\"7\": 2,\n\"8\": 2,\n\"9\": 4,\n\"10\": 1,\n\"11\": 1,\n\"12\": 2,\n\"13\": 2\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 2,\n\"5\": 3,\n\"6\": 2,\n\"7\": 2,\n\"8\": 2,\n\"9\": 4,\n\"10\": 1,\n\"11\": 1,\n\"12\": 2,\n\"13\": 2\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]\nEdges: [(0, 1), (0, 6), (3, 9), (3, 11), (4, 7), (4, 11), (5, 12), (6, 9), (7, 8), (9, 12)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 2,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 3,\n\"7\": 2,\n\"8\": 1,\n\"9\": 2,\n\"10\": 1,\n\"11\": 3,\n\"12\": 3\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 2,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 3,\n\"7\": 2,\n\"8\": 1,\n\"9\": 2,\n\"10\": 1,\n\"11\": 3,\n\"12\": 3\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]\nEdges: [(0, 6), (0, 7), (1, 5), (3, 6), (3, 10), (4, 9), (6, 8), (7, 10)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 2,\n\"4\": 1,\n\"5\": 2,\n\"6\": 3,\n\"7\": 4,\n\"8\": 1,\n\"9\": 2,\n\"10\": 1,\n\"11\": 1\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 2,\n\"4\": 1,\n\"5\": 2,\n\"6\": 3,\n\"7\": 4,\n\"8\": 1,\n\"9\": 2,\n\"10\": 1,\n\"11\": 1\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]\nEdges: [(0, 7), (1, 4), (2, 10), (3, 6), (3, 12), (4, 13), (6, 9), (9, 12)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 2,\n\"5\": 1,\n\"6\": 2,\n\"7\": 2,\n\"8\": 1,\n\"9\": 1,\n\"10\": 2,\n\"11\": 1,\n\"12\": 3,\n\"13\": 1\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 2,\n\"5\": 1,\n\"6\": 2,\n\"7\": 2,\n\"8\": 1,\n\"9\": 1,\n\"10\": 2,\n\"11\": 1,\n\"12\": 3,\n\"13\": 1\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]\nEdges: [(0, 5), (0, 9), (1, 12), (3, 6), (3, 12), (4, 8), (4, 10), (5, 7), (6, 12), (6, 13), (6, 17), (8, 17), (10, 12), (11, 14)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 2,\n\"6\": 2,\n\"7\": 3,\n\"8\": 2,\n\"9\": 2,\n\"10\": 2,\n\"11\": 1,\n\"12\": 3,\n\"13\": 3,\n\"14\": 2,\n\"15\": 1,\n\"16\": 1,\n\"17\": 1\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 2,\n\"6\": 2,\n\"7\": 3,\n\"8\": 2,\n\"9\": 2,\n\"10\": 2,\n\"11\": 1,\n\"12\": 3,\n\"13\": 3,\n\"14\": 2,\n\"15\": 1,\n\"16\": 1,\n\"17\": 1\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]\nEdges: [(0, 9), (1, 9), (2, 5), (3, 10), (5, 8), (6, 8), (6, 11), (7, 11), (10, 11)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "Here's how we can color the graph, ensuring no adjacent vertices share the same color:\n\n1. **Start with an arbitrary vertex:** Let's begin with vertex 0. We can assign it color 1.\n2. **Color vertex 9:** Vertex 9 is connected to vertex 0. So, vertex 9 cannot be color 1. Assign it color 2.\n3. **Color vertex 1:** Vertex 1 is connected to vertex 9. So, vertex 1 cannot be color 2. Assign it color 1.\n4. **Color vertex 2:** Vertex 2 is not connected to any colored vertices yet. Assign it color 1.\n5. **Color vertex 5:** Vertex 5 is connected to vertex 2. So, vertex 5 cannot be color 1. Assign it color 2.\n6. **Color vertex 8:** Vertex 8 is connected to vertex 5. So, vertex 8 cannot be color 2. Assign it color 1.\n7. **Color vertex 6:** Vertex 6 is connected to vertex 8. So, vertex 6 cannot be color 1. Assign it color 2.\n8. **Color vertex 3:** Vertex 3 is not connected to any colored vertices yet. Assign it color 1.\n9. **Color vertex 10:** Vertex 10 is connected to vertex 3. So, vertex 10 cannot be color 1. Assign it color 2.\n10. **Color vertex 7:** Vertex 7 is not connected to any colored vertices yet. Assign it color 1.\n11. **Color vertex 11:** Vertex 11 is connected to vertices 6, 7, and 10. So, vertex 11 cannot be color 1 or color 2. Assign it color 3.\n12. **Check for conflicts:**\n*   0:1, 9:2 - No conflict\n*   1:1, 9:2 - No conflict\n*   2:1, 5:2 - No conflict\n*   3:1, 10:2 - No conflict\n*   5:2, 8:1 - No conflict\n*   6:2, 8:1 - No conflict\n*   6:2, 11:3 - No conflict\n*   7:1, 11:3 - No conflict\n*   10:2, 11:3 - No conflict\n\n```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 2,\n\"6\": 2,\n\"7\": 1,\n\"8\": 1,\n\"9\": 2,\n\"10\": 2,\n\"11\": 3\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "Here's how we can color the graph, ensuring no adjacent vertices share the same color:\n\n1. **Start with an arbitrary vertex:** Let's begin with vertex 0. We can assign it color 1.\n2. **Color vertex 9:** Vertex 9 is connected to vertex 0. So, vertex 9 cannot be color 1. Assign it color 2.\n3. **Color vertex 1:** Vertex 1 is connected to vertex 9. So, vertex 1 cannot be color 2. Assign it color 1.\n4. **Color vertex 2:** Vertex 2 is not connected to any colored vertices yet. Assign it color 1.\n5. **Color vertex 5:** Vertex 5 is connected to vertex 2. So, vertex 5 cannot be color 1. Assign it color 2.\n6. **Color vertex 8:** Vertex 8 is connected to vertex 5. So, vertex 8 cannot be color 2. Assign it color 1.\n7. **Color vertex 6:** Vertex 6 is connected to vertex 8. So, vertex 6 cannot be color 1. Assign it color 2.\n8. **Color vertex 3:** Vertex 3 is not connected to any colored vertices yet. Assign it color 1.\n9. **Color vertex 10:** Vertex 10 is connected to vertex 3. So, vertex 10 cannot be color 1. Assign it color 2.\n10. **Color vertex 7:** Vertex 7 is not connected to any colored vertices yet. Assign it color 1.\n11. **Color vertex 11:** Vertex 11 is connected to vertices 6, 7, and 10. So, vertex 11 cannot be color 1 or color 2. Assign it color 3.\n12. **Check for conflicts:**\n*   0:1, 9:2 - No conflict\n*   1:1, 9:2 - No conflict\n*   2:1, 5:2 - No conflict\n*   3:1, 10:2 - No conflict\n*   5:2, 8:1 - No conflict\n*   6:2, 8:1 - No conflict\n*   6:2, 11:3 - No conflict\n*   7:1, 11:3 - No conflict\n*   10:2, 11:3 - No conflict\n\n```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 2,\n\"6\": 2,\n\"7\": 1,\n\"8\": 1,\n\"9\": 2,\n\"10\": 2,\n\"11\": 3\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]\nEdges: [(0, 4), (0, 8), (1, 4), (1, 5), (2, 9), (2, 13), (3, 7), (3, 8), (5, 13), (7, 14), (8, 9), (8, 15), (8, 16), (11, 16)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 3,\n\"2\": 1,\n\"3\": 1,\n\"4\": 2,\n\"5\": 2,\n\"6\": 1,\n\"7\": 2,\n\"8\": 2,\n\"9\": 2,\n\"10\": 1,\n\"11\": 1,\n\"12\": 1,\n\"13\": 3,\n\"14\": 1,\n\"15\": 3,\n\"16\": 3\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 3,\n\"2\": 1,\n\"3\": 1,\n\"4\": 2,\n\"5\": 2,\n\"6\": 1,\n\"7\": 2,\n\"8\": 2,\n\"9\": 2,\n\"10\": 1,\n\"11\": 1,\n\"12\": 1,\n\"13\": 3,\n\"14\": 1,\n\"15\": 3,\n\"16\": 3\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]\nEdges: [(0, 2), (0, 3), (1, 8), (2, 3), (2, 12), (5, 6), (5, 8), (7, 9), (8, 10)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 2,\n\"3\": 3,\n\"4\": 1,\n\"5\": 1,\n\"6\": 2,\n\"7\": 1,\n\"8\": 2,\n\"9\": 2,\n\"10\": 1,\n\"11\": 1,\n\"12\": 1,\n\"13\": 1\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 2,\n\"3\": 3,\n\"4\": 1,\n\"5\": 1,\n\"6\": 2,\n\"7\": 1,\n\"8\": 2,\n\"9\": 2,\n\"10\": 1,\n\"11\": 1,\n\"12\": 1,\n\"13\": 1\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]\nEdges: [(1, 8), (2, 9), (3, 5), (3, 10), (5, 9), (6, 8)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 2,\n\"6\": 2,\n\"7\": 1,\n\"8\": 3,\n\"9\": 3,\n\"10\": 2,\n\"11\": 1,\n\"12\": 1\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 2,\n\"6\": 2,\n\"7\": 1,\n\"8\": 3,\n\"9\": 3,\n\"10\": 2,\n\"11\": 1,\n\"12\": 1\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\nEdges: [(1, 6), (2, 8), (4, 6)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 2,\n\"2\": 1,\n\"3\": 1,\n\"4\": 3,\n\"5\": 1,\n\"6\": 4,\n\"7\": 1,\n\"8\": 2,\n\"9\": 1\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 2,\n\"2\": 1,\n\"3\": 1,\n\"4\": 3,\n\"5\": 1,\n\"6\": 4,\n\"7\": 1,\n\"8\": 2,\n\"9\": 1\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]\nEdges: [(0, 11), (1, 3), (3, 11), (4, 9), (5, 8)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n    \"0\": 1,\n    \"1\": 1,\n    \"2\": 1,\n    \"3\": 2,\n    \"4\": 1,\n    \"5\": 1,\n    \"6\": 1,\n    \"7\": 1,\n    \"8\": 2,\n    \"9\": 2,\n    \"10\": 1,\n    \"11\": 3\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n    \"0\": 1,\n    \"1\": 1,\n    \"2\": 1,\n    \"3\": 2,\n    \"4\": 1,\n    \"5\": 1,\n    \"6\": 1,\n    \"7\": 1,\n    \"8\": 2,\n    \"9\": 2,\n    \"10\": 1,\n    \"11\": 3\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]\nEdges: [(0, 4), (0, 6), (1, 11), (2, 8), (2, 10), (4, 11), (5, 7), (6, 12), (7, 8), (8, 11), (9, 11)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 2,\n\"5\": 1,\n\"6\": 2,\n\"7\": 2,\n\"8\": 2,\n\"9\": 1,\n\"10\": 2,\n\"11\": 3,\n\"12\": 1,\n\"13\": 1,\n\"14\": 1,\n\"15\": 1\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 2,\n\"5\": 1,\n\"6\": 2,\n\"7\": 2,\n\"8\": 2,\n\"9\": 1,\n\"10\": 2,\n\"11\": 3,\n\"12\": 1,\n\"13\": 1,\n\"14\": 1,\n\"15\": 1\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nEdges: [(0, 5), (1, 8), (2, 3), (2, 9), (3, 7)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 2,\n\"4\": 1,\n\"5\": 2,\n\"6\": 1,\n\"7\": 1,\n\"8\": 2,\n\"9\": 2,\n\"10\": 1\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 2,\n\"4\": 1,\n\"5\": 2,\n\"6\": 1,\n\"7\": 1,\n\"8\": 2,\n\"9\": 2,\n\"10\": 1\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]\nEdges: [(1, 11), (1, 12), (2, 8), (2, 9), (3, 4), (3, 9), (11, 12)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 3,\n\"2\": 1,\n\"3\": 1,\n\"4\": 2,\n\"5\": 1,\n\"6\": 1,\n\"7\": 1,\n\"8\": 2,\n\"9\": 2,\n\"10\": 1,\n\"11\": 1,\n\"12\": 2\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 3,\n\"2\": 1,\n\"3\": 1,\n\"4\": 2,\n\"5\": 1,\n\"6\": 1,\n\"7\": 1,\n\"8\": 2,\n\"9\": 2,\n\"10\": 1,\n\"11\": 1,\n\"12\": 2\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nEdges: [(1, 7), (5, 8)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 1,\n\"7\": 2,\n\"8\": 2,\n\"9\": 1,\n\"10\": 1\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 1,\n\"7\": 2,\n\"8\": 2,\n\"9\": 1,\n\"10\": 1\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]\nEdges: [(0, 8), (0, 12), (0, 15), (1, 2), (3, 6), (3, 15), (5, 9), (5, 14), (5, 15), (9, 10)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 2,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 2,\n\"7\": 1,\n\"8\": 2,\n\"9\": 2,\n\"10\": 1,\n\"11\": 1,\n\"12\": 2,\n\"13\": 1,\n\"14\": 2,\n\"15\": 2\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 2,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 2,\n\"7\": 1,\n\"8\": 2,\n\"9\": 2,\n\"10\": 1,\n\"11\": 1,\n\"12\": 2,\n\"13\": 1,\n\"14\": 2,\n\"15\": 2\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]\nEdges: [(0, 4), (0, 15), (1, 11), (1, 12), (1, 16), (2, 12), (3, 5), (3, 10), (3, 11), (3, 13), (3, 15), (4, 6), (7, 9), (7, 12), (7, 16), (8, 15), (10, 13), (11, 16), (12, 14)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 2,\n\"5\": 2,\n\"6\": 1,\n\"7\": 1,\n\"8\": 2,\n\"9\": 2,\n\"10\": 2,\n\"11\": 2,\n\"12\": 3,\n\"13\": 3,\n\"14\": 1,\n\"15\": 4,\n\"16\": 3\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 1,\n\"2\": 1,\n\"3\": 1,\n\"4\": 2,\n\"5\": 2,\n\"6\": 1,\n\"7\": 1,\n\"8\": 2,\n\"9\": 2,\n\"10\": 2,\n\"11\": 2,\n\"12\": 3,\n\"13\": 3,\n\"14\": 1,\n\"15\": 4,\n\"16\": 3\n}\n```",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "question": "Please provide a coloring for this graph such that every vertex is not connected to a vertex of the same color. The graph has these properties:\n\nVertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]\nEdges: [(1, 6), (1, 14), (1, 16), (2, 7), (6, 8), (7, 9), (7, 15), (7, 17), (8, 9), (8, 11), (10, 12), (10, 14), (11, 17), (12, 15), (13, 15)]\nPossible colors: [1, 2, 3, 4]\n\nReturn your solution as a JSON map of vertices to colors. (For example: {\"0\": 1, \"1\": 2, \"2\": 3}.)\n",
+      "expected_answer": "None",
+      "best_model_answer": null,
+      "best_full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 2,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 3,\n\"7\": 4,\n\"8\": 1,\n\"9\": 2,\n\"10\": 1,\n\"11\": 3,\n\"12\": 2,\n\"13\": 1,\n\"14\": 3,\n\"15\": 3,\n\"16\": 4,\n\"17\": 1\n}\n```",
+      "best_score": 0.0,
+      "mean_score": 0.0,
+      "completions": [
+        {
+          "model_answer": null,
+          "full_model_response": "```json\n{\n\"0\": 1,\n\"1\": 2,\n\"2\": 1,\n\"3\": 1,\n\"4\": 1,\n\"5\": 1,\n\"6\": 3,\n\"7\": 4,\n\"8\": 1,\n\"9\": 2,\n\"10\": 1,\n\"11\": 3,\n\"12\": 2,\n\"13\": 1,\n\"14\": 3,\n\"15\": 3,\n\"16\": 4,\n\"17\": 1\n}\n```",
+          "score": 0.0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,767 @@
+{
+  "name": "mini_sudoku",
+  "category": "games",
+  "average_best_score": 0.8395000000000001,
+  "average_mean_score": 0.8395000000000001,
+  "total_examples": 50,
+  "config": {
+    "size": 50,
+    "seed": 45,
+    "min_empty": 6,
+    "max_empty": 10
+  },
+  "system_prompt": "Given a problem, your task is to answer the question by thinking step-by-step in a clear and specific manner.\nOnce you have thought about the reasoning process, provide the answer in the following format:\n<answer>answer here</answer>\nDo not explain your reasoning inside the answer tags, provide only the final answer. When an example is provided, you should strictly follow the format of the output/answer in that example.\n",
+  "completions_per_prompt": 1,
+  "results": [
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n2 4 _ 1\n1 _ _ _\n_ 1 2 3\n_ 2 _ _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "2 4 3 1\n1 3 4 2\n4 1 2 3\n3 2 1 4",
+      "best_model_answer": "2 4 3 1\n1 3 4 2\n4 1 2 3\n3 2 1 4",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First row is 2 4 [3] 1 (3 is missing)\n2) Looking at first column: 2,1,[3],4 (3 must be in third spot)\n3) Second row has 1 in first spot, so looking at constraints:\n   - Can't be 2 or 4 (from first row)\n   - Must complete 2x2 grid with 2,1,3,4\n4) Third row is [4] 1 2 3\n5) Fourth row must be [4] 2 [1] [3]\n6) Working back to second row: 1 [3] [4] [2]\n\n<answer>2 4 3 1\n1 3 4 2\n4 1 2 3\n3 2 1 4</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "2 4 3 1\n1 3 4 2\n4 1 2 3\n3 2 1 4",
+          "full_model_response": "Let me solve this step by step:\n\n1) First row is 2 4 [3] 1 (3 is missing)\n2) Looking at first column: 2,1,[3],4 (3 must be in third spot)\n3) Second row has 1 in first spot, so looking at constraints:\n   - Can't be 2 or 4 (from first row)\n   - Must complete 2x2 grid with 2,1,3,4\n4) Third row is [4] 1 2 3\n5) Fourth row must be [4] 2 [1] [3]\n6) Working back to second row: 1 [3] [4] [2]\n\n<answer>2 4 3 1\n1 3 4 2\n4 1 2 3\n3 2 1 4</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n_ 3 _ _\n4 1 3 2\n3 _ 2 1\n_ _ 4 3\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "2 3 1 4\n4 1 3 2\n3 4 2 1\n1 2 4 3",
+      "best_model_answer": "2 3 1 4\n4 1 3 2\n3 4 2 1\n2 1 4 3",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Looking at first row, we have a 3 in second position\n2) First column has a 4 and 3, so first position can only be 1 or 2\n3) Last column has 2, 1, 3, so last position of first row must be 4\n4) First row now needs a 1 or 2 in first position\n5) Looking at top-left 2x2 box, it has 3, 4, 1, so first position must be 2\n6) Third row is missing a 4 in second position\n7) Last row has 4, 3 and looking at columns, only 1, 2 remain\n8) First position of last row must be 2 due to first column\n9) Second position of last row must be 1\n\n<answer>2 3 1 4\n4 1 3 2\n3 4 2 1\n2 1 4 3</answer>",
+      "best_score": 0.7875,
+      "mean_score": 0.7875,
+      "completions": [
+        {
+          "model_answer": "2 3 1 4\n4 1 3 2\n3 4 2 1\n2 1 4 3",
+          "full_model_response": "Let me solve this step by step:\n\n1) Looking at first row, we have a 3 in second position\n2) First column has a 4 and 3, so first position can only be 1 or 2\n3) Last column has 2, 1, 3, so last position of first row must be 4\n4) First row now needs a 1 or 2 in first position\n5) Looking at top-left 2x2 box, it has 3, 4, 1, so first position must be 2\n6) Third row is missing a 4 in second position\n7) Last row has 4, 3 and looking at columns, only 1, 2 remain\n8) First position of last row must be 2 due to first column\n9) Second position of last row must be 1\n\n<answer>2 3 1 4\n4 1 3 2\n3 4 2 1\n2 1 4 3</answer>",
+          "score": 0.7875
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n1 2 _ _\n4 _ _ 2\n3 _ _ _\n_ 1 _ 4\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "1 2 4 3\n4 3 1 2\n3 4 2 1\n2 1 3 4",
+      "best_model_answer": "1 2 3 4\n4 3 1 2\n3 4 2 1\n2 1 4 4",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let's look at the top row. We need 3 and 4 to complete it. Looking at the columns, we can see 4 already appears in column 1, so 4 must go in column 4, making 3 go in column 3.\n\n2) In the second row, we have 4 and 2. Looking at the 2x2 subgrids and considering row constraints, we need 1 and 3.\n\n3) Third row has only 3. Looking at constraints, we can fill in the remaining numbers.\n\n4) The last row can then be completed based on remaining possibilities.\n\n<answer>\n1 2 3 4\n4 3 1 2\n3 4 2 1\n2 1 4 4</answer>",
+      "best_score": 0.7312500000000001,
+      "mean_score": 0.7312500000000001,
+      "completions": [
+        {
+          "model_answer": "1 2 3 4\n4 3 1 2\n3 4 2 1\n2 1 4 4",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let's look at the top row. We need 3 and 4 to complete it. Looking at the columns, we can see 4 already appears in column 1, so 4 must go in column 4, making 3 go in column 3.\n\n2) In the second row, we have 4 and 2. Looking at the 2x2 subgrids and considering row constraints, we need 1 and 3.\n\n3) Third row has only 3. Looking at constraints, we can fill in the remaining numbers.\n\n4) The last row can then be completed based on remaining possibilities.\n\n<answer>\n1 2 3 4\n4 3 1 2\n3 4 2 1\n2 1 4 4</answer>",
+          "score": 0.7312500000000001
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n4 3 1 2\n1 _ 4 3\n_ _ _ 1\n_ _ 3 _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "4 3 1 2\n1 2 4 3\n3 4 2 1\n2 1 3 4",
+      "best_model_answer": "4 3 1 2\n1 2 4 3\n3 4 2 1\n2 1 3 4",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Looking at the second row, we have [1,_,4,3], missing 2\n2) In the third row, we have [_,_,_,1], and column 4 has [2,3,1,_]\n3) Looking at bottom right 2x2 subgrid, we need 2,4\n4) Column 3 has [1,4,_,3], so needs 2\n5) Third row needs 2,3,4 and column 3 constraint means it must be 2\n6) Bottom right must be 4\n7) Bottom left 2x2 subgrid needs 1,2,3,4\n8) Given column constraints, third row first number must be 3\n9) This leaves 4 for second number in third row\n10) First number in last row must be 2\n11) Second number in last row must be 1\n12) Second number in second row must be 2\n\n<answer>4 3 1 2\n1 2 4 3\n3 4 2 1\n2 1 3 4</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "4 3 1 2\n1 2 4 3\n3 4 2 1\n2 1 3 4",
+          "full_model_response": "Let me solve this step by step:\n\n1) Looking at the second row, we have [1,_,4,3], missing 2\n2) In the third row, we have [_,_,_,1], and column 4 has [2,3,1,_]\n3) Looking at bottom right 2x2 subgrid, we need 2,4\n4) Column 3 has [1,4,_,3], so needs 2\n5) Third row needs 2,3,4 and column 3 constraint means it must be 2\n6) Bottom right must be 4\n7) Bottom left 2x2 subgrid needs 1,2,3,4\n8) Given column constraints, third row first number must be 3\n9) This leaves 4 for second number in third row\n10) First number in last row must be 2\n11) Second number in last row must be 1\n12) Second number in second row must be 2\n\n<answer>4 3 1 2\n1 2 4 3\n3 4 2 1\n2 1 3 4</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n4 _ 1 2\n_ _ 4 3\n1 2 3 4\n_ _ _ 1\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "4 3 1 2\n2 1 4 3\n1 2 3 4\n3 4 2 1",
+      "best_model_answer": "4 3 1 2\n2 1 4 3\n1 2 3 4\n3 4 2 1",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Looking at first row: 4 _ 1 2\n   - Missing 3 in second position\n\n2) Second row: _ _ 4 3\n   - Looking at columns and subgrids\n   - Must be 1 and 2 in first two positions\n   - 1 can't be in first position due to column\n   - So it's 2 1 4 3\n\n3) Third row is complete: 1 2 3 4\n\n4) Fourth row: _ _ _ 1\n   - Looking at columns and remaining numbers\n   - Must be 3 4 2 1\n\n<answer>\n4 3 1 2\n2 1 4 3\n1 2 3 4\n3 4 2 1</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "4 3 1 2\n2 1 4 3\n1 2 3 4\n3 4 2 1",
+          "full_model_response": "Let me solve this step by step:\n\n1) Looking at first row: 4 _ 1 2\n   - Missing 3 in second position\n\n2) Second row: _ _ 4 3\n   - Looking at columns and subgrids\n   - Must be 1 and 2 in first two positions\n   - 1 can't be in first position due to column\n   - So it's 2 1 4 3\n\n3) Third row is complete: 1 2 3 4\n\n4) Fourth row: _ _ _ 1\n   - Looking at columns and remaining numbers\n   - Must be 3 4 2 1\n\n<answer>\n4 3 1 2\n2 1 4 3\n1 2 3 4\n3 4 2 1</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n3 _ _ 2\n1 2 4 _\n_ _ 2 1\n2 1 _ 4\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "3 4 1 2\n1 2 4 3\n4 3 2 1\n2 1 3 4",
+      "best_model_answer": "3 4 1 2\n1 2 4 3\n4 3 2 1\n2 1 3 4",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let's look at the missing number in row 1\n2) Row 1 has 3 and 2, so needs 1 and 4\n3) Column 2 already has 2 and 1, so 4 must go there\n4) That means 1 goes in position (1,3)\n\n5) Looking at row 2, only missing 3\n6) Row 3 is missing 3 and 4\n7) Row 4 is missing 3\n\n8) Column 3 has 2 and needs 3\n9) Given the 2x2 subgrids and existing numbers, 3 must go in (4,3)\n10) This means 3 goes in (3,2) and 4 in (3,1)\n\n<answer>\n3 4 1 2\n1 2 4 3\n4 3 2 1\n2 1 3 4</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "3 4 1 2\n1 2 4 3\n4 3 2 1\n2 1 3 4",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let's look at the missing number in row 1\n2) Row 1 has 3 and 2, so needs 1 and 4\n3) Column 2 already has 2 and 1, so 4 must go there\n4) That means 1 goes in position (1,3)\n\n5) Looking at row 2, only missing 3\n6) Row 3 is missing 3 and 4\n7) Row 4 is missing 3\n\n8) Column 3 has 2 and needs 3\n9) Given the 2x2 subgrids and existing numbers, 3 must go in (4,3)\n10) This means 3 goes in (3,2) and 4 in (3,1)\n\n<answer>\n3 4 1 2\n1 2 4 3\n4 3 2 1\n2 1 3 4</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n1 2 _ _\n_ _ 2 _\n4 _ _ 2\n2 _ _ 3\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "1 2 3 4\n3 4 2 1\n4 3 1 2\n2 1 4 3",
+      "best_model_answer": "1 2 3 4\n3 4 2 1\n4 1 3 2\n2 3 4 1",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let's look at the top row. We need 3 and 4 to complete it. Looking at the first column, we already have 1,4,2, so 3 must be in top row.\n2) Looking at the first 2x2 box and the first column, we can determine positions.\n3) Using the rules for columns, rows, and 2x2 boxes, we can fill in the rest.\n4) Double checking all constraints are satisfied.\n\n<answer>\n1 2 3 4\n3 4 2 1\n4 1 3 2\n2 3 4 1</answer>",
+      "best_score": 0.675,
+      "mean_score": 0.675,
+      "completions": [
+        {
+          "model_answer": "1 2 3 4\n3 4 2 1\n4 1 3 2\n2 3 4 1",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let's look at the top row. We need 3 and 4 to complete it. Looking at the first column, we already have 1,4,2, so 3 must be in top row.\n2) Looking at the first 2x2 box and the first column, we can determine positions.\n3) Using the rules for columns, rows, and 2x2 boxes, we can fill in the rest.\n4) Double checking all constraints are satisfied.\n\n<answer>\n1 2 3 4\n3 4 2 1\n4 1 3 2\n2 3 4 1</answer>",
+          "score": 0.675
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n3 _ 4 1\n4 1 3 2\n_ 4 2 _\n_ 3 _ _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "3 2 4 1\n4 1 3 2\n1 4 2 3\n2 3 1 4",
+      "best_model_answer": "3 2 4 1\n4 1 3 2\n1 4 2 3\n2 3 1 4",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Looking at the first row: 3 _ 4 1\n   - Missing 2 in second position\n\n2) Second row is complete: 4 1 3 2\n\n3) Third row: _ 4 2 _\n   - Looking at columns and subgrids\n   - Must be 1 3 in remaining spots\n   - 1 must be first due to column constraints\n   - 3 must be last\n\n4) Fourth row: _ 3 _ _\n   - Looking at remaining constraints\n   - Must be 2 1 4 to satisfy all rules\n\n<answer>\n3 2 4 1\n4 1 3 2\n1 4 2 3\n2 3 1 4</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "3 2 4 1\n4 1 3 2\n1 4 2 3\n2 3 1 4",
+          "full_model_response": "Let me solve this step by step:\n\n1) Looking at the first row: 3 _ 4 1\n   - Missing 2 in second position\n\n2) Second row is complete: 4 1 3 2\n\n3) Third row: _ 4 2 _\n   - Looking at columns and subgrids\n   - Must be 1 3 in remaining spots\n   - 1 must be first due to column constraints\n   - 3 must be last\n\n4) Fourth row: _ 3 _ _\n   - Looking at remaining constraints\n   - Must be 2 1 4 to satisfy all rules\n\n<answer>\n3 2 4 1\n4 1 3 2\n1 4 2 3\n2 3 1 4</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n1 3 2 _\n4 2 _ _\n3 _ 1 2\n_ 1 4 _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "1 3 2 4\n4 2 3 1\n3 4 1 2\n2 1 4 3",
+      "best_model_answer": "1 3 2 4\n4 2 3 1\n3 4 1 2\n2 1 4 3",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Looking at the last empty spot in first row\n2) First row needs 4, as 1,2,3 are used\n3) Second row has 4,2 - needs 1,3\n4) Third row has 3,1,2 - needs 4\n5) Fourth row has 1,4 - needs 2,3\n6) Checking columns, 2x2 grids, and remaining constraints\n7) Working through possibilities until all numbers fit all rules\n\n<answer>\n1 3 2 4\n4 2 3 1\n3 4 1 2\n2 1 4 3</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "1 3 2 4\n4 2 3 1\n3 4 1 2\n2 1 4 3",
+          "full_model_response": "Let me solve this step by step:\n\n1) Looking at the last empty spot in first row\n2) First row needs 4, as 1,2,3 are used\n3) Second row has 4,2 - needs 1,3\n4) Third row has 3,1,2 - needs 4\n5) Fourth row has 1,4 - needs 2,3\n6) Checking columns, 2x2 grids, and remaining constraints\n7) Working through possibilities until all numbers fit all rules\n\n<answer>\n1 3 2 4\n4 2 3 1\n3 4 1 2\n2 1 4 3</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n1 _ _ 2\n_ 2 3 1\n_ 4 1 3\n_ _ 2 _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "1 3 4 2\n4 2 3 1\n2 4 1 3\n3 1 2 4",
+      "best_model_answer": "1 4 3 2\n4 2 3 1\n2 4 1 3\n1 3 2 4",
+      "best_full_model_response": "Let me solve this step by step:\n\n1. First, look at the top row: 1 _ _ 2\n   - Missing numbers are 3 and 4\n   - Looking at column 2, there's already a 2 and 4\n   - So the missing numbers must be 4 3\n\n2. Look at the last row: _ _ 2 _\n   - Looking at the last column, there's already 2, 1, 3\n   - So last position must be 4\n   - First two positions must be 1 3 (due to column constraints)\n\n3. Look at third column: _ 3 1 2\n   - Only missing number is 4\n\n4. Complete remaining spaces based on Sudoku rules\n\n<answer>1 4 3 2\n4 2 3 1\n2 4 1 3\n1 3 2 4</answer>",
+      "best_score": 0.675,
+      "mean_score": 0.675,
+      "completions": [
+        {
+          "model_answer": "1 4 3 2\n4 2 3 1\n2 4 1 3\n1 3 2 4",
+          "full_model_response": "Let me solve this step by step:\n\n1. First, look at the top row: 1 _ _ 2\n   - Missing numbers are 3 and 4\n   - Looking at column 2, there's already a 2 and 4\n   - So the missing numbers must be 4 3\n\n2. Look at the last row: _ _ 2 _\n   - Looking at the last column, there's already 2, 1, 3\n   - So last position must be 4\n   - First two positions must be 1 3 (due to column constraints)\n\n3. Look at third column: _ 3 1 2\n   - Only missing number is 4\n\n4. Complete remaining spaces based on Sudoku rules\n\n<answer>1 4 3 2\n4 2 3 1\n2 4 1 3\n1 3 2 4</answer>",
+          "score": 0.675
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n1 2 _ 4\n3 _ _ _\n4 _ 1 _\n_ _ _ _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "1 2 3 4\n3 4 2 1\n4 3 1 2\n2 1 4 3",
+      "best_model_answer": "1 2 3 4\n3 4 2 1\n4 3 1 2\n2 1 4 3",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let's look at what's missing in row 1: Only 3 is missing in position 3\n2) In row 2, we know 3 is in position 1, so looking at remaining numbers and constraints...\n3) In row 3, we have 4 and 1, so 2 and 3 must fit...\n4) For row 4, we can fill in based on column and box constraints...\n\n<answer>\n1 2 3 4\n3 4 2 1\n4 3 1 2\n2 1 4 3</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "1 2 3 4\n3 4 2 1\n4 3 1 2\n2 1 4 3",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let's look at what's missing in row 1: Only 3 is missing in position 3\n2) In row 2, we know 3 is in position 1, so looking at remaining numbers and constraints...\n3) In row 3, we have 4 and 1, so 2 and 3 must fit...\n4) For row 4, we can fill in based on column and box constraints...\n\n<answer>\n1 2 3 4\n3 4 2 1\n4 3 1 2\n2 1 4 3</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n4 3 _ 2\n2 1 4 _\n_ 4 2 1\n_ _ 3 _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "4 3 1 2\n2 1 4 3\n3 4 2 1\n1 2 3 4",
+      "best_model_answer": "4 3 1 2\n2 1 4 3\n3 4 2 1\n1 2 3 4",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Looking at the last row, we know it needs 1, 2, 3, 4\n   - 3 is already there\n   - Looking at columns, 4 and 2 can't go in first position\n   - 1 must go in first position\n   - 2 must go in second position\n   - 4 must go in last position\n\n2) Looking at third row:\n   - Missing 3\n   - Can only go in first position\n\n3) Looking at first row:\n   - Missing 1\n   - Can only go in third position\n\n4) Looking at second row:\n   - Missing 3\n   - Can only go in last position\n\n<answer>\n4 3 1 2\n2 1 4 3\n3 4 2 1\n1 2 3 4</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "4 3 1 2\n2 1 4 3\n3 4 2 1\n1 2 3 4",
+          "full_model_response": "Let me solve this step by step:\n\n1) Looking at the last row, we know it needs 1, 2, 3, 4\n   - 3 is already there\n   - Looking at columns, 4 and 2 can't go in first position\n   - 1 must go in first position\n   - 2 must go in second position\n   - 4 must go in last position\n\n2) Looking at third row:\n   - Missing 3\n   - Can only go in first position\n\n3) Looking at first row:\n   - Missing 1\n   - Can only go in third position\n\n4) Looking at second row:\n   - Missing 3\n   - Can only go in last position\n\n<answer>\n4 3 1 2\n2 1 4 3\n3 4 2 1\n1 2 3 4</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n_ 3 _ _\n_ _ 3 1\n_ _ 2 3\n_ _ 1 _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "1 3 4 2\n2 4 3 1\n4 1 2 3\n3 2 1 4",
+      "best_model_answer": "2 3 4 1\n4 2 3 1\n1 4 2 3\n3 1 1 4",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Looking at the second row, we see 3 and 1 in positions 3 and 4\n2) In column 3, we already have 3, 2, 1 from top to bottom\n3) The missing number in column 3 must be 4\n4) In column 4, we have 1 and 3\n5) Looking at the first row and first 2x2 box, with 3 present\n6) Due to column constraints and first 2x2 box rules\n7) Filling in remaining numbers following Sudoku rules\n\n<answer>\n2 3 4 1\n4 2 3 1\n1 4 2 3\n3 1 1 4</answer>",
+      "best_score": 0.50625,
+      "mean_score": 0.50625,
+      "completions": [
+        {
+          "model_answer": "2 3 4 1\n4 2 3 1\n1 4 2 3\n3 1 1 4",
+          "full_model_response": "Let me solve this step by step:\n\n1) Looking at the second row, we see 3 and 1 in positions 3 and 4\n2) In column 3, we already have 3, 2, 1 from top to bottom\n3) The missing number in column 3 must be 4\n4) In column 4, we have 1 and 3\n5) Looking at the first row and first 2x2 box, with 3 present\n6) Due to column constraints and first 2x2 box rules\n7) Filling in remaining numbers following Sudoku rules\n\n<answer>\n2 3 4 1\n4 2 3 1\n1 4 2 3\n3 1 1 4</answer>",
+          "score": 0.50625
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n1 3 _ 2\n_ _ _ 1\n3 _ _ 4\n_ 1 _ 3\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "1 3 4 2\n2 4 3 1\n3 2 1 4\n4 1 2 3",
+      "best_model_answer": "1 3 4 2\n4 2 3 1\n3 4 2 4\n2 1 4 3",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let's look at the missing number in row 1\n2) Row 1 has 1,3,2 so missing number is 4\n3) In column 3, we have a blank and need 1-4\n4) Looking at row 4, we see 1 and 3, and considering the 2x2 grid rules, the blank in column 3 must be 2\n5) For row 2, we know last number is 1\n6) The 2x2 grid in top right shows we need 2 and 4, with 4 already in row 1\n7) Working through remaining spaces using Sudoku rules...\n\n<answer>\n1 3 4 2\n4 2 3 1\n3 4 2 4\n2 1 4 3</answer>",
+      "best_score": 0.5625,
+      "mean_score": 0.5625,
+      "completions": [
+        {
+          "model_answer": "1 3 4 2\n4 2 3 1\n3 4 2 4\n2 1 4 3",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let's look at the missing number in row 1\n2) Row 1 has 1,3,2 so missing number is 4\n3) In column 3, we have a blank and need 1-4\n4) Looking at row 4, we see 1 and 3, and considering the 2x2 grid rules, the blank in column 3 must be 2\n5) For row 2, we know last number is 1\n6) The 2x2 grid in top right shows we need 2 and 4, with 4 already in row 1\n7) Working through remaining spaces using Sudoku rules...\n\n<answer>\n1 3 4 2\n4 2 3 1\n3 4 2 4\n2 1 4 3</answer>",
+          "score": 0.5625
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n_ _ 3 _\n_ 1 _ _\n_ 2 _ 3\n1 _ _ 4\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "2 4 3 1\n3 1 4 2\n4 2 1 3\n1 3 2 4",
+      "best_model_answer": "2 4 3 1\n3 1 4 2\n4 2 1 3\n1 3 2 4",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Looking at the third column with 3 at top:\n   - 3 can't be in row 3 (already has 3)\n   - Column has 3 at top\n\n2) Looking at first column:\n   - Has 1 at bottom\n   - Can't have 1 in other positions\n\n3) Looking at last column:\n   - Has 4 at bottom\n   - Can't have 4 in other positions\n\n4) Looking at 2x2 subgrids and considering the rules:\n   - Top left must complete with 2,4\n   - Top right must complete with 1,4\n   - Bottom left must complete with 3,4\n   - Bottom right must complete with 1,2\n\nLet me fill in all numbers following these constraints...\n\n<answer>\n2 4 3 1\n3 1 4 2\n4 2 1 3\n1 3 2 4</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "2 4 3 1\n3 1 4 2\n4 2 1 3\n1 3 2 4",
+          "full_model_response": "Let me solve this step by step:\n\n1) Looking at the third column with 3 at top:\n   - 3 can't be in row 3 (already has 3)\n   - Column has 3 at top\n\n2) Looking at first column:\n   - Has 1 at bottom\n   - Can't have 1 in other positions\n\n3) Looking at last column:\n   - Has 4 at bottom\n   - Can't have 4 in other positions\n\n4) Looking at 2x2 subgrids and considering the rules:\n   - Top left must complete with 2,4\n   - Top right must complete with 1,4\n   - Bottom left must complete with 3,4\n   - Bottom right must complete with 1,2\n\nLet me fill in all numbers following these constraints...\n\n<answer>\n2 4 3 1\n3 1 4 2\n4 2 1 3\n1 3 2 4</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n3 _ 4 2\n2 _ 1 _\n_ 3 2 _\n4 _ 3 _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "3 1 4 2\n2 4 1 3\n1 3 2 4\n4 2 3 1",
+      "best_model_answer": "3 1 4 2\n2 4 1 3\n1 3 2 4\n4 2 3 1",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Looking at row 1: 3,_,4,2 - missing 1\n2) Looking at column 2: _,_,3,_ - needs 1,2,4\n3) Looking at column 4: 2,_,_,_ - needs 1,3,4\n4) Looking at first 2x2 box: 3,_,2,_ - needs 1,4\n5) Looking at last column and row 2: must be 3\n6) Looking at last row: 4,_,3,_ - must be 1,2\n7) Looking at column 2: must be 4 in row 2\n8) Remaining spaces can be filled following Sudoku rules\n\n<answer>\n3 1 4 2\n2 4 1 3\n1 3 2 4\n4 2 3 1</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "3 1 4 2\n2 4 1 3\n1 3 2 4\n4 2 3 1",
+          "full_model_response": "Let me solve this step by step:\n\n1) Looking at row 1: 3,_,4,2 - missing 1\n2) Looking at column 2: _,_,3,_ - needs 1,2,4\n3) Looking at column 4: 2,_,_,_ - needs 1,3,4\n4) Looking at first 2x2 box: 3,_,2,_ - needs 1,4\n5) Looking at last column and row 2: must be 3\n6) Looking at last row: 4,_,3,_ - must be 1,2\n7) Looking at column 2: must be 4 in row 2\n8) Remaining spaces can be filled following Sudoku rules\n\n<answer>\n3 1 4 2\n2 4 1 3\n1 3 2 4\n4 2 3 1</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n_ 3 4 _\n_ 4 3 2\n_ 2 1 _\n_ 1 2 3\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "2 3 4 1\n1 4 3 2\n3 2 1 4\n4 1 2 3",
+      "best_model_answer": "2 3 4 1\n1 4 3 2\n4 2 1 3\n3 1 2 4",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Looking at first row, we need 1 and 2\n   - 3 and 4 are already there\n\n2) Looking at first column, all blank\n   - Can't be 3 (row 2)\n   - Can't be 2 (row 3)\n   - Can't be 1 (row 4)\n   - Must be 4,3,2,1 from top to bottom\n\n3) Looking at last column, we need 1 and 4\n   - 2 and 3 are already there\n   - Can't be 4 in last position (column has 3)\n   - Must be 1,4 from top to bottom\n\n4) This completes the puzzle\n\n<answer>2 3 4 1\n1 4 3 2\n4 2 1 3\n3 1 2 4</answer>",
+      "best_score": 0.675,
+      "mean_score": 0.675,
+      "completions": [
+        {
+          "model_answer": "2 3 4 1\n1 4 3 2\n4 2 1 3\n3 1 2 4",
+          "full_model_response": "Let me solve this step by step:\n\n1) Looking at first row, we need 1 and 2\n   - 3 and 4 are already there\n\n2) Looking at first column, all blank\n   - Can't be 3 (row 2)\n   - Can't be 2 (row 3)\n   - Can't be 1 (row 4)\n   - Must be 4,3,2,1 from top to bottom\n\n3) Looking at last column, we need 1 and 4\n   - 2 and 3 are already there\n   - Can't be 4 in last position (column has 3)\n   - Must be 1,4 from top to bottom\n\n4) This completes the puzzle\n\n<answer>2 3 4 1\n1 4 3 2\n4 2 1 3\n3 1 2 4</answer>",
+          "score": 0.675
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n4 3 _ 2\n_ 2 _ _\n2 _ _ 1\n_ _ 2 4\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "4 3 1 2\n1 2 4 3\n2 4 3 1\n3 1 2 4",
+      "best_model_answer": "4 3 1 2\n1 2 3 4\n2 4 4 1\n3 1 2 4",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Looking at first row: 4 3 _ 2\n   Only missing 1 in this row\n\n2) Looking at first column: 4 _ 2 _\n   Missing 1 and 3\n\n3) Looking at second column: 3 2 _ _\n   Missing 1 and 4\n\n4) Looking at third column: _ _ _ 2\n   Missing 1, 3, and 4\n\n5) Looking at fourth column: 2 _ 1 4\n   Missing 3\n\n6) Looking at 2x2 subgrids and applying rules:\n   - Top left subgrid needs 1\n   - Top right subgrid needs 1, 3, 4\n   - Bottom left subgrid needs 1, 3, 4\n   - Bottom right subgrid needs 3\n\n7) Filling in all numbers following Sudoku rules...\n\n<answer>\n4 3 1 2\n1 2 3 4\n2 4 4 1\n3 1 2 4</answer>",
+      "best_score": 0.7312500000000001,
+      "mean_score": 0.7312500000000001,
+      "completions": [
+        {
+          "model_answer": "4 3 1 2\n1 2 3 4\n2 4 4 1\n3 1 2 4",
+          "full_model_response": "Let me solve this step by step:\n\n1) Looking at first row: 4 3 _ 2\n   Only missing 1 in this row\n\n2) Looking at first column: 4 _ 2 _\n   Missing 1 and 3\n\n3) Looking at second column: 3 2 _ _\n   Missing 1 and 4\n\n4) Looking at third column: _ _ _ 2\n   Missing 1, 3, and 4\n\n5) Looking at fourth column: 2 _ 1 4\n   Missing 3\n\n6) Looking at 2x2 subgrids and applying rules:\n   - Top left subgrid needs 1\n   - Top right subgrid needs 1, 3, 4\n   - Bottom left subgrid needs 1, 3, 4\n   - Bottom right subgrid needs 3\n\n7) Filling in all numbers following Sudoku rules...\n\n<answer>\n4 3 1 2\n1 2 3 4\n2 4 4 1\n3 1 2 4</answer>",
+          "score": 0.7312500000000001
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n2 _ 4 3\n3 _ _ _\n_ 3 2 4\n_ 2 _ _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "2 1 4 3\n3 4 1 2\n1 3 2 4\n4 2 3 1",
+      "best_model_answer": "2 1 4 3\n3 4 1 2\n1 3 2 4\n4 2 3 1",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let's identify what numbers are missing in row 1: 1\n2) In row 2, we have only 3: missing 1,2,4\n3) In row 3, we have 3,2,4: missing 1\n4) In row 4, we have only 2: missing 1,3,4\n\n5) Looking at columns:\n   - Column 1: has 2,3: missing 1,4\n   - Column 2: has 3,2: missing 1,4\n   - Column 3: has 4,2: missing 1,3\n   - Column 4: has 3,4: missing 1,2\n\n6) Looking at 2x2 boxes and considering the rules, we can fill in the missing numbers.\n\n<answer>\n2 1 4 3\n3 4 1 2\n1 3 2 4\n4 2 3 1</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "2 1 4 3\n3 4 1 2\n1 3 2 4\n4 2 3 1",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let's identify what numbers are missing in row 1: 1\n2) In row 2, we have only 3: missing 1,2,4\n3) In row 3, we have 3,2,4: missing 1\n4) In row 4, we have only 2: missing 1,3,4\n\n5) Looking at columns:\n   - Column 1: has 2,3: missing 1,4\n   - Column 2: has 3,2: missing 1,4\n   - Column 3: has 4,2: missing 1,3\n   - Column 4: has 3,4: missing 1,2\n\n6) Looking at 2x2 boxes and considering the rules, we can fill in the missing numbers.\n\n<answer>\n2 1 4 3\n3 4 1 2\n1 3 2 4\n4 2 3 1</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n3 2 _ 4\n1 _ 2 3\n_ _ _ _\n2 3 4 _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "3 2 1 4\n1 4 2 3\n4 1 3 2\n2 3 4 1",
+      "best_model_answer": "3 2 1 4\n1 4 2 3\n4 1 3 2\n2 3 4 1",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let's look at row 1: 3 2 _ 4\n   - Only missing 1 in position 3\n\n2) Row 2: 1 _ 2 3\n   - Missing 4 in position 2\n\n3) Row 3: _ _ _ _\n   - Looking at columns and subgrids, can fill this\n\n4) Row 4: 2 3 4 _\n   - Only missing 1 in position 4\n\n5) Checking all constraints and filling remaining numbers...\n\n<answer>\n3 2 1 4\n1 4 2 3\n4 1 3 2\n2 3 4 1</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "3 2 1 4\n1 4 2 3\n4 1 3 2\n2 3 4 1",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let's look at row 1: 3 2 _ 4\n   - Only missing 1 in position 3\n\n2) Row 2: 1 _ 2 3\n   - Missing 4 in position 2\n\n3) Row 3: _ _ _ _\n   - Looking at columns and subgrids, can fill this\n\n4) Row 4: 2 3 4 _\n   - Only missing 1 in position 4\n\n5) Checking all constraints and filling remaining numbers...\n\n<answer>\n3 2 1 4\n1 4 2 3\n4 1 3 2\n2 3 4 1</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n_ 3 _ _\n_ 4 3 _\n4 _ 1 _\n_ _ 4 _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "1 3 2 4\n2 4 3 1\n4 2 1 3\n3 1 4 2",
+      "best_model_answer": "1 3 2 4\n2 4 3 1\n4 2 1 3\n3 1 4 2",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let's analyze the first row: _ 3 _ _\n   - Looking at column 2, 3 is already there\n   - Looking at the first 2x2 subgrid, we need 1,2,4\n\n2) Second row: _ 4 3 _\n   - We already have 3,4 in this row\n   - Can only be 1,2 in remaining spots\n\n3) Third row: 4 _ 1 _\n   - Already have 1,4\n   - Can only be 2,3 in remaining spots\n\n4) Fourth row: _ _ 4 _\n   - Already have 4\n   - Need 1,2,3\n\nLet me fill in all numbers following Sudoku rules...\n\n<answer>\n1 3 2 4\n2 4 3 1\n4 2 1 3\n3 1 4 2</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "1 3 2 4\n2 4 3 1\n4 2 1 3\n3 1 4 2",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let's analyze the first row: _ 3 _ _\n   - Looking at column 2, 3 is already there\n   - Looking at the first 2x2 subgrid, we need 1,2,4\n\n2) Second row: _ 4 3 _\n   - We already have 3,4 in this row\n   - Can only be 1,2 in remaining spots\n\n3) Third row: 4 _ 1 _\n   - Already have 1,4\n   - Can only be 2,3 in remaining spots\n\n4) Fourth row: _ _ 4 _\n   - Already have 4\n   - Need 1,2,3\n\nLet me fill in all numbers following Sudoku rules...\n\n<answer>\n1 3 2 4\n2 4 3 1\n4 2 1 3\n3 1 4 2</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n_ 1 _ _\n4 3 _ _\n_ _ _ 2\n3 _ 1 _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "2 1 4 3\n4 3 2 1\n1 4 3 2\n3 2 1 4",
+      "best_model_answer": "2 1 4 3\n4 3 2 1\n1 4 3 2\n3 2 1 4",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Looking at first row, we have 1 and need to fill other spots\n2) Column 3 can't have 1 as it's already in row 1\n3) Looking at first 2x2 box, we need 2\n4) First row must have 2,4 remaining\n5) Second row has 4,3 and needs 1,2\n6) Third row has 2 and needs 1,3,4\n7) Fourth row has 3,1 and needs 2,4\n8) Working through constraints...\n\n<answer>\n2 1 4 3\n4 3 2 1\n1 4 3 2\n3 2 1 4</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "2 1 4 3\n4 3 2 1\n1 4 3 2\n3 2 1 4",
+          "full_model_response": "Let me solve this step by step:\n\n1) Looking at first row, we have 1 and need to fill other spots\n2) Column 3 can't have 1 as it's already in row 1\n3) Looking at first 2x2 box, we need 2\n4) First row must have 2,4 remaining\n5) Second row has 4,3 and needs 1,2\n6) Third row has 2 and needs 1,3,4\n7) Fourth row has 3,1 and needs 2,4\n8) Working through constraints...\n\n<answer>\n2 1 4 3\n4 3 2 1\n1 4 3 2\n3 2 1 4</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n_ _ _ 1\n4 _ _ 2\n_ 4 1 _\n_ 3 _ _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "3 2 4 1\n4 1 3 2\n2 4 1 3\n1 3 2 4",
+      "best_model_answer": "2 3 4 1\n4 1 3 2\n3 4 1 4\n1 3 2 4",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let's look at the first row. It ends with 1, so we need 2, 3, and 4.\n2) We see 4 is already in the second row, so it can't be in first row.\n3) Looking at first column, 4 is there so first row first position can't be 4.\n4) In top-left 2x2 box, 4 is already present.\n5) Working through each constraint...\n6) Continuing to apply Sudoku rules...\n\n<answer>\n2 3 4 1\n4 1 3 2\n3 4 1 4\n1 3 2 4</answer>",
+      "best_score": 0.675,
+      "mean_score": 0.675,
+      "completions": [
+        {
+          "model_answer": "2 3 4 1\n4 1 3 2\n3 4 1 4\n1 3 2 4",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let's look at the first row. It ends with 1, so we need 2, 3, and 4.\n2) We see 4 is already in the second row, so it can't be in first row.\n3) Looking at first column, 4 is there so first row first position can't be 4.\n4) In top-left 2x2 box, 4 is already present.\n5) Working through each constraint...\n6) Continuing to apply Sudoku rules...\n\n<answer>\n2 3 4 1\n4 1 3 2\n3 4 1 4\n1 3 2 4</answer>",
+          "score": 0.675
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n2 1 3 _\n_ 4 _ 1\n4 _ 1 _\n_ 3 _ _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "2 1 3 4\n3 4 2 1\n4 2 1 3\n1 3 4 2",
+      "best_model_answer": "2 1 3 4\n3 4 2 1\n4 2 1 3\n1 3 2 4",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, look at the missing number in row 1\n2) Row 1 has 2,1,3 so missing 4\n3) Look at column 4\n   - Has 1 in second row\n   - Missing number must be 4\n4) Look at second row\n   - Has 4,1\n   - Third position must be 2 (due to 2x2 subgrid)\n   - First position must be 3\n5) Look at last row\n   - Has 3\n   - Must complete with 1,2,4\n   - Due to column constraints: 1,3,2,4\n6) Third row\n   - Has 4,1\n   - Must complete with 2,3\n   - Due to column constraints: 4,2,1,3\n\n<answer>\n2 1 3 4\n3 4 2 1\n4 2 1 3\n1 3 2 4</answer>",
+      "best_score": 0.7875,
+      "mean_score": 0.7875,
+      "completions": [
+        {
+          "model_answer": "2 1 3 4\n3 4 2 1\n4 2 1 3\n1 3 2 4",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, look at the missing number in row 1\n2) Row 1 has 2,1,3 so missing 4\n3) Look at column 4\n   - Has 1 in second row\n   - Missing number must be 4\n4) Look at second row\n   - Has 4,1\n   - Third position must be 2 (due to 2x2 subgrid)\n   - First position must be 3\n5) Look at last row\n   - Has 3\n   - Must complete with 1,2,4\n   - Due to column constraints: 1,3,2,4\n6) Third row\n   - Has 4,1\n   - Must complete with 2,3\n   - Due to column constraints: 4,2,1,3\n\n<answer>\n2 1 3 4\n3 4 2 1\n4 2 1 3\n1 3 2 4</answer>",
+          "score": 0.7875
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n1 _ 3 4\n4 _ _ _\n2 4 _ _\n3 1 4 2\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "1 2 3 4\n4 3 2 1\n2 4 1 3\n3 1 4 2",
+      "best_model_answer": "1 2 3 4\n4 3 1 2\n2 4 1 3\n3 1 4 2",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Looking at row 4, we have all numbers except for 2 in row 1\n2) In column 2, we have 1 at bottom, so other 1s can't be there\n3) Looking at top-right 2x2 box, we need 1 and 2\n4) For column 2, we need 2 and 3\n5) For row 2, we need 1, 2, and 3\n6) In row 3, we need 1 and 3\n7) Working through constraints...\n\n<answer>\n1 2 3 4\n4 3 1 2\n2 4 1 3\n3 1 4 2</answer>",
+      "best_score": 0.7875,
+      "mean_score": 0.7875,
+      "completions": [
+        {
+          "model_answer": "1 2 3 4\n4 3 1 2\n2 4 1 3\n3 1 4 2",
+          "full_model_response": "Let me solve this step by step:\n\n1) Looking at row 4, we have all numbers except for 2 in row 1\n2) In column 2, we have 1 at bottom, so other 1s can't be there\n3) Looking at top-right 2x2 box, we need 1 and 2\n4) For column 2, we need 2 and 3\n5) For row 2, we need 1, 2, and 3\n6) In row 3, we need 1 and 3\n7) Working through constraints...\n\n<answer>\n1 2 3 4\n4 3 1 2\n2 4 1 3\n3 1 4 2</answer>",
+          "score": 0.7875
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n_ _ _ 1\n2 _ 4 3\n_ 4 3 2\n3 2 1 _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "4 3 2 1\n2 1 4 3\n1 4 3 2\n3 2 1 4",
+      "best_model_answer": "4 3 2 1\n2 1 4 3\n1 4 3 2\n3 2 1 4",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Looking at first row, we know it ends in 1\n2) Looking at first column, we have 2 and 3, so only 1 or 4 possible\n3) In first 2x2 subgrid, we need 1 and 4\n4) First row can't have 3 as it's in right subgrid\n5) Working through constraints for each position...\n\n<answer>\n4 3 2 1\n2 1 4 3\n1 4 3 2\n3 2 1 4</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "4 3 2 1\n2 1 4 3\n1 4 3 2\n3 2 1 4",
+          "full_model_response": "Let me solve this step by step:\n\n1) Looking at first row, we know it ends in 1\n2) Looking at first column, we have 2 and 3, so only 1 or 4 possible\n3) In first 2x2 subgrid, we need 1 and 4\n4) First row can't have 3 as it's in right subgrid\n5) Working through constraints for each position...\n\n<answer>\n4 3 2 1\n2 1 4 3\n1 4 3 2\n3 2 1 4</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n2 _ 1 _\n_ 3 _ _\n3 _ _ 4\n_ 2 _ _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "2 4 1 3\n1 3 4 2\n3 1 2 4\n4 2 3 1",
+      "best_model_answer": "2 3 1 4\n4 3 2 1\n3 1 2 4\n1 2 4 3",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let's look at the first row: 2 _ 1 _\n   - Missing numbers are 3 and 4\n   - Due to column constraints and given 3 in second row, last number must be 4\n\n2) Second row: _ 3 _ _\n   - Looking at first column, can't be 2 or 3, must be 1 or 4\n   - Due to top-left 2x2 box containing 2,3 already, must be 4\n   - Last two numbers must be 1,2 in some order\n\n3) Third row: 3 _ _ 4\n   - Middle numbers must be 1,2 in some order\n   - Looking at columns, must be 1,2\n\n4) Fourth row: _ 2 _ _\n   - Remaining numbers must complete each column\n   - Must be 1,4,3 in remaining spots\n\n<answer>2 3 1 4\n4 3 2 1\n3 1 2 4\n1 2 4 3</answer>",
+      "best_score": 0.45,
+      "mean_score": 0.45,
+      "completions": [
+        {
+          "model_answer": "2 3 1 4\n4 3 2 1\n3 1 2 4\n1 2 4 3",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let's look at the first row: 2 _ 1 _\n   - Missing numbers are 3 and 4\n   - Due to column constraints and given 3 in second row, last number must be 4\n\n2) Second row: _ 3 _ _\n   - Looking at first column, can't be 2 or 3, must be 1 or 4\n   - Due to top-left 2x2 box containing 2,3 already, must be 4\n   - Last two numbers must be 1,2 in some order\n\n3) Third row: 3 _ _ 4\n   - Middle numbers must be 1,2 in some order\n   - Looking at columns, must be 1,2\n\n4) Fourth row: _ 2 _ _\n   - Remaining numbers must complete each column\n   - Must be 1,4,3 in remaining spots\n\n<answer>2 3 1 4\n4 3 2 1\n3 1 2 4\n1 2 4 3</answer>",
+          "score": 0.45
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n2 _ 3 1\n3 1 2 _\n_ _ _ 2\n_ _ 4 _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "2 4 3 1\n3 1 2 4\n4 3 1 2\n1 2 4 3",
+      "best_model_answer": "2 4 3 1\n3 1 2 4\n4 3 1 2\n1 2 4 3",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let's find the missing number in row 1\n   - We have 2,3,1, so 4 is missing\n   - Therefore position (1,2) must be 4\n\n2) Looking at row 2\n   - We have 3,1,2, so 4 is missing\n   - Position (2,4) must be 4\n\n3) Looking at row 3\n   - We know position (3,4) is 2\n   - Looking at column 4, we have 1,4,2, so 3 must be in (4,4)\n   - Looking at the bottom right 2x2 grid, we need 1,3\n   - Position (3,3) must be 1\n   - Therefore (3,1) must be 4 and (3,2) must be 3\n\n4) For row 4\n   - We have 4,3 in positions 3 and 4\n   - Looking at columns 1 and 2, we can fill in the remaining numbers\n   - (4,1) must be 1\n   - (4,2) must be 2\n\n<answer>\n2 4 3 1\n3 1 2 4\n4 3 1 2\n1 2 4 3</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "2 4 3 1\n3 1 2 4\n4 3 1 2\n1 2 4 3",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let's find the missing number in row 1\n   - We have 2,3,1, so 4 is missing\n   - Therefore position (1,2) must be 4\n\n2) Looking at row 2\n   - We have 3,1,2, so 4 is missing\n   - Position (2,4) must be 4\n\n3) Looking at row 3\n   - We know position (3,4) is 2\n   - Looking at column 4, we have 1,4,2, so 3 must be in (4,4)\n   - Looking at the bottom right 2x2 grid, we need 1,3\n   - Position (3,3) must be 1\n   - Therefore (3,1) must be 4 and (3,2) must be 3\n\n4) For row 4\n   - We have 4,3 in positions 3 and 4\n   - Looking at columns 1 and 2, we can fill in the remaining numbers\n   - (4,1) must be 1\n   - (4,2) must be 2\n\n<answer>\n2 4 3 1\n3 1 2 4\n4 3 1 2\n1 2 4 3</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n_ _ 3 _\n_ _ 2 4\n2 _ _ _\n3 _ 4 _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "4 2 3 1\n1 3 2 4\n2 4 1 3\n3 1 4 2",
+      "best_model_answer": "4 1 3 2\n1 3 2 4\n2 4 1 3\n3 2 4 1",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Looking at column 3, we have 3, 2, and 4. So the missing number is 1.\n\n2) In the first row, we have 3. Looking at the top-right 2x2 box, we need 1, 2, 4.\n   Given 4 is in position (2,4), 2 must be in (1,4).\n\n3) This means in top row, we need 1 and 4 in first two positions.\n   Given 4 appears in column 2 later, 4 must be in position (1,1).\n\n4) This means 1 goes in position (1,2).\n\n5) Working through remaining positions using Sudoku rules...\n\n<answer>4 1 3 2\n1 3 2 4\n2 4 1 3\n3 2 4 1</answer>",
+      "best_score": 0.675,
+      "mean_score": 0.675,
+      "completions": [
+        {
+          "model_answer": "4 1 3 2\n1 3 2 4\n2 4 1 3\n3 2 4 1",
+          "full_model_response": "Let me solve this step by step:\n\n1) Looking at column 3, we have 3, 2, and 4. So the missing number is 1.\n\n2) In the first row, we have 3. Looking at the top-right 2x2 box, we need 1, 2, 4.\n   Given 4 is in position (2,4), 2 must be in (1,4).\n\n3) This means in top row, we need 1 and 4 in first two positions.\n   Given 4 appears in column 2 later, 4 must be in position (1,1).\n\n4) This means 1 goes in position (1,2).\n\n5) Working through remaining positions using Sudoku rules...\n\n<answer>4 1 3 2\n1 3 2 4\n2 4 1 3\n3 2 4 1</answer>",
+          "score": 0.675
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n_ 2 1 4\n_ _ _ 2\n_ _ _ _\n_ 1 4 _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "3 2 1 4\n1 4 3 2\n4 3 2 1\n2 1 4 3",
+      "best_model_answer": "3 2 1 4\n4 1 3 2\n2 3 2 1\n3 1 4 2",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Looking at first row: _ 2 1 4\n   - Only missing number is 3\n\n2) Second row: _ _ _ 2\n   - Looking at first column and top-left 2x2 box\n   - First number must be 4\n   - Looking at columns and boxes, remaining spaces must be 1, 3\n\n3) Third row: _ _ _ _\n   - Using column constraints and box constraints\n   - Must be 2, 3, 2, 1\n\n4) Last row: _ 1 4 _\n   - Using remaining constraints\n   - Must be 3, 1, 4, 2\n\n<answer>\n3 2 1 4\n4 1 3 2\n2 3 2 1\n3 1 4 2</answer>",
+      "best_score": 0.61875,
+      "mean_score": 0.61875,
+      "completions": [
+        {
+          "model_answer": "3 2 1 4\n4 1 3 2\n2 3 2 1\n3 1 4 2",
+          "full_model_response": "Let me solve this step by step:\n\n1) Looking at first row: _ 2 1 4\n   - Only missing number is 3\n\n2) Second row: _ _ _ 2\n   - Looking at first column and top-left 2x2 box\n   - First number must be 4\n   - Looking at columns and boxes, remaining spaces must be 1, 3\n\n3) Third row: _ _ _ _\n   - Using column constraints and box constraints\n   - Must be 2, 3, 2, 1\n\n4) Last row: _ 1 4 _\n   - Using remaining constraints\n   - Must be 3, 1, 4, 2\n\n<answer>\n3 2 1 4\n4 1 3 2\n2 3 2 1\n3 1 4 2</answer>",
+          "score": 0.61875
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n_ 2 _ 3\n3 4 _ 1\n_ _ 3 2\n_ _ 1 _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "1 2 4 3\n3 4 2 1\n4 1 3 2\n2 3 1 4",
+      "best_model_answer": "1 2 4 3\n3 4 2 1\n4 1 3 2\n2 3 1 4",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let's check row 1: has 2 and 3, missing 1 and 4\n2) Column 1: has 3, missing 1, 2, 4\n3) Column 3: has 3 and 1, missing 2 and 4\n4) Column 4: has 3, 1, 2, missing 4\n5) Looking at top-left 2x2 box: has 2, 3, 4, so missing 1\n6) Bottom-right 2x2 box: has 1, 2, 3, so missing 4\n\nWorking through the constraints:\n- First cell must be 1 (due to top-left box)\n- Third cell must be 4 (to complete row 1)\n- Third row first number must be 4\n- Bottom row must be 2, 3, 1, 4\n- Column 2 can then be completed with 2, 4, 1, 3\n\n<answer>\n1 2 4 3\n3 4 2 1\n4 1 3 2\n2 3 1 4</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "1 2 4 3\n3 4 2 1\n4 1 3 2\n2 3 1 4",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let's check row 1: has 2 and 3, missing 1 and 4\n2) Column 1: has 3, missing 1, 2, 4\n3) Column 3: has 3 and 1, missing 2 and 4\n4) Column 4: has 3, 1, 2, missing 4\n5) Looking at top-left 2x2 box: has 2, 3, 4, so missing 1\n6) Bottom-right 2x2 box: has 1, 2, 3, so missing 4\n\nWorking through the constraints:\n- First cell must be 1 (due to top-left box)\n- Third cell must be 4 (to complete row 1)\n- Third row first number must be 4\n- Bottom row must be 2, 3, 1, 4\n- Column 2 can then be completed with 2, 4, 1, 3\n\n<answer>\n1 2 4 3\n3 4 2 1\n4 1 3 2\n2 3 1 4</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n_ _ _ 3\n2 _ _ 4\n_ _ _ 1\n3 _ 4 2\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "1 4 2 3\n2 3 1 4\n4 2 3 1\n3 1 4 2",
+      "best_model_answer": "1 4 2 3\n2 3 1 4\n4 2 3 1\n3 1 4 2",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Looking at the first row, we know it ends in 3\n2) Looking at first column, we have 2 and 3, so only 1 and 4 are possible\n3) Last row has 3,4,2 so the missing number is 1\n4) Last column has 3,4,1,2 filled\n5) Looking at top-right 2x2 grid, we need 1,2,3,4\n6) Continuing to fill based on Sudoku rules and constraints...\n\n<answer>\n1 4 2 3\n2 3 1 4\n4 2 3 1\n3 1 4 2\n</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "1 4 2 3\n2 3 1 4\n4 2 3 1\n3 1 4 2",
+          "full_model_response": "Let me solve this step by step:\n\n1) Looking at the first row, we know it ends in 3\n2) Looking at first column, we have 2 and 3, so only 1 and 4 are possible\n3) Last row has 3,4,2 so the missing number is 1\n4) Last column has 3,4,1,2 filled\n5) Looking at top-right 2x2 grid, we need 1,2,3,4\n6) Continuing to fill based on Sudoku rules and constraints...\n\n<answer>\n1 4 2 3\n2 3 1 4\n4 2 3 1\n3 1 4 2\n</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n4 _ 2 3\n_ _ 1 4\n3 _ _ _\n1 4 _ _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "4 1 2 3\n2 3 1 4\n3 2 4 1\n1 4 3 2",
+      "best_model_answer": "4 1 2 3\n2 3 1 4\n3 1 4 2\n1 4 3 2",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, let's look at row 1: 4 _ 2 3\n   Missing number must be 1\n\n2) Row 2: _ _ 1 4\n   Looking at column 1, can't be 4 or 3 or 1\n   Must be 2 in first position\n   Then 3 must go in second position\n\n3) Row 3: 3 _ _ _\n   Looking at column 2, only 1 is possible\n   Looking at column 3, 4 must go there\n   Then 2 must be in last position\n\n4) Row 4: 1 4 _ _\n   Looking at remaining spots and constraints\n   Must be 3 2 to complete\n\n<answer>\n4 1 2 3\n2 3 1 4\n3 1 4 2\n1 4 3 2</answer>",
+      "best_score": 0.7875,
+      "mean_score": 0.7875,
+      "completions": [
+        {
+          "model_answer": "4 1 2 3\n2 3 1 4\n3 1 4 2\n1 4 3 2",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, let's look at row 1: 4 _ 2 3\n   Missing number must be 1\n\n2) Row 2: _ _ 1 4\n   Looking at column 1, can't be 4 or 3 or 1\n   Must be 2 in first position\n   Then 3 must go in second position\n\n3) Row 3: 3 _ _ _\n   Looking at column 2, only 1 is possible\n   Looking at column 3, 4 must go there\n   Then 2 must be in last position\n\n4) Row 4: 1 4 _ _\n   Looking at remaining spots and constraints\n   Must be 3 2 to complete\n\n<answer>\n4 1 2 3\n2 3 1 4\n3 1 4 2\n1 4 3 2</answer>",
+          "score": 0.7875
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n3 _ _ 1\n1 _ 3 4\n4 _ 1 _\n2 1 4 _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "3 4 2 1\n1 2 3 4\n4 3 1 2\n2 1 4 3",
+      "best_model_answer": "3 4 2 1\n1 2 3 4\n4 3 1 2\n2 1 4 3",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Looking at first row: 3 _ _ 1\n   - Missing 2 and 4\n   - Due to column constraints and given numbers, 4 can't go in column 2\n\n2) Looking at last column: 1, 4, _, _\n   - Missing 2 and 3\n   - Due to row 2 having 3, last position must be 2\n\n3) Looking at second row: 1 _ 3 4\n   - Missing 2\n   - Must be in column 2\n\n4) Looking at third row: 4 _ 1 _\n   - Missing 2 and 3\n   - Due to column constraints, must be 3, 2\n\n5) Final checks confirm all rules are satisfied\n\n<answer>3 4 2 1\n1 2 3 4\n4 3 1 2\n2 1 4 3</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "3 4 2 1\n1 2 3 4\n4 3 1 2\n2 1 4 3",
+          "full_model_response": "Let me solve this step by step:\n\n1) Looking at first row: 3 _ _ 1\n   - Missing 2 and 4\n   - Due to column constraints and given numbers, 4 can't go in column 2\n\n2) Looking at last column: 1, 4, _, _\n   - Missing 2 and 3\n   - Due to row 2 having 3, last position must be 2\n\n3) Looking at second row: 1 _ 3 4\n   - Missing 2\n   - Must be in column 2\n\n4) Looking at third row: 4 _ 1 _\n   - Missing 2 and 3\n   - Due to column constraints, must be 3, 2\n\n5) Final checks confirm all rules are satisfied\n\n<answer>3 4 2 1\n1 2 3 4\n4 3 1 2\n2 1 4 3</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n1 3 _ 4\n4 2 _ _\n_ _ _ _\n_ _ 1 2\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "1 3 2 4\n4 2 3 1\n2 1 4 3\n3 4 1 2",
+      "best_model_answer": "1 3 2 4\n4 2 3 1\n2 1 4 3\n3 4 1 2",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Looking at first row: 1 3 _ 4\n   Only 2 is missing in position 3\n\n2) Looking at first column: 1 4 _ _\n   2 and 3 are possible in bottom positions\n\n3) Looking at second column: 3 2 _ _\n   1 and 4 are possible in bottom positions\n\n4) Bottom row has 1 2 at end\n   So first two positions must be 3 4 or 4 3\n\n5) Third row must complete all columns and boxes\n   Working through possibilities leads to 2 1 4 3\n\n<answer>1 3 2 4\n4 2 3 1\n2 1 4 3\n3 4 1 2</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "1 3 2 4\n4 2 3 1\n2 1 4 3\n3 4 1 2",
+          "full_model_response": "Let me solve this step by step:\n\n1) Looking at first row: 1 3 _ 4\n   Only 2 is missing in position 3\n\n2) Looking at first column: 1 4 _ _\n   2 and 3 are possible in bottom positions\n\n3) Looking at second column: 3 2 _ _\n   1 and 4 are possible in bottom positions\n\n4) Bottom row has 1 2 at end\n   So first two positions must be 3 4 or 4 3\n\n5) Third row must complete all columns and boxes\n   Working through possibilities leads to 2 1 4 3\n\n<answer>1 3 2 4\n4 2 3 1\n2 1 4 3\n3 4 1 2</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n1 _ _ 2\n_ _ 4 _\n3 2 _ _\n4 1 _ 3\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "1 4 3 2\n2 3 4 1\n3 2 1 4\n4 1 2 3",
+      "best_model_answer": "1 3 4 2\n2 1 4 3\n3 2 1 4\n4 1 2 3",
+      "best_full_model_response": "Let me solve this step by step:\n\n1. Looking at the first row, we're missing 3 and 4. Given column constraints, 4 can't be in column 2 (due to row 2), so 4 must be in column 3 and 3 must be in column 2.\n\n2. In the second row, we have 4 already. Looking at column constraints and the 2x2 subgrids, we can determine the rest.\n\n3. For the third row, we have 3 and 2, and considering the constraints, we can fill in 1 and 4.\n\n4. Finally, for the last row, we have 4, 1, and 3, so 2 must go in column 3.\n\n<answer>1 3 4 2\n2 1 4 3\n3 2 1 4\n4 1 2 3</answer>",
+      "best_score": 0.675,
+      "mean_score": 0.675,
+      "completions": [
+        {
+          "model_answer": "1 3 4 2\n2 1 4 3\n3 2 1 4\n4 1 2 3",
+          "full_model_response": "Let me solve this step by step:\n\n1. Looking at the first row, we're missing 3 and 4. Given column constraints, 4 can't be in column 2 (due to row 2), so 4 must be in column 3 and 3 must be in column 2.\n\n2. In the second row, we have 4 already. Looking at column constraints and the 2x2 subgrids, we can determine the rest.\n\n3. For the third row, we have 3 and 2, and considering the constraints, we can fill in 1 and 4.\n\n4. Finally, for the last row, we have 4, 1, and 3, so 2 must go in column 3.\n\n<answer>1 3 4 2\n2 1 4 3\n3 2 1 4\n4 1 2 3</answer>",
+          "score": 0.675
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n1 _ _ 2\n2 4 _ _\n_ 1 2 _\n3 _ 1 4\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "1 3 4 2\n2 4 3 1\n4 1 2 3\n3 2 1 4",
+      "best_model_answer": "1 3 4 2\n2 4 3 1\n4 1 2 3\n3 2 1 4",
+      "best_full_model_response": "Let me solve this step by step:\n\n1. Looking at first row, we need 3 and 4\n2. Looking at first column, we have 1,2,3 so need 4\n3. Looking at top-right 2x2 grid, we have 1,2 so need 3,4\n4. Looking at second row, we have 2,4 so need 1,3\n5. Looking at third row, we have 1,2 so need 3,4\n6. Looking at fourth row, we have 1,3,4 so need 2\n7. Looking at second column, we have 1,4 so need 2,3\n8. Looking at last column, we have 2,4 so need 1,3\n\nWorking through these constraints:\n\n<answer>\n1 3 4 2\n2 4 3 1\n4 1 2 3\n3 2 1 4</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "1 3 4 2\n2 4 3 1\n4 1 2 3\n3 2 1 4",
+          "full_model_response": "Let me solve this step by step:\n\n1. Looking at first row, we need 3 and 4\n2. Looking at first column, we have 1,2,3 so need 4\n3. Looking at top-right 2x2 grid, we have 1,2 so need 3,4\n4. Looking at second row, we have 2,4 so need 1,3\n5. Looking at third row, we have 1,2 so need 3,4\n6. Looking at fourth row, we have 1,3,4 so need 2\n7. Looking at second column, we have 1,4 so need 2,3\n8. Looking at last column, we have 2,4 so need 1,3\n\nWorking through these constraints:\n\n<answer>\n1 3 4 2\n2 4 3 1\n4 1 2 3\n3 2 1 4</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n_ 4 1 _\n_ 2 _ 3\n4 3 _ 1\n_ 1 3 _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "3 4 1 2\n1 2 4 3\n4 3 2 1\n2 1 3 4",
+      "best_model_answer": "3 4 1 2\n1 2 4 3\n4 3 2 1\n2 1 3 4",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Looking at first row: Missing 2 and 3\n   - Due to 4 and 1 placement, must be 3 4 1 2\n\n2) Second row: Missing 1 and 4\n   - Due to column constraints and first row, must be 1 2 4 3\n\n3) Third row: Missing 2\n   - Only possible placement is: 4 3 2 1\n\n4) Fourth row: Missing 2 and 4\n   - Due to all constraints, must be 2 1 3 4\n\n<answer>\n3 4 1 2\n1 2 4 3\n4 3 2 1\n2 1 3 4</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "3 4 1 2\n1 2 4 3\n4 3 2 1\n2 1 3 4",
+          "full_model_response": "Let me solve this step by step:\n\n1) Looking at first row: Missing 2 and 3\n   - Due to 4 and 1 placement, must be 3 4 1 2\n\n2) Second row: Missing 1 and 4\n   - Due to column constraints and first row, must be 1 2 4 3\n\n3) Third row: Missing 2\n   - Only possible placement is: 4 3 2 1\n\n4) Fourth row: Missing 2 and 4\n   - Due to all constraints, must be 2 1 3 4\n\n<answer>\n3 4 1 2\n1 2 4 3\n4 3 2 1\n2 1 3 4</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n3 1 2 4\n2 4 1 _\n4 _ _ _\n_ 3 _ 2\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "3 1 2 4\n2 4 1 3\n4 2 3 1\n1 3 4 2",
+      "best_model_answer": "3 1 2 4\n2 4 1 3\n4 2 3 1\n1 3 4 2",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Looking at the last column, we're missing 3 and 1\n2) In the second row, last position must be 3 based on row constraints\n3) In bottom row, first position must be 1 based on first column constraints\n4) Looking at third row, we need 2 and 3\n   - 2 must be in position 2 due to column constraints\n   - 3 must be in position 3\n5) Last position in bottom row must be 4\n\n<answer>\n3 1 2 4\n2 4 1 3\n4 2 3 1\n1 3 4 2\n</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "3 1 2 4\n2 4 1 3\n4 2 3 1\n1 3 4 2",
+          "full_model_response": "Let me solve this step by step:\n\n1) Looking at the last column, we're missing 3 and 1\n2) In the second row, last position must be 3 based on row constraints\n3) In bottom row, first position must be 1 based on first column constraints\n4) Looking at third row, we need 2 and 3\n   - 2 must be in position 2 due to column constraints\n   - 3 must be in position 3\n5) Last position in bottom row must be 4\n\n<answer>\n3 1 2 4\n2 4 1 3\n4 2 3 1\n1 3 4 2\n</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n_ _ 1 _\n1 3 _ 4\n3 1 _ 2\n_ 4 3 _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "4 2 1 3\n1 3 2 4\n3 1 4 2\n2 4 3 1",
+      "best_model_answer": "2 4 1 3\n1 3 2 4\n3 1 4 2\n4 2 3 1",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, look at the first row. We have only 1 filled in.\n2) In first column, we have 1 and 3, so first row can't have those.\n3) First 2x2 box has 1 and 3, so first row first position must be 2 or 4.\n4) Given the column constraints, first row must be 2 4 1 3.\n5) Second row is mostly filled: 1 3 2 4.\n6) Third row: 3 1 4 2.\n7) Last row: Using remaining numbers and constraints: 4 2 3 1.\n\n<answer>2 4 1 3\n1 3 2 4\n3 1 4 2\n4 2 3 1</answer>",
+      "best_score": 0.675,
+      "mean_score": 0.675,
+      "completions": [
+        {
+          "model_answer": "2 4 1 3\n1 3 2 4\n3 1 4 2\n4 2 3 1",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, look at the first row. We have only 1 filled in.\n2) In first column, we have 1 and 3, so first row can't have those.\n3) First 2x2 box has 1 and 3, so first row first position must be 2 or 4.\n4) Given the column constraints, first row must be 2 4 1 3.\n5) Second row is mostly filled: 1 3 2 4.\n6) Third row: 3 1 4 2.\n7) Last row: Using remaining numbers and constraints: 4 2 3 1.\n\n<answer>2 4 1 3\n1 3 2 4\n3 1 4 2\n4 2 3 1</answer>",
+          "score": 0.675
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n_ _ _ 2\n_ _ 4 _\n1 3 2 4\n2 _ _ _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "4 1 3 2\n3 2 4 1\n1 3 2 4\n2 4 1 3",
+      "best_model_answer": "4 1 3 2\n3 2 4 1\n1 3 2 4\n2 4 1 3",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Looking at the bottom row, since 2 is given and numbers 1-4 must appear once:\n   - We already have 1,3,2,4 in third row\n   - Bottom row must complete with remaining numbers\n\n2) Looking at the columns:\n   - First column has 1,2 so needs 3,4\n   - Second column has 3 so needs 1,2,4\n   - Third column has 2,4 so needs 1,3\n   - Fourth column has 2,4 so needs 1,3\n\n3) Looking at 2x2 subgrids and applying rules:\n   - Fill in remaining numbers ensuring each subgrid has 1-4\n\n<answer>\n4 1 3 2\n3 2 4 1\n1 3 2 4\n2 4 1 3</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "4 1 3 2\n3 2 4 1\n1 3 2 4\n2 4 1 3",
+          "full_model_response": "Let me solve this step by step:\n\n1) Looking at the bottom row, since 2 is given and numbers 1-4 must appear once:\n   - We already have 1,3,2,4 in third row\n   - Bottom row must complete with remaining numbers\n\n2) Looking at the columns:\n   - First column has 1,2 so needs 3,4\n   - Second column has 3 so needs 1,2,4\n   - Third column has 2,4 so needs 1,3\n   - Fourth column has 2,4 so needs 1,3\n\n3) Looking at 2x2 subgrids and applying rules:\n   - Fill in remaining numbers ensuring each subgrid has 1-4\n\n<answer>\n4 1 3 2\n3 2 4 1\n1 3 2 4\n2 4 1 3</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n_ 2 _ 3\n_ _ 2 4\n1 _ _ _\n_ 3 4 _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "4 2 1 3\n3 1 2 4\n1 4 3 2\n2 3 4 1",
+      "best_model_answer": "4 2 1 3\n3 1 2 4\n1 4 3 2\n2 3 4 1",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Looking at row 1, we have 2 and 3, so missing 1 and 4\n2) Looking at column 1, we have 1, so can't have 1 in first position\n3) Therefore position (1,1) must be 4\n4) First row is now 4 2 1 3\n\n5) Looking at row 2, we have 2 and 4\n6) Column 2 has 2 and 3, so can't have those\n7) Position (2,1) must be 3\n8) Position (2,3) is 2, so (2,2) must be 1\n\n9) Row 3 starts with 1\n10) Given other constraints, row 3 must be 1 4 3 2\n\n11) Last row fills in as 2 3 4 1\n\n<answer>\n4 2 1 3\n3 1 2 4\n1 4 3 2\n2 3 4 1</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "4 2 1 3\n3 1 2 4\n1 4 3 2\n2 3 4 1",
+          "full_model_response": "Let me solve this step by step:\n\n1) Looking at row 1, we have 2 and 3, so missing 1 and 4\n2) Looking at column 1, we have 1, so can't have 1 in first position\n3) Therefore position (1,1) must be 4\n4) First row is now 4 2 1 3\n\n5) Looking at row 2, we have 2 and 4\n6) Column 2 has 2 and 3, so can't have those\n7) Position (2,1) must be 3\n8) Position (2,3) is 2, so (2,2) must be 1\n\n9) Row 3 starts with 1\n10) Given other constraints, row 3 must be 1 4 3 2\n\n11) Last row fills in as 2 3 4 1\n\n<answer>\n4 2 1 3\n3 1 2 4\n1 4 3 2\n2 3 4 1</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n_ _ _ 1\n_ 3 _ 4\n_ _ 4 2\n_ 2 _ 3\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "2 4 3 1\n1 3 2 4\n3 1 4 2\n4 2 1 3",
+      "best_model_answer": "2 4 3 1\n1 3 2 4\n3 1 4 2\n4 2 1 3",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, look at the rightmost column: 1,4,2,3\n   This uses all numbers 1-4, so this column is complete\n\n2) Look at row 3: we have 4,2 and need 1,3\n   Given column constraints, the 1 must be in position 2\n   So position 1 must be 3\n\n3) Look at row 4: we have 2,3 and need 1,4\n   Given column constraints, the 4 must be in position 1\n   So position 2 must be 1\n\n4) Look at row 1: we have 1 and need 2,3,4\n   Given column constraints, position 1 must be 2\n   Position 2 must be 4\n   Position 3 must be 3\n\n5) For row 2: we have 3,4 and need 1,2\n   Position 1 must be 1\n   Position 3 must be 2\n\n<answer>\n2 4 3 1\n1 3 2 4\n3 1 4 2\n4 2 1 3</answer>",
+      "best_score": 1.0,
+      "mean_score": 1.0,
+      "completions": [
+        {
+          "model_answer": "2 4 3 1\n1 3 2 4\n3 1 4 2\n4 2 1 3",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, look at the rightmost column: 1,4,2,3\n   This uses all numbers 1-4, so this column is complete\n\n2) Look at row 3: we have 4,2 and need 1,3\n   Given column constraints, the 1 must be in position 2\n   So position 1 must be 3\n\n3) Look at row 4: we have 2,3 and need 1,4\n   Given column constraints, the 4 must be in position 1\n   So position 2 must be 1\n\n4) Look at row 1: we have 1 and need 2,3,4\n   Given column constraints, position 1 must be 2\n   Position 2 must be 4\n   Position 3 must be 3\n\n5) For row 2: we have 3,4 and need 1,2\n   Position 1 must be 1\n   Position 3 must be 2\n\n<answer>\n2 4 3 1\n1 3 2 4\n3 1 4 2\n4 2 1 3</answer>",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n3 _ 1 _\n_ 4 _ 3\n_ _ 4 _\n_ 1 _ _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "3 2 1 4\n1 4 2 3\n2 3 4 1\n4 1 3 2",
+      "best_model_answer": "3 4 1 2\n2 4 1 3\n1 3 4 2\n4 1 2 1",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Looking at first row: 3 _ 1 _\n   - Missing 2 and 4\n   - Due to 4 in second row, first row must end with 2\n\n2) First column: 3 _ _ _\n   - Can't have 4 (in 3rd row)\n   - Can't have 1 (in 4th row)\n   - Must follow 2x2 grid rules\n\n3) Second row: _ 4 _ 3\n   - Can't have 1 (in first row)\n   - Must have 2 in one spot\n\n4) Working through constraints for each position...\n\n<answer>\n3 4 1 2\n2 4 1 3\n1 3 4 2\n4 1 2 1\n</answer>",
+      "best_score": 0.45,
+      "mean_score": 0.45,
+      "completions": [
+        {
+          "model_answer": "3 4 1 2\n2 4 1 3\n1 3 4 2\n4 1 2 1",
+          "full_model_response": "Let me solve this step by step:\n\n1) Looking at first row: 3 _ 1 _\n   - Missing 2 and 4\n   - Due to 4 in second row, first row must end with 2\n\n2) First column: 3 _ _ _\n   - Can't have 4 (in 3rd row)\n   - Can't have 1 (in 4th row)\n   - Must follow 2x2 grid rules\n\n3) Second row: _ 4 _ 3\n   - Can't have 1 (in first row)\n   - Must have 2 in one spot\n\n4) Working through constraints for each position...\n\n<answer>\n3 4 1 2\n2 4 1 3\n1 3 4 2\n4 1 2 1\n</answer>",
+          "score": 0.45
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n_ 2 1 3\n3 1 _ _\n_ _ 3 1\n_ 3 4 _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "4 2 1 3\n3 1 2 4\n2 4 3 1\n1 3 4 2",
+      "best_model_answer": "4 2 1 3\n3 1 2 4\n4 2 3 1\n1 3 4 2",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Looking at first row: _ 2 1 3\n   - Only missing number is 4, must go in first position\n\n2) Second row: 3 1 _ _\n   - Given rules and first row, missing numbers must be 2 and 4\n   - 2 can't go in last column (already in first row)\n   - So 2 goes in third column, 4 in fourth\n\n3) Third row: _ _ 3 1\n   - Missing numbers are 2 and 4\n   - 2 can't go in first column (second row)\n   - So 4 goes in first column, 2 in second\n\n4) Fourth row: _ 3 4 _\n   - Missing numbers are 1 and 2\n   - 2 can't go in first column (third row)\n   - So 1 goes in first column, 2 in last\n\n<answer>4 2 1 3\n3 1 2 4\n4 2 3 1\n1 3 4 2</answer>",
+      "best_score": 0.7875,
+      "mean_score": 0.7875,
+      "completions": [
+        {
+          "model_answer": "4 2 1 3\n3 1 2 4\n4 2 3 1\n1 3 4 2",
+          "full_model_response": "Let me solve this step by step:\n\n1) Looking at first row: _ 2 1 3\n   - Only missing number is 4, must go in first position\n\n2) Second row: 3 1 _ _\n   - Given rules and first row, missing numbers must be 2 and 4\n   - 2 can't go in last column (already in first row)\n   - So 2 goes in third column, 4 in fourth\n\n3) Third row: _ _ 3 1\n   - Missing numbers are 2 and 4\n   - 2 can't go in first column (second row)\n   - So 4 goes in first column, 2 in second\n\n4) Fourth row: _ 3 4 _\n   - Missing numbers are 1 and 2\n   - 2 can't go in first column (third row)\n   - So 1 goes in first column, 2 in last\n\n<answer>4 2 1 3\n3 1 2 4\n4 2 3 1\n1 3 4 2</answer>",
+          "score": 0.7875
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n1 _ 3 _\n_ 3 4 _\n3 _ 1 4\n_ _ _ 3\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "1 4 3 2\n2 3 4 1\n3 2 1 4\n4 1 2 3",
+      "best_model_answer": "1 2 3 4\n2 3 4 1\n3 2 1 4\n4 1 2 3",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) First, look at the first row: 1 _ 3 _\n   - Numbers missing are 2 and 4\n   - Due to column restrictions and 2x2 grid rules, it must be 1 2 3 4\n\n2) Second row: _ 3 4 _\n   - Numbers missing are 1 and 2\n   - Due to column restrictions, it must be 2 3 4 1\n\n3) Third row: 3 _ 1 4\n   - Numbers missing are 2\n   - Due to column and grid restrictions, it must be 3 2 1 4\n\n4) Fourth row: _ _ _ 3\n   - The remaining numbers following all rules must be 4 1 2 3\n\n<answer>\n1 2 3 4\n2 3 4 1\n3 2 1 4\n4 1 2 3</answer>",
+      "best_score": 0.7875,
+      "mean_score": 0.7875,
+      "completions": [
+        {
+          "model_answer": "1 2 3 4\n2 3 4 1\n3 2 1 4\n4 1 2 3",
+          "full_model_response": "Let me solve this step by step:\n\n1) First, look at the first row: 1 _ 3 _\n   - Numbers missing are 2 and 4\n   - Due to column restrictions and 2x2 grid rules, it must be 1 2 3 4\n\n2) Second row: _ 3 4 _\n   - Numbers missing are 1 and 2\n   - Due to column restrictions, it must be 2 3 4 1\n\n3) Third row: 3 _ 1 4\n   - Numbers missing are 2\n   - Due to column and grid restrictions, it must be 3 2 1 4\n\n4) Fourth row: _ _ _ 3\n   - The remaining numbers following all rules must be 4 1 2 3\n\n<answer>\n1 2 3 4\n2 3 4 1\n3 2 1 4\n4 1 2 3</answer>",
+          "score": 0.7875
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n_ _ _ 1\n3 _ _ 4\n_ 2 _ 3\n_ 3 4 _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "2 4 3 1\n3 1 2 4\n4 2 1 3\n1 3 4 2",
+      "best_model_answer": "4 2 3 1\n3 1 2 4\n1 2 4 3\n2 3 4 1",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Looking at the first row, we know it ends in 1\n2) In first column, we have 3, so can't be in top left\n3) Looking at top left 2x2 grid, we need 1,2,3,4\n4) First row must be 4,2,3,1 to satisfy rules\n5) Second row is 3,1,2,4\n6) Third row must be 1,2,4,3 given constraints\n7) Fourth row must be 2,3,4,1 to complete puzzle\n\n<answer>\n4 2 3 1\n3 1 2 4\n1 2 4 3\n2 3 4 1</answer>",
+      "best_score": 0.5625,
+      "mean_score": 0.5625,
+      "completions": [
+        {
+          "model_answer": "4 2 3 1\n3 1 2 4\n1 2 4 3\n2 3 4 1",
+          "full_model_response": "Let me solve this step by step:\n\n1) Looking at the first row, we know it ends in 1\n2) In first column, we have 3, so can't be in top left\n3) Looking at top left 2x2 grid, we need 1,2,3,4\n4) First row must be 4,2,3,1 to satisfy rules\n5) Second row is 3,1,2,4\n6) Third row must be 1,2,4,3 given constraints\n7) Fourth row must be 2,3,4,1 to complete puzzle\n\n<answer>\n4 2 3 1\n3 1 2 4\n1 2 4 3\n2 3 4 1</answer>",
+          "score": 0.5625
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n_ 4 1 _\n_ 2 3 4\n_ 1 _ 3\n2 _ 4 _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "3 4 1 2\n1 2 3 4\n4 1 2 3\n2 3 4 1",
+      "best_model_answer": "3 4 1 2\n1 2 3 4\n4 1 2 3\n2 1 4 3",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Looking at first row: needs 2,3\n   - Can't be 2 in first position due to last row\n   - Must be 3,2 from left to right\n\n2) Second row: needs 1\n   - Must be 1 in first position\n\n3) Third row: needs 2,4\n   - Can't be 4 in third position due to top-right 2x2 box\n   - Must be 4,2\n\n4) Fourth row: needs 1,3\n   - Must be 1,3 in empty positions\n\n<answer>\n3 4 1 2\n1 2 3 4\n4 1 2 3\n2 1 4 3</answer>",
+      "best_score": 0.7875,
+      "mean_score": 0.7875,
+      "completions": [
+        {
+          "model_answer": "3 4 1 2\n1 2 3 4\n4 1 2 3\n2 1 4 3",
+          "full_model_response": "Let me solve this step by step:\n\n1) Looking at first row: needs 2,3\n   - Can't be 2 in first position due to last row\n   - Must be 3,2 from left to right\n\n2) Second row: needs 1\n   - Must be 1 in first position\n\n3) Third row: needs 2,4\n   - Can't be 4 in third position due to top-right 2x2 box\n   - Must be 4,2\n\n4) Fourth row: needs 1,3\n   - Must be 1,3 in empty positions\n\n<answer>\n3 4 1 2\n1 2 3 4\n4 1 2 3\n2 1 4 3</answer>",
+          "score": 0.7875
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n_ 4 _ 2\n_ 2 3 _\n_ 1 2 _\n_ _ _ _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "3 4 1 2\n1 2 3 4\n4 1 2 3\n2 3 4 1",
+      "best_model_answer": "1 4 3 2\n4 2 3 1\n3 1 2 4\n2 3 4 1",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Looking at row 1, we have 4 and 2. Missing are 1 and 3\n2) Looking at row 2, we have 2 and 3. Missing are 1 and 4\n3) Looking at row 3, we have 1 and 2. Missing are 3 and 4\n4) Row 4 is empty, needs all numbers 1-4\n\nLet me analyze the columns and 2x2 grids to fill in the missing numbers...\n\n<answer>\n1 4 3 2\n4 2 3 1\n3 1 2 4\n2 3 4 1\n</answer>",
+      "best_score": 0.5625,
+      "mean_score": 0.5625,
+      "completions": [
+        {
+          "model_answer": "1 4 3 2\n4 2 3 1\n3 1 2 4\n2 3 4 1",
+          "full_model_response": "Let me solve this step by step:\n\n1) Looking at row 1, we have 4 and 2. Missing are 1 and 3\n2) Looking at row 2, we have 2 and 3. Missing are 1 and 4\n3) Looking at row 3, we have 1 and 2. Missing are 3 and 4\n4) Row 4 is empty, needs all numbers 1-4\n\nLet me analyze the columns and 2x2 grids to fill in the missing numbers...\n\n<answer>\n1 4 3 2\n4 2 3 1\n3 1 2 4\n2 3 4 1\n</answer>",
+          "score": 0.5625
+        }
+      ]
+    },
+    {
+      "question": "In 4x4 Mini Sudoku:\n- Each row must contain each number from 1-4 exactly once\n- Each column must contain each number 1-4 exactly once\n- Each 2x2 subgrid must contain each number 1-4 exactly once\nSolve this 4x4 Mini Sudoku puzzle:\n_ _ _ _\n1 2 3 _\n2 3 _ 1\n_ _ 2 _\nFormat your response as the puzzle above, with spaces separating each number within a row, and newlines separating rows.\n",
+      "expected_answer": "3 4 1 2\n1 2 3 4\n2 3 4 1\n4 1 2 3",
+      "best_model_answer": "4 1 1 3\n1 2 3 4\n2 3 4 1\n3 4 2 2",
+      "best_full_model_response": "Let me solve this step by step:\n\n1) Looking at the second row: 1 2 3 _, the missing number must be 4\n\n2) Looking at the third row: 2 3 _ 1, the missing number must be 4\n\n3) In the last row, we have _ _ 2 _\n   - We already have 2\n   - Looking at columns, we can determine positions\n\n4) In the first row, we need to fill _ _ _ _\n   - Using column constraints and subgrid rules\n   - Checking each position systematically\n\nHere's the completed puzzle:\n\n<answer>\n4 1 1 3\n1 2 3 4\n2 3 4 1\n3 4 2 2\n</answer>",
+      "best_score": 0.5625,
+      "mean_score": 0.5625,
+      "completions": [
+        {
+          "model_answer": "4 1 1 3\n1 2 3 4\n2 3 4 1\n3 4 2 2",
+          "full_model_response": "Let me solve this step by step:\n\n1) Looking at the second row: 1 2 3 _, the missing number must be 4\n\n2) Looking at the third row: 2 3 _ 1, the missing number must be 4\n\n3) In the last row, we have _ _ 2 _\n   - We already have 2\n   - Looking at columns, we can determine positions\n\n4) In the first row, we need to fill _ _ _ _\n   - Using column constraints and subgrid rules\n   - Checking each position systematically\n\nHere's the completed puzzle:\n\n<answer>\n4 1 1 3\n1 2 3 4\n2 3 4 1\n3 4 2 2\n</answer>",
+          "score": 0.5625
+        }
+      ]
+    }
+  ]
+}
