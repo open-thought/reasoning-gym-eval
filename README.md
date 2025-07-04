@@ -8,6 +8,8 @@ We store evaluation results of [reasoning-gym](https://github.com/open-thought/r
 - Abdulhakeem Adefioye ([Adefioye](https://github.com/Adefioye))
 - Zafir Stojanovski ([zafstojano](https://github.com/zafstojano))
 - Rich Jones ([Miserlou](https://github.com/Miserlou))
+- Oliver Stanley ([olliestanley](https://github.com/olliestanley))
+- Jean Kaddour ([JeanKaddour](https://github.com/JeanKaddour))
 - Andreas Koepf ([andreaskoepf](https://github.com/andreaskoepf/))
 
 
